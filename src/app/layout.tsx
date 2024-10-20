@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import colors from "@/utils/colors";
 
 export const metadata: Metadata = {
-    title: "Erinç Tuna Polat",
+    title: "Erinç Polat, Freelance Software Developer",
     description:
         "Hello, I'm Erinç Polat. I build websites and mobile applications with special designs. You can find detailed information in my website.",
     keywords: [
