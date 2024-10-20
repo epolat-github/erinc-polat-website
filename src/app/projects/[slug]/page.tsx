@@ -80,7 +80,9 @@ const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
                             height: {
                                 md: "80vh",
                             },
-                            position: "sticky",
+                            position: {
+                                md: "sticky",
+                            },
                             top: {
                                 xs: "1rem",
                                 sm: "5rem",
