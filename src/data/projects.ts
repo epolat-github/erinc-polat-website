@@ -214,6 +214,7 @@ const projects: Project[] = [
         title: "Personal Website - Therapist Zeynep Dikdüş",
         summary:
             "A personal website of Psychotherapist Zeynep Dikdüş. Specifically designed for her, with her own drawings and illustrations.",
+        projectUrl: "https://zeynepdikdus.com",
         featuredImages: [
             {
                 url: "/projects/zeynep-dikdus-website/Zeynep Website Home.png",
