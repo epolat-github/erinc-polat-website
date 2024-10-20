@@ -34,7 +34,7 @@ const CONTACT_DATA = [
     },
     {
         text: "Connect on LinkedIn",
-        url: "www.linkedin.com/in/erinç-polat-4bb7bb192",
+        url: "https://www.linkedin.com/in/erinç-polat-4bb7bb192",
         icon: (
             <Image
                 src="/icons/linkedin.svg"
