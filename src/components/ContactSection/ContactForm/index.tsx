@@ -178,21 +178,21 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                     >
                         <TextField
                             name="name"
-                            id="outlined-controlled"
+                            id="name"
                             label="Name"
                             variant="standard"
                             required
                         />
                         <TextField
                             name="email"
-                            id="outlined-controlled"
+                            id="email"
                             label="Email"
                             required
                             variant="standard"
                         />
                         <TextField
                             name="message"
-                            id="outlined-controlled"
+                            id="message"
                             label="Message"
                             variant="standard"
                             required
