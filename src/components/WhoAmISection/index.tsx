@@ -140,7 +140,11 @@ const WhoAmISection = () => {
                         <Stack
                             sx={{
                                 borderRadius: "50%",
-                                width: 400,
+                                width: {
+                                    xs: "100%",
+                                    md: 400
+                                },
+                                maxWidth: 400,
                                 height: 400,
                                 position: "relative",
                             }}
