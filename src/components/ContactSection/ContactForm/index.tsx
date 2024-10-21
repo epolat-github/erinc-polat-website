@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Box,
     Button,
@@ -9,7 +11,7 @@ import {
     Typography,
 } from "@mui/material";
 import colors from "@/utils/colors";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import InsertDriveFileRoundedIcon from "@mui/icons-material/InsertDriveFileRounded";
 
@@ -18,6 +20,8 @@ import theme from "@/utils/theme";
 import Image from "next/image";
 import { sendEmail } from "../../../app/actions/sendEmail";
 import { motion } from "framer-motion";
+import { useSnackbar } from "notistack";
+import { LoadingButton } from "@mui/lab";
 
 const CONTACT_DATA = [
     {
@@ -108,23 +112,59 @@ const ContactListRow: React.FC<ContactListRowType> = (props) => {
 };
 
 const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
+    const { enqueueSnackbar } = useSnackbar();
+    const [isSubmittingForm, setIsSubmittingForm] = useState(false);
+
     const openLink = (url: string) => {
         window.open(url, "_blank");
     };
 
     const sendEmailHandler = async (formData: FormData) => {
         try {
+            setIsSubmittingForm(true);
+
             const { error, data } = await sendEmail(formData);
 
             if (error) {
                 // TODO show error notification
                 console.log("error");
+
+                if (error?.name === "validation_error") {
+                    enqueueSnackbar(
+                        "There's been a validation error. Please check the form again.",
+                        {
+                            variant: "error",
+                        }
+                    );
+                } else {
+                    enqueueSnackbar(
+                        "There's been an error. Please contact me through my email 🙂",
+                        {
+                            variant: "error",
+                        }
+                    );
+                }
                 return;
             }
+
+            enqueueSnackbar(
+                "I've received your message. I will contact you in no time 🙂",
+                {
+                    variant: "success",
+                }
+            );
 
             console.log("success");
         } catch (err) {
             console.log("error from client: ", err);
+            enqueueSnackbar(
+                "There's been an error. Please contact me through my email 🙂",
+                {
+                    variant: "error",
+                }
+            );
+        } finally {
+            setIsSubmittingForm(false);
         }
     };
 
@@ -199,7 +239,8 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                             multiline
                             rows={4}
                         />
-                        <Button
+                        <LoadingButton
+                            loading={isSubmittingForm}
                             type="submit"
                             variant="contained"
                             disableElevation
@@ -211,7 +252,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                             color="primary"
                         >
                             Send your message
-                        </Button>
+                        </LoadingButton>
                     </Stack>
                 </Stack>
 
