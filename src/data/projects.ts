@@ -265,7 +265,7 @@ const projects: Project[] = [
             "CMS Website for the “Atölye Ankara” project, which, supported by the Ankara Development Agency, provides free access to FabLab services and advanced technology education to enhance youth employability.",
         featuredImages: [
             {
-                url: "/projects/atolye-ankara/Atölye Ankara Home.png",
+                url: "/projects/atolye-ankara/atolye-ankara-home.webp",
                 alt: "Project image",
             },
         ],
@@ -278,21 +278,21 @@ const projects: Project[] = [
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/atolye-ankara/Atölye Ankara Home.png",
+                    url: "/projects/atolye-ankara/atolye-ankara-home.webp",
                     alt: "Project image",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/atolye-ankara/Atölye Ankara Information.png",
+                    url: "/projects/atolye-ankara/atolye-ankara-information.webp",
                     alt: "Project image",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/atolye-ankara/Atölye Ankara Events.png",
+                    url: "/projects/atolye-ankara/atolye-ankara-events.webp",
                     alt: "Project image",
                 },
             },
