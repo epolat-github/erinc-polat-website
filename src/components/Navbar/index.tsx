@@ -36,10 +36,10 @@ const sectionButtons = [
         title: "Works",
         to: "works",
     },
-    {
-        title: "Offers",
-        to: "offers",
-    },
+    // {
+    //     title: "Offers",
+    //     to: "offers",
+    // },
     {
         title: "Contact",
         to: "contact",
@@ -81,6 +81,11 @@ const Navbar = () => {
         } else {
             router.push("/");
         }
+    };
+
+    const onClickOnMobile = (to: string) => {
+        router.push(to);
+        handleCloseNavMenu();
     };
 
     return (
@@ -187,7 +192,7 @@ const Navbar = () => {
                                     color: "rgb(55, 65, 81)",
                                 },
                             }}
-                            id="menu-appbar"
+                            // id="menu-appbar"
                             anchorEl={anchorElNav}
                             anchorOrigin={{
                                 vertical: "top",
@@ -203,21 +208,27 @@ const Navbar = () => {
                         >
                             {sectionButtons.map((sectionButton, index) => (
                                 <MenuItem
+                                    // key={sectionButton.title}
+
+                                    // component={motion.li}
+                                    // LinkComponent={Link}
                                     key={sectionButton.title}
-                                    component={motion.a}
-                                    href={`/#${sectionButton.to}`}
-                                    onClick={handleCloseNavMenu}
+                                    // href={`/#${sectionButton.to}`}
+                                    // href={`#${sectionButton.to}`}
+                                    onClick={() =>
+                                        onClickOnMobile(`#${sectionButton.to}`)
+                                    }
                                     disableRipple
-                                    initial={{
-                                        opacity: 0,
-                                        translateY: -5,
-                                    }}
-                                    animate={controls}
-                                    transition={{
-                                        ease: "easeInOut",
-                                        delay: (index + 0.1) * 0.1,
-                                        duration: 0.3,
-                                    }}
+                                    // initial={{
+                                    //     opacity: 0,
+                                    //     translateY: -5,
+                                    // }}
+                                    // animate={controls}
+                                    // transition={{
+                                    //     ease: "easeInOut",
+                                    //     delay: (index + 0.1) * 0.1,
+                                    //     duration: 0.3,
+                                    // }}
                                 >
                                     <Typography textAlign="center">
                                         {sectionButton.title}
