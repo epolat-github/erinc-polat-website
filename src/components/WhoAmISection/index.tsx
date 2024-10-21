@@ -150,7 +150,7 @@ const WhoAmISection = () => {
                             }}
                         >
                             <Image
-                                src="/erinc-polat.png"
+                                src="/erinc-polat.webp"
                                 alt="Image of Erinç Polat"
                                 fill
                                 quality={100}

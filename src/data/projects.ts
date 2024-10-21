@@ -75,15 +75,15 @@ const projects: Project[] = [
         projectUrl: "https://actioevents.com",
         featuredImages: [
             {
-                url: "/projects/actio/Actio Onboarding 1.png",
+                url: "/projects/actio/Actio Onboarding 1.webp",
                 alt: "Project image",
             },
             {
-                url: "/projects/actio/Actio Home.png",
+                url: "/projects/actio/Actio Home.webp",
                 alt: "Project image",
             },
             {
-                url: "/projects/actio/Actio Event Details.png",
+                url: "/projects/actio/Actio Event Details.webp",
                 alt: "Project image",
             },
         ],
@@ -103,7 +103,7 @@ const projects: Project[] = [
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/actio/Actio Multiple.png",
+                    url: "/projects/actio/Actio Multiple.webp",
                     alt: "Project image",
                 },
             },
@@ -118,11 +118,11 @@ const projects: Project[] = [
                 type: "MULTIPLE",
                 images: [
                     {
-                        url: "/projects/actio/Actio Home.png",
+                        url: "/projects/actio/Actio Home.webp",
                         alt: "Project Image",
                     },
                     {
-                        url: "/projects/actio/Actio Event Details.png",
+                        url: "/projects/actio/Actio Event Details.webp",
                         alt: "Project Image",
                     },
                 ],
@@ -131,11 +131,11 @@ const projects: Project[] = [
                 type: "MULTIPLE",
                 images: [
                     {
-                        url: "/projects/actio/Actio Onboarding 1.png",
+                        url: "/projects/actio/Actio Onboarding 1.webp",
                         alt: "Project Image",
                     },
                     {
-                        url: "/projects/actio/Actio Notifications.png",
+                        url: "/projects/actio/Actio Notifications.webp",
                         alt: "Project Image",
                     },
                 ],

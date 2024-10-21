@@ -73,7 +73,7 @@ const BenefitsSection = () => {
                                 }}
                             >
                                 <Image
-                                    src="/projects/Multiple Projects.png"
+                                    src="/projects/Multiple Projects.webp"
                                     alt="Project card"
                                     fill
                                     style={{

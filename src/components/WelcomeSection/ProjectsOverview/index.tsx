@@ -15,8 +15,8 @@ const ProjectsOverview = () => {
             }}
         >
             <Image
-                src="/projects/fitnlit/FitNLit Home.png"
-                quality={10}
+                src="/welcomeSectionAssets/fitnlit.webp"
+                quality={100}
                 alt="FitNLit project screenshot"
                 fill
                 style={{
@@ -35,8 +35,8 @@ const ProjectsOverview = () => {
                 delay={0.2}
             >
                 <Image
-                    src="/welcomeSectionAssets/actio.png"
-                    quality={10}
+                    src="/welcomeSectionAssets/actio.webp"
+                    quality={100}
                     alt="Actio project screenshot"
                     width={175}
                     height={275}
@@ -56,8 +56,8 @@ const ProjectsOverview = () => {
                 duration={3}
             >
                 <Image
-                    src="/welcomeSectionAssets/ihrhaus.png"
-                    quality={10}
+                    src="/welcomeSectionAssets/ihrhaus.webp"
+                    quality={100}
                     width={400}
                     height={300}
                     alt="IhrHaus project screenshot"
@@ -77,8 +77,8 @@ const ProjectsOverview = () => {
                 duration={4}
             >
                 <Image
-                    src="/welcomeSectionAssets/zeynepdikdus.png"
-                    quality={10}
+                    src="/welcomeSectionAssets/zeynepdikdus.webp"
+                    quality={100}
                     width={350}
                     height={250}
                     alt="Zeynep Dikdüş website project screenshot"
