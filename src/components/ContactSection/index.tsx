@@ -6,6 +6,7 @@ import ContactHeader from "./ContactHeader";
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
 import ContactForm from "./ContactForm";
+import { SnackbarProvider } from "notistack";
 
 const ContactSection = () => {
     const targetRef = useRef(null);
@@ -15,15 +16,22 @@ const ContactSection = () => {
     });
 
     return (
-        <Box
-            id="contact"
-            sx={{
-                backgroundColor: "#fff",
+        <SnackbarProvider
+            anchorOrigin={{
+                horizontal: "center",
+                vertical: "bottom",
             }}
         >
-            <ContactHeader scrollYProgress={scrollYProgress} />
-            <ContactForm ref={targetRef} />
-        </Box>
+            <Box
+                id="contact"
+                sx={{
+                    backgroundColor: "#fff",
+                }}
+            >
+                <ContactHeader scrollYProgress={scrollYProgress} />
+                <ContactForm ref={targetRef} />
+            </Box>
+        </SnackbarProvider>
     );
 };
 
