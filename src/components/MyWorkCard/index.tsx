@@ -22,14 +22,15 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                 overflow: "hidden",
                 borderRadius: 4,
                 borderStyle: "solid",
-                height: 550,
+                height: "100%",
+                maxHeight: 500,
             }}
             direction="column"
         >
             <Stack
                 sx={{
                     width: "100%",
-                    height: "60%",
+                    height: 300,
                 }}
                 direction="row"
             >
@@ -53,7 +54,13 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                 ))}
             </Stack>
 
-            <Stack height="40%" justifyContent="space-between">
+            <Stack
+                flex={1}
+                justifyContent="space-between"
+                // sx={{
+                //     background: "red",
+                // }}
+            >
                 <Stack gap={spacing.tiny} p={spacing.tiny}>
                     <Typography variant="h5" fontWeight="bold">
                         {title}
