@@ -37,7 +37,11 @@ const Projects = () => {
                     </Typography>
                 </Stack>
 
-                <Grid2 container spacing={spacing.small}>
+                <Grid2
+                    container
+                    columnSpacing={spacing.small}
+                    rowSpacing={spacing.medium}
+                >
                     {projects.map((project) => (
                         <Grid2
                             key={project.slug}
