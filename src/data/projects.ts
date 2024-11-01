@@ -8,17 +8,21 @@ const projects: Project[] = [
             "A fitness helper for you! You can see your workouts, plan your meals, track your calorie and personal goals, visualize the process of your body throughout the usage!",
         featuredImages: [
             {
-                url: "/projects/fitnlit/FitNLit Home.png",
+                url: "/projects/fitnlit/fitnlit-multiple.png",
                 alt: "Project image",
             },
-            {
-                url: "/projects/fitnlit/FitNLit Meal List.png",
-                alt: "Project image",
-            },
-            {
-                url: "/projects/fitnlit/FitNLit Meal Detail.png",
-                alt: "Project image",
-            },
+            // {
+            //     url: "/projects/fitnlit/FitNLit Home.png",
+            //     alt: "Project image",
+            // },
+            // {
+            //     url: "/projects/fitnlit/FitNLit Meal List.png",
+            //     alt: "Project image",
+            // },
+            // {
+            //     url: "/projects/fitnlit/FitNLit Meal Detail.png",
+            //     alt: "Project image",
+            // },
         ],
         tags: [
             "React Native",
@@ -75,17 +79,21 @@ const projects: Project[] = [
         projectUrl: "https://actioevents.com",
         featuredImages: [
             {
-                url: "/projects/actio/Actio Onboarding 1.webp",
+                url: "/projects/actio/Actio Multiple.webp",
                 alt: "Project image",
             },
-            {
-                url: "/projects/actio/Actio Home.webp",
-                alt: "Project image",
-            },
-            {
-                url: "/projects/actio/Actio Event Details.webp",
-                alt: "Project image",
-            },
+            // {
+            //     url: "/projects/actio/Actio Onboarding 1.webp",
+            //     alt: "Project image",
+            // },
+            // {
+            //     url: "/projects/actio/Actio Home.webp",
+            //     alt: "Project image",
+            // },
+            // {
+            //     url: "/projects/actio/Actio Event Details.webp",
+            //     alt: "Project image",
+            // },
         ],
         tags: [
             "React Native",
@@ -149,17 +157,21 @@ const projects: Project[] = [
             "Your smart home assistant! Effortlessly manage devices, track energy usage, and streamline services for a more connected living experience!",
         featuredImages: [
             {
-                url: "/projects/quartiers/Quartiers Home Control.png",
+                url: "/projects/quartiers/Quartiers Multiple.png",
                 alt: "Project image",
             },
-            {
-                url: "/projects/quartiers/Quartiers Devices.png",
-                alt: "Project image",
-            },
-            {
-                url: "/projects/quartiers/Quartiers Home.png",
-                alt: "Project image",
-            },
+            // {
+            //     url: "/projects/quartiers/Quartiers Home Control.png",
+            //     alt: "Project image",
+            // },
+            // {
+            //     url: "/projects/quartiers/Quartiers Devices.png",
+            //     alt: "Project image",
+            // },
+            // {
+            //     url: "/projects/quartiers/Quartiers Home.png",
+            //     alt: "Project image",
+            // },
         ],
         tags: [
             "React Native",
