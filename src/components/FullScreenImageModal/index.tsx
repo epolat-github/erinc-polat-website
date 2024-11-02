@@ -54,7 +54,6 @@ const FullScreenImageModal: React.FC<FullScreenImageModalType> = (props) => {
                         height: "100%",
                         borderRadius: spacing.small,
                         overflow: "hidden",
-                        bgColor: "red",
                     }}
                 >
                     {imageUrl && (
