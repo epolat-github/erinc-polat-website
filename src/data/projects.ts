@@ -8,7 +8,7 @@ const projects: Project[] = [
             "A fitness helper for you! You can see your workouts, plan your meals, track your calorie and personal goals, visualize the process of your body throughout the usage!",
         featuredImages: [
             {
-                url: "/projects/fitnlit/fitnlit-multiple.png",
+                url: "/projects/fitnlit/fitnlit-multiple.webp",
                 alt: "Project image",
             },
             // {
@@ -39,7 +39,7 @@ const projects: Project[] = [
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/fitnlit/fitnlit-multiple.png",
+                    url: "/projects/fitnlit/fitnlit-multiple.webp",
                     alt: "Project image",
                 },
             },
@@ -47,11 +47,11 @@ const projects: Project[] = [
                 type: "MULTIPLE",
                 images: [
                     {
-                        url: "/projects/fitnlit/FitNLit Home.png",
+                        url: "/projects/fitnlit/FitNLit Home.webp",
                         alt: "Project Image",
                     },
                     {
-                        url: "/projects/fitnlit/FitNLit Workouts.png",
+                        url: "/projects/fitnlit/FitNLit Workouts.webp",
                         alt: "Project Image",
                     },
                 ],
@@ -60,11 +60,11 @@ const projects: Project[] = [
                 type: "MULTIPLE",
                 images: [
                     {
-                        url: "/projects/fitnlit/FitNLit Meal Detail.png",
+                        url: "/projects/fitnlit/FitNLit Meal Detail.webp",
                         alt: "Project Image",
                     },
                     {
-                        url: "/projects/fitnlit/FitNLit Workouts.png",
+                        url: "/projects/fitnlit/FitNLit Workouts.webp",
                         alt: "Project Image",
                     },
                 ],
@@ -157,7 +157,7 @@ const projects: Project[] = [
             "Your smart home assistant! Effortlessly manage devices, track energy usage, and streamline services for a more connected living experience!",
         featuredImages: [
             {
-                url: "/projects/quartiers/Quartiers Multiple.png",
+                url: "/projects/quartiers/Quartiers Multiple.webp",
                 alt: "Project image",
             },
             // {
@@ -189,7 +189,7 @@ const projects: Project[] = [
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/quartiers/Quartiers Multiple.png",
+                    url: "/projects/quartiers/Quartiers Multiple.webp",
                     alt: "Project image",
                 },
             },
@@ -229,7 +229,7 @@ const projects: Project[] = [
         projectUrl: "https://zeynepdikdus.com",
         featuredImages: [
             {
-                url: "/projects/zeynep-dikdus-website/Zeynep Website Home.png",
+                url: "/projects/zeynep-dikdus-website/Zeynep Website Home.webp",
                 alt: "Project image",
             },
             // {
@@ -250,21 +250,21 @@ const projects: Project[] = [
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/zeynep-dikdus-website/Zeynep Website Home.png",
+                    url: "/projects/zeynep-dikdus-website/Zeynep Website Home.webp",
                     alt: "Project image",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/zeynep-dikdus-website/Zeynep Website Contents.png",
+                    url: "/projects/zeynep-dikdus-website/Zeynep Website Contents.webp",
                     alt: "Project image",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/zeynep-dikdus-website/Zeynep Website Contact.png",
+                    url: "/projects/zeynep-dikdus-website/Zeynep Website Contact.webp",
                     alt: "Project image",
                 },
             },
