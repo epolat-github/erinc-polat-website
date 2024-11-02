@@ -182,37 +182,6 @@ const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
 
                             return null;
                         })}
-
-                        {/* <SingleImageRow
-                            imageUrl="/projects/fitnlit/fitnlit-multiple.png"
-                            alt="Projcet image"
-                        />
-
-                        <MultipleImageRow
-                            images={[
-                                {
-                                    url: "/projects/fitnlit/FitNLit Home.png",
-                                    alt: "Project Image",
-                                },
-                                {
-                                    url: "/projects/fitnlit/FitNLit Workouts.png",
-                                    alt: "Project Image",
-                                },
-                            ]}
-                        />
-
-                        <MultipleImageRow
-                            images={[
-                                {
-                                    url: "/projects/fitnlit/FitNLit Meal Detail.png",
-                                    alt: "Project Image",
-                                },
-                                {
-                                    url: "/projects/fitnlit/FitNLit Workouts.png",
-                                    alt: "Project Image",
-                                },
-                            ]}
-                        /> */}
                     </Stack>
                 </Stack>
             </Container>
