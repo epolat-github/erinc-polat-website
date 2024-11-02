@@ -42,7 +42,7 @@ const Projects = () => {
                     columnSpacing={spacing.small}
                     rowSpacing={spacing.medium}
                 >
-                    {projects.map((project) => (
+                    {projects.map((project, index) => (
                         <Grid2
                             key={project.slug}
                             size={{
@@ -56,6 +56,9 @@ const Projects = () => {
                                 images={project.featuredImages}
                                 onClick={() =>
                                     router.push(`/projects/${project.slug}`)
+                                }
+                                animationDirection={
+                                    index % 2 ? "right" : "left"
                                 }
                             />
                         </Grid2>

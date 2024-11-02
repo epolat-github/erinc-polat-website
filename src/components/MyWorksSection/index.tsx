@@ -81,6 +81,7 @@ const MyWorksSection = () => {
                             onClick={() =>
                                 router.push(`/projects/${projects[0].slug}`)
                             }
+                            animationDirection="left"
                         />
                         <MyWorkCard
                             title={projects[2].title}
@@ -89,6 +90,7 @@ const MyWorksSection = () => {
                             onClick={() =>
                                 router.push(`/projects/${projects[2].slug}`)
                             }
+                            animationDirection="left"
                         />
                     </Stack>
 
@@ -107,6 +109,7 @@ const MyWorksSection = () => {
                             onClick={() =>
                                 router.push(`/projects/${projects[1].slug}`)
                             }
+                            animationDirection="right"
                         />
                         <MyWorkCard
                             title={projects[3].title}
@@ -115,6 +118,7 @@ const MyWorksSection = () => {
                             onClick={() =>
                                 router.push(`/projects/${projects[3].slug}`)
                             }
+                            animationDirection="right"
                         />
                     </Stack>
                 </Stack>
