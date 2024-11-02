@@ -28,6 +28,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                         width: "100%",
                         height: 400,
                         backgroundColor: "#F9F9F9",
+                        borderRadius: 4
                     }}
                     direction="row"
                 >
