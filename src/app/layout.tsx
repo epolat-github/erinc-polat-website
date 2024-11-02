@@ -6,6 +6,7 @@ import theme from "@/utils/theme";
 import { CssBaseline } from "@mui/material";
 import Navbar from "@/components/Navbar";
 import colors from "@/utils/colors";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
     title: "Erinç Polat, Freelance Software Developer",
@@ -34,6 +35,8 @@ const RootLayout = ({
 }>) => {
     return (
         <html lang="tr">
+            <GoogleTagManager gtmId="G-JTWXYNF41H" />
+
             <body
                 style={{
                     background: colors.background,
