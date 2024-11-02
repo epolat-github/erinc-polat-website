@@ -52,6 +52,7 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                             <Image
                                 src={image.url}
                                 alt={image.alt}
+                                quality={50}
                                 fill
                                 style={{
                                     objectFit: "contain",

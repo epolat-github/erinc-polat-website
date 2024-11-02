@@ -38,6 +38,7 @@ const SingleImageRow: React.FC<SingleImageRowType> = (props) => {
                 >
                     <Image
                         src={imageUrl}
+                        quality={50}
                         alt={alt}
                         fill
                         style={{

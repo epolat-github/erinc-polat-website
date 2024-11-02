@@ -62,6 +62,7 @@ const FullScreenImageModal: React.FC<FullScreenImageModalType> = (props) => {
                             src={imageUrl || ""}
                             alt={alt || "Full Screen Image"}
                             fill
+                            quality={100}
                             style={{
                                 objectFit: "contain",
                             }}
