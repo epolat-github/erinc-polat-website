@@ -64,7 +64,7 @@ const projects: Project[] = [
                         alt: "Project Image",
                     },
                     {
-                        url: "/projects/fitnlit/FitNLit Workouts.webp",
+                        url: "/projects/fitnlit/FitNLit Meal List.webp",
                         alt: "Project Image",
                     },
                 ],
@@ -251,6 +251,27 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Home.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/zeynep-dikdus-website/Zeynep Website About.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/zeynep-dikdus-website/Zeynep Website Psychotherapy.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/zeynep-dikdus-website/Zeynep Website Gallery.webp",
                     alt: "Project image",
                 },
             },
