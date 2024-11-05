@@ -24,13 +24,7 @@ const projects: Project[] = [
             //     alt: "Project image",
             // },
         ],
-        tags: [
-            "React Native",
-            "IOS",
-            "Android",
-            "Offline Support",
-            "Custom Design",
-        ],
+        tags: ["React Native", "IOS", "Android", "Custom Design"],
         paragraphs: [
             "With FitNLit, you can easily purchase and follow fitness programs, along with daily meal plans tailored to your needs. Access recipes, correct portion sizes, and macro breakdowns to manage your nutrition effortlessly. Stay motivated with push notifications to keep you on track.",
             "At the gym, use helpful videos and real-time timers to guide your workouts. Track your progress visually through photos and graphs, making it easier to see your improvements over time. This app is designed to support and motivate you at every step, helping you achieve your fitness goals.",
@@ -47,15 +41,36 @@ const projects: Project[] = [
                 type: "MULTIPLE",
                 images: [
                     {
-                        url: "/projects/fitnlit/FitNLit Home.webp",
+                        url: "/projects/fitnlit/FitNLit Workouts.webp",
                         alt: "Project Image",
                     },
                     {
-                        url: "/projects/fitnlit/FitNLit Workouts.webp",
+                        url: "/projects/fitnlit/FitNLit Workout Helper.webp",
                         alt: "Project Image",
                     },
                 ],
             },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/fitnlit/FitNLit Auth Multiple.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "MULTIPLE",
+                images: [
+                    {
+                        url: "/projects/fitnlit/FitNLit Trackings.webp",
+                        alt: "Project Image",
+                    },
+                    {
+                        url: "/projects/fitnlit/FitNLit Update Measurements.webp",
+                        alt: "Project Image",
+                    },
+                ],
+            },
+
             {
                 type: "MULTIPLE",
                 images: [
@@ -65,6 +80,19 @@ const projects: Project[] = [
                     },
                     {
                         url: "/projects/fitnlit/FitNLit Meal List.webp",
+                        alt: "Project Image",
+                    },
+                ],
+            },
+            {
+                type: "MULTIPLE",
+                images: [
+                    {
+                        url: "/projects/fitnlit/FitNLit Goals.webp",
+                        alt: "Project Image",
+                    },
+                    {
+                        url: "/projects/fitnlit/FitNLit Water Goal.webp",
                         alt: "Project Image",
                     },
                 ],
@@ -150,77 +178,77 @@ const projects: Project[] = [
             },
         ],
     },
-    {
-        slug: "quartiers",
-        title: "Quartiers - Smart Facility Management",
-        summary:
-            "Your smart home assistant! Effortlessly manage devices, track energy usage, and streamline services for a more connected living experience!",
-        featuredImages: [
-            {
-                url: "/projects/quartiers/Quartiers Multiple.webp",
-                alt: "Project image",
-            },
-            // {
-            //     url: "/projects/quartiers/Quartiers Home Control.png",
-            //     alt: "Project image",
-            // },
-            // {
-            //     url: "/projects/quartiers/Quartiers Devices.png",
-            //     alt: "Project image",
-            // },
-            // {
-            //     url: "/projects/quartiers/Quartiers Home.png",
-            //     alt: "Project image",
-            // },
-        ],
-        tags: [
-            "React Native",
-            "IOS",
-            "Android",
-            "Custom Design",
-            "Smart Devices",
-            "Security and Locks",
-        ],
-        paragraphs: [
-            "Quartiers, smart facility management app allows you to manage your home effortlessly. You can report issues to facility management by opening tickets or uploading photos and control your smart home devices by creating and scheduling scenarios. Additionally, you can trigger these scenarios through connected sensors, ensuring seamless automation.",
-            "Track your monthly energy usage with detailed graphs and hire service providers like cleaners or hairstylists through the app. Manage your smart locks by granting temporary or permanent access and control multiple homes with ease, all from a single platform.",
-        ],
-        assetRows: [
-            {
-                type: "SINGLE",
-                image: {
-                    url: "/projects/quartiers/Quartiers Multiple.webp",
-                    alt: "Project image",
-                },
-            },
-            {
-                type: "MULTIPLE",
-                images: [
-                    {
-                        url: "/projects/quartiers/Quartiers Login.png",
-                        alt: "Project Image",
-                    },
-                    {
-                        url: "/projects/quartiers/Quartiers Home.png",
-                        alt: "Project Image",
-                    },
-                ],
-            },
-            {
-                type: "MULTIPLE",
-                images: [
-                    {
-                        url: "/projects/quartiers/Quartiers Home Control.png",
-                        alt: "Project Image",
-                    },
-                    {
-                        url: "/projects/quartiers/Quartiers Devices.png",
-                        alt: "Project Image",
-                    },
-                ],
-            },
-        ],
-    },
+    // {
+    //     slug: "quartiers",
+    //     title: "Quartiers - Smart Facility Management",
+    //     summary:
+    //         "Your smart home assistant! Effortlessly manage devices, track energy usage, and streamline services for a more connected living experience!",
+    //     featuredImages: [
+    //         {
+    //             url: "/projects/quartiers/Quartiers Multiple.webp",
+    //             alt: "Project image",
+    //         },
+    //         // {
+    //         //     url: "/projects/quartiers/Quartiers Home Control.png",
+    //         //     alt: "Project image",
+    //         // },
+    //         // {
+    //         //     url: "/projects/quartiers/Quartiers Devices.png",
+    //         //     alt: "Project image",
+    //         // },
+    //         // {
+    //         //     url: "/projects/quartiers/Quartiers Home.png",
+    //         //     alt: "Project image",
+    //         // },
+    //     ],
+    //     tags: [
+    //         "React Native",
+    //         "IOS",
+    //         "Android",
+    //         "Custom Design",
+    //         "Smart Devices",
+    //         "Security and Locks",
+    //     ],
+    //     paragraphs: [
+    //         "Quartiers, smart facility management app allows you to manage your home effortlessly. You can report issues to facility management by opening tickets or uploading photos and control your smart home devices by creating and scheduling scenarios. Additionally, you can trigger these scenarios through connected sensors, ensuring seamless automation.",
+    //         "Track your monthly energy usage with detailed graphs and hire service providers like cleaners or hairstylists through the app. Manage your smart locks by granting temporary or permanent access and control multiple homes with ease, all from a single platform.",
+    //     ],
+    //     assetRows: [
+    //         {
+    //             type: "SINGLE",
+    //             image: {
+    //                 url: "/projects/quartiers/Quartiers Multiple.webp",
+    //                 alt: "Project image",
+    //             },
+    //         },
+    //         {
+    //             type: "MULTIPLE",
+    //             images: [
+    //                 {
+    //                     url: "/projects/quartiers/Quartiers Login.png",
+    //                     alt: "Project Image",
+    //                 },
+    //                 {
+    //                     url: "/projects/quartiers/Quartiers Home.png",
+    //                     alt: "Project Image",
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             type: "MULTIPLE",
+    //             images: [
+    //                 {
+    //                     url: "/projects/quartiers/Quartiers Home Control.png",
+    //                     alt: "Project Image",
+    //                 },
+    //                 {
+    //                     url: "/projects/quartiers/Quartiers Devices.png",
+    //                     alt: "Project Image",
+    //                 },
+    //             ],
+    //         },
+    //     ],
+    // },
     {
         slug: "zeynep-dikdus-website",
         title: "Personal Website - Therapist Zeynep Dikdüş",
