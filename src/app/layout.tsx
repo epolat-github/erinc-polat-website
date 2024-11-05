@@ -1,5 +1,5 @@
 import "./global.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/utils/theme";
@@ -7,6 +7,16 @@ import { CssBaseline } from "@mui/material";
 import Navbar from "@/components/Navbar";
 import colors from "@/utils/colors";
 import { GoogleTagManager } from "@next/third-parties/google";
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    minimumScale: 1,
+    userScalable: false,
+    colorScheme: "light",
+    themeColor: "#fff",
+};
 
 export const metadata: Metadata = {
     title: "Erinç Polat, Freelance Software Developer",
