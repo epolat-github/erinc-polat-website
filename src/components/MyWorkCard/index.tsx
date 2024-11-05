@@ -83,7 +83,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                     <Stack
                         justifyContent="space-between"
                         sx={{
-                            height: 220,
+                            minHeight: 220,
                         }}
                     >
                         <Stack gap={spacing.tiny} p={spacing.tiny}>
