@@ -50,22 +50,27 @@ const WelcomeSection = () => {
                         }}
                     >
                         <DotPattern />
-                        <FadeInItem>
+                        <FadeInItem
+                            style={{
+                                zIndex: 1,
+                            }}
+                        >
                             <Typography
                                 color={colors.header}
                                 fontWeight="500"
                                 fontSize="2rem"
-                                sx={{
-                                    zIndex: 1,
-                                }}
                             >{`Hey there, I'm-`}</Typography>
                         </FadeInItem>
-                        <FadeInItem delay={0.2}>
+                        <FadeInItem
+                            delay={0.2}
+                            style={{
+                                zIndex: 1,
+                            }}
+                        >
                             <Typography
                                 fontWeight="bold"
                                 color={colors.primary}
                                 sx={{
-                                    zIndex: 1,
                                     fontSize: {
                                         lg: "8rem",
                                         sm: "4rem",
