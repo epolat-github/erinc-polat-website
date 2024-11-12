@@ -178,77 +178,77 @@ const projects: Project[] = [
             },
         ],
     },
-    // {
-    //     slug: "quartiers",
-    //     title: "Quartiers - Smart Facility Management",
-    //     summary:
-    //         "Your smart home assistant! Effortlessly manage devices, track energy usage, and streamline services for a more connected living experience!",
-    //     featuredImages: [
-    //         {
-    //             url: "/projects/quartiers/Quartiers Multiple.webp",
-    //             alt: "Project image",
-    //         },
-    //         // {
-    //         //     url: "/projects/quartiers/Quartiers Home Control.png",
-    //         //     alt: "Project image",
-    //         // },
-    //         // {
-    //         //     url: "/projects/quartiers/Quartiers Devices.png",
-    //         //     alt: "Project image",
-    //         // },
-    //         // {
-    //         //     url: "/projects/quartiers/Quartiers Home.png",
-    //         //     alt: "Project image",
-    //         // },
-    //     ],
-    //     tags: [
-    //         "React Native",
-    //         "IOS",
-    //         "Android",
-    //         "Custom Design",
-    //         "Smart Devices",
-    //         "Security and Locks",
-    //     ],
-    //     paragraphs: [
-    //         "Quartiers, smart facility management app allows you to manage your home effortlessly. You can report issues to facility management by opening tickets or uploading photos and control your smart home devices by creating and scheduling scenarios. Additionally, you can trigger these scenarios through connected sensors, ensuring seamless automation.",
-    //         "Track your monthly energy usage with detailed graphs and hire service providers like cleaners or hairstylists through the app. Manage your smart locks by granting temporary or permanent access and control multiple homes with ease, all from a single platform.",
-    //     ],
-    //     assetRows: [
-    //         {
-    //             type: "SINGLE",
-    //             image: {
-    //                 url: "/projects/quartiers/Quartiers Multiple.webp",
-    //                 alt: "Project image",
-    //             },
-    //         },
-    //         {
-    //             type: "MULTIPLE",
-    //             images: [
-    //                 {
-    //                     url: "/projects/quartiers/Quartiers Login.png",
-    //                     alt: "Project Image",
-    //                 },
-    //                 {
-    //                     url: "/projects/quartiers/Quartiers Home.png",
-    //                     alt: "Project Image",
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             type: "MULTIPLE",
-    //             images: [
-    //                 {
-    //                     url: "/projects/quartiers/Quartiers Home Control.png",
-    //                     alt: "Project Image",
-    //                 },
-    //                 {
-    //                     url: "/projects/quartiers/Quartiers Devices.png",
-    //                     alt: "Project Image",
-    //                 },
-    //             ],
-    //         },
-    //     ],
-    // },
+    {
+        slug: "quartiers",
+        title: "Quartiers - Smart Facility Management",
+        summary:
+            "Your smart home assistant! Effortlessly manage devices, track energy usage, and streamline services for a more connected living experience!",
+        featuredImages: [
+            {
+                url: "/projects/quartiers/Quartiers Multiple.webp",
+                alt: "Project image",
+            },
+            // {
+            //     url: "/projects/quartiers/Quartiers Home Control.png",
+            //     alt: "Project image",
+            // },
+            // {
+            //     url: "/projects/quartiers/Quartiers Devices.png",
+            //     alt: "Project image",
+            // },
+            // {
+            //     url: "/projects/quartiers/Quartiers Home.png",
+            //     alt: "Project image",
+            // },
+        ],
+        tags: [
+            "React Native",
+            "IOS",
+            "Android",
+            "Custom Design",
+            "Smart Devices",
+            "Security and Locks",
+        ],
+        paragraphs: [
+            "Quartiers, smart facility management app allows you to manage your home effortlessly. You can report issues to facility management by opening tickets or uploading photos and control your smart home devices by creating and scheduling scenarios. Additionally, you can trigger these scenarios through connected sensors, ensuring seamless automation.",
+            "Track your monthly energy usage with detailed graphs and hire service providers like cleaners or hairstylists through the app. Manage your smart locks by granting temporary or permanent access and control multiple homes with ease, all from a single platform.",
+        ],
+        assetRows: [
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/quartiers/Quartiers Multiple.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "MULTIPLE",
+                images: [
+                    {
+                        url: "/projects/quartiers/Quartiers Login.png",
+                        alt: "Project Image",
+                    },
+                    {
+                        url: "/projects/quartiers/Quartiers Home.png",
+                        alt: "Project Image",
+                    },
+                ],
+            },
+            {
+                type: "MULTIPLE",
+                images: [
+                    {
+                        url: "/projects/quartiers/Quartiers Home Control.png",
+                        alt: "Project Image",
+                    },
+                    {
+                        url: "/projects/quartiers/Quartiers Devices.png",
+                        alt: "Project Image",
+                    },
+                ],
+            },
+        ],
+    },
     {
         slug: "zeynep-dikdus-website",
         title: "Personal Website - Therapist Zeynep Dikdüş",
