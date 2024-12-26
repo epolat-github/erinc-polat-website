@@ -6,7 +6,7 @@ import theme from "@/utils/theme";
 import { CssBaseline } from "@mui/material";
 import Navbar from "@/components/Navbar";
 import colors from "@/utils/colors";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 export const viewport: Viewport = {
     width: "device-width",
@@ -46,6 +46,7 @@ const RootLayout = ({
     return (
         <html lang="tr">
             <GoogleTagManager gtmId="G-JTWXYNF41H" />
+            <GoogleAnalytics gaId="G-JTWXYNF41H" />
 
             <body
                 style={{
