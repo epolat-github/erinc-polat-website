@@ -22,6 +22,7 @@ import { sendEmail } from "../../../app/actions/sendEmail";
 import { motion } from "framer-motion";
 import { useSnackbar } from "notistack";
 import { LoadingButton } from "@mui/lab";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const CONTACT_DATA = [
     {
@@ -122,6 +123,11 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
     const sendEmailHandler = async (formData: FormData) => {
         try {
             setIsSubmittingForm(true);
+
+            sendGAEvent({
+                event: "contact_email",
+                value: JSON.stringify(formData),
+            });
 
             const { error, data } = await sendEmail(formData);
 
