@@ -165,7 +165,6 @@ const WelcomeSection = () => {
                             md: 0,
                         },
                         display: {
-                            // xs: "none",
                             sm: "flex",
                         },
                     }}

@@ -250,6 +250,116 @@ const projects: Project[] = [
         ],
     },
     {
+        slug: "construction-surveillance",
+        title: "Construction Area Surveillance System",
+        summary:
+            "A surveillance system that utilizes Dahua and Instar cameras with OpenWeather data for the construction areas in Germany. A collab project with SV Gebaudeautomation and connect2, companies of Thelen Holding.",
+        projectUrl: "https://surveillance.svg-solutions.com",
+        featuredImages: [
+            {
+                url: "/projects/construction-surveillance/Surveillance Home.webp",
+                alt: "Project image",
+            },
+        ],
+        tags: ["React", "NodeJS", "MongoDB", "Dahua", "Instar"],
+        paragraphs: [
+            "This project is a surveillance system that integrates Dahua and Instar cameras with OpenWeather data for construction sites in Germany. Developed in collaboration with SV Gebäudeautomation and connect2 under Thelen Holding, the system enhances security and operational efficiency. Users can add construction locations to view five-day weather forecasts and plan work conditions accordingly.",
+            "The system stores daily weather snapshots, allowing monitoring of worker conditions and site status. The timeline feature enables viewing and downloading past camera footage, while location-based weather data can be exported in Excel format. Additionally, tickets generated from surveillance tower alarms can be tracked and downloaded, ensuring proper documentation of security incidents.",
+        ],
+        assetRows: [
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/construction-surveillance/Surveillance Home.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/construction-surveillance/Surveillance Weather.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/construction-surveillance/Surveillance Timeline.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/construction-surveillance/Surveillance Alert Tickets.webp",
+                    alt: "Project image",
+                },
+            },
+        ],
+    },
+    {
+        slug: "building-deficiency-management",
+        title: "Building Deficiency Management System",
+        summary:
+            "A building issue reporting system that integrates EVVA’s smart locks, enabling real-time tracking of assigned tasks and controlled access for maintenance personnel.",
+        projectUrl: "https://accessportal.svg-solutions.com",
+        featuredImages: [
+            {
+                url: "/projects/building-deficiency-management/Plan Radar Login.webp",
+                alt: "Project image",
+            },
+        ],
+        tags: [
+            "React",
+            "NodeJS",
+            "MongoDB",
+            "EVVA",
+            "Plan Radar",
+            "Smart Locks",
+        ],
+        paragraphs: [
+            "This system integrates PlanRadar’s building issue reporting platform with EVVA’s smart locks, allowing real-time tracking of issues and assigned personnel. Access permissions are dynamically granted based on a custom door configuration, ensuring only authorized technicians can enter designated areas. Once the issue is resolved, access is automatically revoked.",
+            "Technicians can unlock doors using a phone or RFID chip, enhancing security and efficiency. Developed with SV Gebäudeautomation, EVVA GmbH, and PlanRadar, the system includes a Stripe-powered online payment integration for managing usage credits.",
+        ],
+        assetRows: [
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/building-deficiency-management/Plan Radar Login.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/building-deficiency-management/plan radar and evva websites.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/building-deficiency-management/Plan Radar Superuser.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/building-deficiency-management/Plan Radar Project Manager Cart.webp",
+                    alt: "Project image",
+                },
+            },
+            {
+                type: "SINGLE",
+                image: {
+                    url: "/projects/building-deficiency-management/Plan Radar Project Manager Checkout.webp",
+                    alt: "Project image",
+                },
+            },
+        ],
+    },
+    {
         slug: "zeynep-dikdus-website",
         title: "Personal Website - Therapist Zeynep Dikdüş",
         summary:
