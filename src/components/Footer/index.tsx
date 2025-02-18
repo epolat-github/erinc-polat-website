@@ -1,17 +1,17 @@
 "use client";
 
-import colors from "@/utils/colors";
 import { Stack, Typography } from "@mui/material";
 
 import spacing from "@/utils/spacing";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Barlow_Semi_Condensed } from "next/font/google";
+import { Oswald } from "next/font/google";
+import Image from "next/image";
 
-const barlowSemiCondensed = Barlow_Semi_Condensed({
-    subsets: ["latin", "latin-ext"],
-    weight: "400",
-    style: "normal",
+const oswald = Oswald({
+    weight: ["300", "400", "500", "700"],
+    subsets: ["latin"],
+    display: "swap",
 });
 
 const Footer = () => {
@@ -43,6 +43,7 @@ const Footer = () => {
                 paddingRight: containerPaddingX as any,
                 paddingTop: containerPaddingY as any,
                 paddingBottom: containerPaddingY as any,
+                position: "relative",
             }}
         >
             <Stack
@@ -56,13 +57,24 @@ const Footer = () => {
                     pb: "1rem",
                 }}
                 style={{
-                    backgroundColor: colors.primary,
+                    // backgroundColor: colors.primary,
                     borderRadius: borderRadius as any,
                     justifyContent: "center",
                     alignItems: "center",
                     position: "relative",
+                    overflow: "hidden",
                 }}
             >
+                <Image
+                    src="/footer.webp"
+                    alt="abstract painting"
+                    fill
+                    style={{
+                        objectFit: "cover",
+                        zIndex: 0,
+                        filter: "blur(4px) brightness(80%)",
+                    }}
+                />
                 <Stack
                     component={motion.div}
                     initial={{
@@ -76,6 +88,7 @@ const Footer = () => {
                         px: spacing.tiny,
                         flex: 1,
                         justifyContent: "center",
+                        zIndex: 1,
                     }}
                 >
                     <Typography
@@ -89,14 +102,19 @@ const Footer = () => {
                                 md: "3rem",
                             },
                             lineHeight: 1.4,
-                            fontFamily: barlowSemiCondensed.style.fontFamily,
+                            fontFamily: oswald.style.fontFamily,
                         }}
                     >
                         {"Let's bring your project come to life together!"}
                     </Typography>
                 </Stack>
 
-                <Stack direction="row">
+                <Stack
+                    direction="row"
+                    sx={{
+                        zIndex: 1,
+                    }}
+                >
                     <Typography
                         color="#fff"
                         textAlign="center"
