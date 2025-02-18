@@ -9,6 +9,13 @@ import spacing from "@/utils/spacing";
 import MyWorkCard from "../MyWorkCard";
 import projects from "@/data/projects";
 import { useRouter } from "next/navigation";
+import { Oswald } from "next/font/google";
+
+const oswald = Oswald({
+    weight: ["300", "400", "500", "700"],
+    subsets: ["latin"],
+    display: "swap",
+});
 
 const MyWorksSection = () => {
     const router = useRouter();
@@ -48,30 +55,43 @@ const MyWorksSection = () => {
                                 alignItems: "flex-start",
                                 minHeight: 150,
                             }}
+                            gap={spacing.tiny}
                         >
-                            <Typography fontWeight="bold" variant="h5">
-                                All Creative Works.
-                            </Typography>
                             <Typography
-                                color={colors.gray}
-                                variant="subtitle1"
-                                fontSize={20}
-                            >{`Here's some of my projects that I have worked on.`}</Typography>
+                                fontWeight={500}
+                                variant="h3"
+                                sx={{ fontFamily: oswald.style.fontFamily }}
+                            >
+                                Creative Works & Projects
+                            </Typography>
 
-                            <Button
-                                variant="text"
-                                color="primary"
-                                component={Link}
-                                href="/projects"
-                                endIcon={<EastRoundedIcon />}
+                            <Stack
                                 sx={{
-                                    fontSize: 20,
-                                    paddingLeft: 0,
-                                    background: "transparent",
+                                    alignItems: "flex-start",
                                 }}
                             >
-                                Explore more
-                            </Button>
+                                <Typography
+                                    color={colors.gray}
+                                    variant="subtitle1"
+                                    fontSize={20}
+                                >{`Here's some of my projects that I have worked on`}</Typography>
+
+                                <Button
+                                    variant="text"
+                                    color="primary"
+                                    component={Link}
+                                    href="/projects"
+                                    endIcon={<EastRoundedIcon />}
+                                    sx={{
+                                        fontSize: 18,
+                                        paddingLeft: 0,
+                                        paddingTop: 0,
+                                        background: "transparent",
+                                    }}
+                                >
+                                    Explore more
+                                </Button>
+                            </Stack>
                         </Stack>
 
                         <MyWorkCard
