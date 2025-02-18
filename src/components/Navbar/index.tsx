@@ -133,7 +133,7 @@ const Navbar = () => {
                             }}
                         >
                             <Image
-                                src="/logo.png"
+                                src="/logo.webp"
                                 alt="logo"
                                 width={250}
                                 height={90}
@@ -186,7 +186,7 @@ const Navbar = () => {
                     >
                         <ButtonBase onClick={onHomeClick} disableRipple>
                             <Image
-                                src="/logo.png"
+                                src="/logo.webp"
                                 alt="logo"
                                 width={75}
                                 height={25}
