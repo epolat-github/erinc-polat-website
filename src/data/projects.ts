@@ -11,18 +11,6 @@ const projects: Project[] = [
                 url: "/projects/fitnlit/fitnlit-multiple.webp",
                 alt: "Project image",
             },
-            // {
-            //     url: "/projects/fitnlit/FitNLit Home.png",
-            //     alt: "Project image",
-            // },
-            // {
-            //     url: "/projects/fitnlit/FitNLit Meal List.png",
-            //     alt: "Project image",
-            // },
-            // {
-            //     url: "/projects/fitnlit/FitNLit Meal Detail.png",
-            //     alt: "Project image",
-            // },
         ],
         tags: ["React Native", "IOS", "Android", "Custom Design"],
         paragraphs: [
@@ -146,7 +134,7 @@ const projects: Project[] = [
             {
                 type: "SINGLE",
                 image: {
-                    url: "/projects/actio/Actio Infograph.png",
+                    url: "/projects/actio/Actio Infograph.webp",
                     alt: "Project image",
                 },
             },
@@ -188,18 +176,6 @@ const projects: Project[] = [
                 url: "/projects/quartiers/Quartiers Multiple.webp",
                 alt: "Project image",
             },
-            // {
-            //     url: "/projects/quartiers/Quartiers Home Control.png",
-            //     alt: "Project image",
-            // },
-            // {
-            //     url: "/projects/quartiers/Quartiers Devices.png",
-            //     alt: "Project image",
-            // },
-            // {
-            //     url: "/projects/quartiers/Quartiers Home.png",
-            //     alt: "Project image",
-            // },
         ],
         tags: [
             "React Native",
@@ -225,11 +201,11 @@ const projects: Project[] = [
                 type: "MULTIPLE",
                 images: [
                     {
-                        url: "/projects/quartiers/Quartiers Login.png",
+                        url: "/projects/quartiers/Quartiers Login.webp",
                         alt: "Project Image",
                     },
                     {
-                        url: "/projects/quartiers/Quartiers Home.png",
+                        url: "/projects/quartiers/Quartiers Home.webp",
                         alt: "Project Image",
                     },
                 ],
@@ -238,11 +214,11 @@ const projects: Project[] = [
                 type: "MULTIPLE",
                 images: [
                     {
-                        url: "/projects/quartiers/Quartiers Home Control.png",
+                        url: "/projects/quartiers/Quartiers Home Control.webp",
                         alt: "Project Image",
                     },
                     {
-                        url: "/projects/quartiers/Quartiers Devices.png",
+                        url: "/projects/quartiers/Quartiers Devices.webp",
                         alt: "Project Image",
                     },
                 ],
@@ -370,14 +346,6 @@ const projects: Project[] = [
                 url: "/projects/zeynep-dikdus-website/Zeynep Website Home.webp",
                 alt: "Project image",
             },
-            // {
-            //     url: "/projects/zeynep-dikdus-website/Zeynep Website Contents.png",
-            //     alt: "Project image",
-            // },
-            // {
-            //     url: "/projects/zeynep-dikdus-website/Zeynep Website Contact.png",
-            //     alt: "Project image",
-            // },
         ],
         tags: ["NextJS", "Website", "Custom Design"],
         paragraphs: [
