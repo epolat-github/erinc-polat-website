@@ -2,18 +2,21 @@
 
 import {
     Box,
-    Button,
     ButtonBase,
     Container,
     Grid2,
+    InputAdornment,
+    InputBase,
     Stack,
-    TextField,
     Typography,
 } from "@mui/material";
 import colors from "@/utils/colors";
 import React, { forwardRef, useState } from "react";
+
 import InstagramIcon from "@mui/icons-material/Instagram";
 import InsertDriveFileRoundedIcon from "@mui/icons-material/InsertDriveFileRounded";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 import spacing from "@/utils/spacing";
 import theme from "@/utils/theme";
@@ -220,30 +223,64 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         sx={{
                             width: "100%",
                         }}
-                        spacing={spacing.small}
+                        spacing={spacing.tiny}
                     >
-                        <TextField
+                        <InputBase
                             name="name"
                             id="name"
-                            label="Name"
-                            variant="standard"
+                            placeholder="Your name"
                             required
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <PersonOutlinedIcon />
+                                </InputAdornment>
+                            }
+                            sx={{
+                                outline: "none",
+                                borderStyle: "solid",
+                                borderColor: "lightgray",
+                                borderRadius: spacing.small,
+                                borderWidth: 1,
+                                px: spacing.tiny,
+                                py: spacing.tiny / 2,
+                            }}
                         />
-                        <TextField
+                        <InputBase
                             name="email"
                             id="email"
-                            label="Email"
+                            placeholder="Email"
                             required
-                            variant="standard"
+                            startAdornment={
+                                <InputAdornment position="start">
+                                    <EmailOutlinedIcon />
+                                </InputAdornment>
+                            }
+                            sx={{
+                                outline: "none",
+                                borderStyle: "solid",
+                                borderColor: "lightgray",
+                                borderRadius: spacing.small,
+                                borderWidth: 1,
+                                px: spacing.tiny,
+                                py: spacing.tiny / 2,
+                            }}
                         />
-                        <TextField
+                        <InputBase
                             name="message"
                             id="message"
-                            label="Message"
-                            variant="standard"
+                            placeholder="How can I help?"
                             required
                             multiline
-                            rows={4}
+                            rows={5}
+                            sx={{
+                                outline: "none",
+                                borderStyle: "solid",
+                                borderColor: "lightgray",
+                                borderRadius: spacing.small,
+                                borderWidth: 1,
+                                px: spacing.tiny,
+                                py: spacing.tiny / 2,
+                            }}
                         />
                         <LoadingButton
                             loading={isSubmittingForm}
