@@ -16,11 +16,10 @@ import theme from "@/utils/theme";
 import ProjectsOverview from "./ProjectsOverview";
 import RevealItem from "../RevealItem";
 import FadeInItem from "../FadeInItem";
+import { useTranslations } from "next-intl";
 
 const WelcomeSection = () => {
-    const matchesXsUp = useMediaQuery((theme: Theme) =>
-        theme.breakpoints.up("xs")
-    );
+    const t = useTranslations("welcome_section");
 
     return (
         <Box
@@ -59,7 +58,9 @@ const WelcomeSection = () => {
                                 color={colors.header}
                                 fontWeight="500"
                                 fontSize="2rem"
-                            >{`Hey there, I'm-`}</Typography>
+                            >
+                                {t("top_text")}
+                            </Typography>
                         </FadeInItem>
                         <FadeInItem
                             delay={0.2}

@@ -1,4 +1,4 @@
-import "./global.css";
+import "../global.css";
 import type { Metadata, Viewport } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
@@ -6,7 +6,11 @@ import theme from "@/utils/theme";
 import { CssBaseline } from "@mui/material";
 import Navbar from "@/components/Navbar";
 import colors from "@/utils/colors";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
+import { getMessages } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 
 export const viewport: Viewport = {
     width: "device-width",
@@ -38,14 +42,24 @@ export const metadata: Metadata = {
     metadataBase: new URL("https://www.erincpolat.com"),
 };
 
-const RootLayout = ({
+const RootLayout = async ({
     children,
+    params: { locale },
 }: Readonly<{
     children: React.ReactNode;
+    params: { locale: string };
 }>) => {
+    // Ensure that the incoming `locale` is valid
+    if (!routing.locales.includes(locale as any)) {
+        notFound();
+    }
+
+    // Providing all messages to the client
+    // side is the easiest way to get started
+    const messages = await getMessages();
+
     return (
-        <html lang="tr">
-            <GoogleTagManager gtmId="G-JTWXYNF41H" />
+        <html lang={locale}>
             <GoogleAnalytics gaId="G-JTWXYNF41H" />
 
             <body
@@ -53,14 +67,16 @@ const RootLayout = ({
                     background: colors.background,
                 }}
             >
-                <AppRouterCacheProvider>
-                    <CssBaseline />
+                <NextIntlClientProvider messages={messages}>
+                    <AppRouterCacheProvider>
+                        <CssBaseline />
 
-                    <ThemeProvider theme={theme}>
-                        <Navbar />
-                        {children}
-                    </ThemeProvider>
-                </AppRouterCacheProvider>
+                        <ThemeProvider theme={theme}>
+                            <Navbar />
+                            {children}
+                        </ThemeProvider>
+                    </AppRouterCacheProvider>
+                </NextIntlClientProvider>
             </body>
         </html>
     );
