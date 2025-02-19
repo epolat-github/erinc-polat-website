@@ -58,5 +58,11 @@
         "linkedin_text": "Connect on LinkedIn",
         "instagram_text": "Follow on Instagram",
         "github_text": "Follow on Github"
+    },
+    "navbar": {
+        "about": "About",
+        "works": "Works",
+        "process": "Process",
+        "contact": "Contact"
     }
 }

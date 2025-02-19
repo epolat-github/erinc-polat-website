@@ -19,6 +19,7 @@ import { motion, useAnimationControls } from "framer-motion";
 import spacing from "@/utils/spacing";
 import Image from "next/image";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 const barlowSemiCondensed = Barlow_Semi_Condensed({
     subsets: ["latin", "latin-ext"],
@@ -28,24 +29,25 @@ const barlowSemiCondensed = Barlow_Semi_Condensed({
 
 const sectionButtons = [
     {
-        title: "About",
+        titleTranslationKey: "about",
         to: "about",
     },
     {
-        title: "Works",
+        titleTranslationKey: "process",
+        to: "process",
+    },
+    {
+        titleTranslationKey: "works",
         to: "works",
     },
-    // {
-    //     title: "Offers",
-    //     to: "offers",
-    // },
     {
-        title: "Contact",
+        titleTranslationKey: "contact",
         to: "contact",
     },
-];
+] as const;
 
 const Navbar = () => {
+    const t = useTranslations("navbar");
     const router = useRouter();
     const pathname = usePathname();
 
@@ -146,7 +148,7 @@ const Navbar = () => {
                         {sectionButtons.map((sectionButton) => (
                             <Button
                                 LinkComponent={Link}
-                                key={sectionButton.title}
+                                key={sectionButton.titleTranslationKey}
                                 href={`/#${sectionButton.to}`}
                                 disableRipple
                                 sx={{
@@ -166,7 +168,7 @@ const Navbar = () => {
                                     },
                                 }}
                             >
-                                {sectionButton.title}
+                                {t(sectionButton.titleTranslationKey)}
                             </Button>
                         ))}
                     </Stack>
@@ -224,7 +226,7 @@ const Navbar = () => {
 
                                     // component={motion.li}
                                     // LinkComponent={Link}
-                                    key={sectionButton.title}
+                                    key={sectionButton.titleTranslationKey}
                                     // href={`/#${sectionButton.to}`}
                                     // href={`#${sectionButton.to}`}
                                     onClick={() =>
@@ -243,7 +245,7 @@ const Navbar = () => {
                                     // }}
                                 >
                                     <Typography textAlign="center">
-                                        {sectionButton.title}
+                                        {t(sectionButton.titleTranslationKey)}
                                     </Typography>
                                 </MenuItem>
                             ))}

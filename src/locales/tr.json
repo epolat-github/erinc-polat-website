@@ -58,5 +58,11 @@
         "linkedin_text": "LinkedIn'de Bağlantı Kur",
         "instagram_text": "Instagram'da Takip Et",
         "github_text": "GitHub'da Takip Et"
+    },
+    "navbar": {
+        "about": "Hakkımda",
+        "works": "Projeler",
+        "process": "Süreç",
+        "contact": "İletişim"
     }
 }

@@ -19,7 +19,7 @@ const ServicesSection = () => {
 
     return (
         <Box
-            id="services"
+            id="process"
             sx={{
                 backgroundColor: colors.background,
             }}
