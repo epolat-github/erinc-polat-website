@@ -4,6 +4,7 @@ import Image from "next/image";
 import EastRoundedIcon from "@mui/icons-material/EastRounded";
 import { AssetImage } from "@/types/project.type";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface MyWorkCardType {
     title: string;
@@ -21,6 +22,8 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
         onClick,
         animationDirection = "left",
     } = props;
+
+    const t = useTranslations("my_work_card");
 
     const initialX = (animationDirection === "left" ? -1 : 1) * 20;
 
@@ -122,7 +125,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                                     background: "transparent",
                                 }}
                             >
-                                Explore work
+                                {t("cta_button_text")}
                             </Button>
                         </Stack>
                     </Stack>

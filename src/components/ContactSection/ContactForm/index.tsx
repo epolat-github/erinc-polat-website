@@ -26,10 +26,18 @@ import { motion } from "framer-motion";
 import { useSnackbar } from "notistack";
 import { LoadingButton } from "@mui/lab";
 import { sendGAEvent } from "@next/third-parties/google";
+import { useTranslations } from "next-intl";
+import { Oswald } from "next/font/google";
+
+const oswald = Oswald({
+    weight: ["300", "400", "500", "700"],
+    subsets: ["latin"],
+    display: "swap",
+});
 
 const CONTACT_DATA = [
     {
-        text: "My Resume",
+        textTranslationKey: "resume_text",
         url: "/erinc-polat-resume.pdf",
         icon: (
             <InsertDriveFileRoundedIcon
@@ -41,7 +49,7 @@ const CONTACT_DATA = [
         ),
     },
     {
-        text: "Connect on LinkedIn",
+        textTranslationKey: "linkedin_text",
         url: "https://www.linkedin.com/in/erinç-polat-4bb7bb192",
         icon: (
             <Image
@@ -53,7 +61,7 @@ const CONTACT_DATA = [
         ),
     },
     {
-        text: "Follow on Instagram",
+        textTranslationKey: "instagram_text",
         url: "https://www.instagram.com/erincpolat",
         icon: (
             <InstagramIcon
@@ -65,7 +73,7 @@ const CONTACT_DATA = [
         ),
     },
     {
-        text: "Follow on GitHub",
+        textTranslationKey: "github_text",
         url: "https://github.com/epolat-github",
         icon: (
             <Image
@@ -76,7 +84,7 @@ const CONTACT_DATA = [
             />
         ),
     },
-];
+] as const;
 
 interface ContactListRowType {
     text: string;
@@ -116,6 +124,7 @@ const ContactListRow: React.FC<ContactListRowType> = (props) => {
 };
 
 const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
+    const t = useTranslations("contact_form");
     const { enqueueSnackbar } = useSnackbar();
     const [isSubmittingForm, setIsSubmittingForm] = useState(false);
 
@@ -139,39 +148,27 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 console.log("error");
 
                 if (error?.name === "validation_error") {
-                    enqueueSnackbar(
-                        "There's been a validation error. Please check the form again.",
-                        {
-                            variant: "error",
-                        }
-                    );
+                    enqueueSnackbar(t("validation_error_message"), {
+                        variant: "error",
+                    });
                 } else {
-                    enqueueSnackbar(
-                        "There's been an error. Please contact me through my email 🙂",
-                        {
-                            variant: "error",
-                        }
-                    );
+                    enqueueSnackbar(t("generic_error_message"), {
+                        variant: "error",
+                    });
                 }
                 return;
             }
 
-            enqueueSnackbar(
-                "I've received your message. I will contact you in no time 🙂",
-                {
-                    variant: "success",
-                }
-            );
+            enqueueSnackbar(t("success_message"), {
+                variant: "success",
+            });
 
             console.log("success");
         } catch (err) {
             console.log("error from client: ", err);
-            enqueueSnackbar(
-                "There's been an error. Please contact me through my email 🙂",
-                {
-                    variant: "error",
-                }
-            );
+            enqueueSnackbar(t("generic_error_message"), {
+                variant: "error",
+            });
         } finally {
             setIsSubmittingForm(false);
         }
@@ -209,8 +206,11 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         variant="h4"
                         fontWeight="bold"
                         color={colors.header}
+                        sx={{
+                            fontFamily: oswald.style.fontFamily,
+                        }}
                     >
-                        Get In Touch.
+                        {t("form_title")}
                     </Typography>
 
                     <Stack
@@ -228,7 +228,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         <InputBase
                             name="name"
                             id="name"
-                            placeholder="Your name"
+                            placeholder={t("name_placeholder")}
                             required
                             startAdornment={
                                 <InputAdornment position="start">
@@ -248,7 +248,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         <InputBase
                             name="email"
                             id="email"
-                            placeholder="Email"
+                            placeholder={t("email_placeholder")}
                             required
                             startAdornment={
                                 <InputAdornment position="start">
@@ -268,7 +268,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         <InputBase
                             name="message"
                             id="message"
-                            placeholder="How can I help?"
+                            placeholder={t("message_placeholder")}
                             required
                             multiline
                             rows={5}
@@ -294,7 +294,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                             }}
                             color="primary"
                         >
-                            Send your message
+                            {t("send_message_button_text")}
                         </LoadingButton>
                     </Stack>
                 </Stack>
@@ -311,14 +311,17 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         variant="h4"
                         fontWeight="bold"
                         color={colors.header}
+                        sx={{
+                            fontFamily: oswald.style.fontFamily,
+                        }}
                     >
-                        Contact Info.
+                        {t("contact_info_title")}
                     </Typography>
 
                     <Stack spacing={spacing.small}>
                         <Stack>
                             <Typography fontWeight="bold">
-                                {"Let's Talk."}
+                                {t("contact_info_subtitle")}
                             </Typography>
                             <Typography>erinc.polat@gmail.com</Typography>
                         </Stack>
@@ -327,7 +330,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                             {CONTACT_DATA.map((contactData, index) => (
                                 <Grid2 key={`contact-data-${index}`} size={12}>
                                     <ContactListRow
-                                        text={contactData.text}
+                                        text={t(contactData.textTranslationKey)}
                                         onClick={() =>
                                             openLink(contactData.url)
                                         }

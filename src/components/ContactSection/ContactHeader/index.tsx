@@ -2,12 +2,15 @@ import { Container, Stack, Typography } from "@mui/material";
 import colors from "@/utils/colors";
 import React from "react";
 import { motion, MotionValue, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface ContactHeaderType {
     scrollYProgress: MotionValue<number>;
 }
 
 const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
+    const t = useTranslations("contact_header");
+
     const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.2, 0]);
     const translateY = useTransform(scrollYProgress, [0, 1], ["0px", "-100px"]);
 
@@ -36,12 +39,12 @@ const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
                     WebkitTextStrokeWidth: "1px",
                     WebkitTextStrokeColor: {
                         xs: "rgba(0, 0, 0, 0.05)",
-                        md: "rgba(0, 0, 0, 0.1)",
+                        md: "rgba(0, 0, 0, 0.07)",
                     },
                     color: "transparent",
                 }}
             >
-                Contact
+                {t("background_title")}
             </Typography>
             <Stack
                 component={motion.div}
@@ -57,7 +60,7 @@ const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
                         fontSize: "1.3rem",
                     }}
                 >
-                    {"Let's"}
+                    {t("small_title")}
                 </Typography>
                 <Typography
                     color={colors.header}
@@ -71,7 +74,7 @@ const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
                         fontWeight: 600,
                     }}
                 >
-                    Talk About Your Project.
+                    {t("title")}
                 </Typography>
                 <Typography
                     color={colors.gray}
@@ -80,9 +83,7 @@ const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
                         fontWeight: 500,
                     }}
                 >
-                    {
-                        "Feel free to ask me any questions. Let's talk about our future collaboration."
-                    }
+                    {t("subtitle")}
                 </Typography>
             </Stack>
         </Container>

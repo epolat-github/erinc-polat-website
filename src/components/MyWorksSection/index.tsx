@@ -4,12 +4,14 @@ import colors from "@/utils/colors";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import EastRoundedIcon from "@mui/icons-material/EastRounded";
 
-import Link from "next/link";
+// import Link from "next/link";
 import spacing from "@/utils/spacing";
 import MyWorkCard from "../MyWorkCard";
 import projects from "@/data/projects";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { Oswald } from "next/font/google";
+import { Link, useRouter } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 const oswald = Oswald({
     weight: ["300", "400", "500", "700"],
@@ -18,6 +20,7 @@ const oswald = Oswald({
 });
 
 const MyWorksSection = () => {
+    const t = useTranslations("my_works_section");
     const router = useRouter();
 
     return (
@@ -62,7 +65,7 @@ const MyWorksSection = () => {
                                 variant="h3"
                                 sx={{ fontFamily: oswald.style.fontFamily }}
                             >
-                                Creative Works & Projects
+                                {t("title")}
                             </Typography>
 
                             <Stack
@@ -74,7 +77,9 @@ const MyWorksSection = () => {
                                     color={colors.gray}
                                     variant="subtitle1"
                                     fontSize={20}
-                                >{`Here's some of my projects that I have worked on`}</Typography>
+                                >
+                                    {t("description")}
+                                </Typography>
 
                                 <Button
                                     variant="text"
@@ -89,7 +94,7 @@ const MyWorksSection = () => {
                                         background: "transparent",
                                     }}
                                 >
-                                    Explore more
+                                    {t("cta_button_text")}
                                 </Button>
                             </Stack>
                         </Stack>

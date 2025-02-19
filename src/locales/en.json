@@ -28,5 +28,35 @@
         "improvement_card_title": "Improvement",
         "improvement_card_description": "Analytics support, service containerization, SEO/ASO, store testing and tracking setup, server configuration, and ongoing improvements are implemented.",
         "improvement_card_alt": "Logos of different technologies"
+    },
+    "my_works_section": {
+        "title": "Creative Works & Projects",
+        "description": "Here's some of my projects that I have worked on",
+        "cta_button_text": "Explore more"
+    },
+    "my_work_card": {
+        "cta_button_text": "Explore work"
+    },
+    "contact_header": {
+        "background_title": "Contact",
+        "small_title": "Let's",
+        "title": "Talk about your project.",
+        "subtitle": "Feel free to ask me any questions. Let's talk about our future collaboration."
+    },
+    "contact_form": {
+        "form_title": "Get In Touch.",
+        "name_placeholder": "Your name",
+        "email_placeholder": "Email",
+        "message_placeholder": "How can I help?",
+        "send_message_button_text": "Send your message",
+        "validation_error_message": "There's been a validation error. Please check the form again.",
+        "generic_error_message": "There's been an error. Please contact me through my email 🙂",
+        "success_message": "I've received your message. I will contact you in no time 🙂",
+        "contact_info_title": "Contact Info.",
+        "contact_info_subtitle": "Let's Talk.",
+        "resume_text": "My Resume",
+        "linkedin_text": "Connect on LinkedIn",
+        "instagram_text": "Follow on Instagram",
+        "github_text": "Follow on Github"
     }
 }

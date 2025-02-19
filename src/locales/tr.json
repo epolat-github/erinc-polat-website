@@ -28,5 +28,35 @@
         "improvement_card_title": "Geliştirme",
         "improvement_card_description": "Analitik desteği, servis konteynerleştirme, SEO/ASO, mağaza testleri ve takip ayarları, sunucu yapılandırması ve sürekli iyileştirmeler uygulanır.",
         "improvement_card_alt": "Farklı teknolojilerin logoları"
+    },
+    "my_works_section": {
+        "title": "Yaratıcı İşler & Projeler",
+        "description": "İşte üzerinde çalıştığım projelerden bazıları",
+        "cta_button_text": "Daha fazlasını keşfet"
+    },
+    "my_work_card": {
+        "cta_button_text": "Projeyi keşfet"
+    },
+    "contact_header": {
+        "background_title": "İletişim",
+        "small_title": "Hadi,",
+        "title": "Projeniz hakkında konuşalım.",
+        "subtitle": "Bana istediğiniz soruyu sorabilirsiniz. Gelecekteki iş birliğimiz hakkında konuşalım."
+    },
+    "contact_form": {
+        "form_title": "İletişime Geçin.",
+        "name_placeholder": "İsminiz",
+        "email_placeholder": "E-posta adresiniz",
+        "message_placeholder": "Nasıl yardımcı olabilirim?",
+        "send_message_button_text": "Mesajı yolla",
+        "validation_error_message": "Bir doğrulama hatası oluştu. Lütfen formu tekrar kontrol edin.",
+        "generic_error_message": "Bir hata oluştu. Lütfen benimle e-posta yoluyla iletişime geçin 🙂",
+        "success_message": "Mesajınızı aldım. En kısa sürede sizinle iletişime geçeceğim 🙂",
+        "contact_info_title": "İletişim Bilgileri",
+        "contact_info_subtitle": "Hadi Konuşalım.",
+        "resume_text": "Özgeçmişim",
+        "linkedin_text": "LinkedIn'de Bağlantı Kur",
+        "instagram_text": "Instagram'da Takip Et",
+        "github_text": "GitHub'da Takip Et"
     }
 }
