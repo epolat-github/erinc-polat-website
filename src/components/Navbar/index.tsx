@@ -13,13 +13,12 @@ import {
     Typography,
 } from "@mui/material";
 import { Barlow_Semi_Condensed } from "next/font/google";
-import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import spacing from "@/utils/spacing";
-import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 
 const barlowSemiCondensed = Barlow_Semi_Condensed({
     subsets: ["latin", "latin-ext"],
@@ -101,7 +100,7 @@ const Navbar = () => {
             }}
             transition={{
                 duration: 0.7,
-                ease: "easeOut"
+                ease: "easeOut",
             }}
             position="fixed"
             color="transparent"
