@@ -95,27 +95,26 @@ const WelcomeSection = () => {
                                     color: colors.header,
                                 }}
                             >
-                                Software Engineer.
+                                {t("title")}
                             </span>{" "}
-                            A full-stack developer with an interest in
-                            developing products.
+                            {t("description")}
                         </Typography>
                     </FadeInItem>
 
                     <Stack spacing={spacing.tiny}>
                         <FadeInItem delay={0.4}>
                             <Typography variant="h6" color={colors.gray}>
-                                🚀 Customer-tailored websites
+                                🚀 {t("websites_text")}
                             </Typography>
                         </FadeInItem>
                         <FadeInItem delay={0.5}>
                             <Typography variant="h6" color={colors.gray}>
-                                📱 Cross-platform mobile applications
+                                📱 {t("mobile_text")}
                             </Typography>
                         </FadeInItem>
                         <FadeInItem delay={0.6}>
                             <Typography variant="h6" color={colors.gray}>
-                                ⚡️ Backend development
+                                ⚡️ {t("backend_text")}
                             </Typography>
                         </FadeInItem>
                     </Stack>
@@ -133,7 +132,7 @@ const WelcomeSection = () => {
                                 disableElevation
                                 href="#contact"
                             >
-                                Inquire Now
+                                {t("cta_button_text")}
                             </Button>
                         </RevealItem>
 
@@ -148,7 +147,7 @@ const WelcomeSection = () => {
                                 disableElevation
                                 href="#about"
                             >
-                                See More
+                                {t("secondary_button_text")}
                             </Button>
                         </RevealItem>
                     </Stack>

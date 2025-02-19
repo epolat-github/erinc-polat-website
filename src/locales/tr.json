@@ -1,5 +1,12 @@
 {
     "welcome_section": {
-        "top_text": "Merhaba, Ben-"
+        "top_text": "Merhaba, Ben-",
+        "title": "Yazılım Geliştirici.",
+        "description": "Ürün geliştirmeye ilgi duyan bir full-stack geliştirici.",
+        "websites_text": "Müşteriye özel dizaynlı siteler",
+        "mobile_text": "Cross-platform mobil uygulamalar",
+        "backend_text": "Backend geliştirem desteği",
+        "cta_button_text": "İletişime Geç",
+        "secondary_button_text": "Daha Fazla"
     }
 }

@@ -1,5 +1,12 @@
 {
     "welcome_section": {
-        "top_text": "Hey there, I'm-"
+        "top_text": "Hey there, I'm-",
+        "title": "Software Engineer.",
+        "description": "A full-stack developer with an interest in developing products.",
+        "websites_text": "Customer-tailored websites",
+        "mobile_text": "Cross-platform mobile applications",
+        "backend_text": "Backend development",
+        "cta_button_text": "Inquire Now",
+        "secondary_button_text": "See More"
     }
 }
