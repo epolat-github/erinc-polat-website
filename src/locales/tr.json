@@ -8,5 +8,11 @@
         "backend_text": "Backend geliştirem desteği",
         "cta_button_text": "İletişime Geç",
         "secondary_button_text": "Daha Fazla"
+    },
+    "who_am_i_section": {
+        "title": "Ben Kimim?",
+        "first_paragraph": "Merhaba, ben Erinç Tuna Polat. TED Üniversitesi’nde Bilgisayar Mühendisliği okudum. Ana dalımın yanı sıra, insan ve teknoloji etkileşimini daha iyi anlayabilmek için psikoloji alanında yandal yaptım. Yedi yılı aşkın süredir yazılım geliştirme alanında çalışıyorum ve farklı projeler hayata geçirmek için kendi şirketimi kurdum.",
+        "second_paragraph": "IoT cihaz entegrasyonu, akıllı kilit yönetimi, IP kamera tabanlı güvenlik sistemleri ve bina erişim izinlerini yöneten sistemler gibi çeşitli SaaS projelerine liderlik ettim. Web ve mobil platformlar için React/Next.js, React Native/Expo ve Node.js kullanarak çözümler geliştirdim. Ayrıca, Docker ve CI/CD süreçlerini yöneterek projelerin kesintisiz entegrasyonunu ve sürekli dağıtımını sağladım.",
+        "third_paragraph": "Freelance projelerim arasında etkinlik yönetim uygulamaları, temassız fiş sistemleri ve fitness asistanı uygulamaları gibi yenilikçi çözümler yer alıyor. Almanya, Kanada ve Türkiye’den farklı sektörlerdeki müşteriler için projeler tamamladım. Güçlü teknik bilgim ve ekiplerimle yaptığım iş birlikleri sayesinde teknoloji dünyasında fark yaratmayı hedefliyorum. Yeni projelerde potansiyel müşterilerle iş birliği yaparak dijital dönüşüm süreçlerini hızlandırmalarına yardımcı olmayı dört gözle bekliyorum."
     }
 }
