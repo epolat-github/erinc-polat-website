@@ -6,6 +6,7 @@ import { Oswald } from "next/font/google";
 
 import spacing from "@/utils/spacing";
 import ServicesCard from "../ServicesCard";
+import { useTranslations } from "next-intl";
 
 const oswald = Oswald({
     weight: ["300", "400", "500", "700"],
@@ -14,6 +15,8 @@ const oswald = Oswald({
 });
 
 const ServicesSection = () => {
+    const t = useTranslations("services_section");
+
     return (
         <Box
             id="services"
@@ -39,14 +42,14 @@ const ServicesSection = () => {
                         letterSpacing: 1.2,
                     }}
                 >
-                    Three Steps To Build A Product
-                    <br /> That{" "}
+                    {t("title_regular_before_break")}
+                    <br /> {t("title_regular_after_break")}{" "}
                     <span
                         style={{
                             fontWeight: "bold",
                         }}
                     >
-                        Stands Out Instantly
+                        {t("title_bold")}
                     </span>
                 </Typography>
 
@@ -69,9 +72,9 @@ const ServicesSection = () => {
                         flex={1}
                     >
                         <ServicesCard
-                            title="Design"
-                            description="The initial step involves exploring and defining brand identities, crafting distinctive visual styles that help companies stand out in their market with a unique character and presence."
-                            alt="Screenshot of an app that built by Erinç Polat"
+                            title={t("design_card_title")}
+                            description={t("design_card_description")}
+                            alt={t("design_card_alt")}
                             imageUrl="/services/design.webp"
                         />
                     </Grid2>
@@ -86,17 +89,17 @@ const ServicesSection = () => {
                     >
                         <Grid2 size={12} flex={1}>
                             <ServicesCard
-                                title="Development"
-                                description="As the process shifts from design to development, concepts are transformed into digital experiences, with websites, apps, and products crafted to convey compelling brand stories."
-                                alt="Screenshots of the web designs that Erinç Polat made"
+                                title={t("development_card_title")}
+                                description={t("development_card_description")}
+                                alt={t("development_card_alt")}
                                 imageUrl="/services/development.webp"
                             />
                         </Grid2>
                         <Grid2 size={12} flex={1}>
                             <ServicesCard
-                                title="Improvement"
-                                description="Analytics support, service containerization, SEO/ASO, store testing and tracking setup, server configuration, and ongoing improvements are implemented."
-                                alt="Logos of different technologies"
+                                title={t("improvement_card_title")}
+                                description={t("improvement_card_description")}
+                                alt={t("improvement_card_alt")}
                                 imageUrl="/services/improvement.webp"
                             />
                         </Grid2>

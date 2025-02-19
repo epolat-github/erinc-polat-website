@@ -14,5 +14,19 @@
         "first_paragraph": "Hello, I’m Erinç Tuna Polat. I studied Computer Engineering at TED University. Alongside my major, I pursued a minor in psychology to better understand the interaction between humans and technology. I have been working in the software development field for over seven years, and I founded my own company to undertake a wide variety of projects.",
         "second_paragraph": "I have led various SaaS projects, including IoT device integration, smart lock management, IP camera-based security systems, and systems that manage building access permissions. I developed solutions for both web and mobile platforms using React/Next.js, React Native/Expo and Nodejs. I also optimized projects by managing Docker and CI/CD processes, ensuring seamless integration and continuous deployment.",
         "third_paragraph": "Among my freelance projects are innovative solutions like event management applications, contactless receipt systems, and fitness assistant apps. I have completed projects for clients from Germany, Canada, and Türkiye across various sectors. With my strong technical expertise and the collaborative work I have done with my teams, I strive to make a difference in the tech world. I look forward to collaborating with potential clients on new projects, helping them accelerate their digital transformation processes."
+    },
+    "services_section": {
+        "title_regular_before_break": "Three Steps To Build A Product",
+        "title_regular_after_break": "That",
+        "title_bold": "Stands Out Instantly",
+        "design_card_title": "Design",
+        "design_card_description": "The initial step involves exploring and defining brand identities, crafting distinctive visual styles that help companies stand out in their market with a unique character and presence.",
+        "design_card_alt": "Screenshot of an app that built by Erinç Polat",
+        "development_card_title": "Development",
+        "development_card_description": "As the process shifts from design to development, concepts are transformed into digital experiences, with websites, apps, and products crafted to convey compelling brand stories.",
+        "development_card_alt": "Screenshots of the web designs that Erinç Polat made",
+        "improvement_card_title": "Improvement",
+        "improvement_card_description": "Analytics support, service containerization, SEO/ASO, store testing and tracking setup, server configuration, and ongoing improvements are implemented.",
+        "improvement_card_alt": "Logos of different technologies"
     }
 }
