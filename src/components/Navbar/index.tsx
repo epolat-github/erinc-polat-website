@@ -226,7 +226,10 @@ const Navbar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                         >
-                            <Stack alignItems="flex-end">
+                            <Stack
+                                alignItems="flex-end"
+                                sx={{ marginRight: spacing.tiny }}
+                            >
                                 <LanguageSelector />
                             </Stack>
 

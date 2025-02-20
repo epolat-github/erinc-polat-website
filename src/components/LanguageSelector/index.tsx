@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Button, ClickAwayListener, Divider, Stack } from "@mui/material";
+import { ButtonBase, Stack } from "@mui/material";
 
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
@@ -20,15 +19,10 @@ const LanguageSelector = () => {
 
         // render language selectors
         return (
-            <Button
-                disableRipple
-                onClick={() => changeLanguage(newLocale)}
-                sx={{
-                    height: 25,
-                }}
-            >
+            <ButtonBase disableRipple onClick={() => changeLanguage(newLocale)}>
                 <Image
-                    fill
+                    width={30}
+                    height={30}
                     src={`/flags/${locale}.webp`}
                     alt={`flag of ${locale}`}
                     style={{
@@ -36,9 +30,9 @@ const LanguageSelector = () => {
                         borderRadius: spacing.small,
                         overflow: "hidden",
                     }}
-                    sizes="25px"
+                    sizes="30px"
                 />
-            </Button>
+            </ButtonBase>
         );
     };
 
