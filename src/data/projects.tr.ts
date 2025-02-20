@@ -91,7 +91,7 @@ const projects: Project[] = [
         slug: "actio",
         title: "Actio - Etkinlik Yönetimi",
         summary:
-            "Size özel etkinlik arkadaşınız! Etkinliklere kolayca katılın, hatırlatıcılarla düzenli kalın ve paylaşımlar ile anketlere katılarak etkinlik deneyiminizi sorunsuz hale getirin!",
+            "Cebinizdeki etkinlik arkadaşınızı keşfedin! Etkinliklere kolayca katılın, hatırlatıcılarla takipte kalın ve paylaşımlar ile anketlere katılarak etkinlik deneyiminizi kusursuz hale getirin!",
         projectUrl: "https://actioevents.com",
         featuredImages: [
             {
