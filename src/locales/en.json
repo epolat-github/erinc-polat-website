@@ -68,5 +68,9 @@
     "projects": {
         "title": "Projects",
         "subtitle": "Here is an archive of my top projects. Feel free to explore them."
+    },
+    "footer": {
+        "text": "Let's bring your project come to life together!",
+        "copyright": "Copyright © {year} - Erinç Polat - All Rights Reserved"
     }
 }

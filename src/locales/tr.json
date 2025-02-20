@@ -5,7 +5,7 @@
         "description": "Ürün geliştirmeye ilgi duyan bir full-stack geliştirici.",
         "websites_text": "Müşteriye özel dizaynlı siteler",
         "mobile_text": "Cross-platform mobil uygulamalar",
-        "backend_text": "Backend geliştirem desteği",
+        "backend_text": "Backend geliştirme desteği",
         "cta_button_text": "İletişime Geç",
         "secondary_button_text": "Daha Fazla"
     },
@@ -39,7 +39,7 @@
     },
     "contact_header": {
         "background_title": "İletişim",
-        "small_title": "Hadi,",
+        "small_title": "Birlikte",
         "title": "Projeniz hakkında konuşalım.",
         "subtitle": "Bana istediğiniz soruyu sorabilirsiniz. Gelecekteki iş birliğimiz hakkında konuşalım."
     },
@@ -53,7 +53,7 @@
         "generic_error_message": "Bir hata oluştu. Lütfen benimle e-posta yoluyla iletişime geçin 🙂",
         "success_message": "Mesajınızı aldım. En kısa sürede sizinle iletişime geçeceğim 🙂",
         "contact_info_title": "İletişim Bilgileri",
-        "contact_info_subtitle": "Hadi Konuşalım.",
+        "contact_info_subtitle": "Bana Danışın.",
         "resume_text": "Özgeçmişim",
         "linkedin_text": "LinkedIn'de Bağlantı Kur",
         "instagram_text": "Instagram'da Takip Et",
@@ -68,5 +68,9 @@
     "projects": {
         "title": "Projeler",
         "subtitle": "Projelerimi aşağıdaki listeden inceleyebilirsiniz."
+    },
+    "footer": {
+        "text": "Gelin beraber projenizi hayata geçirelim!",
+        "copyright": "Copyright © {year} - Erinç Polat - Tüm Hakları Saklıdır"
     }
 }

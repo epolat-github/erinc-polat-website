@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Oswald } from "next/font/google";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const oswald = Oswald({
     weight: ["300", "400", "500", "700"],
@@ -15,6 +16,8 @@ const oswald = Oswald({
 });
 
 const Footer = () => {
+    const t = useTranslations("footer");
+
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: targetRef,
@@ -105,7 +108,7 @@ const Footer = () => {
                             fontFamily: oswald.style.fontFamily,
                         }}
                     >
-                        {"Let's bring your project come to life together!"}
+                        {t("text")}
                     </Typography>
                 </Stack>
 
@@ -120,7 +123,9 @@ const Footer = () => {
                         textAlign="center"
                         variant="subtitle2"
                     >
-                        {`Copyright © ${new Date().getFullYear()} - Erinç Polat - All Rights Reserved`}
+                        {t("copyright", {
+                            year: new Date().getFullYear(),
+                        })}
                     </Typography>
                 </Stack>
             </Stack>
