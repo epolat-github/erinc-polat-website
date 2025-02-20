@@ -6,10 +6,12 @@ import ChipRow from "@/components/ProjectDetails/ChipRow";
 import SingleImageRow from "@/components/ProjectDetails/SingleImageRow";
 import MultipleImageRow from "@/components/ProjectDetails/MultipleImageRow";
 import { Inter } from "next/font/google";
-import projects from "@/data/projects";
+import projectsEn from "@/data/projects.en";
+import projectsTr from "@/data/projects.tr";
 import { notFound } from "next/navigation";
 import SubdirectoryArrowRightIcon from "@mui/icons-material/SubdirectoryArrowRight";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -18,7 +20,7 @@ const inter = Inter({
 });
 
 export async function generateStaticParams() {
-    return projects.map((project) => ({
+    return projectsEn.map((project) => ({
         slug: project.slug,
     }));
 }
@@ -32,7 +34,11 @@ interface ProjectDetailsType {
 const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
     const slug = params.slug;
 
-    const project = projects.find((project) => project.slug === slug);
+    const locale = useLocale();
+
+    const projectsWithLocale = locale === "en" ? projectsEn : projectsTr;
+
+    const project = projectsWithLocale.find((project) => project.slug === slug);
 
     if (!project) {
         console.log("project not found: ", slug);
@@ -52,7 +58,6 @@ const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
                 maxWidth="xl"
                 sx={{
                     display: "flex",
-                    // minHeight: "100vh",
                 }}
                 spacing={spacing.small}
             >
@@ -112,15 +117,7 @@ const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
                             <ChipRow labels={tags} />
                         </Stack>
 
-                        <Stack
-                            spacing={spacing.tiny}
-                            // sx={{
-                            //     paddingBottom: {
-                            //         xs: spacing.medium,
-                            //         md: 0,
-                            //     },
-                            // }}
-                        >
+                        <Stack spacing={spacing.tiny}>
                             <Stack gap={spacing.tiny}>
                                 {paragraphs.map((paragraph, index) => (
                                     <Typography key={`paragraph-${index}`}>
