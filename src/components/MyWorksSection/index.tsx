@@ -7,11 +7,12 @@ import EastRoundedIcon from "@mui/icons-material/EastRounded";
 // import Link from "next/link";
 import spacing from "@/utils/spacing";
 import MyWorkCard from "../MyWorkCard";
-import projects from "@/data/projects";
+import projectsEn from "@/data/projects.en";
+import projectsTr from "@/data/projects.tr";
 // import { useRouter } from "next/navigation";
 import { Oswald } from "next/font/google";
 import { Link, useRouter } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const oswald = Oswald({
     weight: ["300", "400", "500", "700"],
@@ -21,7 +22,10 @@ const oswald = Oswald({
 
 const MyWorksSection = () => {
     const t = useTranslations("my_works_section");
+    const locale = useLocale();
     const router = useRouter();
+
+    const projectsWithLocale = locale === "en" ? projectsEn : projectsTr;
 
     return (
         <Box
@@ -100,20 +104,24 @@ const MyWorksSection = () => {
                         </Stack>
 
                         <MyWorkCard
-                            title={projects[0].title}
-                            description={projects[0].summary}
-                            images={projects[0].featuredImages}
+                            title={projectsWithLocale[0].title}
+                            description={projectsWithLocale[0].summary}
+                            images={projectsWithLocale[0].featuredImages}
                             onClick={() =>
-                                router.push(`/projects/${projects[0].slug}`)
+                                router.push(
+                                    `/projects/${projectsWithLocale[0].slug}`
+                                )
                             }
                             animationDirection="left"
                         />
                         <MyWorkCard
-                            title={projects[2].title}
-                            description={projects[2].summary}
-                            images={projects[2].featuredImages}
+                            title={projectsWithLocale[2].title}
+                            description={projectsWithLocale[2].summary}
+                            images={projectsWithLocale[2].featuredImages}
                             onClick={() =>
-                                router.push(`/projects/${projects[2].slug}`)
+                                router.push(
+                                    `/projects/${projectsWithLocale[2].slug}`
+                                )
                             }
                             animationDirection="left"
                         />
@@ -128,20 +136,24 @@ const MyWorksSection = () => {
                         }}
                     >
                         <MyWorkCard
-                            title={projects[1].title}
-                            description={projects[1].summary}
-                            images={projects[1].featuredImages}
+                            title={projectsWithLocale[1].title}
+                            description={projectsWithLocale[1].summary}
+                            images={projectsWithLocale[1].featuredImages}
                             onClick={() =>
-                                router.push(`/projects/${projects[1].slug}`)
+                                router.push(
+                                    `/projects/${projectsWithLocale[1].slug}`
+                                )
                             }
                             animationDirection="right"
                         />
                         <MyWorkCard
-                            title={projects[3].title}
-                            description={projects[3].summary}
-                            images={projects[3].featuredImages}
+                            title={projectsWithLocale[3].title}
+                            description={projectsWithLocale[3].summary}
+                            images={projectsWithLocale[3].featuredImages}
                             onClick={() =>
-                                router.push(`/projects/${projects[3].slug}`)
+                                router.push(
+                                    `/projects/${projectsWithLocale[3].slug}`
+                                )
                             }
                             animationDirection="right"
                         />
