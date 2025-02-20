@@ -5,8 +5,9 @@ import { Box, Container, Grid2, Stack, Typography } from "@mui/material";
 import colors from "@/utils/colors";
 import spacing from "@/utils/spacing";
 import MyWorkCard from "@/components/MyWorkCard";
-import projects from "@/data/projects.en";
-import { useTranslations } from "next-intl";
+import projectsEn from "@/data/projects.en";
+import projectsTr from "@/data/projects.tr";
+import { useLocale, useTranslations } from "next-intl";
 import { Oswald } from "next/font/google";
 import { useRouter } from "@/i18n/routing";
 
@@ -19,6 +20,9 @@ const oswald = Oswald({
 const Projects = () => {
     const t = useTranslations("projects");
     const router = useRouter();
+    const locale = useLocale();
+
+    const projectsWithLocale = locale === "en" ? projectsEn : projectsTr;
 
     return (
         <Box
@@ -54,7 +58,7 @@ const Projects = () => {
                     columnSpacing={spacing.small}
                     rowSpacing={spacing.medium}
                 >
-                    {projects.map((project, index) => (
+                    {projectsWithLocale.map((project, index) => (
                         <Grid2
                             key={project.slug}
                             size={{
