@@ -64,5 +64,9 @@
         "works": "Projeler",
         "process": "Süreç",
         "contact": "İletişim"
+    },
+    "projects": {
+        "title": "Projeler",
+        "subtitle": "Projelerimi aşağıdaki listeden inceleyebilirsiniz."
     }
 }

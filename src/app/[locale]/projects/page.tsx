@@ -5,10 +5,19 @@ import { Box, Container, Grid2, Stack, Typography } from "@mui/material";
 import colors from "@/utils/colors";
 import spacing from "@/utils/spacing";
 import MyWorkCard from "@/components/MyWorkCard";
-import { useRouter } from "next/navigation";
-import projects from "@/data/projects";
+import projects from "@/data/projects.en";
+import { useTranslations } from "next-intl";
+import { Oswald } from "next/font/google";
+import { useRouter } from "@/i18n/routing";
+
+const oswald = Oswald({
+    weight: ["300", "400", "500", "700"],
+    subsets: ["latin"],
+    display: "swap",
+});
 
 const Projects = () => {
+    const t = useTranslations("projects");
     const router = useRouter();
 
     return (
@@ -28,13 +37,16 @@ const Projects = () => {
                 spacing={spacing.small}
             >
                 <Stack spacing={spacing.tiny}>
-                    <Typography variant="h2" fontWeight="bold">
-                        Projects
+                    <Typography
+                        variant="h2"
+                        fontWeight="bold"
+                        sx={{
+                            fontFamily: oswald.style.fontFamily,
+                        }}
+                    >
+                        {t("title")}
                     </Typography>
-                    <Typography variant="subtitle1">
-                        Here is an archive of my top projects. Feel free to
-                        explore them.
-                    </Typography>
+                    <Typography variant="subtitle1">{t("subtitle")}</Typography>
                 </Stack>
 
                 <Grid2

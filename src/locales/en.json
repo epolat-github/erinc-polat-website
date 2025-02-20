@@ -64,5 +64,9 @@
         "works": "Works",
         "process": "Process",
         "contact": "Contact"
+    },
+    "projects": {
+        "title": "Projects",
+        "subtitle": "Here is an archive of my top projects. Feel free to explore them."
     }
 }
