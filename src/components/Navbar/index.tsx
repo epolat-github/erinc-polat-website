@@ -20,6 +20,7 @@ import spacing from "@/utils/spacing";
 import Image from "next/image";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import LanguageSelector from "../LanguageSelector";
 
 const barlowSemiCondensed = Barlow_Semi_Condensed({
     subsets: ["latin", "latin-ext"],
@@ -114,11 +115,13 @@ const Navbar = () => {
         >
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
+                    {/* DESKTOP */}
                     <Stack
                         direction="row"
                         gap={2}
                         justifyContent="center"
                         flex={1}
+                        alignItems="center"
                         sx={{
                             display: {
                                 xs: "none",
@@ -171,8 +174,11 @@ const Navbar = () => {
                                 {t(sectionButton.titleTranslationKey)}
                             </Button>
                         ))}
+
+                        <LanguageSelector />
                     </Stack>
 
+                    {/* MOBILE */}
                     <Stack
                         sx={{
                             display: {
@@ -204,9 +210,9 @@ const Navbar = () => {
                                         "0px 10px 15px -3px rgba(0,0,0,0.1)",
                                     minWidth: 180,
                                     color: "rgb(55, 65, 81)",
+                                    borderRadius: spacing.tiny,
                                 },
                             }}
-                            // id="menu-appbar"
                             anchorEl={anchorElNav}
                             anchorOrigin={{
                                 vertical: "top",
@@ -220,29 +226,28 @@ const Navbar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                         >
+                            <Stack alignItems="flex-end">
+                                <LanguageSelector />
+                            </Stack>
+
                             {sectionButtons.map((sectionButton, index) => (
                                 <MenuItem
-                                    // key={sectionButton.title}
-
-                                    // component={motion.li}
-                                    // LinkComponent={Link}
+                                    component={motion.li}
                                     key={sectionButton.titleTranslationKey}
-                                    // href={`/#${sectionButton.to}`}
-                                    // href={`#${sectionButton.to}`}
                                     onClick={() =>
                                         onClickOnMobile(`#${sectionButton.to}`)
                                     }
                                     disableRipple
-                                    // initial={{
-                                    //     opacity: 0,
-                                    //     translateY: -5,
-                                    // }}
-                                    // animate={controls}
-                                    // transition={{
-                                    //     ease: "easeInOut",
-                                    //     delay: (index + 0.1) * 0.1,
-                                    //     duration: 0.3,
-                                    // }}
+                                    initial={{
+                                        opacity: 0,
+                                        translateY: -5,
+                                    }}
+                                    animate={controls}
+                                    transition={{
+                                        ease: "easeInOut",
+                                        delay: (index + 0.1) * 0.1,
+                                        duration: 0.1,
+                                    }}
                                 >
                                     <Typography textAlign="center">
                                         {t(sectionButton.titleTranslationKey)}
