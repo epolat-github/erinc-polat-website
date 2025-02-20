@@ -40,6 +40,13 @@ export const metadata: Metadata = {
         "developer",
     ],
     metadataBase: new URL("https://www.erincpolat.com"),
+    alternates: {
+        canonical: "/",
+        languages: {
+            tr: "/tr",
+            en: "/en",
+        },
+    },
 };
 
 const RootLayout = async ({
