@@ -36,6 +36,7 @@ const LanguageSelector = () => {
                         borderRadius: spacing.small,
                         overflow: "hidden",
                     }}
+                    sizes="25px"
                 />
             </Button>
         );
