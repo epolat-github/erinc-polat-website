@@ -20,9 +20,17 @@ const inter = Inter({
 });
 
 export async function generateStaticParams() {
-    return projectsEn.map((project) => ({
+    const en = projectsEn.map((project) => ({
         slug: project.slug,
+        locale: "en",
     }));
+
+    const tr = projectsTr.map((project) => ({
+        slug: project.slug,
+        locale: "tr",
+    }));
+
+    return [...en, ...tr];
 }
 
 interface ProjectDetailsType {
