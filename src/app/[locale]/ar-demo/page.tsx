@@ -29,7 +29,7 @@ const ArDemo = () => {
                 }}
                 spacing={spacing.small}
             >
-                <a id="ar-viewer" rel="ar" href="/pancakes_photogrammetry.usdz">
+                <a id="ar-viewer" rel="ar" href="/wedding_ring.usdz">
                     <Image
                         fill
                         style={{
