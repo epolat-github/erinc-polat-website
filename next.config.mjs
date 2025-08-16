@@ -6,7 +6,8 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
     typescript: {
         ignoreBuildErrors: true
-    }
+    },
+    transpilePackages: ["three"]
 };
 
 export default withNextIntl(nextConfig);
