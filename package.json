@@ -17,9 +17,9 @@
     "@mui/material": "^6.1.0",
     "@mui/material-nextjs": "^6.1.0",
     "@next/third-parties": "^15.0.2",
-    "@react-three/drei": "^10.6.1",
-    "@react-three/fiber": "8",
-    "@react-three/postprocessing": "^3.0.4",
+    "@react-three/drei": "9.92.0",
+    "@react-three/fiber": "8.15.12",
+    "@react-three/postprocessing": "2.15.12",
     "framer-motion": "^11.5.4",
     "leva": "^0.10.0",
     "next": "14.2.3",
@@ -29,15 +29,16 @@
     "react-dom": "^18",
     "resend": "^4.0.0",
     "sharp": "^0.33.5",
-    "three": "^0.179.1"
+    "three": "0.159.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/three": "^0.182.0",
+    "@types/three": "0.158.3",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
