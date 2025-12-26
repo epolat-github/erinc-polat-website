@@ -377,7 +377,7 @@ export default function MarifetArPage() {
                 role="group"
                 aria-label="AR butonu"
             >
-                <a href="/wedding_ring.usdz" rel="ar" target="_blank">
+                <a href="/ring.usdz" rel="ar" target="_blank">
                     <button type="button">AR ile gör</button>
                 </a>
             </div>
