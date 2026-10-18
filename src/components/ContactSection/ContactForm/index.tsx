@@ -2,6 +2,7 @@
 
 import {
     Box,
+    Button,
     ButtonBase,
     Container,
     Grid2,
@@ -24,7 +25,6 @@ import Image from "next/image";
 import { sendEmail } from "../../../app/actions/sendEmail";
 import { motion } from "framer-motion";
 import { useSnackbar } from "notistack";
-import { LoadingButton } from "@mui/lab";
 import { sendGAEvent } from "@next/third-parties/google";
 import { useTranslations } from "next-intl";
 import { Oswald } from "next/font/google";
@@ -282,7 +282,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                                 py: spacing.tiny / 2,
                             }}
                         />
-                        <LoadingButton
+                        <Button
                             loading={isSubmittingForm}
                             type="submit"
                             variant="contained"
@@ -295,7 +295,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                             color="primary"
                         >
                             {t("send_message_button_text")}
-                        </LoadingButton>
+                        </Button>
                     </Stack>
                 </Stack>
 

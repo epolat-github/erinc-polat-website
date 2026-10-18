@@ -11,7 +11,6 @@ import projectsTr from "@/data/projects.tr";
 import { notFound } from "next/navigation";
 import SubdirectoryArrowRightIcon from "@mui/icons-material/SubdirectoryArrowRight";
 import Link from "next/link";
-import { useLocale } from "next-intl";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -34,15 +33,14 @@ export async function generateStaticParams() {
 }
 
 interface ProjectDetailsType {
-    params: {
+    params: Promise<{
+        locale: string;
         slug: string;
-    };
+    }>;
 }
 
-const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
-    const slug = params.slug;
-
-    const locale = useLocale();
+const ProjectDetails = async ({ params }: ProjectDetailsType) => {
+    const { locale, slug } = await params;
 
     const projectsWithLocale = locale === "en" ? projectsEn : projectsTr;
 

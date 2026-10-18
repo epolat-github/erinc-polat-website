@@ -1,6 +1,6 @@
 import "../global.css";
 import type { Metadata, Viewport } from "next";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/utils/theme";
 import { CssBaseline } from "@mui/material";
@@ -51,11 +51,13 @@ export const metadata: Metadata = {
 
 const RootLayout = async ({
     children,
-    params: { locale },
+    params,
 }: Readonly<{
     children: React.ReactNode;
-    params: { locale: string };
+    params: Promise<{ locale: string }>;
 }>) => {
+    const { locale } = await params;
+
     // Ensure that the incoming `locale` is valid
     if (!routing.locales.includes(locale as any)) {
         notFound();

@@ -24,7 +24,7 @@ const STONE_TOKENS = [
     "baguette",
 ];
 
-function nameHaystack(mesh) {
+function nameHaystack(mesh: any) {
     const parts = [];
     parts.push(mesh.name || "");
     parts.push(mesh.material?.name || "");
@@ -35,13 +35,13 @@ function nameHaystack(mesh) {
     }
     return parts.join(" ").toLowerCase();
 }
-function isStoneMesh(mesh) {
+function isStoneMesh(mesh: any) {
     const hay = nameHaystack(mesh);
     return STONE_TOKENS.some((t) => hay.includes(t));
 }
 
 // basit RNG (procedural roughness noise için)
-function mulberry32(a) {
+function mulberry32(a: number) {
     return function () {
         let t = (a += 0x6d2b79f5);
         t = Math.imul(t ^ (t >>> 15), t | 1);
@@ -66,10 +66,8 @@ function makeRoughnessNoise({
         v = Math.min(1, Math.max(0, v));
         data[i] = Math.round(v * 255);
     }
-    const format = THREE.RedFormat ?? THREE.LuminanceFormat;
-    const tex = new THREE.DataTexture(data, size, size, format);
-    if ("colorSpace" in tex) tex.colorSpace = THREE.NoColorSpace;
-    else tex.encoding = THREE.LinearEncoding;
+    const tex = new THREE.DataTexture(data, size, size, THREE.RedFormat);
+    tex.colorSpace = THREE.NoColorSpace;
     tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
     tex.repeat.set(repeat, repeat);
     tex.needsUpdate = true;
@@ -92,8 +90,8 @@ export default function Ring({ url = "/halka.glb", ...props }) {
 
     // Tüm meshleri topla
     const meshes = useMemo(() => {
-        const list = [];
-        gltfScene.traverse((o) => o.isMesh && list.push(o));
+        const list: any[] = [];
+        gltfScene.traverse((o: any) => o.isMesh && list.push(o));
         return list;
     }, [gltfScene]);
 
@@ -243,7 +241,7 @@ export default function Ring({ url = "/halka.glb", ...props }) {
     );
 
     // Her frame worldMatrix senkronu
-    const overlayRefs = useRef([]);
+    const overlayRefs = useRef<Array<{ src: any; dst: THREE.Mesh }>>([]);
     useEffect(() => {
         overlayRefs.current = [];
     }, [overlaySources]);

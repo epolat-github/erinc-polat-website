@@ -101,7 +101,7 @@ class SceneErrorBoundary extends Component<
 }
 
 function Ring({ url, frame, diamonds, env, ...props }: any) {
-    const gltf = useGLTF(url);
+    const gltf = useGLTF(url) as { scene: THREE.Group };
     const scene = useMemo(() => gltf.scene.clone(true), [gltf.scene]);
 
     const diamondTargets = useMemo(() => {

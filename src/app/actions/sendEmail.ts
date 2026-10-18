@@ -1,6 +1,7 @@
 "use server";
 
 import ContactEmailTemplate from "@/components/ContactEmailTemplate";
+import { createElement } from "react";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -23,7 +24,11 @@ export const sendEmail = async (
             to: ["erinc.polat@gmail.com"],
             subject: "New Contact Email from Website",
             replyTo: email,
-            react: ContactEmailTemplate({ name, email, message }),
+            react: createElement(ContactEmailTemplate, {
+                name,
+                email,
+                message,
+            }),
         });
 
         if (error) {
