@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:brand": "node --experimental-strip-types --test src/utils/colors.test.ts"
   },
   "dependencies": {
     "@emotion/cache": "11.14.0",
