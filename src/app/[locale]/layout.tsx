@@ -15,9 +15,6 @@ import { NextIntlClientProvider } from "next-intl";
 export const viewport: Viewport = {
     width: "device-width",
     initialScale: 1,
-    maximumScale: 1,
-    minimumScale: 1,
-    userScalable: false,
     colorScheme: "light",
     themeColor: "#fff",
 };

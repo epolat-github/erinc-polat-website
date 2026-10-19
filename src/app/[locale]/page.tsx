@@ -13,7 +13,7 @@ const Home = () => {
         <Stack
             sx={{
                 backgroundColor: colors.background,
-                width: "100vw",
+                width: "100%",
             }}
         >
             <WelcomeSection />
