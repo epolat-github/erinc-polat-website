@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-20T00:14:00+03:00",
+  "title": "Design System: Erinç Polat Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "canvas": { "role": "neutral", "displayName": "Canvas White", "canonical": "#FFFFFF", "tonalRamp": ["#FFFFFF", "#F0F3F6", "#D8DEE8"] },
+      "ink": { "role": "neutral", "displayName": "Authority Ink", "canonical": "#111827", "tonalRamp": ["#7C8492", "#3D4656", "#111827", "#090D14"] },
+      "primary-navy": { "role": "primary", "displayName": "Authority Navy", "canonical": "#173B6C", "tonalRamp": ["#DCE6F2", "#829CBB", "#173B6C", "#0F294C"] },
+      "secondary-brick": { "role": "secondary", "displayName": "Entrepreneurial Brick", "canonical": "#B94E3A", "tonalRamp": ["#F3DCD7", "#D68B7D", "#B94E3A", "#853325"] },
+      "supporting-text": { "role": "neutral", "displayName": "Supporting Slate", "canonical": "#5E6673", "tonalRamp": ["#BBC0C8", "#858C97", "#5E6673", "#3E4651"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Hero Display", "purpose": "Name-level hero statements only." },
+      "headline": { "displayName": "Editorial Heading", "purpose": "Major section and contact headings." },
+      "body": { "displayName": "Body", "purpose": "Readable explanatory and project copy." },
+      "navigation": { "displayName": "Navigation", "purpose": "Compact primary navigation labels." }
+    },
+    "shadows": [
+      { "name": "bento-ambient", "value": "0 0 0 1px rgba(0,0,0,.03), 0 2px 4px rgba(0,0,0,.05), 0 12px 24px rgba(0,0,0,.05)", "purpose": "Large featured bento surfaces." },
+      { "name": "menu-lift", "value": "0 10px 15px -3px rgba(0,0,0,.1)", "purpose": "Mobile navigation menu." }
+    ],
+    "motion": [
+      { "name": "reveal-standard", "value": "700ms ease-out", "purpose": "Primary entrance and section reveal motion." },
+      { "name": "hover-standard", "value": "300ms ease-in-out", "purpose": "Small image and control hover feedback." }
+    ],
+    "breakpoints": [
+      { "name": "xs", "value": "0px" },
+      { "name": "sm", "value": "600px" },
+      { "name": "md", "value": "900px" },
+      { "name": "lg", "value": "1200px" },
+      { "name": "xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Accent CTA",
+      "kind": "button",
+      "refersTo": "button-accent",
+      "description": "Primary hero action using authority navy and clear white contrast.",
+      "html": "<button class=\"ds-btn-accent\">İletişime Geç</button>",
+      "css": ".ds-btn-accent { background:#173B6C; color:#FFFFFF; min-width:150px; height:40px; padding:8px 24px; border:0; border-radius:4px; font:500 14px Roboto,sans-serif; transition:background-color 180ms ease-out; } .ds-btn-accent:hover { background:#0F294C; } .ds-btn-accent:focus-visible { outline:3px solid #173B6C; outline-offset:3px; }"
+    },
+    {
+      "name": "Submit CTA",
+      "kind": "button",
+      "refersTo": "button-submit",
+      "description": "High-confidence form action with AA text contrast.",
+      "html": "<button class=\"ds-btn-submit\">Mesajı yolla</button>",
+      "css": ".ds-btn-submit { background:#173B6C; color:#FFFFFF; height:45px; padding:8px 24px; border:0; border-radius:12px; font:500 14px Roboto,sans-serif; transition:background-color 180ms ease-out; } .ds-btn-submit:hover { background:#0F294C; } .ds-btn-submit:focus-visible { outline:3px solid #173B6C; outline-offset:3px; }"
+    },
+    {
+      "name": "Form Field",
+      "kind": "input",
+      "refersTo": "form-field",
+      "description": "Softly rounded contact input with an explicit focus ring.",
+      "html": "<input class=\"ds-field\" value=\"E-posta adresi\" aria-label=\"E-posta adresi\">",
+      "css": ".ds-field { box-sizing:border-box; width:100%; background:#FFFFFF; color:#111827; border:1px solid #D8DEE8; border-radius:16px; padding:8px 16px; font:400 16px Roboto,sans-serif; } .ds-field:focus-visible { outline:3px solid #173B6C; outline-offset:3px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "Image-led project surface with restrained framing.",
+      "html": "<article class=\"ds-project-card\"><div class=\"ds-project-media\"></div><h3>Project title</h3><p>Project description</p></article>",
+      "css": ".ds-project-card { color:#111827; font-family:Roboto,sans-serif; } .ds-project-media { min-height:180px; background:#F0F3F6; border-radius:16px; } .ds-project-card h3 { margin:16px 16px 8px; font-size:24px; line-height:1.3; } .ds-project-card p { margin:0 16px 16px; color:#5E6673; line-height:1.5; }"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "description": "Quiet, compact navigation that leaves visual priority to portfolio work.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#about\">Hakkımda</a><a href=\"#works\">Projeler</a><a href=\"#contact\">İletişim</a></nav>",
+      "css": ".ds-nav { display:flex; gap:32px; align-items:center; font:400 16px 'Barlow Semi Condensed',sans-serif; letter-spacing:1.3px; } .ds-nav a { color:#111827; text-decoration:none; } .ds-nav a:hover { color:#173B6C; } .ds-nav a:focus-visible { outline:3px solid #173B6C; outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Quiet technical confidence",
+    "overview": "A clean, light-first portfolio in which project imagery, generous whitespace, authority navy, and restrained brick signals communicate established product leadership without hype.",
+    "keyCharacteristics": ["Image-led compositions", "Authority navy actions", "Restrained brick signals", "Crisp ink typography", "Soft selective depth", "Purposeful motion"],
+    "rules": [
+      { "name": "The Navy Leads Rule", "body": "Navy carries actions, links, focus, and primary emphasis; brick is reserved for identity signals and selected highlights.", "section": "colors" },
+      { "name": "Flat by default", "body": "Use shadow only to clarify layering, interaction, or a featured composition.", "section": "elevation" }
+    ],
+    "dos": ["Let project imagery provide the proof.", "Let authority navy lead actions and focus.", "Use entrepreneurial brick sparingly.", "Preserve generous whitespace and bilingual hierarchy."],
+    "donts": ["Do not turn brick into a competing primary action color.", "Do not fabricate project evidence.", "Do not introduce gratuitous gradients or generic dashboard styling."]
+  }
+}
