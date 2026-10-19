@@ -21,6 +21,7 @@ import Image from "next/image";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import LanguageSelector from "../LanguageSelector";
+import colors from "@/utils/colors";
 
 const barlowSemiCondensed = Barlow_Semi_Condensed({
     subsets: ["latin", "latin-ext"],
@@ -163,7 +164,7 @@ const Navbar = () => {
                                     textTransform: "none",
                                     fontFamily:
                                         barlowSemiCondensed.style.fontFamily,
-                                    color: "#000",
+                                    color: colors.header,
                                     letterSpacing: 1.3,
                                     fontSize: 16,
                                     "&:hover": {
@@ -208,6 +209,7 @@ const Navbar = () => {
                             }
                             aria-expanded={Boolean(anchorElNav)}
                             aria-haspopup="menu"
+                            sx={{ color: colors.header }}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -217,9 +219,11 @@ const Navbar = () => {
                                 mt: "45px",
                                 "& .MuiPaper-root": {
                                     boxShadow:
-                                        "0px 10px 15px -3px rgba(0,0,0,0.1)",
+                                        "0px 10px 15px -3px rgba(17,24,39,0.12)",
                                     minWidth: 180,
-                                    color: "rgb(55, 65, 81)",
+                                    color: colors.header,
+                                    backgroundColor: colors.background,
+                                    border: `1px solid ${colors.border}`,
                                     borderRadius: spacing.tiny,
                                 },
                             }}

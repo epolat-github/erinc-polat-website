@@ -1,6 +1,7 @@
 import spacing from "@/utils/spacing";
 import { Box, ButtonBase, Stack } from "@mui/material";
 import Image from "next/image";
+import colors from "@/utils/colors";
 
 interface MiniGallerySelectorProps {
     images: Array<{
@@ -43,7 +44,7 @@ const MiniGallerySelector: React.FC<MiniGallerySelectorProps> = ({
                         overflow: "hidden",
                         borderWidth: 1.3,
                         borderStyle: "solid",
-                        borderColor: "#EDF2FA",
+                        borderColor: colors.border,
                         transition: "all 300ms",
                         position: "relative",
                         ...(activeIndex === index

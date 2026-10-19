@@ -6,13 +6,10 @@ import {
     Button,
     Container,
     Stack,
-    Theme,
     Typography,
-    useMediaQuery,
 } from "@mui/material";
 import spacing from "@/utils/spacing";
 import DotPattern from "../DotPattern";
-import theme from "@/utils/theme";
 import ProjectsOverview from "./ProjectsOverview";
 import RevealItem from "../RevealItem";
 import FadeInItem from "../FadeInItem";
@@ -70,7 +67,7 @@ const WelcomeSection = () => {
                         >
                             <Typography
                                 fontWeight="bold"
-                                color={colors.primary}
+                                color={colors.primaryText}
                                 sx={{
                                     fontSize: {
                                         lg: "8rem",
@@ -125,7 +122,7 @@ const WelcomeSection = () => {
                                 variant="contained"
                                 sx={{
                                     backgroundColor: colors.primary,
-                                    color: "#fff",
+                                    color: colors.onPrimary,
                                     minWidth: 150,
                                     height: 40,
                                 }}
@@ -140,9 +137,13 @@ const WelcomeSection = () => {
                             <Button
                                 variant="contained"
                                 sx={{
-                                    backgroundColor: theme.palette.grey[100],
+                                    backgroundColor: colors.surface,
+                                    color: colors.header,
                                     minWidth: 150,
                                     height: 40,
+                                    "&:hover": {
+                                        backgroundColor: colors.border,
+                                    },
                                 }}
                                 disableElevation
                                 href="#about"

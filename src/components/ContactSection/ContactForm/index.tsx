@@ -217,7 +217,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
             component={motion.div}
             ref={ref}
             sx={{
-                backgroundColor: "#fff",
+                backgroundColor: colors.background,
                 zIndex: 1,
                 position: "relative",
                 paddingY: spacing.medium,
@@ -227,7 +227,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 component={Stack}
                 maxWidth="lg"
                 sx={{
-                    backgroundColor: "#fff",
+                    backgroundColor: colors.background,
                 }}
                 spacing={spacing.big}
                 direction={{ xs: "column", sm: "row" }}
@@ -430,7 +430,6 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                             variant="contained"
                             disableElevation
                             sx={{
-                                color: "#fff",
                                 height: 45,
                                 borderRadius: "12px",
                             }}

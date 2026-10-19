@@ -55,7 +55,7 @@ const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
                 }}
             >
                 <Typography
-                    color={colors.primary}
+                    color={colors.primaryText}
                     sx={{
                         fontSize: "1.3rem",
                     }}

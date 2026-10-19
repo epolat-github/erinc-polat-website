@@ -1,5 +1,6 @@
 import spacing from "@/utils/spacing";
 import { Chip, ChipProps, Stack, StackProps } from "@mui/material";
+import colors from "@/utils/colors";
 
 interface ChipRowType {
     labels: string[];
@@ -23,8 +24,8 @@ const ChipRow: React.FC<ChipRowType> = (props) => {
                     label={label}
                     sx={{
                         borderRadius: "4px",
-                        backgroundColor: "#f6f6f6",
-                        color: "#6d6d6d"
+                        backgroundColor: colors.surface,
+                        color: colors.gray,
                     }}
                     {...chipProps}
                 />

@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { useScroll } from "framer-motion";
 import ContactForm from "./ContactForm";
 import { SnackbarProvider } from "notistack";
+import colors from "@/utils/colors";
 
 const ContactSection = () => {
     const targetRef = useRef(null);
@@ -25,7 +26,7 @@ const ContactSection = () => {
             <Box
                 id="contact"
                 sx={{
-                    backgroundColor: "#fff",
+                    backgroundColor: colors.background,
                 }}
             >
                 <ContactHeader scrollYProgress={scrollYProgress} />

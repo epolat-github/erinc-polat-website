@@ -8,6 +8,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { oswald } from "@/utils/fonts";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import colors from "@/utils/colors";
 
 const Footer = () => {
     const t = useTranslations("footer");
@@ -35,7 +36,7 @@ const Footer = () => {
             ref={targetRef}
             component={motion.footer}
             style={{
-                backgroundColor: "#fff",
+                backgroundColor: colors.background,
                 paddingLeft: containerPaddingX as any,
                 paddingRight: containerPaddingX as any,
                 paddingTop: containerPaddingY as any,
@@ -90,7 +91,7 @@ const Footer = () => {
                 >
                     <Typography
                         variant="h3"
-                        color="#fff"
+                        color={colors.onPrimary}
                         textAlign="center"
                         sx={{
                             fontSize: {
@@ -113,7 +114,7 @@ const Footer = () => {
                     }}
                 >
                     <Typography
-                        color="#fff"
+                        color={colors.onPrimary}
                         textAlign="center"
                         variant="subtitle2"
                     >
