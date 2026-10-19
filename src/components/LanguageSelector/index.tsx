@@ -1,12 +1,13 @@
 import { ButtonBase, Stack } from "@mui/material";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
 import Image from "next/image";
 import spacing from "@/utils/spacing";
 
 const LanguageSelector = () => {
     const locale = useLocale();
+    const t = useTranslations("accessibility");
     const router = useRouter();
     const pathname = usePathname();
 
@@ -19,12 +20,20 @@ const LanguageSelector = () => {
 
         // render language selectors
         return (
-            <ButtonBase disableRipple onClick={() => changeLanguage(newLocale)}>
+            <ButtonBase
+                disableRipple
+                onClick={() => changeLanguage(newLocale)}
+                aria-label={
+                    newLocale === "tr"
+                        ? t("switch_to_turkish")
+                        : t("switch_to_english")
+                }
+            >
                 <Image
                     width={30}
                     height={30}
                     src={`/flags/${locale}.webp`}
-                    alt={`flag of ${locale}`}
+                    alt=""
                     style={{
                         objectFit: "contain",
                         borderRadius: spacing.small,

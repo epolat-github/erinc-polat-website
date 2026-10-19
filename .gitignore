@@ -40,3 +40,4 @@ yarn-error.log*
 next-env.d.ts
 
 PROJECT_AUDIT_REPORT.md
+PROJECT_AUDIT_*.md

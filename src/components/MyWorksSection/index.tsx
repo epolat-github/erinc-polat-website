@@ -10,15 +10,9 @@ import MyWorkCard from "../MyWorkCard";
 import projectsEn from "@/data/projects.en";
 import projectsTr from "@/data/projects.tr";
 // import { useRouter } from "next/navigation";
-import { Oswald } from "next/font/google";
+import { oswald } from "@/utils/fonts";
 import { Link, useRouter } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
-
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
 
 const MyWorksSection = () => {
     const t = useTranslations("my_works_section");

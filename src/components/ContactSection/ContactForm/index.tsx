@@ -27,13 +27,12 @@ import { motion } from "framer-motion";
 import { useSnackbar } from "notistack";
 import { sendGAEvent } from "@next/third-parties/google";
 import { useTranslations } from "next-intl";
-import { Oswald } from "next/font/google";
+import { oswald } from "@/utils/fonts";
 
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
+type ContactField = "name" | "email" | "message";
+type FieldErrors = Partial<Record<ContactField, string>>;
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const CONTACT_DATA = [
     {
@@ -127,31 +126,66 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
     const t = useTranslations("contact_form");
     const { enqueueSnackbar } = useSnackbar();
     const [isSubmittingForm, setIsSubmittingForm] = useState(false);
+    const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+    const [formStatus, setFormStatus] = useState("");
 
     const openLink = (url: string) => {
         window.open(url, "_blank");
     };
 
-    const sendEmailHandler = async (formData: FormData) => {
+    const clearFieldError = (field: ContactField) => {
+        setFormStatus("");
+        setFieldErrors((currentErrors) => {
+            if (!currentErrors[field]) return currentErrors;
+
+            const nextErrors = { ...currentErrors };
+            delete nextErrors[field];
+            return nextErrors;
+        });
+    };
+
+    const validateForm = (formData: FormData) => {
+        const errors: FieldErrors = {};
+        const name = String(formData.get("name") ?? "").trim();
+        const email = String(formData.get("email") ?? "").trim();
+        const message = String(formData.get("message") ?? "").trim();
+
+        if (!name) errors.name = t("name_required_error");
+        if (!email) {
+            errors.email = t("email_required_error");
+        } else if (!EMAIL_PATTERN.test(email)) {
+            errors.email = t("email_invalid_error");
+        }
+        if (!message) errors.message = t("message_required_error");
+
+        return errors;
+    };
+
+    const sendEmailHandler = async (
+        form: HTMLFormElement,
+        formData: FormData,
+    ) => {
         try {
             setIsSubmittingForm(true);
+            setFormStatus("");
 
             sendGAEvent({
                 event: "contact_email",
                 value: JSON.stringify(formData),
             });
 
-            const { error, data } = await sendEmail(formData);
+            const { error } = await sendEmail(formData);
 
             if (error) {
-                // TODO show error notification
-                console.log("error");
+                console.log("error: ", error);
 
                 if (error?.name === "validation_error") {
+                    setFormStatus(t("validation_error_message"));
                     enqueueSnackbar(t("validation_error_message"), {
                         variant: "error",
                     });
                 } else {
+                    setFormStatus(t("generic_error_message"));
                     enqueueSnackbar(t("generic_error_message"), {
                         variant: "error",
                     });
@@ -159,6 +193,9 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 return;
             }
 
+            form.reset();
+            setFieldErrors({});
+            setFormStatus(t("success_message"));
             enqueueSnackbar(t("success_message"), {
                 variant: "success",
             });
@@ -166,6 +203,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
             console.log("success");
         } catch (err) {
             console.log("error from client: ", err);
+            setFormStatus(t("generic_error_message"));
             enqueueSnackbar(t("generic_error_message"), {
                 variant: "error",
             });
@@ -217,71 +255,175 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         component="form"
                         onSubmit={(e) => {
                             e.preventDefault();
-                            const formData = new FormData(e.currentTarget);
-                            sendEmailHandler(formData);
+                            const form = e.currentTarget;
+                            const formData = new FormData(form);
+                            const errors = validateForm(formData);
+
+                            if (Object.keys(errors).length > 0) {
+                                setFieldErrors(errors);
+                                setFormStatus(t("validation_error_message"));
+                                const firstInvalidField = Object.keys(
+                                    errors,
+                                )[0] as ContactField;
+                                const firstInvalidElement =
+                                    form.elements.namedItem(
+                                        firstInvalidField,
+                                    ) as HTMLElement | null;
+                                firstInvalidElement?.focus();
+                                return;
+                            }
+
+                            setFieldErrors({});
+                            void sendEmailHandler(form, formData);
                         }}
+                        noValidate
                         sx={{
                             width: "100%",
                         }}
                         spacing={spacing.tiny}
                     >
-                        <InputBase
-                            name="name"
-                            id="name"
-                            placeholder={t("name_placeholder")}
-                            required
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    <PersonOutlinedIcon />
-                                </InputAdornment>
-                            }
-                            sx={{
-                                outline: "none",
-                                borderStyle: "solid",
-                                borderColor: "lightgray",
-                                borderRadius: spacing.small,
-                                borderWidth: 1,
-                                px: spacing.tiny,
-                                py: spacing.tiny / 2,
-                            }}
-                        />
-                        <InputBase
-                            name="email"
-                            id="email"
-                            placeholder={t("email_placeholder")}
-                            required
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    <EmailOutlinedIcon />
-                                </InputAdornment>
-                            }
-                            sx={{
-                                outline: "none",
-                                borderStyle: "solid",
-                                borderColor: "lightgray",
-                                borderRadius: spacing.small,
-                                borderWidth: 1,
-                                px: spacing.tiny,
-                                py: spacing.tiny / 2,
-                            }}
-                        />
-                        <InputBase
-                            name="message"
-                            id="message"
-                            placeholder={t("message_placeholder")}
-                            required
-                            multiline
-                            rows={5}
-                            sx={{
-                                outline: "none",
-                                borderStyle: "solid",
-                                borderColor: "lightgray",
-                                borderRadius: spacing.small,
-                                borderWidth: 1,
-                                px: spacing.tiny,
-                                py: spacing.tiny / 2,
-                            }}
-                        />
+                        <Stack spacing={0.5}>
+                            <InputBase
+                                name="name"
+                                id="name"
+                                aria-label={t("name_label")}
+                                placeholder={t("name_placeholder")}
+                                autoComplete="name"
+                                required
+                                aria-invalid={Boolean(fieldErrors.name)}
+                                aria-describedby={
+                                    fieldErrors.name ? "name-error" : undefined
+                                }
+                                onChange={() => clearFieldError("name")}
+                                startAdornment={
+                                    <InputAdornment
+                                        position="start"
+                                        aria-hidden="true"
+                                    >
+                                        <PersonOutlinedIcon />
+                                    </InputAdornment>
+                                }
+                                sx={{
+                                    borderStyle: "solid",
+                                    borderColor: fieldErrors.name
+                                        ? "error.main"
+                                        : "lightgray",
+                                    borderRadius: spacing.small,
+                                    borderWidth: 1,
+                                    px: spacing.tiny,
+                                    py: spacing.tiny / 2,
+                                    "&:focus-within": {
+                                        outline: `3px solid ${theme.palette.primary.main}`,
+                                        outlineOffset: 3,
+                                        borderRadius: spacing.small,
+                                    },
+                                }}
+                            />
+                            {fieldErrors.name && (
+                                <Typography
+                                    id="name-error"
+                                    color="error"
+                                    variant="caption"
+                                >
+                                    {fieldErrors.name}
+                                </Typography>
+                            )}
+                        </Stack>
+
+                        <Stack spacing={0.5}>
+                            <InputBase
+                                name="email"
+                                id="email"
+                                aria-label={t("email_label")}
+                                type="email"
+                                placeholder={t("email_placeholder")}
+                                autoComplete="email"
+                                inputMode="email"
+                                required
+                                aria-invalid={Boolean(fieldErrors.email)}
+                                aria-describedby={
+                                    fieldErrors.email
+                                        ? "email-error"
+                                        : undefined
+                                }
+                                onChange={() => clearFieldError("email")}
+                                startAdornment={
+                                    <InputAdornment
+                                        position="start"
+                                        aria-hidden="true"
+                                    >
+                                        <EmailOutlinedIcon />
+                                    </InputAdornment>
+                                }
+                                sx={{
+                                    borderStyle: "solid",
+                                    borderColor: fieldErrors.email
+                                        ? "error.main"
+                                        : "lightgray",
+                                    borderRadius: spacing.small,
+                                    borderWidth: 1,
+                                    px: spacing.tiny,
+                                    py: spacing.tiny / 2,
+                                    "&:focus-within": {
+                                        outline: `3px solid ${theme.palette.primary.main}`,
+                                        outlineOffset: 3,
+                                        borderRadius: spacing.small,
+                                    },
+                                }}
+                            />
+                            {fieldErrors.email && (
+                                <Typography
+                                    id="email-error"
+                                    color="error"
+                                    variant="caption"
+                                >
+                                    {fieldErrors.email}
+                                </Typography>
+                            )}
+                        </Stack>
+
+                        <Stack spacing={0.5}>
+                            <InputBase
+                                name="message"
+                                id="message"
+                                aria-label={t("message_label")}
+                                placeholder={t("message_placeholder")}
+                                required
+                                multiline
+                                rows={5}
+                                aria-invalid={Boolean(fieldErrors.message)}
+                                aria-describedby={
+                                    fieldErrors.message
+                                        ? "message-error"
+                                        : undefined
+                                }
+                                onChange={() => clearFieldError("message")}
+                                sx={{
+                                    borderStyle: "solid",
+                                    borderColor: fieldErrors.message
+                                        ? "error.main"
+                                        : "lightgray",
+                                    borderRadius: spacing.small,
+                                    borderWidth: 1,
+                                    px: spacing.tiny,
+                                    py: spacing.tiny / 2,
+                                    "&:focus-within": {
+                                        outline: `3px solid ${theme.palette.primary.main}`,
+                                        outlineOffset: 3,
+                                        borderRadius: spacing.small,
+                                    },
+                                }}
+                            />
+                            {fieldErrors.message && (
+                                <Typography
+                                    id="message-error"
+                                    color="error"
+                                    variant="caption"
+                                >
+                                    {fieldErrors.message}
+                                </Typography>
+                            )}
+                        </Stack>
                         <Button
                             loading={isSubmittingForm}
                             type="submit"
@@ -296,6 +438,25 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         >
                             {t("send_message_button_text")}
                         </Button>
+                        <Typography
+                            component="p"
+                            role="status"
+                            aria-live="polite"
+                            aria-atomic="true"
+                            sx={{
+                                position: "absolute",
+                                width: 1,
+                                height: 1,
+                                padding: 0,
+                                margin: -1,
+                                overflow: "hidden",
+                                clip: "rect(0, 0, 0, 0)",
+                                whiteSpace: "nowrap",
+                                border: 0,
+                            }}
+                        >
+                            {formStatus}
+                        </Typography>
                     </Stack>
                 </Stack>
 

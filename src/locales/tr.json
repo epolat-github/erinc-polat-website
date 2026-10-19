@@ -45,9 +45,16 @@
     },
     "contact_form": {
         "form_title": "İletişime Geçin.",
+        "name_label": "İsim",
         "name_placeholder": "İsminiz",
+        "email_label": "E-posta adresi",
         "email_placeholder": "E-posta adresiniz",
+        "message_label": "Mesaj",
         "message_placeholder": "Nasıl yardımcı olabilirim?",
+        "name_required_error": "İsminizi girin.",
+        "email_required_error": "E-posta adresinizi girin.",
+        "email_invalid_error": "Geçerli bir e-posta adresi girin.",
+        "message_required_error": "Mesajınızı girin.",
         "send_message_button_text": "Mesajı yolla",
         "validation_error_message": "Bir doğrulama hatası oluştu. Lütfen formu tekrar kontrol edin.",
         "generic_error_message": "Bir hata oluştu. Lütfen benimle e-posta yoluyla iletişime geçin 🙂",
@@ -63,7 +70,13 @@
         "about": "Hakkımda",
         "works": "Projeler",
         "process": "Süreç",
-        "contact": "İletişim"
+        "contact": "İletişim",
+        "open_menu": "Menüyü aç"
+    },
+    "accessibility": {
+        "close_image": "Görseli kapat",
+        "switch_to_turkish": "Türkçeye geç",
+        "switch_to_english": "İngilizceye geç"
     },
     "projects": {
         "title": "Projeler",

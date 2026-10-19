@@ -15,15 +15,9 @@ import {
     AccordionSummaryProps,
     accordionSummaryClasses,
 } from "@mui/material";
-import { Oswald } from "next/font/google";
+import { oswald } from "@/utils/fonts";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
-
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
 
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />

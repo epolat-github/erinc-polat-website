@@ -8,14 +8,8 @@ import MyWorkCard from "@/components/MyWorkCard";
 import projectsEn from "@/data/projects.en";
 import projectsTr from "@/data/projects.tr";
 import { useLocale, useTranslations } from "next-intl";
-import { Oswald } from "next/font/google";
+import { oswald } from "@/utils/fonts";
 import { useRouter } from "@/i18n/routing";
-
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
 
 const Projects = () => {
     const t = useTranslations("projects");

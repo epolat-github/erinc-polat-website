@@ -5,15 +5,9 @@ import { Stack, Typography } from "@mui/material";
 import spacing from "@/utils/spacing";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Oswald } from "next/font/google";
+import { oswald } from "@/utils/fonts";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
 
 const Footer = () => {
     const t = useTranslations("footer");

@@ -1,6 +1,7 @@
 import { Box, Dialog, DialogContent, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import spacing from "@/utils/spacing";
 
 interface FullScreenImageModalType {
@@ -12,6 +13,7 @@ interface FullScreenImageModalType {
 
 const FullScreenImageModal: React.FC<FullScreenImageModalType> = (props) => {
     const { onClose, imageUrl, isOpen, alt } = props;
+    const t = useTranslations("accessibility");
 
     return (
         <Dialog
@@ -31,6 +33,7 @@ const FullScreenImageModal: React.FC<FullScreenImageModalType> = (props) => {
         >
             <IconButton
                 onClick={onClose}
+                aria-label={t("close_image")}
                 sx={{
                     position: "absolute",
                     top: "10px",

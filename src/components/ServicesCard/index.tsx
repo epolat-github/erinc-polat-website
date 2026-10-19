@@ -1,13 +1,7 @@
 import spacing from "@/utils/spacing";
+import { oswald } from "@/utils/fonts";
 import { Stack, Typography } from "@mui/material";
-import { Oswald } from "next/font/google";
 import Image from "next/image";
-
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
 
 interface ServicesCardProps {
     title: string;

@@ -199,10 +199,20 @@ const Navbar = () => {
                                 height={25}
                             />
                         </ButtonBase>
-                        <IconButton onClick={handleOpenNavMenu} disableRipple>
+                        <IconButton
+                            onClick={handleOpenNavMenu}
+                            disableRipple
+                            aria-label={t("open_menu")}
+                            aria-controls={
+                                anchorElNav ? "mobile-navigation-menu" : undefined
+                            }
+                            aria-expanded={Boolean(anchorElNav)}
+                            aria-haspopup="menu"
+                        >
                             <MenuIcon />
                         </IconButton>
                         <Menu
+                            id="mobile-navigation-menu"
                             sx={{
                                 mt: "45px",
                                 "& .MuiPaper-root": {

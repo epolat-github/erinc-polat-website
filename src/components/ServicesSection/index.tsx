@@ -1,18 +1,12 @@
 "use client";
 
 import colors from "@/utils/colors";
+import { oswald } from "@/utils/fonts";
 import { Box, Container, Grid2, Stack, Typography } from "@mui/material";
-import { Oswald } from "next/font/google";
 
 import spacing from "@/utils/spacing";
 import ServicesCard from "../ServicesCard";
 import { useTranslations } from "next-intl";
-
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
 
 const ServicesSection = () => {
     const t = useTranslations("services_section");
