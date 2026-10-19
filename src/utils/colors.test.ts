@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
+import { createRequire } from "node:module";
 import test from "node:test";
 
-import colors from "./colors.ts";
+const require = createRequire(import.meta.url);
+const colors = require("./colors.ts").default as typeof import("./colors").default;
 
 const luminance = (hex: string) => {
     const channels = hex

@@ -1,11 +1,15 @@
 const colors = {
-    background: "#fff",
-    secondaryBackground: "#141414",
-    header: "#342F2D",
-    primary: "#3CCF91",
-    // primary: "#52c7ea",
-    // primary: "#9552EA",
-    gray: "#8F9094",
+    background: "#FFFFFF",
+    surface: "#F0F3F6",
+    secondaryBackground: "#111827",
+    header: "#111827",
+    primary: "#173B6C",
+    secondary: "#B94E3A",
+    primaryText: "#173B6C",
+    onPrimary: "#FFFFFF",
+    onSecondary: "#FFFFFF",
+    gray: "#5E6673",
+    border: "#D8DEE8",
 };
 
 export default colors;

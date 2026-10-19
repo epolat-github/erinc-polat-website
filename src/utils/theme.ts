@@ -11,9 +11,24 @@ const roboto = Roboto({
 
 let theme = createTheme({
     palette: {
+        mode: "light",
         primary: {
             main: colors.primary,
+            contrastText: colors.onPrimary,
         },
+        secondary: {
+            main: colors.secondary,
+            contrastText: colors.onSecondary,
+        },
+        background: {
+            default: colors.background,
+            paper: colors.background,
+        },
+        text: {
+            primary: colors.header,
+            secondary: colors.gray,
+        },
+        divider: colors.border,
     },
     typography: {
         fontFamily: roboto.style.fontFamily,
