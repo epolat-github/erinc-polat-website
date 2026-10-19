@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test:brand": "node --experimental-strip-types --test src/utils/colors.test.ts"
+    "test:brand": "node --experimental-strip-types --test src/utils/colors.test.ts",
+    "brand:assets": "node scripts/recolor-brand-assets.mjs",
+    "test:brand-assets": "node scripts/verify-brand-assets.mjs"
   },
   "dependencies": {
     "@emotion/cache": "11.14.0",
