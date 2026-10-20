@@ -1,13 +1,7 @@
 "use client";
 
 import colors from "@/utils/colors";
-import {
-    Box,
-    Button,
-    Container,
-    Stack,
-    Typography,
-} from "@mui/material";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import spacing from "@/utils/spacing";
 import DotPattern from "../DotPattern";
 import ProjectsOverview from "./ProjectsOverview";
@@ -116,7 +110,12 @@ const WelcomeSection = () => {
                         </FadeInItem>
                     </Stack>
 
-                    <Stack direction="row" spacing={spacing.small}>
+                    <Stack
+                        direction="row"
+                        spacing={spacing.small}
+                        useFlexGap
+                        flexWrap="wrap"
+                    >
                         <RevealItem delay={0.7}>
                             <Button
                                 variant="contained"

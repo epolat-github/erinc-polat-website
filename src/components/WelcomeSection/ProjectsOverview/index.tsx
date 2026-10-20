@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const ProjectsOverview = () => {
     const matchesMd = useMediaQuery((theme: Theme) =>
-        theme.breakpoints.up("md")
+        theme.breakpoints.up("md"),
     );
 
     return (
@@ -59,7 +59,8 @@ const ProjectsOverview = () => {
             <ScaleInBox
                 style={{
                     top: -100,
-                    left: matchesMd ? "20%" : "0%",
+                    left: matchesMd ? undefined : "0%",
+                    right: matchesMd ? 0 : undefined,
                     zIndex: 1,
                     position: "absolute",
                 }}
@@ -83,7 +84,8 @@ const ProjectsOverview = () => {
                 style={{
                     position: "absolute",
                     bottom: -100,
-                    left: matchesMd ? "35%" : "0%",
+                    left: matchesMd ? undefined : "0%",
+                    right: matchesMd ? 0 : undefined,
                     zIndex: 1,
                 }}
                 delay={0.2}
@@ -97,6 +99,8 @@ const ProjectsOverview = () => {
                         alt="Zeynep Dikdüş website project screenshot"
                         style={{
                             objectFit: "contain",
+                            maxWidth: "calc(100vw - 32px)",
+                            height: "auto",
                         }}
                     />
                 </BouncingBox>
