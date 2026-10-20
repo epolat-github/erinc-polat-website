@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import colors from "@/utils/colors";
 import WhoAmISection from "@/components/WhoAmISection";
 import MyWorksSection from "@/components/MyWorksSection";
-import ServicesSection from "@/components/ServicesSection";
+import ProcessSection from "@/components/ProcessSection";
 
 const Home = () => {
     return (
@@ -18,7 +18,7 @@ const Home = () => {
         >
             <WelcomeSection />
             <WhoAmISection />
-            <ServicesSection />
+            <ProcessSection />
             <MyWorksSection />
             <ContactSection />
             <Footer />

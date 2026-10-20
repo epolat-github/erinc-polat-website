@@ -3,11 +3,11 @@ import { oswald } from "@/utils/fonts";
 import { Box, Container, Grid2, Stack, Typography } from "@mui/material";
 
 import spacing from "@/utils/spacing";
-import ServicesCard from "../ServicesCard";
+import ProcessCard from "../ProcessCard";
 import { getTranslations } from "next-intl/server";
 
-const ServicesSection = async () => {
-    const t = await getTranslations("services_section");
+const ProcessSection = async () => {
+    const t = await getTranslations("process_section");
 
     return (
         <Box
@@ -63,11 +63,13 @@ const ServicesSection = async () => {
                             md: 5,
                         }}
                     >
-                        <ServicesCard
+                        <ProcessCard
                             title={t("design_card_title")}
                             description={t("design_card_description")}
                             alt={t("design_card_alt")}
                             imageUrl="/services/design.webp"
+                            mobileImageHeight={360}
+                            imagePosition="bottom"
                             sizes="(min-width: 1200px) 408px, (min-width: 900px) calc(41.667vw - 90.667px), (min-width: 600px) calc(100vw - 112px), calc(100vw - 64px)"
                         />
                     </Grid2>
@@ -81,15 +83,18 @@ const ServicesSection = async () => {
                         spacing={2}
                     >
                         <Grid2 size={12} flex={1}>
-                            <ServicesCard
+                            <ProcessCard
                                 title={t("development_card_title")}
                                 description={t("development_card_description")}
                                 alt={t("development_card_alt")}
                                 imageUrl="/services/development.webp"
+                                mobileImageScale={1.35}
+                                sizes="(min-width: 1200px) 608px, (min-width: 900px) calc(58.333vw - 101.333px), (min-width: 600px) calc(135vw - 151.2px), calc(135vw - 86.4px)"
+                                imagePosition="bottom"
                             />
                         </Grid2>
                         <Grid2 size={12} flex={1}>
-                            <ServicesCard
+                            <ProcessCard
                                 title={t("improvement_card_title")}
                                 description={t("improvement_card_description")}
                                 alt={t("improvement_card_alt")}
@@ -103,4 +108,4 @@ const ServicesSection = async () => {
     );
 };
 
-export default ServicesSection;
+export default ProcessSection;

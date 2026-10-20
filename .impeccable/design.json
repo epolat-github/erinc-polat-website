@@ -224,17 +224,16 @@
       }
     ],
     "responsive": {
-      "services": "ServicesSection has no fixed mobile height and a 750px desktop minimum. ServicesCard grows with text; padding is 16px below 600px and 32px above. Image minimum height: 220px at xs, 240px at sm, 180px at md.",
       "projectCard": "MyWorkCard uses full width, wrapping text and media height clamp(220px, 40vw, 400px). Props: title, description, images, href, animationDirection (left/right).",
       "singleImageRow": "SingleImageRow media height: clamp(220px, 56vw, 640px). Props: imageUrl, alt, containerStyle (sx override). Opens the existing fullscreen modal.",
       "multipleImageRow": "MultipleImageRow stacks below 600px with individual height clamp(220px, 75vw, 400px). Above 600px it shares a row of height clamp(280px, 45vw, 640px). Props: images, containerStyle (sx override). Opens the existing fullscreen modal.",
       "welcome": "Hero CTAs span available width below 600px, wrap above with a 150px minimum, and have a 40px minimum height with multiline labels. IhrHaus preview max-width: 100%.",
-      "contact": "ContactHeader text uses width: 100%, min-width: 0 and overflow-wrap: anywhere. Path: src/components/ContactSection/ContactHeader/index.tsx. Prop: scrollYProgress (MotionValue<number>). Usage: <ContactHeader scrollYProgress={scrollYProgress} />. A module-level motion.create(Stack) wrapper accepts the opacity and vertical MotionValues directly, without type assertions. ContactForm email also uses overflow-wrap: anywhere."
+      "contact": "ContactHeader text uses width: 100%, min-width: 0 and overflow-wrap: anywhere. Path: src/components/ContactSection/ContactHeader/index.tsx. Prop: scrollYProgress (MotionValue<number>). Usage: <ContactHeader scrollYProgress={scrollYProgress} />. A module-level motion.create(Stack) wrapper accepts the opacity and vertical MotionValues directly, without type assertions. ContactForm email also uses overflow-wrap: anywhere.",
+      "process": "ProcessSection has no fixed mobile height and a 750px desktop minimum. ProcessCard grows with text; padding is 16px below 600px and 32px above. Image minimum height: 220px at xs, 240px at sm, 180px at md. Optional ProcessCard imagePosition (center by default, or bottom) controls contained image alignment. Design and Development use bottom with zero bottom padding at every breakpoint; artwork clips to card corners. Improvement stays centered. Below 900px, optional mobileImageHeight overrides the image-area minimum height and mobileImageScale (default 1) scales artwork from the bottom. Design uses mobileImageHeight={360}; Development uses mobileImageScale={1.35}. At 900px and above original desktop sizing is retained; Improvement sizing remains unchanged."
     },
     "imageLoading": {
-      "sizes": "Active portfolio fill images use container-specific sizes: service columns, portrait capped at 400px, cards and gallery rows divided by image count, modal capped at 900px, footer 100vw.",
-      "serviceProps": "ServicesCard adds optional sizes; default matches the wider desktop column and ServicesSection overrides it for the narrower design column.",
-      "quality": "Default 75 for service artwork, portrait, previews, cards and modal; gallery quality 50 is explicitly allowed alongside 75 in next.config.mjs. Source assets are preserved.",
+      "sizes": "Active portfolio fill images use container-specific sizes: process columns, portrait capped at 400px, cards and gallery rows divided by image count, modal capped at 900px, footer 100vw.",
+      "quality": "Default 75 for process artwork, portrait, previews, cards and modal; gallery quality 50 is explicitly allowed alongside 75 in next.config.mjs. Source assets are preserved.",
       "deviceSizes": [
         320,
         480,
@@ -248,13 +247,14 @@
         3840
       ],
       "heroPreload": "Only FitNLit is preloaded, with media (min-width: 900px); getImageProps shares its srcset/sizes with the actual image props. Mobile collage and other portfolio imagery use lazy loading.",
-      "modal": "src/components/FullScreenImageModal/index.tsx: props isOpen, onClose, imageUrl?, alt?. Usage: <FullScreenImageModal isOpen={open} onClose={close} imageUrl={url} alt={alt} />. sizes: (min-width: 964px) 900px, calc(100vw - 64px); default quality 75."
+      "modal": "src/components/FullScreenImageModal/index.tsx: props isOpen, onClose, imageUrl?, alt?. Usage: <FullScreenImageModal isOpen={open} onClose={close} imageUrl={url} alt={alt} />. sizes: (min-width: 964px) 900px, calc(100vw - 64px); default quality 75.",
+      "processProps": "ProcessCard adds optional sizes; default matches the wider desktop column and ProcessSection overrides it for the narrower design column. Optional imagePosition: center | bottom (default center). Usage: <ProcessCard title={title} description={description} imageUrl=\"/services/design.webp\" alt={alt} imagePosition=\"bottom\" />. Development supplies mobile sizes matching its 1.35x image scale."
     },
     "composition": {
-      "services": "src/components/ServicesSection/index.tsx and ServicesCard render on the server; ServicesSection has no props, usage <ServicesSection /> and getTranslations for localized copy.",
       "biography": "src/components/WhoAmISection/index.tsx is a server component with no props, usage <WhoAmISection />. Existing FadeInItem, RevealItem and DotPattern retain client-side motion.",
       "projects": "src/components/MyWorksSection/index.tsx and src/app/[locale]/projects/page.tsx select locale and full project data on the server. MyWorksSection takes no props, usage <MyWorksSection />. Cards receive serializable title, description, images, href and optional animationDirection.",
-      "boundaries": "MyWorkCard, FadeInItem and RevealItem explicitly declare use client. MyWorkCard requires href instead of the former onClick navigation callback, using the existing locale-aware Link. Entrance timing and reduced-motion behavior stay unchanged."
+      "boundaries": "MyWorkCard, FadeInItem and RevealItem explicitly declare use client. MyWorkCard requires href instead of the former onClick navigation callback, using the existing locale-aware Link. Entrance timing and reduced-motion behavior stay unchanged.",
+      "process": "src/components/ProcessSection/index.tsx and ProcessCard render on the server; ProcessSection has no props, usage <ProcessSection /> and getTranslations for localized copy."
     },
     "semanticColors": {
       "source": "Named semanticColors export in src/utils/colors.ts; default colors export retained for compatibility.",
@@ -272,7 +272,7 @@
       },
       "theme": "src/utils/theme.ts maps actions, text, backgrounds and divider to MUI. CssBaseline renders inside ThemeProvider. Light only; dark mode and automatic system-theme switching are outside scope.",
       "focus": "MuiButtonBase supplies a 3px focusRing outline with 3px offset for Mui-focusVisible. Fields use the same token; InteractiveHoverButton retains its component-specific brick focus outline.",
-      "migration": "ServicesCard and gallery backgrounds use surface; ChipRow uses surface/textMuted. ContactForm uses semantic backgrounds, text, icon surfaces, border and focusRing with MUI error.main for invalid fields. MyWorkCard uses the theme Divider instead of a translucent white override. Project detail white background uses the central palette.",
+      "migration": "ProcessCard and gallery backgrounds use surface; ChipRow uses surface/textMuted. ContactForm uses semantic backgrounds, text, icon surfaces, border and focusRing with MUI error.main for invalid fields. MyWorkCard uses the theme Divider instead of a translucent white override. Project detail white background uses the central palette.",
       "componentContracts": {
         "ChipRow": "src/components/ProjectDetails/ChipRow/index.tsx: labels string[], optional containerProps StackProps and chipProps ChipProps. Usage: <ChipRow labels={[\"React\", \"Next.js\"]} />.",
         "ContactForm": "src/components/ContactSection/ContactForm/index.tsx: no configuration props; optional forwarded ref identifies the section for parent scroll behavior. Usage: <ContactForm ref={targetRef} />. Existing validation/submission behavior is retained."

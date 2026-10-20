@@ -4,17 +4,21 @@ import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { semanticColors } from "@/utils/colors";
 
-interface ServicesCardProps {
+interface ProcessCardProps {
     title: string;
     description: string;
     imageUrl: string;
     alt: string;
     sizes?: string;
+    imagePosition?: "center" | "bottom";
+    mobileImageHeight?: number;
+    mobileImageScale?: number;
 }
 
-const ServicesCard: React.FC<ServicesCardProps> = (props) => {
+const ProcessCard: React.FC<ProcessCardProps> = (props) => {
     const {
-        title, description, imageUrl, alt,
+        title, description, imageUrl, alt, imagePosition = "center",
+        mobileImageHeight, mobileImageScale = 1,
         sizes = "(min-width: 1200px) 608px, (min-width: 900px) calc(58.333vw - 101.333px), (min-width: 600px) calc(100vw - 112px), calc(100vw - 64px)",
     } = props;
 
@@ -24,7 +28,8 @@ const ServicesCard: React.FC<ServicesCardProps> = (props) => {
                 backgroundColor: semanticColors.surface,
                 borderRadius: spacing.small,
                 p: { xs: spacing.tiny, sm: spacing.small },
-                pb: 0,
+                pb: imagePosition === "bottom" ? { xs: 0, sm: 0 } : 0,
+                overflow: "hidden",
                 flex: 1,
                 height: "100%",
                 minWidth: 0,
@@ -48,7 +53,13 @@ const ServicesCard: React.FC<ServicesCardProps> = (props) => {
             <Stack
                 sx={{
                     flex: 1,
-                    minHeight: { xs: 220, sm: 240, md: 180 },
+                    minHeight: { xs: mobileImageHeight ?? 220, sm: mobileImageHeight ?? 240, md: 180 },
+                    ...(mobileImageScale !== 1 && {
+                        "& img": {
+                            transform: { xs: `scale(${mobileImageScale})`, md: "none" },
+                            transformOrigin: "center bottom",
+                        },
+                    }),
                     position: "relative",
                 }}
             >
@@ -59,7 +70,7 @@ const ServicesCard: React.FC<ServicesCardProps> = (props) => {
                     sizes={sizes}
                     style={{
                         objectFit: "contain",
-                        verticalAlign: "bottom",
+                        objectPosition: `center ${imagePosition}`,
                     }}
                 />
             </Stack>
@@ -67,4 +78,4 @@ const ServicesCard: React.FC<ServicesCardProps> = (props) => {
     );
 };
 
-export default ServicesCard;
+export default ProcessCard;
