@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, MotionStyle, useReducedMotion } from "framer-motion";
 
 interface FadeInItemType {

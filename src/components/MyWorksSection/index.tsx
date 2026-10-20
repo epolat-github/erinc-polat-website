@@ -1,23 +1,20 @@
-"use client";
-
 import colors from "@/utils/colors";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import EastRoundedIcon from "@mui/icons-material/EastRounded";
 
-// import Link from "next/link";
 import spacing from "@/utils/spacing";
 import MyWorkCard from "../MyWorkCard";
 import projectsEn from "@/data/projects.en";
 import projectsTr from "@/data/projects.tr";
-// import { useRouter } from "next/navigation";
 import { oswald } from "@/utils/fonts";
-import { Link, useRouter } from "@/i18n/routing";
-import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
+import { getLocale, getTranslations } from "next-intl/server";
 
-const MyWorksSection = () => {
-    const t = useTranslations("my_works_section");
-    const locale = useLocale();
-    const router = useRouter();
+const MyWorksSection = async () => {
+    const [t, locale] = await Promise.all([
+        getTranslations("my_works_section"),
+        getLocale(),
+    ]);
 
     const projectsWithLocale = locale === "en" ? projectsEn : projectsTr;
 
@@ -79,11 +76,11 @@ const MyWorksSection = () => {
                                     {t("description")}
                                 </Typography>
 
+                                <Link href="/projects" style={{ textDecoration: "none" }}>
                                 <Button
                                     variant="text"
                                     color="primary"
-                                    component={Link}
-                                    href="/projects"
+                                    component="span"
                                     endIcon={<EastRoundedIcon />}
                                     sx={{
                                         fontSize: 18,
@@ -94,6 +91,7 @@ const MyWorksSection = () => {
                                 >
                                     {t("cta_button_text")}
                                 </Button>
+                                </Link>
                             </Stack>
                         </Stack>
 
@@ -101,22 +99,14 @@ const MyWorksSection = () => {
                             title={projectsWithLocale[0].title}
                             description={projectsWithLocale[0].summary}
                             images={projectsWithLocale[0].featuredImages}
-                            onClick={() =>
-                                router.push(
-                                    `/projects/${projectsWithLocale[0].slug}`
-                                )
-                            }
+                            href={`/projects/${projectsWithLocale[0].slug}`}
                             animationDirection="left"
                         />
                         <MyWorkCard
                             title={projectsWithLocale[2].title}
                             description={projectsWithLocale[2].summary}
                             images={projectsWithLocale[2].featuredImages}
-                            onClick={() =>
-                                router.push(
-                                    `/projects/${projectsWithLocale[2].slug}`
-                                )
-                            }
+                            href={`/projects/${projectsWithLocale[2].slug}`}
                             animationDirection="left"
                         />
                     </Stack>
@@ -133,22 +123,14 @@ const MyWorksSection = () => {
                             title={projectsWithLocale[1].title}
                             description={projectsWithLocale[1].summary}
                             images={projectsWithLocale[1].featuredImages}
-                            onClick={() =>
-                                router.push(
-                                    `/projects/${projectsWithLocale[1].slug}`
-                                )
-                            }
+                            href={`/projects/${projectsWithLocale[1].slug}`}
                             animationDirection="right"
                         />
                         <MyWorkCard
                             title={projectsWithLocale[3].title}
                             description={projectsWithLocale[3].summary}
                             images={projectsWithLocale[3].featuredImages}
-                            onClick={() =>
-                                router.push(
-                                    `/projects/${projectsWithLocale[3].slug}`
-                                )
-                            }
+                            href={`/projects/${projectsWithLocale[3].slug}`}
                             animationDirection="right"
                         />
                     </Stack>

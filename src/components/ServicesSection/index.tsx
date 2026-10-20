@@ -1,15 +1,13 @@
-"use client";
-
 import colors from "@/utils/colors";
 import { oswald } from "@/utils/fonts";
 import { Box, Container, Grid2, Stack, Typography } from "@mui/material";
 
 import spacing from "@/utils/spacing";
 import ServicesCard from "../ServicesCard";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-const ServicesSection = () => {
-    const t = useTranslations("services_section");
+const ServicesSection = async () => {
+    const t = await getTranslations("services_section");
 
     return (
         <Box

@@ -213,7 +213,7 @@ Reuse these wrappers rather than duplicating their animation behavior:
 ### Cards / Containers
 
 - **ServicesCard** — `src/components/ServicesCard/index.tsx`: title, description and contained image. Props: `title`, `description`, `imageUrl`, `alt`, optional `sizes` (defaults to the wider service column). Usage: `<ServicesCard title={title} description={description} imageUrl="/services/design.webp" alt={alt} />`. Padding is 16px below 600px and 32px above. Image minimum height is 220px / 240px / 180px at xs / sm / md; cards grow with text. `ServicesSection` keeps a 750px desktop minimum and no fixed mobile height.
-- **MyWorkCard** — `src/components/MyWorkCard/index.tsx`: full-width project action with media height `clamp(220px, 40vw, 400px)` and wrapping text. Props: `title`, `description`, `images` (`url`, `alt`), `onClick`, optional `animationDirection` (`left` or `right`). Usage: `<MyWorkCard title={title} description={summary} images={images} onClick={openProject} />`.
+- **MyWorkCard** — `src/components/MyWorkCard/index.tsx`: full-width project action with media height `clamp(220px, 40vw, 400px)` and wrapping text. Props: `title`, `description`, `images` (`url`, `alt`), `href`, optional `animationDirection` (`left` or `right`). Usage: `<MyWorkCard title={title} description={summary} images={images} href="/projects/fitnlit" />`.
 - **SingleImageRow** — `src/components/ProjectDetails/SingleImageRow/index.tsx`: contained gallery image opening the existing fullscreen modal. Props: `imageUrl`, `alt`, optional `containerStyle` (`sx` override). Usage: `<SingleImageRow imageUrl={url} alt={alt} />`. Media height is `clamp(220px, 56vw, 640px)`.
 - **MultipleImageRow** — `src/components/ProjectDetails/MultipleImageRow/index.tsx`: gallery images using the same fullscreen modal. Props: `images` (`url`, `alt`), optional `containerStyle` (`sx` override). Usage: `<MultipleImageRow images={images} />`. Below 600px images stack, each with height `clamp(220px, 75vw, 400px)`; above, they share a row with height `clamp(280px, 45vw, 640px)`.
 - **WelcomeSection responsive behavior:** CTAs span the available width below 600px; above they wrap with a 150px minimum. A 40px minimum height allows multiline labels. The IhrHaus preview stays within its parent width.
@@ -223,6 +223,14 @@ Reuse these wrappers rather than duplicating their animation behavior:
 - **Background:** White or Soft Surface, chosen to keep imagery primary.
 - **Shadow Strategy:** Flat project cards; Bento Ambient only on feature panels.
 - **Internal Padding:** 16px for compact content, 32px for feature-card text regions.
+
+### Server and Client Composition
+
+- **ServicesSection** — `src/components/ServicesSection/index.tsx`: server-rendered service heading and card layout with `getTranslations`. No props; usage: `<ServicesSection />`. `ServicesCard` also stays on the server.
+- **WhoAmISection** — `src/components/WhoAmISection/index.tsx`: server-rendered localized biography and portrait layout. No props; usage: `<WhoAmISection />`. Motion stays in the existing `FadeInItem`, `RevealItem` and `DotPattern` client components.
+- **MyWorksSection** — `src/components/MyWorksSection/index.tsx`: server-rendered selected project layout and localized summaries. No props; usage: `<MyWorksSection />`. Full project data and locale selection stay on the server; cards receive serializable display props and `href`.
+- **MyWorkCard** is an explicit client component for its entrance animation. Its required `href` is an unprefixed internal project path resolved through the existing locale-aware `Link`; it replaces the former navigation callback. This supports server composition and native link behavior. The project listing at `src/app/[locale]/projects/page.tsx` uses the same arrangement.
+- **FadeInItem** and **RevealItem** explicitly declare their client boundary so server-rendered sections can pass content as children. Props, timings and reduced-motion behavior remain as documented above.
 
 ### Image Loading
 

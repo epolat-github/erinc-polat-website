@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Container, Grid2, Stack, Typography } from "@mui/material";
 
 import colors from "@/utils/colors";
@@ -7,14 +5,14 @@ import spacing from "@/utils/spacing";
 import MyWorkCard from "@/components/MyWorkCard";
 import projectsEn from "@/data/projects.en";
 import projectsTr from "@/data/projects.tr";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { oswald } from "@/utils/fonts";
-import { useRouter } from "@/i18n/routing";
 
-const Projects = () => {
-    const t = useTranslations("projects");
-    const router = useRouter();
-    const locale = useLocale();
+const Projects = async () => {
+    const [t, locale] = await Promise.all([
+        getTranslations("projects"),
+        getLocale(),
+    ]);
 
     const projectsWithLocale = locale === "en" ? projectsEn : projectsTr;
 
@@ -64,9 +62,7 @@ const Projects = () => {
                                 title={project.title}
                                 description={project.summary}
                                 images={project.featuredImages}
-                                onClick={() =>
-                                    router.push(`/projects/${project.slug}`)
-                                }
+                                href={`/projects/${project.slug}`}
                                 animationDirection={
                                     index % 2 ? "right" : "left"
                                 }

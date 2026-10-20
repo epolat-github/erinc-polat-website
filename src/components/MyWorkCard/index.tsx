@@ -1,3 +1,5 @@
+"use client";
+
 import spacing from "@/utils/spacing";
 import { Button, ButtonBase, Divider, Stack, Typography } from "@mui/material";
 import Image from "next/image";
@@ -6,12 +8,13 @@ import { AssetImage } from "@/types/project.type";
 import { motion } from "framer-motion";
 import colors from "@/utils/colors";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 interface MyWorkCardType {
     title: string;
     description: string;
     images: AssetImage[];
-    onClick: () => void;
+    href: string;
     animationDirection?: "left" | "right";
 }
 
@@ -20,7 +23,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
         title,
         description,
         images,
-        onClick,
+        href,
         animationDirection = "left",
     } = props;
 
@@ -48,7 +51,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                     once: true,
                 }}
             >
-                <ButtonBase onClick={onClick} disableRipple sx={{ width: "100%", minWidth: 0 }}>
+                <ButtonBase component={Link} href={href} disableRipple sx={{ width: "100%", minWidth: 0 }}>
                     <Stack
                         sx={{
                             overflow: "hidden",

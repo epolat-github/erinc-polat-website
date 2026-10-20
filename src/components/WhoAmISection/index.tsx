@@ -1,5 +1,3 @@
-"use client";
-
 import colors from "@/utils/colors";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
@@ -7,10 +5,10 @@ import spacing from "@/utils/spacing";
 import DotPattern from "../DotPattern";
 import FadeInItem from "../FadeInItem";
 import RevealItem from "../RevealItem";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-const WhoAmISection = () => {
-    const t = useTranslations("who_am_i_section");
+const WhoAmISection = async () => {
+    const t = await getTranslations("who_am_i_section");
 
     return (
         <Box
