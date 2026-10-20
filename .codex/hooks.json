@@ -23,6 +23,12 @@
             "commandWindows": "cmd /c if exist \"\\Users\\erincpolat\\.agents\\skills\\impeccable\\scripts\\impeccable.cmd\" \"\\Users\\erincpolat\\.agents\\skills\\impeccable\\scripts\\impeccable.cmd\" hook",
             "timeout": 30,
             "statusMessage": "Design deep pass"
+          },
+          {
+            "type": "command",
+            "command": "node \"/Users/erincpolat/Desktop/projects/erinc-polat-website/scripts/check-design-sync.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Checking design documentation sync"
           }
         ]
       }

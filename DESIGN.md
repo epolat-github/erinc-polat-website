@@ -185,6 +185,24 @@ import { Link } from "@/i18n/routing";
 </InteractiveHoverButton>
 ```
 
+### Entrance and Floating Motion
+
+Reuse these wrappers rather than duplicating their animation behavior:
+
+- **FadeInItem** — `src/components/FadeInItem/index.tsx`: opacity entrance when 40% visible. Props: `children`, `delay`, `duration` (default 0.6 seconds), `once` (default true), and `style`. Reduced motion uses a 150ms fade without delay.
+- **RevealItem** — `src/components/RevealItem/index.tsx`: clipped upward entrance. Props: `children`, `delay`, `duration` (default 0.6 seconds), `distance` (default `"50%"`), and `once` (default true). The legacy `rotate` prop is accepted but unused. Reduced motion removes translation and uses a 150ms fade without delay.
+- **ScaleInBox** — `src/components/ScaleInBox/index.tsx`: gentle 0.96 → 1 scale and opacity entrance, with `cubic-bezier(0.16, 1, 0.3, 1)`. Props: `children`, `style`, `delay`, `duration` (default 0.6 seconds), `once` (default true), and `ready` (default true). Both viewport visibility and `ready` are required to reveal content. Reduced motion removes scaling and uses a 150ms fade without delay.
+- **BouncingBox** — `src/components/BouncingBox/index.tsx`: a 6px ease-in-out floating cycle. Props: `children`, static CSS `style`, `delay` (default 0), and full-cycle `duration` (default 6 seconds). Animation pauses offscreen and while the document is hidden, preserving its phase. It is disabled below 900px and for reduced motion.
+
+```tsx
+<FadeInItem duration={0.6} delay={0.14}>{description}</FadeInItem>
+<RevealItem duration={0.55} distance={10}>{action}</RevealItem>
+<ScaleInBox ready={imageLoaded} duration={0.65}>{image}</ScaleInBox>
+<BouncingBox duration={8}>{supportingImage}</BouncingBox>
+```
+
+**WelcomeSection choreography:** desktop text enters with 0–350ms delays; text fades last 550–600ms, project entrances last 650ms, and both CTAs share a 550ms reveal after 350ms (900ms total from their viewport trigger). Below 900px, entrance delays are zero. The primary project image is preloaded with responsive `sizes`; each project preview waits for its image load before revealing. FitNLit and IhrHaus stay still after entrance; only Actio and Zeynep Dikdüş float on desktop, over 8- and 10-second cycles. Project positioning uses CSS breakpoints to avoid a hydration-time layout switch.
+
 ### Cards / Containers
 
 - **Corner Style:** 12px for bento surfaces and 16px for project media.

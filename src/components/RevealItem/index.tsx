@@ -1,18 +1,23 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface RevealItemType {
     children: React.ReactNode;
     delay?: number;
     rotate?: string;
     once?: boolean;
+    duration?: number;
+    distance?: number | string;
 }
 
 const RevealItem: React.FC<RevealItemType> = ({
     children,
     delay,
-    rotate = "5deg",
     once = true,
+    duration = 0.6,
+    distance = "50%",
 }) => {
+    const reduceMotion = useReducedMotion();
+
     return (
         <div
             style={{
@@ -21,18 +26,16 @@ const RevealItem: React.FC<RevealItemType> = ({
         >
             <motion.div
                 initial={{
-                    y: "50%",
-                    // rotate: rotate,
+                    y: reduceMotion ? 0 : distance,
                     opacity: 0,
                 }}
                 whileInView={{
                     y: "0px",
-                    // rotate: "0deg",
                     opacity: 1,
                 }}
                 transition={{
-                    duration: 0.6,
-                    delay,
+                    duration: reduceMotion ? 0.15 : duration,
+                    delay: reduceMotion ? 0 : delay,
                     ease: "easeOut",
                 }}
                 viewport={{

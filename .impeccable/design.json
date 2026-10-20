@@ -1,35 +1,217 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-20T00:14:00+03:00",
+  "generatedAt": "2026-10-20T11:11:45.058198+00:00",
   "title": "Design System: Erinç Polat Portfolio",
   "extensions": {
     "colorMeta": {
-      "canvas": { "role": "neutral", "displayName": "Canvas White", "canonical": "#FFFFFF", "tonalRamp": ["#FFFFFF", "#F0F3F6", "#D8DEE8"] },
-      "ink": { "role": "neutral", "displayName": "Authority Ink", "canonical": "#111827", "tonalRamp": ["#7C8492", "#3D4656", "#111827", "#090D14"] },
-      "primary-navy": { "role": "primary", "displayName": "Authority Navy", "canonical": "#173B6C", "tonalRamp": ["#DCE6F2", "#829CBB", "#173B6C", "#0F294C"] },
-      "secondary-brick": { "role": "secondary", "displayName": "Entrepreneurial Brick", "canonical": "#B94E3A", "tonalRamp": ["#F3DCD7", "#D68B7D", "#B94E3A", "#853325"] },
-      "supporting-text": { "role": "neutral", "displayName": "Supporting Slate", "canonical": "#5E6673", "tonalRamp": ["#BBC0C8", "#858C97", "#5E6673", "#3E4651"] }
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7E7E7E",
+          "#9B9B9B",
+          "#B8B8B8",
+          "#D5D5D5",
+          "#F2F2F2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Authority Ink",
+        "canonical": "#111827",
+        "tonalRamp": [
+          "#172135",
+          "#293A5E",
+          "#3B5387",
+          "#4C6CAF",
+          "#738CC2",
+          "#9CAED4",
+          "#C5CFE6",
+          "#EDF0F7"
+        ]
+      },
+      "primary-navy": {
+        "role": "primary",
+        "displayName": "Authority Navy",
+        "canonical": "#173B6C",
+        "tonalRamp": [
+          "#0D223F",
+          "#183D6F",
+          "#22579F",
+          "#2C71CF",
+          "#5A91DC",
+          "#8AB1E6",
+          "#BAD1F0",
+          "#EAF1FB"
+        ]
+      },
+      "secondary-brick": {
+        "role": "secondary",
+        "displayName": "Entrepreneurial Brick",
+        "canonical": "#B94E3A",
+        "tonalRamp": [
+          "#3A1912",
+          "#672B20",
+          "#933E2E",
+          "#BF513C",
+          "#CF7766",
+          "#DD9E93",
+          "#EBC6BF",
+          "#F9EEEC"
+        ]
+      },
+      "supporting-text": {
+        "role": "neutral",
+        "displayName": "Supporting Slate",
+        "canonical": "#5E6673",
+        "tonalRamp": [
+          "#22252A",
+          "#3D424A",
+          "#575E6A",
+          "#717B8A",
+          "#9198A5",
+          "#B1B6BF",
+          "#D1D4D9",
+          "#F1F2F4"
+        ]
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "Authority Ink — Dark Surface",
+        "canonical": "#111827",
+        "tonalRamp": [
+          "#172135",
+          "#293A5E",
+          "#3B5387",
+          "#4C6CAF",
+          "#738CC2",
+          "#9CAED4",
+          "#C5CFE6",
+          "#EDF0F7"
+        ]
+      },
+      "soft-surface": {
+        "role": "neutral",
+        "displayName": "Soft Surface",
+        "canonical": "#F0F3F6",
+        "tonalRamp": [
+          "#1D2630",
+          "#324354",
+          "#486179",
+          "#5E7E9D",
+          "#829BB4",
+          "#A6B8CA",
+          "#CBD5E0",
+          "#EFF2F5"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field Border",
+        "canonical": "#D8DEE8",
+        "tonalRamp": [
+          "#1C2430",
+          "#323F55",
+          "#485A7A",
+          "#5D769E",
+          "#8194B5",
+          "#A5B3CA",
+          "#CAD2E0",
+          "#EFF1F6"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Hero Display", "purpose": "Name-level hero statements only." },
-      "headline": { "displayName": "Editorial Heading", "purpose": "Major section and contact headings." },
-      "body": { "displayName": "Body", "purpose": "Readable explanatory and project copy." },
-      "navigation": { "displayName": "Navigation", "purpose": "Compact primary navigation labels." }
+      "display": {
+        "displayName": "Hero Display",
+        "purpose": "Name-level hero statements only."
+      },
+      "headline": {
+        "displayName": "Editorial Heading",
+        "purpose": "Major section and contact headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable explanatory and project copy."
+      },
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Compact primary navigation labels."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project and card titles."
+      }
     },
     "shadows": [
-      { "name": "bento-ambient", "value": "0 0 0 1px rgba(0,0,0,.03), 0 2px 4px rgba(0,0,0,.05), 0 12px 24px rgba(0,0,0,.05)", "purpose": "Large featured bento surfaces." },
-      { "name": "menu-lift", "value": "0 10px 15px -3px rgba(0,0,0,.1)", "purpose": "Mobile navigation menu." }
+      {
+        "name": "bento-ambient",
+        "value": "0 0 0 1px rgba(0,0,0,.03), 0 2px 4px rgba(0,0,0,.05), 0 12px 24px rgba(0,0,0,.05)",
+        "purpose": "Large featured bento surfaces."
+      },
+      {
+        "name": "menu-lift",
+        "value": "0 10px 15px -3px rgba(0,0,0,.1)",
+        "purpose": "Mobile navigation menu."
+      }
     ],
     "motion": [
-      { "name": "reveal-standard", "value": "700ms ease-out", "purpose": "Primary entrance and section reveal motion." },
-      { "name": "hover-standard", "value": "300ms ease-in-out", "purpose": "Small image and control hover feedback." }
+      {
+        "name": "reveal-standard",
+        "value": "600ms ease-out",
+        "purpose": "Default FadeInItem and RevealItem entrance duration; reduced motion uses a 150ms fade without delay or translation. WelcomeSection overrides durations to 550–600ms with no entrance delays below 900px."
+      },
+      {
+        "name": "interactive-dot-pulse",
+        "value": "2s ease-in-out infinite",
+        "purpose": "InteractiveHoverButton resting dot pulse; disabled during interaction and for reduced motion."
+      },
+      {
+        "name": "interactive-dot-fill",
+        "value": "550ms cubic-bezier(0.4,0,0.2,1)",
+        "purpose": "InteractiveHoverButton expanding dot; disabled for reduced motion."
+      },
+      {
+        "name": "project-scale-entrance",
+        "value": "650ms cubic-bezier(0.16,1,0.3,1)",
+        "purpose": "WelcomeSection project previews scale from 0.96 to 1 after image load and viewport visibility. Reduced motion removes scale and uses a 150ms fade without delay."
+      },
+      {
+        "name": "project-float",
+        "value": "6px ease-in-out; 8s / 10s full cycles",
+        "purpose": "Only Actio and Zeynep Dikdüş float on desktop. Pause offscreen and in hidden tabs; disable below 900px and for reduced motion."
+      },
+      {
+        "name": "welcome-cta-entrance",
+        "value": "550ms ease-out; 350ms desktop delay; 10px rise",
+        "purpose": "Both hero CTAs reveal together. Mobile entrance delay is zero; reduced motion removes translation and uses a 150ms fade without delay."
+      }
     ],
     "breakpoints": [
-      { "name": "xs", "value": "0px" },
-      { "name": "sm", "value": "600px" },
-      { "name": "md", "value": "900px" },
-      { "name": "lg", "value": "1200px" },
-      { "name": "xl", "value": "1536px" }
+      {
+        "name": "xs",
+        "value": "0px"
+      },
+      {
+        "name": "sm",
+        "value": "600px"
+      },
+      {
+        "name": "md",
+        "value": "900px"
+      },
+      {
+        "name": "lg",
+        "value": "1200px"
+      },
+      {
+        "name": "xl",
+        "value": "1536px"
+      }
     ]
   },
   "components": [
@@ -39,7 +221,7 @@
       "refersTo": "button-accent",
       "description": "Primary hero action using authority navy and clear white contrast.",
       "html": "<button class=\"ds-btn-accent\">İletişime Geç</button>",
-      "css": ".ds-btn-accent { background:#173B6C; color:#FFFFFF; min-width:150px; height:40px; padding:8px 24px; border:0; border-radius:4px; font:500 14px Roboto,sans-serif; transition:background-color 180ms ease-out; } .ds-btn-accent:hover { background:#0F294C; } .ds-btn-accent:focus-visible { outline:3px solid #173B6C; outline-offset:3px; }"
+      "css": ".ds-btn-accent { background:#173B6C; color:#FFFFFF; min-width:150px; height:40px; padding:8px 24px; border:0; border-radius:4px; font:500 14px Roboto,sans-serif; transition:background-color 180ms ease-out; } .ds-btn-accent:hover { background:#0F294C; } .ds-btn-accent:focus-visible { outline:3px solid #173B6C; outline-offset:3px; } .ds-btn-accent, .ds-btn-accent:is(:hover,:active,:focus-visible,:disabled) { box-shadow:none; }"
     },
     {
       "name": "Submit CTA",
@@ -47,7 +229,7 @@
       "refersTo": "button-submit",
       "description": "High-confidence form action with AA text contrast.",
       "html": "<button class=\"ds-btn-submit\">Mesajı yolla</button>",
-      "css": ".ds-btn-submit { background:#173B6C; color:#FFFFFF; height:45px; padding:8px 24px; border:0; border-radius:12px; font:500 14px Roboto,sans-serif; transition:background-color 180ms ease-out; } .ds-btn-submit:hover { background:#0F294C; } .ds-btn-submit:focus-visible { outline:3px solid #173B6C; outline-offset:3px; }"
+      "css": ".ds-btn-submit { background:#173B6C; color:#FFFFFF; height:45px; padding:8px 24px; border:0; border-radius:12px; font:500 14px Roboto,sans-serif; transition:background-color 180ms ease-out; } .ds-btn-submit:hover { background:#0F294C; } .ds-btn-submit:focus-visible { outline:3px solid #173B6C; outline-offset:3px; } .ds-btn-submit, .ds-btn-submit:is(:hover,:active,:focus-visible,:disabled) { box-shadow:none; }"
     },
     {
       "name": "Form Field",
@@ -71,17 +253,61 @@
       "description": "Quiet, compact navigation that leaves visual priority to portfolio work.",
       "html": "<nav class=\"ds-nav\"><a href=\"#about\">Hakkımda</a><a href=\"#works\">Projeler</a><a href=\"#contact\">İletişim</a></nav>",
       "css": ".ds-nav { display:flex; gap:32px; align-items:center; font:400 16px 'Barlow Semi Condensed',sans-serif; letter-spacing:1.3px; } .ds-nav a { color:#111827; text-decoration:none; } .ds-nav a:hover { color:#173B6C; } .ds-nav a:focus-visible { outline:3px solid #173B6C; outline-offset:3px; }"
+    },
+    {
+      "name": "Interactive Hover Button",
+      "kind": "button",
+      "description": "src/components/InteractiveHoverButton/index.tsx: shadow-free CTA with an expanding brick dot. Props: children, icon, pulse (default true), and standard MUI Button props. Navbar usage supplies a downward arrow; duplicate label and icon are hidden from assistive technology.",
+      "html": "<button type=\"button\" class=\"ds-hover-button\"><span class=\"ds-hover-label\">İletişime Geç</span><span class=\"ds-hover-overlay\" aria-hidden=\"true\"><span>İletişime Geç</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"/></svg></span></button>",
+      "css": "@keyframes ds-hover-pulse { 0%,100% { scale:1; opacity:1; } 50% { scale:1.3; opacity:.65; } }\n.ds-hover-button { position:relative; isolation:isolate; overflow:hidden; flex-shrink:0; min-height:36px; padding:6px 16px; border-radius:999px; background:#FFFFFF; color:#B94E3A; border:1px solid #B94E3A; font:600 14px/1.5 Roboto,sans-serif; letter-spacing:.6px; text-transform:uppercase; white-space:nowrap; cursor:pointer; box-shadow:none; }\n.ds-hover-button::before { content:\"\"; position:absolute; left:16px; top:calc(50% - 4px); width:8px; height:8px; border-radius:50%; background:#B94E3A; transform:scale(1); animation:ds-hover-pulse 2s ease-in-out infinite; transition:transform 550ms cubic-bezier(.4,0,.2,1); pointer-events:none; }\n.ds-hover-label { position:relative; display:inline-block; padding-left:14px; transition:transform 400ms cubic-bezier(.4,0,.2,1),opacity 250ms ease; }\n.ds-hover-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:6px; color:#FFFFFF; opacity:0; transform:translateX(32px); transition:transform 450ms cubic-bezier(.16,1,.3,1),opacity 250ms ease; pointer-events:none; }\n.ds-hover-button:is(:hover,:active,:focus-visible,:disabled) { box-shadow:none; }\n.ds-hover-button:focus-visible { outline:3px solid #B94E3A; outline-offset:3px; }\n.ds-hover-button:focus-visible::before { animation:none; transform:scale(45); }\n.ds-hover-button:focus-visible .ds-hover-label { transform:translateX(48px); opacity:0; }\n.ds-hover-button:focus-visible .ds-hover-overlay { transform:translateX(0); opacity:1; transition-delay:150ms; }\n@media (hover:hover) and (pointer:fine) { .ds-hover-button:hover::before { animation:none; transform:scale(45); } .ds-hover-button:hover .ds-hover-label { transform:translateX(48px); opacity:0; } .ds-hover-button:hover .ds-hover-overlay { transform:translateX(0); opacity:1; transition-delay:150ms; } }\n@media (max-width:899.95px) { .ds-hover-button { padding:6px 12px; font-size:12px; } .ds-hover-button::before { left:12px; } }\n@media (prefers-reduced-motion:reduce) { .ds-hover-button::before { animation:none; } .ds-hover-button::before,.ds-hover-label,.ds-hover-overlay { transition:none; } }"
     }
   ],
   "narrative": {
-    "northStar": "Quiet technical confidence",
-    "overview": "A clean, light-first portfolio in which project imagery, generous whitespace, authority navy, and restrained brick signals communicate established product leadership without hype.",
-    "keyCharacteristics": ["Image-led compositions", "Authority navy actions", "Restrained brick signals", "Crisp ink typography", "Soft selective depth", "Purposeful motion"],
-    "rules": [
-      { "name": "The Navy Leads Rule", "body": "Navy carries actions, links, focus, and primary emphasis; brick is reserved for identity signals and selected highlights.", "section": "colors" },
-      { "name": "Flat by default", "body": "Use shadow only to clarify layering, interaction, or a featured composition.", "section": "elevation" }
+    "northStar": "Quiet technical confidence.",
+    "overview": "The interface is a clean, contemporary, light-first portfolio that earns attention through project imagery, generous whitespace, clear typography, and restrained motion. It should feel modern and technically capable without resembling a generic software dashboard or relying on visual hype.\n\nThe geometric POLAT logo establishes a navy-and-brick identity. Deep navy gives the interface authority and makes primary actions feel deliberate; brick adds entrepreneurial energy in restrained signals. White remains dominant so the work stays central and the identity feels established rather than loud.",
+    "keyCharacteristics": [
+      "Spacious, image-led compositions with strong text hierarchy.",
+      "Authority navy for actions and emphasis, with restrained brick signals against white.",
+      "Softly rounded project surfaces with subtle, low-contrast depth.",
+      "Purposeful reveal and scroll motion that never competes with the work.",
+      "Consistent Turkish and English layouts."
     ],
-    "dos": ["Let project imagery provide the proof.", "Let authority navy lead actions and focus.", "Use entrepreneurial brick sparingly.", "Preserve generous whitespace and bilingual hierarchy."],
-    "donts": ["Do not turn brick into a competing primary action color.", "Do not fabricate project evidence.", "Do not introduce gratuitous gradients or generic dashboard styling."]
+    "rules": [
+      {
+        "name": "The Navy Leads Rule",
+        "body": "Navy owns actions, links, focus, and primary emphasis. Brick is a controlled signal for the logo and selected highlights; it never competes with navy as a second primary CTA color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Contrast Rule",
+        "body": "Use white on navy and brick. Supporting Slate is only used on white or equivalently light surfaces; Authority Ink carries primary text.",
+        "section": "colors"
+      },
+      {
+        "name": "Flat by default",
+        "body": "Use shadow only to clarify layering, interaction, or a featured composition.",
+        "section": "elevation"
+      },
+      {
+        "name": "No button shadows",
+        "body": "Buttons, including CTAs, navigation buttons, and icon buttons, must remain shadow-free in default, hover, pressed, focused, and disabled states. Do not use colored halos or elevation to attract attention to an action. Use color, contrast, borders, and spacing; retain visible focus outlines. This user preference also applies to future components and overrides generic button-elevation examples.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** let project imagery and shipped work provide the visual proof.",
+      "**Do** let Authority Navy lead actions, links, and focus.",
+      "**Do** use Entrepreneurial Brick sparingly for recognition and selected signals.",
+      "**Do** preserve generous whitespace and clear bilingual hierarchy.",
+      "**Do** keep motion smooth, controlled, and supportive of reading order."
+    ],
+    "donts": [
+      "**Don't** add shadows, colored glows, or hover elevation to buttons or CTAs.",
+      "**Don't** turn brick into a competing primary action color or use it decoratively everywhere.",
+      "**Don't** fabricate testimonials, results, client claims, or project metrics.",
+      "**Don't** introduce gratuitous gradients, neon effects, or generic technology-dashboard styling.",
+      "**Don't** make every surface a card or use shadow as decoration.",
+      "**Don't** let interactive or 3D elements compete with the portfolio and contact journey."
+    ]
   }
 }

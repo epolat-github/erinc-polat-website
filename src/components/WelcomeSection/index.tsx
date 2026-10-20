@@ -1,7 +1,7 @@
 "use client";
 
 import colors from "@/utils/colors";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, Typography, useMediaQuery, type Theme } from "@mui/material";
 import spacing from "@/utils/spacing";
 import DotPattern from "../DotPattern";
 import ProjectsOverview from "./ProjectsOverview";
@@ -11,6 +11,8 @@ import { useTranslations } from "next-intl";
 
 const WelcomeSection = () => {
     const t = useTranslations("welcome_section");
+    const desktop = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+    const entranceDelay = (seconds: number) => desktop ? seconds : 0;
 
     return (
         <Box
@@ -41,6 +43,7 @@ const WelcomeSection = () => {
                     >
                         <DotPattern />
                         <FadeInItem
+                            duration={0.6}
                             style={{
                                 zIndex: 1,
                             }}
@@ -54,7 +57,8 @@ const WelcomeSection = () => {
                             </Typography>
                         </FadeInItem>
                         <FadeInItem
-                            delay={0.2}
+                            duration={0.6}
+                            delay={entranceDelay(0.06)}
                             style={{
                                 zIndex: 1,
                             }}
@@ -75,7 +79,7 @@ const WelcomeSection = () => {
                         </FadeInItem>
                     </Stack>
 
-                    <FadeInItem delay={0.3}>
+                    <FadeInItem duration={0.6} delay={entranceDelay(0.14)}>
                         <Typography
                             variant="h5"
                             fontWeight="500"
@@ -93,17 +97,17 @@ const WelcomeSection = () => {
                     </FadeInItem>
 
                     <Stack spacing={spacing.tiny}>
-                        <FadeInItem delay={0.4}>
+                        <FadeInItem duration={0.55} delay={entranceDelay(0.2)}>
                             <Typography variant="h6" color={colors.gray}>
                                 🚀 {t("websites_text")}
                             </Typography>
                         </FadeInItem>
-                        <FadeInItem delay={0.5}>
+                        <FadeInItem duration={0.55} delay={entranceDelay(0.25)}>
                             <Typography variant="h6" color={colors.gray}>
                                 📱 {t("mobile_text")}
                             </Typography>
                         </FadeInItem>
-                        <FadeInItem delay={0.6}>
+                        <FadeInItem duration={0.55} delay={entranceDelay(0.3)}>
                             <Typography variant="h6" color={colors.gray}>
                                 ⚡️ {t("backend_text")}
                             </Typography>
@@ -116,7 +120,7 @@ const WelcomeSection = () => {
                         useFlexGap
                         flexWrap="wrap"
                     >
-                        <RevealItem delay={0.7}>
+                        <RevealItem duration={0.55} distance={10} delay={entranceDelay(0.35)}>
                             <Button
                                 variant="contained"
                                 sx={{
@@ -132,7 +136,7 @@ const WelcomeSection = () => {
                             </Button>
                         </RevealItem>
 
-                        <RevealItem delay={0.9}>
+                        <RevealItem duration={0.55} distance={10} delay={entranceDelay(0.35)}>
                             <Button
                                 variant="contained"
                                 sx={{
