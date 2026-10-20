@@ -14,10 +14,16 @@
         "zeynep_alt": "Zeynep Dikdüş website screenshot"
     },
     "who_am_i_section": {
-        "title": "Who am I?",
-        "first_paragraph": "Hello, I’m Erinç Tuna Polat. I studied Computer Engineering at TED University. Alongside my major, I pursued a minor in psychology to better understand the interaction between humans and technology. I have been working in the software development field for over seven years, and I founded my own company to undertake a wide variety of projects.",
-        "second_paragraph": "I have led various SaaS projects, including IoT device integration, smart lock management, IP camera-based security systems, and systems that manage building access permissions. I developed solutions for both web and mobile platforms using React/Next.js, React Native/Expo and Nodejs. I also optimized projects by managing Docker and CI/CD processes, ensuring seamless integration and continuous deployment.",
-        "third_paragraph": "Among my freelance projects are innovative solutions like event management applications, contactless receipt systems, and fitness assistant apps. I have completed projects for clients from Germany, Canada, and Türkiye across various sectors. With my strong technical expertise and the collaborative work I have done with my teams, I strive to make a difference in the tech world. I look forward to collaborating with potential clients on new projects, helping them accelerate their digital transformation processes.",
+        "title": "From your idea to a working product.",
+        "title_emphasis": "Built around your business.",
+        "introduction": "I design, develop, and launch web and mobile products aligned with your business goals. From new product development to the evolution of existing platforms, my approach brings together user needs, technical requirements, and integration with your existing systems.",
+        "development_title": "End-to-end development",
+        "development_description": "From design and application development to infrastructure and launch, I treat your product as a whole. After launch, I continue to support it with maintenance and new features.",
+        "ai_products_title": "AI-powered products and automation",
+        "ai_products_description": "I integrate AI into your product to build features that help your users and workflows that reduce repetitive work.",
+        "agentic_coding_title": "Development with agentic coding",
+        "agentic_coding_description": "I use AI tools and coding agents to accelerate development while taking responsibility for architecture, code review, and quality control.",
+        "projects_cta": "Explore my work",
         "portrait_alt": "Portrait of Erinç Polat"
     },
     "process_section": {

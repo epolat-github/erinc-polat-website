@@ -204,6 +204,24 @@ import { Link } from "@/i18n/routing";
 </InteractiveHoverButton>
 ```
 
+### AnimatedTextLink
+
+A reusable text CTA with a left-to-right underline and subtle horizontal icon motion. Reuse it for this treatment rather than copying the styles into sections.
+
+- **Path / import:** `src/components/AnimatedTextLink/index.tsx` / `@/components/AnimatedTextLink` (default export; named type `AnimatedTextLinkProps`).
+- **Appearance:** Unfilled, intrinsic-width link with 16px semibold navy text, a default 20px right arrow, 10px text/icon gap, and a 44px minimum height.
+- **Props:** Required `children` (link label/content) and `href` (destination); optional `icon` replaces the default right arrow, or `icon={null}` hides it. Standard MUI Link props are accepted except `underline`, which is owned by the animation; `sx` supports object, function and array overrides applied after the defaults. Use `target`, `rel` and accessible labels as appropriate for the destination.
+- **Motion:** A 2px underline grows from the left over 280ms on hover or keyboard focus. The icon moves 3px horizontally and back in a repeating 1600ms ease-in-out cycle while hovered/focused and returns to rest afterward. Reduced motion shows the underline immediately and disables icon movement.
+- **Accessibility / composition:** A client component rendering a native link by default; labels remain available to assistive technology, the decorative icon wrapper is `aria-hidden`, and keyboard focus retains a 3px navy outline with 3px offset. Server components can pass translated labels, destinations and icons as serializable/renderable props. No JavaScript animation state is required.
+- **Current usage:** WhoAmISection project anchor (`href="#works"`) in both locales overrides `sx.color` with `semanticColors.actionSecondary` (brick). The underline and icon inherit this accent; the component default remains navy and its focus ring remains navy.
+
+```tsx
+import AnimatedTextLink from "@/components/AnimatedTextLink";
+
+<AnimatedTextLink href="#works">Explore my work</AnimatedTextLink>
+<AnimatedTextLink href="/projects" icon={null}>All projects</AnimatedTextLink>
+```
+
 ### Entrance and Floating Motion
 
 Reuse these wrappers rather than duplicating their animation behavior:
@@ -246,7 +264,7 @@ Reuse these wrappers rather than duplicating their animation behavior:
 ### Server and Client Composition
 
 - **ProcessSection** — `src/components/ProcessSection/index.tsx`: server-rendered process heading and card layout with `getTranslations`. No props; usage: `<ProcessSection />`. `ProcessCard` also stays on the server.
-- **WhoAmISection** — `src/components/WhoAmISection/index.tsx`: server-rendered localized biography and portrait layout. No props; usage: `<WhoAmISection />`. Motion stays in the existing `FadeInItem`, `RevealItem` and `DotPattern` client components.
+- **WhoAmISection** — `src/components/WhoAmISection/index.tsx`: server-rendered, localized introduction for prospective clients. No props; usage: `<WhoAmISection />`. A two-part `h2`, short introduction, project anchor link, and portrait precede three open, divider-led service columns: end-to-end development, AI-powered products/automation, and agentic coding with human engineering oversight. No individual project examples or metrics appear here. Desktop uses a flexible text column and 320px square portrait; below 900px the portrait follows the introduction and project action, and service columns stack. The portrait caps at 360px on mobile. The sole action reuses `AnimatedTextLink` to link to `#works`, with a section-specific `semanticColors.actionSecondary` override for 16px semibold brick text, a 20px right arrow, and a 44px minimum height. A 2px underline scales from left to right over 280ms on hover or keyboard focus; the arrow moves 3px horizontally and back in a repeating 1600ms ease-in-out cycle during the same interaction. Leaving hover/focus returns it to rest. Reduced motion makes the underline immediate and disables arrow movement. The link retains a visible focus outline, intrinsic width and an unfilled surface. The contact CTA is omitted from this section. The section retains `id="about"`, adds a named section landmark and 96px anchor offset, and uses semantic color tokens. Entrance and portrait motion stay in the existing `FadeInItem`, `RevealItem` and `DotPattern` client components; CTA interaction styles live in `AnimatedTextLink`; service copy is visible without entrance animation. Copy lives under matching `who_am_i_section` keys in both locale files.
 - **MyWorksSection** — `src/components/MyWorksSection/index.tsx`: server-rendered selected project layout and localized summaries. No props; usage: `<MyWorksSection />`. Full project data and locale selection stay on the server; cards receive serializable display props and `href`.
 - **MyWorkCard** is an explicit client component for its entrance animation. Its required `href` is an unprefixed internal project path resolved through the existing locale-aware `Link`; it replaces the former navigation callback. This supports server composition and native link behavior. The project listing at `src/app/[locale]/projects/page.tsx` uses the same arrangement.
 - **FadeInItem** and **RevealItem** explicitly declare their client boundary so server-rendered sections can pass content as children. Props, timings and reduced-motion behavior remain as documented above.
@@ -262,7 +280,7 @@ Reuse these wrappers rather than duplicating their animation behavior:
 
 ### Image Loading
 
-- Active portfolio `fill` images declare `sizes` matching their layout: process columns, a portrait capped at 400px, project cards divided by image count, gallery rows divided by image count, and a modal capped at 900px. Footer artwork uses `100vw` to cover its full-width transformed state.
+- Active portfolio `fill` images declare `sizes` matching their layout: process columns, a portrait at 320px on desktop and capped at 360px on mobile, project cards divided by image count, gallery rows divided by image count, and a modal capped at 900px. Footer artwork uses `100vw` to cover its full-width transformed state.
 - `ProcessCard` accepts an optional `sizes` override; `ProcessSection` supplies the narrower design-column width. Existing gallery `containerStyle` overrides should keep the declared image width in mind.
 - Next Image uses default quality 75 for process artwork, portrait, hero previews, cards and modal. Gallery thumbnails retain quality 50, explicitly allowed alongside 75 in `next.config.mjs`. Source assets remain intact.
 - Responsive device sizes include 320px and 480px, alongside Next's larger defaults, so small screens can select appropriately sized files.

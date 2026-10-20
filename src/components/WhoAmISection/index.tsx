@@ -1,5 +1,6 @@
-import colors from "@/utils/colors";
+import { semanticColors } from "@/utils/colors";
 import { Box, Container, Stack, Typography } from "@mui/material";
+import AnimatedTextLink from "@/components/AnimatedTextLink";
 import Image from "next/image";
 import spacing from "@/utils/spacing";
 import DotPattern from "../DotPattern";
@@ -7,133 +8,138 @@ import FadeInItem from "../FadeInItem";
 import RevealItem from "../RevealItem";
 import { getTranslations } from "next-intl/server";
 
+const capabilities = ["development", "ai_products", "agentic_coding"] as const;
+
 const WhoAmISection = async () => {
     const t = await getTranslations("who_am_i_section");
 
     return (
         <Box
+            component="section"
             id="about"
+            aria-labelledby="about-heading"
             sx={{
-                backgroundColor: colors.background,
+                backgroundColor: semanticColors.background,
+                scrollMarginTop: 96,
             }}
         >
             <Container
-                component={Stack}
                 maxWidth="lg"
-                sx={{
-                    paddingTop: spacing.big * 2,
-                }}
+                sx={{ pt: { xs: spacing.big, md: spacing.big * 2 } }}
             >
                 <Stack
-                    direction={{
-                        xs: "column",
-                        md: "row",
-                    }}
-                    spacing={{
-                        xs: spacing.medium,
-                        md: 0,
+                    direction={{ xs: "column", md: "row" }}
+                    alignItems={{ xs: "stretch", md: "center" }}
+                    gap={{ xs: spacing.small, md: spacing.medium }}
+                >
+                    <Stack sx={{ flex: 1, minWidth: 0 }} gap={3}>
+                        <RevealItem distance={16}>
+                            <Typography
+                                component="h2"
+                                id="about-heading"
+                                sx={{
+                                    color: semanticColors.textPrimary,
+                                    fontSize: { xs: "2rem", sm: "2.75rem", lg: "3rem" },
+                                    fontWeight: 700,
+                                    lineHeight: 1.15,
+                                    letterSpacing: "-0.03em",
+                                    textWrap: "balance",
+                                }}
+                            >
+                                {t("title")}
+                                <Box
+                                    component="span"
+                                    sx={{ display: "block", color: semanticColors.actionPrimary }}
+                                >
+                                    {t("title_emphasis")}
+                                </Box>
+                            </Typography>
+                        </RevealItem>
+
+                        <FadeInItem delay={0.08}>
+                            <Typography
+                                sx={{
+                                    color: semanticColors.textMuted,
+                                    fontSize: { xs: "1rem", sm: "1.125rem" },
+                                    lineHeight: 1.75,
+                                    maxWidth: "60ch",
+                                }}
+                            >
+                                {t("introduction")}
+                            </Typography>
+                        </FadeInItem>
+
+                        <FadeInItem delay={0.12}>
+                            <AnimatedTextLink
+                                href="#works"
+                                sx={{ color: semanticColors.actionSecondary }}
+                            >
+                                {t("projects_cta")}
+                            </AnimatedTextLink>
+                        </FadeInItem>
+                    </Stack>
+
+                    <Box
+                        sx={{
+                            width: { xs: "100%", md: 320 },
+                            maxWidth: 360,
+                            flexShrink: 0,
+                            alignSelf: "center",
+                            position: "relative",
+                            aspectRatio: "1 / 1",
+                        }}
+                    >
+                        <DotPattern maskPercentage="130%" />
+                        <FadeInItem style={{ position: "relative", height: "100%" }}>
+                            <Image
+                                src="/erinc-polat.webp"
+                                alt={t("portrait_alt")}
+                                fill
+                                sizes="(min-width: 900px) 320px, (min-width: 392px) 360px, calc(100vw - 32px)"
+                                style={{ objectFit: "contain" }}
+                            />
+                        </FadeInItem>
+                    </Box>
+                </Stack>
+
+                <Box
+                    component="ul"
+                    sx={{
+                        listStyle: "none",
+                        p: 0,
+                        mb: 0,
+                        mt: { xs: spacing.small, md: spacing.medium },
+                        display: "grid",
+                        gridTemplateColumns: { xs: "1fr", md: "repeat(3, minmax(0, 1fr))" },
+                        columnGap: spacing.small,
+                        rowGap: 3,
                     }}
                 >
-                    {/* left section */}
-                    <Stack
-                        spacing={spacing.tiny}
-                        flex={{
-                            xs: 1,
-                            md: 0.5,
-                        }}
-                    >
-                        <Stack
-                            sx={{
-                                position: "relative",
-                            }}
+                    {capabilities.map((capability) => (
+                        <Box
+                            component="li"
+                            key={capability}
+                            sx={{ borderTop: `1px solid ${semanticColors.border}`, pt: 3 }}
                         >
-                            <RevealItem>
-                                <Typography
-                                    fontSize={24}
-                                    fontWeight="bold"
-                                    color="primary"
-                                    sx={{
-                                        zIndex: 2,
-                                    }}
-                                >
-                                    {t("title")}
-                                </Typography>
-                            </RevealItem>
-                        </Stack>
-
-                        <Stack spacing={spacing.tiny}>
-                            <FadeInItem delay={0.1}>
-                                <Typography color={colors.gray}>
-                                    {t("first_paragraph")}
-                                </Typography>
-                            </FadeInItem>
-                            <FadeInItem delay={0.2}>
-                                <Typography color={colors.gray}>
-                                    {t("second_paragraph")}
-                                </Typography>
-                            </FadeInItem>
-
-                            <FadeInItem delay={0.4}>
-                                <Typography color={colors.gray}>
-                                    {t("third_paragraph")}
-                                </Typography>
-                            </FadeInItem>
-                        </Stack>
-                    </Stack>
-
-                    {/* right section */}
-                    <Stack
-                        flex={{
-                            xs: 1,
-                            md: 0.5,
-                        }}
-                        sx={{
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                    >
-                        <Stack
-                            sx={{
-                                borderRadius: "50%",
-                                width: {
-                                    xs: "100%",
-                                    md: 400,
-                                },
-                                maxWidth: 400,
-                                height: {
-                                    xs: 350,
-                                    sm: 400,
-                                },
-                                position: "relative",
-                            }}
-                        >
-                            <FadeInItem
-                                style={{
-                                    zIndex: 1,
-                                }}
-                                delay={0.3}
-                            >
-                                <Image
-                                    src="/erinc-polat.webp"
-                                    alt={t("portrait_alt")}
-                                    fill
-                                    sizes="(min-width: 432px) 400px, calc(100vw - 32px)"
-                                />
-                            </FadeInItem>
-
-                            <Box
+                            <Typography
+                                component="h3"
                                 sx={{
-                                    position: "absolute",
-                                    height: "100%",
-                                    width: "100%",
-                                    zIndex: 0,
+                                    color: semanticColors.textPrimary,
+                                    fontSize: "1.25rem",
+                                    fontWeight: 700,
+                                    lineHeight: 1.4,
+                                    mb: 1.5,
+                                    textWrap: "balance",
                                 }}
                             >
-                                <DotPattern maskPercentage="130%" />
-                            </Box>
-                        </Stack>
-                    </Stack>
-                </Stack>
+                                {t(`${capability}_title`)}
+                            </Typography>
+                            <Typography sx={{ color: semanticColors.textMuted, lineHeight: 1.75 }}>
+                                {t(`${capability}_description`)}
+                            </Typography>
+                        </Box>
+                    ))}
+                </Box>
             </Container>
         </Box>
     );
