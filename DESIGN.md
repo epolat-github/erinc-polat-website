@@ -51,11 +51,13 @@ components:
     textColor: "{colors.canvas}"
     height: "40px"
     padding: "8px 24px"
+    boxShadow: "none"
   button-submit:
     backgroundColor: "{colors.primary-navy}"
     textColor: "{colors.canvas}"
     rounded: "{rounded.sm}"
     height: "45px"
+    boxShadow: "none"
   project-card:
     backgroundColor: "{colors.soft-surface}"
     rounded: "{rounded.md}"
@@ -142,6 +144,8 @@ The system is flat by default. Depth appears selectively through soft multi-laye
 
 **Flat by default.** Use shadow only to clarify layering, interaction, or a featured composition.
 
+**No button shadows.** Buttons, including CTAs, navigation buttons, and icon buttons, must remain shadow-free in default, hover, pressed, focused, and disabled states. Do not use colored halos or elevation to attract attention to an action. Use color, contrast, borders, and spacing; retain visible focus outlines. This user preference also applies to future components and overrides generic button-elevation examples.
+
 ## Shapes
 
 Cards and form fields use soft 12–16px corners. Project image surfaces use 16px corners; bento panels and the contact submit button use 12px. Circular geometry is reserved for icon controls and avatars. Avoid thick decorative borders and excessive pill shapes.
@@ -150,10 +154,36 @@ Cards and form fields use soft 12–16px corners. Project image surfaces use 16p
 
 ### Buttons
 
+- **Elevation:** No box shadows in any state. MUI buttons use `disableElevation` by default; component-level styles must not reintroduce shadows.
 - **Primary CTA:** Authority Navy background with white text, 40px height, compact rectangular shape.
 - **Submit CTA:** Authority Navy background with white text, 12px radius, 45px height.
 - **Secondary CTA:** Soft Surface background with Authority Ink text and a Field Border hover.
 - **Focus:** Use a visible 3px Authority Navy outline with separation from the component edge.
+
+### InteractiveHoverButton
+
+A compact, shadow-free CTA with a pulsing dot that expands to fill the button on hover or keyboard focus. Reuse this component when a similar animated CTA is requested.
+
+- **Path / import:** `src/components/InteractiveHoverButton/index.tsx` / `@/components/InteractiveHoverButton` (default export).
+- **Appearance:** 36px minimum height, pill shape, white resting background, Entrepreneurial Brick text, border, and dot. On interaction, the brick dot fills the button and white text appears with an icon.
+- **Motion:** A gentle 2-second dot pulse at rest; 550ms fill transition with the replacement label appearing after a 150ms delay. Pulse stops during interaction. Reduced-motion preferences disable pulse and transitions.
+- **Props:** `children` supplies the label; `icon` replaces the default right arrow (use a downward arrow for a link to a lower page section); `pulse` defaults to `true` and can be disabled. Standard MUI Button props are supported, including `href`, `LinkComponent`, `onClick`, `disabled`, `type`, and `sx`; `startIcon` and `endIcon` are replaced by `icon`.
+- **Accessibility:** Keyboard focus triggers the effect and retains a visible outline. The duplicate animated label and icon are hidden from assistive technology. The default button type is `button`.
+- **Current usage:** Navbar contact CTA on desktop and mobile, with a downward arrow and the localized contact link. Its Barlow Semi Condensed font is supplied by the navbar through `sx`.
+
+```tsx
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import InteractiveHoverButton from "@/components/InteractiveHoverButton";
+import { Link } from "@/i18n/routing";
+
+<InteractiveHoverButton
+    LinkComponent={Link}
+    href="/#contact"
+    icon={<ArrowDownwardIcon sx={{ fontSize: 18 }} />}
+>
+    {t("cta_button_text")}
+</InteractiveHoverButton>
+```
 
 ### Cards / Containers
 
@@ -184,6 +214,7 @@ The fixed navigation uses Barlow Semi Condensed at 16px with 1.3px tracking. It 
 
 ### Don't:
 
+- **Don't** add shadows, colored glows, or hover elevation to buttons or CTAs.
 - **Don't** turn brick into a competing primary action color or use it decoratively everywhere.
 - **Don't** fabricate testimonials, results, client claims, or project metrics.
 - **Don't** introduce gratuitous gradients, neon effects, or generic technology-dashboard styling.

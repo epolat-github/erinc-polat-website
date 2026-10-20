@@ -37,6 +37,19 @@ let theme = createTheme({
         },
     },
     components: {
+        MuiButton: {
+            defaultProps: {
+                disableElevation: true,
+            },
+            styleOverrides: {
+                root: {
+                    boxShadow: "none",
+                    "&:hover, &:active, &.Mui-focusVisible, &.Mui-disabled": {
+                        boxShadow: "none",
+                    },
+                },
+            },
+        },
         MuiButtonBase: {
             defaultProps: {
                 style: {
