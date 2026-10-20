@@ -11,7 +11,7 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
-import colors from "@/utils/colors";
+import { semanticColors } from "@/utils/colors";
 import React, { forwardRef, useState } from "react";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -20,7 +20,6 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 import spacing from "@/utils/spacing";
-import theme from "@/utils/theme";
 import Image from "next/image";
 import { sendEmail } from "../../../app/actions/sendEmail";
 import { motion } from "framer-motion";
@@ -42,7 +41,7 @@ const CONTACT_DATA = [
             <InsertDriveFileRoundedIcon
                 fontSize="small"
                 sx={{
-                    color: colors.header,
+                    color: semanticColors.textPrimary,
                 }}
             />
         ),
@@ -66,7 +65,7 @@ const CONTACT_DATA = [
             <InstagramIcon
                 fontSize="small"
                 sx={{
-                    color: colors.header,
+                    color: semanticColors.textPrimary,
                 }}
             />
         ),
@@ -99,7 +98,7 @@ const ContactListRow: React.FC<ContactListRowType> = (props) => {
             <ButtonBase onClick={onClick}>
                 <Stack
                     sx={{
-                        bgcolor: theme.palette.grey[100],
+                        bgcolor: semanticColors.surface,
                         borderRadius: "50%",
                         justifyContent: "center",
                         alignItems: "center",
@@ -110,7 +109,7 @@ const ContactListRow: React.FC<ContactListRowType> = (props) => {
                     {Icon}
                 </Stack>
                 <Typography
-                    color={theme.palette.grey[800]}
+                    color={semanticColors.textPrimary}
                     sx={{
                         marginLeft: spacing.tiny,
                     }}
@@ -217,7 +216,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
             component={motion.div}
             ref={ref}
             sx={{
-                backgroundColor: colors.background,
+                backgroundColor: semanticColors.background,
                 zIndex: 1,
                 position: "relative",
                 paddingY: spacing.medium,
@@ -227,7 +226,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 component={Stack}
                 maxWidth="lg"
                 sx={{
-                    backgroundColor: colors.background,
+                    backgroundColor: semanticColors.background,
                 }}
                 spacing={spacing.big}
                 direction={{ xs: "column", sm: "row" }}
@@ -243,7 +242,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                     <Typography
                         variant="h4"
                         fontWeight="bold"
-                        color={colors.header}
+                        color={semanticColors.textPrimary}
                         sx={{
                             fontFamily: oswald.style.fontFamily,
                         }}
@@ -307,13 +306,13 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                                     borderStyle: "solid",
                                     borderColor: fieldErrors.name
                                         ? "error.main"
-                                        : "lightgray",
+                                        : semanticColors.border,
                                     borderRadius: spacing.small,
                                     borderWidth: 1,
                                     px: spacing.tiny,
                                     py: spacing.tiny / 2,
                                     "&:focus-within": {
-                                        outline: `3px solid ${theme.palette.primary.main}`,
+                                        outline: `3px solid ${semanticColors.focusRing}`,
                                         outlineOffset: 3,
                                         borderRadius: spacing.small,
                                     },
@@ -359,13 +358,13 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                                     borderStyle: "solid",
                                     borderColor: fieldErrors.email
                                         ? "error.main"
-                                        : "lightgray",
+                                        : semanticColors.border,
                                     borderRadius: spacing.small,
                                     borderWidth: 1,
                                     px: spacing.tiny,
                                     py: spacing.tiny / 2,
                                     "&:focus-within": {
-                                        outline: `3px solid ${theme.palette.primary.main}`,
+                                        outline: `3px solid ${semanticColors.focusRing}`,
                                         outlineOffset: 3,
                                         borderRadius: spacing.small,
                                     },
@@ -402,13 +401,13 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                                     borderStyle: "solid",
                                     borderColor: fieldErrors.message
                                         ? "error.main"
-                                        : "lightgray",
+                                        : semanticColors.border,
                                     borderRadius: spacing.small,
                                     borderWidth: 1,
                                     px: spacing.tiny,
                                     py: spacing.tiny / 2,
                                     "&:focus-within": {
-                                        outline: `3px solid ${theme.palette.primary.main}`,
+                                        outline: `3px solid ${semanticColors.focusRing}`,
                                         outlineOffset: 3,
                                         borderRadius: spacing.small,
                                     },
@@ -470,7 +469,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                     <Typography
                         variant="h4"
                         fontWeight="bold"
-                        color={colors.header}
+                        color={semanticColors.textPrimary}
                         sx={{
                             fontFamily: oswald.style.fontFamily,
                         }}

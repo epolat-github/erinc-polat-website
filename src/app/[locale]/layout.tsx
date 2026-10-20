@@ -75,9 +75,8 @@ const RootLayout = async ({
             >
                 <NextIntlClientProvider messages={messages}>
                     <AppRouterCacheProvider>
-                        <CssBaseline />
-
                         <ThemeProvider theme={theme}>
+                            <CssBaseline />
                             <Navbar />
                             {children}
                         </ThemeProvider>

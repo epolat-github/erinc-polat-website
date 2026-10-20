@@ -255,6 +255,28 @@
       "biography": "src/components/WhoAmISection/index.tsx is a server component with no props, usage <WhoAmISection />. Existing FadeInItem, RevealItem and DotPattern retain client-side motion.",
       "projects": "src/components/MyWorksSection/index.tsx and src/app/[locale]/projects/page.tsx select locale and full project data on the server. MyWorksSection takes no props, usage <MyWorksSection />. Cards receive serializable title, description, images, href and optional animationDirection.",
       "boundaries": "MyWorkCard, FadeInItem and RevealItem explicitly declare use client. MyWorkCard requires href instead of the former onClick navigation callback, using the existing locale-aware Link. Entrance timing and reduced-motion behavior stay unchanged."
+    },
+    "semanticColors": {
+      "source": "Named semanticColors export in src/utils/colors.ts; default colors export retained for compatibility.",
+      "roles": {
+        "background": "#FFFFFF",
+        "surface": "#F0F3F6",
+        "textPrimary": "#111827",
+        "textMuted": "#5E6673",
+        "border": "#D8DEE8",
+        "actionPrimary": "#173B6C",
+        "onActionPrimary": "#FFFFFF",
+        "actionSecondary": "#B94E3A",
+        "onActionSecondary": "#FFFFFF",
+        "focusRing": "#173B6C"
+      },
+      "theme": "src/utils/theme.ts maps actions, text, backgrounds and divider to MUI. CssBaseline renders inside ThemeProvider. Light only; dark mode and automatic system-theme switching are outside scope.",
+      "focus": "MuiButtonBase supplies a 3px focusRing outline with 3px offset for Mui-focusVisible. Fields use the same token; InteractiveHoverButton retains its component-specific brick focus outline.",
+      "migration": "ServicesCard and gallery backgrounds use surface; ChipRow uses surface/textMuted. ContactForm uses semantic backgrounds, text, icon surfaces, border and focusRing with MUI error.main for invalid fields. MyWorkCard uses the theme Divider instead of a translucent white override. Project detail white background uses the central palette.",
+      "componentContracts": {
+        "ChipRow": "src/components/ProjectDetails/ChipRow/index.tsx: labels string[], optional containerProps StackProps and chipProps ChipProps. Usage: <ChipRow labels={[\"React\", \"Next.js\"]} />.",
+        "ContactForm": "src/components/ContactSection/ContactForm/index.tsx: no configuration props; optional forwarded ref identifies the section for parent scroll behavior. Usage: <ContactForm ref={targetRef} />. Existing validation/submission behavior is retained."
+      }
     }
   },
   "components": [

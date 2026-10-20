@@ -158,7 +158,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsType) => {
                         sx={{
                             flex: 1,
                             alignItems: "center",
-                            backgroundColor: "#fff",
+                            backgroundColor: colors.background,
                             zIndex: 2,
                         }}
                         spacing={spacing.tiny}

@@ -1,7 +1,7 @@
 "use client";
 
 import FullScreenImageModal from "@/components/FullScreenImageModal";
-import theme from "@/utils/theme";
+import { semanticColors } from "@/utils/colors";
 import { Box, BoxProps, ButtonBase } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
@@ -30,7 +30,7 @@ const SingleImageRow: React.FC<SingleImageRowType> = (props) => {
                         height: "clamp(220px, 56vw, 640px)",
                         width: "100%",
                         position: "relative",
-                        backgroundColor: theme.palette.grey[100],
+                        backgroundColor: semanticColors.surface,
                         borderRadius: "12px",
                         overflow: "hidden",
                         ...containerStyle,

@@ -6,7 +6,7 @@ import Image from "next/image";
 import EastRoundedIcon from "@mui/icons-material/EastRounded";
 import { AssetImage } from "@/types/project.type";
 import { motion } from "framer-motion";
-import colors from "@/utils/colors";
+import { semanticColors } from "@/utils/colors";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 
@@ -66,7 +66,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                             sx={{
                                 width: "100%",
                                 height: "clamp(220px, 40vw, 400px)",
-                                backgroundColor: colors.surface,
+                                backgroundColor: semanticColors.surface,
                                 borderRadius: 4,
                             }}
                             direction="row"
@@ -106,12 +106,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                                 >
                                     {title}
                                 </Typography>
-                                <Divider
-                                    sx={{
-                                        backgroundColor: "#ffffff29",
-                                        opacity: 0.6,
-                                    }}
-                                />
+                                <Divider />
                                 <Typography textAlign="start">
                                     {description}
                                 </Typography>

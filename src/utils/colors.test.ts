@@ -4,6 +4,7 @@ import test from "node:test";
 
 const require = createRequire(import.meta.url);
 const colors = require("./colors.ts").default as typeof import("./colors").default;
+const semanticColors = require("./colors.ts").semanticColors as typeof import("./colors").semanticColors;
 
 const luminance = (hex: string) => {
     const channels = hex
@@ -47,4 +48,14 @@ test("approved text pairs meet WCAG AA", () => {
     assert.ok(contrast(colors.onSecondary, colors.secondary) >= 4.5);
     assert.ok(contrast(colors.gray, colors.background) >= 4.5);
     assert.ok(contrast(colors.header, colors.background) >= 4.5);
+});
+
+test("semantic text and focus colors remain legible across UI surfaces", () => {
+    for (const surface of [semanticColors.background, semanticColors.surface]) {
+        assert.ok(contrast(semanticColors.textPrimary, surface) >= 4.5);
+        assert.ok(contrast(semanticColors.textMuted, surface) >= 4.5);
+        assert.ok(contrast(semanticColors.focusRing, surface) >= 3);
+    }
+    assert.ok(contrast(semanticColors.onActionPrimary, semanticColors.actionPrimary) >= 4.5);
+    assert.ok(contrast(semanticColors.onActionSecondary, semanticColors.actionSecondary) >= 4.5);
 });

@@ -110,6 +110,25 @@ The palette pairs authoritative navy with entrepreneurial brick, crisp ink typog
 
 **The Contrast Rule.** Use white on navy and brick. Supporting Slate is only used on white or equivalently light surfaces; Authority Ink carries primary text.
 
+### Semantic UI Colors
+
+Use the named `semanticColors` export from `src/utils/colors.ts` for functional UI colors. The default `colors` export remains compatible with existing brand and decorative consumers. `src/utils/theme.ts` maps these roles to MUI palette values; `CssBaseline` must render inside `ThemeProvider` so document defaults use the same palette.
+
+| Role | Token | Value | MUI mapping |
+| --- | --- | --- | --- |
+| Page / field background | `background` | `#FFFFFF` | `background.default`, `background.paper` |
+| Cards / gallery / icon surfaces | `surface` | `#F0F3F6` | Direct token in component styles |
+| Primary text | `textPrimary` | `#111827` | `text.primary` |
+| Muted text | `textMuted` | `#5E6673` | `text.secondary` |
+| Field borders / dividers | `border` | `#D8DEE8` | `divider` |
+| Primary action / text | `actionPrimary`, `onActionPrimary` | `#173B6C`, `#FFFFFF` | `primary.main`, `primary.contrastText` |
+| Secondary action / text | `actionSecondary`, `onActionSecondary` | `#B94E3A`, `#FFFFFF` | `secondary.main`, `secondary.contrastText` |
+| Keyboard focus | `focusRing` | `#173B6C` | 3px outline, 3px offset on `MuiButtonBase` |
+
+Example: `import { semanticColors } from "@/utils/colors";` followed by `<Stack sx={{ bgcolor: semanticColors.surface, color: semanticColors.textPrimary }} />`. Prefer semantic roles over literal colors, `lightgray` or unrelated MUI gray indices. Forms keep MUI's `error.main` role for validation. The expanding-dot CTA retains its documented brick focus outline.
+
+**Theme scope:** light only. MUI uses `palette.mode: "light"` and the document declares `colorScheme: "light"`. Dark mode and automatic system-theme switching are outside the current scope.
+
 ## Typography
 
 **Display Font:** Roboto, sans-serif  
@@ -158,7 +177,7 @@ Cards and form fields use soft 12–16px corners. Project image surfaces use 16p
 - **Primary CTA:** Authority Navy background with white text, 40px height, compact rectangular shape.
 - **Submit CTA:** Authority Navy background with white text, 12px radius, 45px height.
 - **Secondary CTA:** Soft Surface background with Authority Ink text and a Field Border hover.
-- **Focus:** Use a visible 3px Authority Navy outline with separation from the component edge.
+- **Focus:** `MuiButtonBase` supplies a visible 3px `semanticColors.focusRing` outline with a 3px offset; component-specific focus treatments may override it without removing visibility.
 
 ### InteractiveHoverButton
 
@@ -240,6 +259,20 @@ Reuse these wrappers rather than duplicating their animation behavior:
 - Responsive device sizes include 320px and 480px, alongside Next's larger defaults, so small screens can select appropriately sized files.
 - Only the main FitNLit hero preview has an image preload, restricted by `media="(min-width: 900px)"`. Its `srcset` and `sizes` are generated with `getImageProps` from the same props as the image. Below 900px the collage follows the text and uses lazy loading. Other portfolio imagery stays lazy loaded.
 - **FullScreenImageModal** — `src/components/FullScreenImageModal/index.tsx`: contained image viewer. Props: `isOpen`, `onClose`, optional `imageUrl`, `alt`. Usage: `<FullScreenImageModal isOpen={open} onClose={close} imageUrl={url} alt={alt} />`. Image size follows the dialog width (`100vw - 64px`, capped at 900px), quality 75.
+
+### ChipRow
+
+- **Path / import:** `src/components/ProjectDetails/ChipRow/index.tsx` / `@/components/ProjectDetails/ChipRow` (default export).
+- **Purpose:** Wrapping project tags with `semanticColors.surface` and `semanticColors.textMuted`.
+- **Props:** `labels` (string array), optional `containerProps` (`StackProps`) and `chipProps` (`ChipProps`) for overrides.
+- **Usage:** `<ChipRow labels={["React", "Next.js"]} />`.
+
+### ContactForm
+
+- **Path / import:** `src/components/ContactSection/ContactForm/index.tsx` / `@/components/ContactSection/ContactForm` (default export).
+- **Purpose:** Localized contact fields, client validation, submission and contact links. No configuration props; optional forwarded `ref` identifies the section for the parent scroll behavior.
+- **Colors:** Semantic background, text, icon surface and field border tokens; `focusRing` on focused fields; MUI `error.main` on invalid fields. Existing validation and submission behavior is retained.
+- **Usage:** `<ContactForm ref={targetRef} />`.
 
 ### Inputs / Fields
 

@@ -2,7 +2,7 @@ import spacing from "@/utils/spacing";
 import { oswald } from "@/utils/fonts";
 import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import colors from "@/utils/colors";
+import { semanticColors } from "@/utils/colors";
 
 interface ServicesCardProps {
     title: string;
@@ -21,7 +21,7 @@ const ServicesCard: React.FC<ServicesCardProps> = (props) => {
     return (
         <Stack
             sx={{
-                backgroundColor: colors.surface,
+                backgroundColor: semanticColors.surface,
                 borderRadius: spacing.small,
                 p: { xs: spacing.tiny, sm: spacing.small },
                 pb: 0,

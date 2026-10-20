@@ -2,7 +2,7 @@
 
 import FullScreenImageModal from "@/components/FullScreenImageModal";
 import spacing from "@/utils/spacing";
-import theme from "@/utils/theme";
+import { semanticColors } from "@/utils/colors";
 import { Box, BoxProps, ButtonBase, Stack } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
@@ -49,7 +49,7 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                                 height: "100%",
                                 width: "100%",
                                 position: "relative",
-                                backgroundColor: theme.palette.grey[100],
+                                backgroundColor: semanticColors.surface,
                                 borderRadius: "12px",
                                 overflow: "hidden",
                             }}

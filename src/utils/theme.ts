@@ -1,7 +1,7 @@
 "use client";
 import { Roboto } from "next/font/google";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import colors from "./colors";
+import { semanticColors } from "./colors";
 
 const roboto = Roboto({
     weight: ["300", "400", "500", "700"],
@@ -13,28 +13,25 @@ let theme = createTheme({
     palette: {
         mode: "light",
         primary: {
-            main: colors.primary,
-            contrastText: colors.onPrimary,
+            main: semanticColors.actionPrimary,
+            contrastText: semanticColors.onActionPrimary,
         },
         secondary: {
-            main: colors.secondary,
-            contrastText: colors.onSecondary,
+            main: semanticColors.actionSecondary,
+            contrastText: semanticColors.onActionSecondary,
         },
         background: {
-            default: colors.background,
-            paper: colors.background,
+            default: semanticColors.background,
+            paper: semanticColors.background,
         },
         text: {
-            primary: colors.header,
-            secondary: colors.gray,
+            primary: semanticColors.textPrimary,
+            secondary: semanticColors.textMuted,
         },
-        divider: colors.border,
+        divider: semanticColors.border,
     },
     typography: {
         fontFamily: roboto.style.fontFamily,
-        allVariants: {
-            // color: "#fff",
-        },
     },
     components: {
         MuiButton: {
@@ -51,6 +48,14 @@ let theme = createTheme({
             },
         },
         MuiButtonBase: {
+            styleOverrides: {
+                root: {
+                    "&.Mui-focusVisible": {
+                        outline: `3px solid ${semanticColors.focusRing}`,
+                        outlineOffset: 3,
+                    },
+                },
+            },
             defaultProps: {
                 style: {
                     textTransform: "none",
