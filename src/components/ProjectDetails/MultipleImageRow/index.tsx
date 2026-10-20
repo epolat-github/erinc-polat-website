@@ -59,6 +59,7 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                                 alt={image.alt}
                                 quality={50}
                                 fill
+                                sizes={`(min-width: 1536px) ${(1040 - (images.length - 1) * 16) / images.length}px, (min-width: 900px) calc((75vw - ${112 + (images.length - 1) * 16}px) / ${images.length}), (min-width: 600px) calc((100vw - ${48 + (images.length - 1) * 16}px) / ${images.length}), calc(100vw - 32px)`}
                                 style={{
                                     objectFit: "contain",
                                 }}

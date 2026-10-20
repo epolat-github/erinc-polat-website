@@ -65,6 +65,7 @@ const Footer = () => {
                         src="/footer.webp"
                         alt=""
                         fill
+                        sizes="100vw"
                         style={{
                             objectFit: "cover",
                             zIndex: 0,

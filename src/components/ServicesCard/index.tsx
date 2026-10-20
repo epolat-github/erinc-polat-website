@@ -9,10 +9,14 @@ interface ServicesCardProps {
     description: string;
     imageUrl: string;
     alt: string;
+    sizes?: string;
 }
 
 const ServicesCard: React.FC<ServicesCardProps> = (props) => {
-    const { title, description, imageUrl, alt } = props;
+    const {
+        title, description, imageUrl, alt,
+        sizes = "(min-width: 1200px) 608px, (min-width: 900px) calc(58.333vw - 101.333px), (min-width: 600px) calc(100vw - 112px), calc(100vw - 64px)",
+    } = props;
 
     return (
         <Stack
@@ -52,7 +56,7 @@ const ServicesCard: React.FC<ServicesCardProps> = (props) => {
                     src={imageUrl || ""}
                     alt={alt}
                     fill
-                    quality={100}
+                    sizes={sizes}
                     style={{
                         objectFit: "contain",
                         verticalAlign: "bottom",

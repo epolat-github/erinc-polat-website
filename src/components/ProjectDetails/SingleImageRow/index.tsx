@@ -41,6 +41,7 @@ const SingleImageRow: React.FC<SingleImageRowType> = (props) => {
                         quality={50}
                         alt={alt}
                         fill
+                        sizes="(min-width: 1536px) 1040px, (min-width: 900px) calc(75vw - 112px), (min-width: 600px) calc(100vw - 48px), calc(100vw - 32px)"
                         style={{
                             objectFit: "contain",
                         }}

@@ -80,6 +80,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                                         src={url}
                                         alt={alt}
                                         fill
+                                        sizes={`(min-width: 1200px) ${560 / images.length}px, (min-width: 600px) calc((100vw - 80px) / ${images.length}), calc((100vw - 32px) / ${images.length})`}
                                         style={{
                                             objectFit: "contain",
                                         }}

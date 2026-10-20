@@ -230,6 +230,25 @@
       "multipleImageRow": "MultipleImageRow stacks below 600px with individual height clamp(220px, 75vw, 400px). Above 600px it shares a row of height clamp(280px, 45vw, 640px). Props: images, containerStyle (sx override). Opens the existing fullscreen modal.",
       "welcome": "Hero CTAs span available width below 600px, wrap above with a 150px minimum, and have a 40px minimum height with multiline labels. IhrHaus preview max-width: 100%.",
       "contact": "ContactHeader text uses width: 100%, min-width: 0 and overflow-wrap: anywhere. Prop: scrollYProgress (MotionValue<number>). ContactForm email also uses overflow-wrap: anywhere."
+    },
+    "imageLoading": {
+      "sizes": "Active portfolio fill images use container-specific sizes: service columns, portrait capped at 400px, cards and gallery rows divided by image count, modal capped at 900px, footer 100vw.",
+      "serviceProps": "ServicesCard adds optional sizes; default matches the wider desktop column and ServicesSection overrides it for the narrower design column.",
+      "quality": "Default 75 for service artwork, portrait, previews, cards and modal; gallery quality 50 is explicitly allowed alongside 75 in next.config.mjs. Source assets are preserved.",
+      "deviceSizes": [
+        320,
+        480,
+        640,
+        750,
+        828,
+        1080,
+        1200,
+        1920,
+        2048,
+        3840
+      ],
+      "heroPreload": "Only FitNLit is preloaded, with media (min-width: 900px); getImageProps shares its srcset/sizes with the actual image props. Mobile collage and other portfolio imagery use lazy loading.",
+      "modal": "src/components/FullScreenImageModal/index.tsx: props isOpen, onClose, imageUrl?, alt?. Usage: <FullScreenImageModal isOpen={open} onClose={close} imageUrl={url} alt={alt} />. sizes: (min-width: 964px) 900px, calc(100vw - 64px); default quality 75."
     }
   },
   "components": [

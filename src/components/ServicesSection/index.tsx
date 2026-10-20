@@ -70,6 +70,7 @@ const ServicesSection = () => {
                             description={t("design_card_description")}
                             alt={t("design_card_alt")}
                             imageUrl="/services/design.webp"
+                            sizes="(min-width: 1200px) 408px, (min-width: 900px) calc(41.667vw - 90.667px), (min-width: 600px) calc(100vw - 112px), calc(100vw - 64px)"
                         />
                     </Grid2>
                     <Grid2

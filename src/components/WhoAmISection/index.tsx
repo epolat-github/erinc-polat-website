@@ -119,7 +119,7 @@ const WhoAmISection = () => {
                                     src="/erinc-polat.webp"
                                     alt="Image of Erinç Polat"
                                     fill
-                                    quality={100}
+                                    sizes="(min-width: 432px) 400px, calc(100vw - 32px)"
                                 />
                             </FadeInItem>
 

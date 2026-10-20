@@ -201,7 +201,7 @@ Reuse these wrappers rather than duplicating their animation behavior:
 <BouncingBox duration={8}>{supportingImage}</BouncingBox>
 ```
 
-**WelcomeSection choreography:** desktop text enters with 0–350ms delays; text fades last 550–600ms, project entrances last 650ms, and both CTAs share a 550ms reveal after 350ms (900ms total from their viewport trigger). Below 900px, entrance delays are zero. The primary project image is preloaded with responsive `sizes`; each project preview waits for its image load before revealing. FitNLit and IhrHaus stay still after entrance; only Actio and Zeynep Dikdüş float on desktop, over 8- and 10-second cycles. Project positioning uses CSS breakpoints to avoid a hydration-time layout switch.
+**WelcomeSection choreography:** desktop text enters with 0–350ms delays; text fades last 550–600ms, project entrances last 650ms, and both CTAs share a 550ms reveal after 350ms (900ms total from their viewport trigger). Below 900px, entrance delays are zero. The primary project image is preloaded with responsive `sizes` only at widths of 900px and above; each project preview waits for its image load before revealing. FitNLit and IhrHaus stay still after entrance; only Actio and Zeynep Dikdüş float on desktop, over 8- and 10-second cycles. Project positioning uses CSS breakpoints to avoid a hydration-time layout switch.
 
 ### Footer
 
@@ -212,7 +212,7 @@ Reuse these wrappers rather than duplicating their animation behavior:
 
 ### Cards / Containers
 
-- **ServicesCard** — `src/components/ServicesCard/index.tsx`: title, description and contained image. Props: `title`, `description`, `imageUrl`, `alt`. Usage: `<ServicesCard title={title} description={description} imageUrl="/services/design.webp" alt={alt} />`. Padding is 16px below 600px and 32px above. Image minimum height is 220px / 240px / 180px at xs / sm / md; cards grow with text. `ServicesSection` keeps a 750px desktop minimum and no fixed mobile height.
+- **ServicesCard** — `src/components/ServicesCard/index.tsx`: title, description and contained image. Props: `title`, `description`, `imageUrl`, `alt`, optional `sizes` (defaults to the wider service column). Usage: `<ServicesCard title={title} description={description} imageUrl="/services/design.webp" alt={alt} />`. Padding is 16px below 600px and 32px above. Image minimum height is 220px / 240px / 180px at xs / sm / md; cards grow with text. `ServicesSection` keeps a 750px desktop minimum and no fixed mobile height.
 - **MyWorkCard** — `src/components/MyWorkCard/index.tsx`: full-width project action with media height `clamp(220px, 40vw, 400px)` and wrapping text. Props: `title`, `description`, `images` (`url`, `alt`), `onClick`, optional `animationDirection` (`left` or `right`). Usage: `<MyWorkCard title={title} description={summary} images={images} onClick={openProject} />`.
 - **SingleImageRow** — `src/components/ProjectDetails/SingleImageRow/index.tsx`: contained gallery image opening the existing fullscreen modal. Props: `imageUrl`, `alt`, optional `containerStyle` (`sx` override). Usage: `<SingleImageRow imageUrl={url} alt={alt} />`. Media height is `clamp(220px, 56vw, 640px)`.
 - **MultipleImageRow** — `src/components/ProjectDetails/MultipleImageRow/index.tsx`: gallery images using the same fullscreen modal. Props: `images` (`url`, `alt`), optional `containerStyle` (`sx` override). Usage: `<MultipleImageRow images={images} />`. Below 600px images stack, each with height `clamp(220px, 75vw, 400px)`; above, they share a row with height `clamp(280px, 45vw, 640px)`.
@@ -223,6 +223,15 @@ Reuse these wrappers rather than duplicating their animation behavior:
 - **Background:** White or Soft Surface, chosen to keep imagery primary.
 - **Shadow Strategy:** Flat project cards; Bento Ambient only on feature panels.
 - **Internal Padding:** 16px for compact content, 32px for feature-card text regions.
+
+### Image Loading
+
+- Active portfolio `fill` images declare `sizes` matching their layout: service columns, a portrait capped at 400px, project cards divided by image count, gallery rows divided by image count, and a modal capped at 900px. Footer artwork uses `100vw` to cover its full-width transformed state.
+- `ServicesCard` accepts an optional `sizes` override; `ServicesSection` supplies the narrower design-column width. Existing gallery `containerStyle` overrides should keep the declared image width in mind.
+- Next Image uses default quality 75 for service artwork, portrait, hero previews, cards and modal. Gallery thumbnails retain quality 50, explicitly allowed alongside 75 in `next.config.mjs`. Source assets remain intact.
+- Responsive device sizes include 320px and 480px, alongside Next's larger defaults, so small screens can select appropriately sized files.
+- Only the main FitNLit hero preview has an image preload, restricted by `media="(min-width: 900px)"`. Its `srcset` and `sizes` are generated with `getImageProps` from the same props as the image. Below 900px the collage follows the text and uses lazy loading. Other portfolio imagery stays lazy loaded.
+- **FullScreenImageModal** — `src/components/FullScreenImageModal/index.tsx`: contained image viewer. Props: `isOpen`, `onClose`, optional `imageUrl`, `alt`. Usage: `<FullScreenImageModal isOpen={open} onClose={close} imageUrl={url} alt={alt} />`. Image size follows the dialog width (`100vw - 64px`, capped at 900px), quality 75.
 
 ### Inputs / Fields
 

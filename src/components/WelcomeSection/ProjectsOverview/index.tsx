@@ -2,8 +2,16 @@ import BouncingBox from "@/components/BouncingBox";
 import ScaleInBox from "@/components/ScaleInBox";
 import { Box, Stack, useMediaQuery, type Theme } from "@mui/material";
 import type { MotionStyle } from "framer-motion";
-import Image, { type ImageProps } from "next/image";
+import Image, { getImageProps, type ImageProps } from "next/image";
 import { type CSSProperties, useState } from "react";
+
+const heroImage = {
+    src: "/welcomeSectionAssets/fitnlit.webp",
+    alt: "FitNLit project screenshot",
+    fill: true,
+    sizes: "(min-width: 1200px) 460px, (min-width: 900px) 40vw, calc(100vw - 32px)",
+} satisfies ImageProps;
+const { props: heroImageProps } = getImageProps(heroImage);
 
 // Wait for each decoded image so a slow connection cannot skip its entrance.
 const ProjectPreview = ({
@@ -47,14 +55,18 @@ const ProjectPreview = ({
 
 const ProjectsOverview = () => (
     <Stack sx={{ flex: 1, position: "relative", minHeight: { xs: 600, md: "auto" } }}>
+        {/* The collage is below the text on mobile; reserve preload for desktop. */}
+        <link
+            rel="preload"
+            as="image"
+            imageSrcSet={heroImageProps.srcSet}
+            imageSizes={heroImageProps.sizes}
+            media="(min-width: 900px)"
+        />
         <ProjectPreview
             style={{ zIndex: 2, position: "absolute", inset: 0 }}
             delay={0.14}
-            src="/welcomeSectionAssets/fitnlit.webp"
-            alt="FitNLit project screenshot"
-            fill
-            preload
-            sizes="(min-width: 1200px) 460px, (min-width: 900px) 40vw, calc(100vw - 32px)"
+            {...heroImage}
         />
         <ProjectPreview
             style={{ zIndex: 3, top: "35%", left: 20, position: "absolute" }}
@@ -80,7 +92,7 @@ const ProjectsOverview = () => (
                 src="/welcomeSectionAssets/ihrhaus.webp"
                 width={400}
                 height={300}
-                sizes="(min-width: 900px) 400px, 300px"
+                sizes="(min-width: 900px) 400px, (min-width: 332px) 300px, calc(100vw - 32px)"
                 alt="IhrHaus project screenshot"
             />
         </Box>
