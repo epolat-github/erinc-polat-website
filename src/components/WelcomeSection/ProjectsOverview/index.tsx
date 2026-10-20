@@ -72,6 +72,7 @@ const ProjectsOverview = () => (
             right: { xs: "auto", md: 0 },
             zIndex: 1,
             width: { xs: 300, md: 400 },
+            maxWidth: "100%",
         }}>
             <ProjectPreview
                 style={{ position: "relative" }}

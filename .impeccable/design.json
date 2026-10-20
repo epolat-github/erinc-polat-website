@@ -222,7 +222,15 @@
         "name": "xl",
         "value": "1536px"
       }
-    ]
+    ],
+    "responsive": {
+      "services": "ServicesSection has no fixed mobile height and a 750px desktop minimum. ServicesCard grows with text; padding is 16px below 600px and 32px above. Image minimum height: 220px at xs, 240px at sm, 180px at md.",
+      "projectCard": "MyWorkCard uses full width, wrapping text and media height clamp(220px, 40vw, 400px). Props: title, description, images, onClick, animationDirection (left/right).",
+      "singleImageRow": "SingleImageRow media height: clamp(220px, 56vw, 640px). Props: imageUrl, alt, containerStyle (sx override). Opens the existing fullscreen modal.",
+      "multipleImageRow": "MultipleImageRow stacks below 600px with individual height clamp(220px, 75vw, 400px). Above 600px it shares a row of height clamp(280px, 45vw, 640px). Props: images, containerStyle (sx override). Opens the existing fullscreen modal.",
+      "welcome": "Hero CTAs span available width below 600px, wrap above with a 150px minimum, and have a 40px minimum height with multiline labels. IhrHaus preview max-width: 100%.",
+      "contact": "ContactHeader text uses width: 100%, min-width: 0 and overflow-wrap: anywhere. Prop: scrollYProgress (MotionValue<number>). ContactForm email also uses overflow-wrap: anywhere."
+    }
   },
   "components": [
     {
@@ -253,9 +261,9 @@
       "name": "Project Card",
       "kind": "card",
       "refersTo": "project-card",
-      "description": "Image-led project surface with restrained framing.",
+      "description": "src/components/MyWorkCard/index.tsx: full-width image-led project action with wrapping text. Props: title, description, images (url/alt), onClick, optional animationDirection (left/right). Usage: <MyWorkCard title={title} description={summary} images={images} onClick={openProject} />.",
       "html": "<article class=\"ds-project-card\"><div class=\"ds-project-media\"></div><h3>Project title</h3><p>Project description</p></article>",
-      "css": ".ds-project-card { color:#111827; font-family:Roboto,sans-serif; } .ds-project-media { min-height:180px; background:#F0F3F6; border-radius:16px; } .ds-project-card h3 { margin:16px 16px 8px; font-size:24px; line-height:1.3; } .ds-project-card p { margin:0 16px 16px; color:#5E6673; line-height:1.5; }"
+      "css": ".ds-project-card { width:100%; min-width:0; overflow-wrap:anywhere; color:#111827; font-family:Roboto,sans-serif; } .ds-project-media { height:clamp(220px,40vw,400px); background:#F0F3F6; border-radius:16px; } .ds-project-card h3 { margin:16px 16px 8px; font-size:24px; line-height:1.3; } .ds-project-card p { margin:0 16px 16px; color:#5E6673; line-height:1.5; }"
     },
     {
       "name": "Primary Navigation",

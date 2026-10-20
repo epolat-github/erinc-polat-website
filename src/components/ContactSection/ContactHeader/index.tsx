@@ -48,6 +48,7 @@ const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
             </Typography>
             <Stack
                 component={motion.div}
+                sx={{ width: "100%", minWidth: 0, overflowWrap: "anywhere" }}
                 style={{
                     opacity: opacity as any,
                     //@ts-ignore

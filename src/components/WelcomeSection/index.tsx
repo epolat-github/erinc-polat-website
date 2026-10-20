@@ -119,6 +119,12 @@ const WelcomeSection = () => {
                         spacing={spacing.small}
                         useFlexGap
                         flexWrap="wrap"
+                        sx={{
+                            "& > div": {
+                                width: { xs: "100%", sm: "auto" },
+                                maxWidth: "100%",
+                            },
+                        }}
                     >
                         <RevealItem duration={0.55} distance={10} delay={entranceDelay(0.35)}>
                             <Button
@@ -126,8 +132,10 @@ const WelcomeSection = () => {
                                 sx={{
                                     backgroundColor: colors.primary,
                                     color: colors.onPrimary,
-                                    minWidth: 150,
-                                    height: 40,
+                                    minWidth: { xs: 0, sm: 150 },
+                                    width: "100%",
+                                    minHeight: 40,
+                                    whiteSpace: "normal",
                                 }}
                                 disableElevation
                                 href="#contact"
@@ -142,8 +150,10 @@ const WelcomeSection = () => {
                                 sx={{
                                     backgroundColor: colors.surface,
                                     color: colors.header,
-                                    minWidth: 150,
-                                    height: 40,
+                                    minWidth: { xs: 0, sm: 150 },
+                                    width: "100%",
+                                    minHeight: 40,
+                                    whiteSpace: "normal",
                                     "&:hover": {
                                         backgroundColor: colors.border,
                                     },

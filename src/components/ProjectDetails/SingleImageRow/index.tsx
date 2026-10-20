@@ -27,7 +27,7 @@ const SingleImageRow: React.FC<SingleImageRowType> = (props) => {
             >
                 <Box
                     sx={{
-                        height: "60vh",
+                        height: "clamp(220px, 56vw, 640px)",
                         width: "100%",
                         position: "relative",
                         backgroundColor: theme.palette.grey[100],

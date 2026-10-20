@@ -25,10 +25,10 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
     return (
         <>
             <Stack
-                direction="row"
+                direction={{ xs: "column", sm: "row" }}
                 spacing={spacing.tiny}
                 sx={{
-                    height: "60vh",
+                    height: { xs: "auto", sm: "clamp(280px, 45vw, 640px)" },
                     width: "100%",
                     ...containerStyle,
                 }}
@@ -37,7 +37,12 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                     <ButtonBase
                         key={`image-${index}`}
                         onClick={() => setSelectedImage(image)}
-                        sx={{ height: "100%", width: "100%" }}
+                        sx={{
+                            height: { xs: "clamp(220px, 75vw, 400px)", sm: "100%" },
+                            width: "100%",
+                            minWidth: 0,
+                            flex: { sm: 1 },
+                        }}
                     >
                         <Box
                             sx={{

@@ -34,6 +34,7 @@ const ServicesSection = () => {
                     sx={{
                         fontFamily: oswald.style.fontFamily,
                         letterSpacing: 1.2,
+                        overflowWrap: "anywhere",
                     }}
                 >
                     {t("title_regular_before_break")}
@@ -51,8 +52,8 @@ const ServicesSection = () => {
                     container
                     spacing={2}
                     sx={{
-                        height: {
-                            xs: 1500,
+                        minHeight: {
+                            xs: "auto",
                             md: 750,
                         },
                         width: "100%",
@@ -63,7 +64,6 @@ const ServicesSection = () => {
                             xs: 12,
                             md: 5,
                         }}
-                        flex={1}
                     >
                         <ServicesCard
                             title={t("design_card_title")}

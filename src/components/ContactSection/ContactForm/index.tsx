@@ -483,7 +483,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                             <Typography fontWeight="bold">
                                 {t("contact_info_subtitle")}
                             </Typography>
-                            <Typography>erinc.polat@gmail.com</Typography>
+                            <Typography sx={{ overflowWrap: "anywhere" }}>erinc.polat@gmail.com</Typography>
                         </Stack>
 
                         <Grid2 container rowSpacing={spacing.tiny}>

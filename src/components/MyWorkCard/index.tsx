@@ -48,18 +48,21 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                     once: true,
                 }}
             >
-                <ButtonBase onClick={onClick} disableRipple>
+                <ButtonBase onClick={onClick} disableRipple sx={{ width: "100%", minWidth: 0 }}>
                     <Stack
                         sx={{
                             overflow: "hidden",
                             height: "100%",
+                            width: "100%",
+                            minWidth: 0,
+                            overflowWrap: "anywhere",
                         }}
                         direction="column"
                     >
                         <Stack
                             sx={{
                                 width: "100%",
-                                height: 400,
+                                height: "clamp(220px, 40vw, 400px)",
                                 backgroundColor: colors.surface,
                                 borderRadius: 4,
                             }}

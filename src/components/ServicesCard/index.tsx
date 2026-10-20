@@ -19,10 +19,12 @@ const ServicesCard: React.FC<ServicesCardProps> = (props) => {
             sx={{
                 backgroundColor: colors.surface,
                 borderRadius: spacing.small,
-                p: spacing.small,
+                p: { xs: spacing.tiny, sm: spacing.small },
                 pb: 0,
                 flex: 1,
                 height: "100%",
+                minWidth: 0,
+                overflowWrap: "anywhere",
                 justifyContent: "space-between",
             }}
             spacing={spacing.small}
@@ -42,6 +44,7 @@ const ServicesCard: React.FC<ServicesCardProps> = (props) => {
             <Stack
                 sx={{
                     flex: 1,
+                    minHeight: { xs: 220, sm: 240, md: 180 },
                     position: "relative",
                 }}
             >

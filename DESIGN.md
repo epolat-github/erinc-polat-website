@@ -212,6 +212,13 @@ Reuse these wrappers rather than duplicating their animation behavior:
 
 ### Cards / Containers
 
+- **ServicesCard** — `src/components/ServicesCard/index.tsx`: title, description and contained image. Props: `title`, `description`, `imageUrl`, `alt`. Usage: `<ServicesCard title={title} description={description} imageUrl="/services/design.webp" alt={alt} />`. Padding is 16px below 600px and 32px above. Image minimum height is 220px / 240px / 180px at xs / sm / md; cards grow with text. `ServicesSection` keeps a 750px desktop minimum and no fixed mobile height.
+- **MyWorkCard** — `src/components/MyWorkCard/index.tsx`: full-width project action with media height `clamp(220px, 40vw, 400px)` and wrapping text. Props: `title`, `description`, `images` (`url`, `alt`), `onClick`, optional `animationDirection` (`left` or `right`). Usage: `<MyWorkCard title={title} description={summary} images={images} onClick={openProject} />`.
+- **SingleImageRow** — `src/components/ProjectDetails/SingleImageRow/index.tsx`: contained gallery image opening the existing fullscreen modal. Props: `imageUrl`, `alt`, optional `containerStyle` (`sx` override). Usage: `<SingleImageRow imageUrl={url} alt={alt} />`. Media height is `clamp(220px, 56vw, 640px)`.
+- **MultipleImageRow** — `src/components/ProjectDetails/MultipleImageRow/index.tsx`: gallery images using the same fullscreen modal. Props: `images` (`url`, `alt`), optional `containerStyle` (`sx` override). Usage: `<MultipleImageRow images={images} />`. Below 600px images stack, each with height `clamp(220px, 75vw, 400px)`; above, they share a row with height `clamp(280px, 45vw, 640px)`.
+- **WelcomeSection responsive behavior:** CTAs span the available width below 600px; above they wrap with a 150px minimum. A 40px minimum height allows multiline labels. The IhrHaus preview stays within its parent width.
+- **ContactHeader** — `src/components/ContactSection/ContactHeader/index.tsx`: localized contact introduction. Prop: `scrollYProgress` (`MotionValue<number>`). Usage: `<ContactHeader scrollYProgress={scrollYProgress} />`. Text occupies the available width and wraps long words under text scaling. The email in `ContactForm` also wraps to avoid overflow.
+
 - **Corner Style:** 12px for bento surfaces and 16px for project media.
 - **Background:** White or Soft Surface, chosen to keep imagery primary.
 - **Shadow Strategy:** Flat project cards; Bento Ambient only on feature panels.
