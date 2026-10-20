@@ -203,6 +203,13 @@ Reuse these wrappers rather than duplicating their animation behavior:
 
 **WelcomeSection choreography:** desktop text enters with 0–350ms delays; text fades last 550–600ms, project entrances last 650ms, and both CTAs share a 550ms reveal after 350ms (900ms total from their viewport trigger). Below 900px, entrance delays are zero. The primary project image is preloaded with responsive `sizes`; each project preview waits for its image load before revealing. FitNLit and IhrHaus stay still after entrance; only Actio and Zeynep Dikdüş float on desktop, over 8- and 10-second cycles. Project positioning uses CSS breakpoints to avoid a hydration-time layout switch.
 
+### Footer
+
+- **Path / import:** `src/components/Footer/index.tsx` / `@/components/Footer` (default export).
+- **Purpose:** Localized closing statement and copyright over decorative artwork. No props; usage: `<Footer />`.
+- **Motion:** Fixed 5% horizontal and 36px vertical padding keeps layout and text stable. Only the artwork scales horizontally from full width to its inset frame on scroll; reduced motion keeps it at its final scale. The heading reuses `FadeInItem`, including its delay-free 150ms reduced-motion fade.
+- **Global motion:** `src/app/global.css` disables smooth scrolling and `.scale-on-hover` enlargement under `prefers-reduced-motion: reduce`. Programmatic home navigation uses CSS-controlled scroll behavior.
+
 ### Cards / Containers
 
 - **Corner Style:** 12px for bento surfaces and 16px for project media.

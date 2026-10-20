@@ -88,7 +88,8 @@ const Navbar = () => {
             window.scroll({
                 top: 0,
                 left: 0,
-                behavior: "smooth",
+                // Let global CSS honor the user's reduced-motion preference.
+                behavior: "auto",
             });
         } else {
             router.push("/");

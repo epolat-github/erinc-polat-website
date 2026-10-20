@@ -189,6 +189,16 @@
         "name": "welcome-cta-entrance",
         "value": "550ms ease-out; 350ms desktop delay; 10px rise",
         "purpose": "Both hero CTAs reveal together. Mobile entrance delay is zero; reduced motion removes translation and uses a 150ms fade without delay."
+      },
+      {
+        "name": "footer-artwork-scroll",
+        "value": "scroll-linked scaleX(1 / 0.9 → 1)",
+        "purpose": "Footer uses fixed 5% horizontal and 36px vertical padding. Only decorative artwork scales from full width to its inset frame; text and layout remain stable. Reduced motion fixes scaleX at 1. The heading reuses FadeInItem with a 500ms normal delay and a delay-free 150ms reduced-motion fade."
+      },
+      {
+        "name": "global-reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "src/app/global.css switches smooth scrolling to auto and disables .scale-on-hover transitions and enlargement. Navbar home navigation uses behavior: auto so global CSS controls scrolling."
       }
     ],
     "breakpoints": [
@@ -260,6 +270,13 @@
       "description": "src/components/InteractiveHoverButton/index.tsx: shadow-free CTA with an expanding brick dot. Props: children, icon, pulse (default true), and standard MUI Button props. Navbar usage supplies a downward arrow; duplicate label and icon are hidden from assistive technology.",
       "html": "<button type=\"button\" class=\"ds-hover-button\"><span class=\"ds-hover-label\">İletişime Geç</span><span class=\"ds-hover-overlay\" aria-hidden=\"true\"><span>İletişime Geç</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"/></svg></span></button>",
       "css": "@keyframes ds-hover-pulse { 0%,100% { scale:1; opacity:1; } 50% { scale:1.3; opacity:.65; } }\n.ds-hover-button { position:relative; isolation:isolate; overflow:hidden; flex-shrink:0; min-height:36px; padding:6px 16px; border-radius:999px; background:#FFFFFF; color:#B94E3A; border:1px solid #B94E3A; font:600 14px/1.5 Roboto,sans-serif; letter-spacing:.6px; text-transform:uppercase; white-space:nowrap; cursor:pointer; box-shadow:none; }\n.ds-hover-button::before { content:\"\"; position:absolute; left:16px; top:calc(50% - 4px); width:8px; height:8px; border-radius:50%; background:#B94E3A; transform:scale(1); animation:ds-hover-pulse 2s ease-in-out infinite; transition:transform 550ms cubic-bezier(.4,0,.2,1); pointer-events:none; }\n.ds-hover-label { position:relative; display:inline-block; padding-left:14px; transition:transform 400ms cubic-bezier(.4,0,.2,1),opacity 250ms ease; }\n.ds-hover-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:6px; color:#FFFFFF; opacity:0; transform:translateX(32px); transition:transform 450ms cubic-bezier(.16,1,.3,1),opacity 250ms ease; pointer-events:none; }\n.ds-hover-button:is(:hover,:active,:focus-visible,:disabled) { box-shadow:none; }\n.ds-hover-button:focus-visible { outline:3px solid #B94E3A; outline-offset:3px; }\n.ds-hover-button:focus-visible::before { animation:none; transform:scale(45); }\n.ds-hover-button:focus-visible .ds-hover-label { transform:translateX(48px); opacity:0; }\n.ds-hover-button:focus-visible .ds-hover-overlay { transform:translateX(0); opacity:1; transition-delay:150ms; }\n@media (hover:hover) and (pointer:fine) { .ds-hover-button:hover::before { animation:none; transform:scale(45); } .ds-hover-button:hover .ds-hover-label { transform:translateX(48px); opacity:0; } .ds-hover-button:hover .ds-hover-overlay { transform:translateX(0); opacity:1; transition-delay:150ms; } }\n@media (max-width:899.95px) { .ds-hover-button { padding:6px 12px; font-size:12px; } .ds-hover-button::before { left:12px; } }\n@media (prefers-reduced-motion:reduce) { .ds-hover-button::before { animation:none; } .ds-hover-button::before,.ds-hover-label,.ds-hover-overlay { transition:none; } }"
+    },
+    {
+      "name": "Footer",
+      "kind": "footer",
+      "description": "src/components/Footer/index.tsx (default import @/components/Footer): localized closing statement and copyright over decorative artwork. No props; usage: <Footer />. Fixed 5% horizontal and 36px vertical padding, 16px artwork corners, and stable text. Only artwork scales horizontally on scroll; reduced motion keeps its final scale. Heading reuses FadeInItem.",
+      "html": "<footer class=\"ds-footer\"><div class=\"ds-footer-frame\"><div class=\"ds-footer-artwork\" aria-hidden=\"true\"></div><h3>Gelin beraber projenizi hayata geçirelim!</h3><p>Copyright © 2026 - Erinç Polat - Tüm Hakları Saklıdır</p></div></footer>",
+      "css": ".ds-footer { padding:36px 5%; background:#FFFFFF; overflow:hidden; } .ds-footer-frame { position:relative; min-height:20vh; padding-bottom:1rem; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#FFFFFF; } .ds-footer-artwork { position:absolute; inset:0; border-radius:16px; overflow:hidden; background:url(/footer.webp) center/cover; filter:blur(4px) brightness(80%); } .ds-footer-frame h3 { position:relative; flex:1; display:flex; align-items:center; margin:0; padding:0 16px; font:400 1.5rem/1.4 Oswald,sans-serif; text-align:center; } .ds-footer-frame p { position:relative; text-align:center; font:500 .875rem/1.57 Roboto,sans-serif; } @media (min-width:600px) { .ds-footer-frame { min-height:30vh; } .ds-footer-frame h3 { font-size:2rem; } } @media (min-width:900px) { .ds-footer-frame { min-height:40vh; } .ds-footer-frame h3 { font-size:3rem; } }"
     }
   ],
   "narrative": {

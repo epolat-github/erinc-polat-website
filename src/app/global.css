@@ -9,3 +9,17 @@ html {
 .scale-on-hover:hover {
     transform: scale(1.05);
 }
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .scale-on-hover {
+        transition: none;
+    }
+
+    .scale-on-hover:hover {
+        transform: none;
+    }
+}
