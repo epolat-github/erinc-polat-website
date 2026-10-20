@@ -49,7 +49,6 @@ const ProjectDetails = async ({ params }: ProjectDetailsType) => {
     const project = projectsWithLocale.find((project) => project.slug === slug);
 
     if (!project) {
-        console.log("project not found: ", slug);
         notFound();
     }
 

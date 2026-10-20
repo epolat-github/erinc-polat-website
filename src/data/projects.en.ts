@@ -98,18 +98,6 @@ const projects: Project[] = [
                 url: "/projects/actio/Actio Multiple.webp",
                 alt: "Screens from the Actio app",
             },
-            // {
-            //     url: "/projects/actio/Actio Onboarding 1.webp",
-            //     alt: "Project image",
-            // },
-            // {
-            //     url: "/projects/actio/Actio Home.webp",
-            //     alt: "Project image",
-            // },
-            // {
-            //     url: "/projects/actio/Actio Event Details.webp",
-            //     alt: "Project image",
-            // },
         ],
         tags: [
             "React Native",

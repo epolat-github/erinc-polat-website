@@ -15,5 +15,17 @@ export default defineConfig([
             "react-hooks/refs": "off",
         },
     },
+    {
+        files: ["src/**/*.{ts,tsx}"],
+        ignores: [
+            "src/app/[[]locale]/marifet-ar/**",
+            "src/components/Spinner3d/**",
+        ],
+        rules: {
+            "no-console": ["error", { allow: ["warn", "error"] }],
+            "@typescript-eslint/no-explicit-any": "error",
+            "@typescript-eslint/ban-ts-comment": "error",
+        },
+    },
     globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
 ]);

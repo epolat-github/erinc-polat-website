@@ -10,7 +10,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 
 export const viewport: Viewport = {
     width: "device-width",
@@ -55,13 +55,10 @@ const RootLayout = async ({
 }>) => {
     const { locale } = await params;
 
-    // Ensure that the incoming `locale` is valid
-    if (!routing.locales.includes(locale as any)) {
+    if (!hasLocale(routing.locales, locale)) {
         notFound();
     }
 
-    // Providing all messages to the client
-    // side is the easiest way to get started
     const messages = await getMessages();
 
     return (

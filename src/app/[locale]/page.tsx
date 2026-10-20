@@ -19,9 +19,7 @@ const Home = () => {
             <WelcomeSection />
             <WhoAmISection />
             <ServicesSection />
-            {/* <CustomersSection /> */}
             <MyWorksSection />
-            {/* <BenefitsSection /> */}
             <ContactSection />
             <Footer />
         </Stack>

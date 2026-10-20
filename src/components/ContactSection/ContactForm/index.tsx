@@ -176,8 +176,6 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
             const { error } = await sendEmail(formData);
 
             if (error) {
-                console.log("error: ", error);
-
                 if (error?.name === "validation_error") {
                     setFormStatus(t("validation_error_message"));
                     enqueueSnackbar(t("validation_error_message"), {
@@ -199,9 +197,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 variant: "success",
             });
 
-            console.log("success");
-        } catch (err) {
-            console.log("error from client: ", err);
+        } catch {
             setFormStatus(t("generic_error_message"));
             enqueueSnackbar(t("generic_error_message"), {
                 variant: "error",

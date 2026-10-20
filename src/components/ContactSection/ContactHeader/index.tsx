@@ -8,6 +8,8 @@ interface ContactHeaderType {
     scrollYProgress: MotionValue<number>;
 }
 
+const MotionStack = motion.create(Stack);
+
 const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
     const t = useTranslations("contact_header");
 
@@ -46,13 +48,11 @@ const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
             >
                 {t("background_title")}
             </Typography>
-            <Stack
-                component={motion.div}
+            <MotionStack
                 sx={{ width: "100%", minWidth: 0, overflowWrap: "anywhere" }}
                 style={{
-                    opacity: opacity as any,
-                    //@ts-ignore
-                    y: translateY as any,
+                    opacity,
+                    y: translateY,
                 }}
             >
                 <Typography
@@ -86,7 +86,7 @@ const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
                 >
                     {t("subtitle")}
                 </Typography>
-            </Stack>
+            </MotionStack>
         </Container>
     );
 };

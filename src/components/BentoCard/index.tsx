@@ -13,7 +13,7 @@ interface BentoCardType {
 }
 
 const BentoCard: React.FC<BentoCardType> = (props) => {
-    const { asset, description, icon, title, size = 6, sx } = props;
+    const { asset, description, title, size = 6, sx } = props;
 
     return (
         <Grid
