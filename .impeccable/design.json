@@ -277,6 +277,14 @@
         "ChipRow": "src/components/ProjectDetails/ChipRow/index.tsx: labels string[], optional containerProps StackProps and chipProps ChipProps. Usage: <ChipRow labels={[\"React\", \"Next.js\"]} />.",
         "ContactForm": "src/components/ContactSection/ContactForm/index.tsx: no configuration props; optional forwarded ref identifies the section for parent scroll behavior. Usage: <ContactForm ref={targetRef} />. Existing validation/submission behavior is retained."
       }
+    },
+    "localization": {
+      "messages": "src/locales/tr.json and en.json have matching keys and interpolation variables. project_details.visit_project is resolved on the server with the route locale.",
+      "previews": "src/components/WelcomeSection/ProjectsOverview/index.tsx: client component, no props, usage <ProjectsOverview />. Uses welcome_section fitnlit_alt, actio_alt, ihrhaus_alt and zeynep_alt for actual images; the resource-only preload shares sizing props.",
+      "portrait": "WhoAmISection uses who_am_i_section.portrait_alt.",
+      "projectImages": "Existing locale-specific src/data/projects.tr.ts and projects.en.ts store screen-specific alt descriptions, passed unchanged through cards, gallery rows and modals.",
+      "modal": "FullScreenImageModal preserves supplied alt, including empty string; absent alt falls back to accessibility.project_image. Close label uses accessibility.close_image.",
+      "navigation": "src/components/Navbar/index.tsx: no props; usage <Navbar />. Home controls use navbar.home and redundant logo alts are empty. Contact social icons are decorative because adjacent localized text names the action. Brand names remain unchanged."
     }
   },
   "components": [

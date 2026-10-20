@@ -62,7 +62,7 @@ const FullScreenImageModal: React.FC<FullScreenImageModalType> = (props) => {
                     {imageUrl && (
                         <Image
                             src={imageUrl || ""}
-                            alt={alt || "Full Screen Image"}
+                            alt={alt ?? t("project_image")}
                             fill
                             sizes="(min-width: 964px) 900px, calc(100vw - 64px)"
                             style={{

@@ -9,7 +9,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/fitnlit/fitnlit-multiple.webp",
-                alt: "Project image",
+                alt: "Screens from the FitNLit app",
             },
         ],
         tags: ["React Native", "IOS", "Android", "Custom Design"],
@@ -22,7 +22,7 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/fitnlit/fitnlit-multiple.webp",
-                    alt: "Project image",
+                    alt: "Screens from the FitNLit app",
                 },
             },
             {
@@ -30,11 +30,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/fitnlit/FitNLit Workouts.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit workout list",
                     },
                     {
                         url: "/projects/fitnlit/FitNLit Workout Helper.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit workout helper",
                     },
                 ],
             },
@@ -42,7 +42,7 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/fitnlit/FitNLit Auth Multiple.webp",
-                    alt: "Project image",
+                    alt: "FitNLit sign-in and registration screens",
                 },
             },
             {
@@ -50,11 +50,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/fitnlit/FitNLit Trackings.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit progress tracking",
                     },
                     {
                         url: "/projects/fitnlit/FitNLit Update Measurements.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit body measurement update screen",
                     },
                 ],
             },
@@ -64,11 +64,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/fitnlit/FitNLit Meal Detail.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit meal details",
                     },
                     {
                         url: "/projects/fitnlit/FitNLit Meal List.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit meal list",
                     },
                 ],
             },
@@ -77,11 +77,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/fitnlit/FitNLit Goals.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit goals screen",
                     },
                     {
                         url: "/projects/fitnlit/FitNLit Water Goal.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit water intake goal",
                     },
                 ],
             },
@@ -96,7 +96,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/actio/Actio Multiple.webp",
-                alt: "Project image",
+                alt: "Screens from the Actio app",
             },
             // {
             //     url: "/projects/actio/Actio Onboarding 1.webp",
@@ -128,14 +128,14 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/actio/Actio Multiple.webp",
-                    alt: "Project image",
+                    alt: "Screens from the Actio app",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/actio/Actio Infograph.webp",
-                    alt: "Project image",
+                    alt: "Infographic introducing the Actio app",
                 },
             },
             {
@@ -143,11 +143,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/actio/Actio Home.webp",
-                        alt: "Project Image",
+                        alt: "Actio home screen",
                     },
                     {
                         url: "/projects/actio/Actio Event Details.webp",
-                        alt: "Project Image",
+                        alt: "Actio event details",
                     },
                 ],
             },
@@ -156,11 +156,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/actio/Actio Onboarding 1.webp",
-                        alt: "Project Image",
+                        alt: "Actio welcome screen",
                     },
                     {
                         url: "/projects/actio/Actio Notifications.webp",
-                        alt: "Project Image",
+                        alt: "Actio notifications screen",
                     },
                 ],
             },
@@ -174,7 +174,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/quartiers/Quartiers Multiple.webp",
-                alt: "Project image",
+                alt: "Screens from the Quartiers app",
             },
         ],
         tags: [
@@ -194,7 +194,7 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/quartiers/Quartiers Multiple.webp",
-                    alt: "Project image",
+                    alt: "Screens from the Quartiers app",
                 },
             },
             {
@@ -202,11 +202,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/quartiers/Quartiers Login.webp",
-                        alt: "Project Image",
+                        alt: "Quartiers sign-in screen",
                     },
                     {
                         url: "/projects/quartiers/Quartiers Home.webp",
-                        alt: "Project Image",
+                        alt: "Quartiers home screen",
                     },
                 ],
             },
@@ -215,11 +215,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/quartiers/Quartiers Home Control.webp",
-                        alt: "Project Image",
+                        alt: "Quartiers home control screen",
                     },
                     {
                         url: "/projects/quartiers/Quartiers Devices.webp",
-                        alt: "Project Image",
+                        alt: "Quartiers devices screen",
                     },
                 ],
             },
@@ -234,7 +234,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/construction-surveillance/Surveillance Home.webp",
-                alt: "Project image",
+                alt: "Construction surveillance system home screen",
             },
         ],
         tags: ["React", "NodeJS", "MongoDB", "Dahua", "Instar"],
@@ -247,28 +247,28 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/construction-surveillance/Surveillance Home.webp",
-                    alt: "Project image",
+                    alt: "Construction surveillance system home screen",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/construction-surveillance/Surveillance Weather.webp",
-                    alt: "Project image",
+                    alt: "Weather view in the construction surveillance system",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/construction-surveillance/Surveillance Timeline.webp",
-                    alt: "Project image",
+                    alt: "Timeline in the construction surveillance system",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/construction-surveillance/Surveillance Alert Tickets.webp",
-                    alt: "Project image",
+                    alt: "Alert tickets in the construction surveillance system",
                 },
             },
         ],
@@ -282,7 +282,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/building-deficiency-management/Plan Radar Login.webp",
-                alt: "Project image",
+                alt: "Building deficiency management sign-in screen",
             },
         ],
         tags: [
@@ -302,35 +302,35 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/Plan Radar Login.webp",
-                    alt: "Project image",
+                    alt: "Building deficiency management sign-in screen",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/plan radar and evva websites.webp",
-                    alt: "Project image",
+                    alt: "PlanRadar and EVVA websites",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/Plan Radar Superuser.webp",
-                    alt: "Project image",
+                    alt: "Building deficiency management administrator screen",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/Plan Radar Project Manager Cart.webp",
-                    alt: "Project image",
+                    alt: "Project manager cart in the building deficiency management system",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/Plan Radar Project Manager Checkout.webp",
-                    alt: "Project image",
+                    alt: "Checkout in the building deficiency management system",
                 },
             },
         ],
@@ -344,7 +344,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/zeynep-dikdus-website/Zeynep Website Home.webp",
-                alt: "Project image",
+                alt: "Zeynep Dikdüş website home page",
             },
         ],
         tags: ["NextJS", "Website", "Custom Design"],
@@ -357,42 +357,42 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Home.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş website home page",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website About.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş website about page",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Psychotherapy.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş website psychotherapy page",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Gallery.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş website gallery",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Contents.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş website content page",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Contact.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş website contact page",
                 },
             },
         ],
@@ -405,7 +405,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/atolye-ankara/atolye-ankara-home.webp",
-                alt: "Project image",
+                alt: "Atölye Ankara website home page",
             },
         ],
         tags: ["Gatsby", "Strapi", "CMS System"],
@@ -418,21 +418,21 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/atolye-ankara/atolye-ankara-home.webp",
-                    alt: "Project image",
+                    alt: "Atölye Ankara website home page",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/atolye-ankara/atolye-ankara-information.webp",
-                    alt: "Project image",
+                    alt: "Atölye Ankara website information page",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/atolye-ankara/atolye-ankara-events.webp",
-                    alt: "Project image",
+                    alt: "Atölye Ankara website events page",
                 },
             },
         ],

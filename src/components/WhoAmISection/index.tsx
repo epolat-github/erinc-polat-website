@@ -115,7 +115,7 @@ const WhoAmISection = async () => {
                             >
                                 <Image
                                     src="/erinc-polat.webp"
-                                    alt="Image of Erinç Polat"
+                                    alt={t("portrait_alt")}
                                     fill
                                     sizes="(min-width: 432px) 400px, calc(100vw - 32px)"
                                 />

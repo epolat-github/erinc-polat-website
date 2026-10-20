@@ -251,6 +251,15 @@ Reuse these wrappers rather than duplicating their animation behavior:
 - **MyWorkCard** is an explicit client component for its entrance animation. Its required `href` is an unprefixed internal project path resolved through the existing locale-aware `Link`; it replaces the former navigation callback. This supports server composition and native link behavior. The project listing at `src/app/[locale]/projects/page.tsx` uses the same arrangement.
 - **FadeInItem** and **RevealItem** explicitly declare their client boundary so server-rendered sections can pass content as children. Props, timings and reduced-motion behavior remain as documented above.
 
+### Localization and Image Descriptions
+
+- UI messages live in `src/locales/tr.json` and `src/locales/en.json` with matching keys and interpolation variables. The project-detail external CTA uses `project_details.visit_project` through server-side `getTranslations` with the route locale.
+- **ProjectsOverview** — `src/components/WelcomeSection/ProjectsOverview/index.tsx`: no props; usage: `<ProjectsOverview />`. This client component reads the four preview alt descriptions from `welcome_section`. The resource-only hero preload shares image sizing props; the rendered preview overrides its alt with the localized message.
+- `WhoAmISection` reads the portrait description from `who_am_i_section.portrait_alt`. Project feature and gallery image descriptions remain in their existing locale-specific `src/data/projects.tr.ts` and `src/data/projects.en.ts` records, describing the screen shown rather than repeating a generic image label. Cards, rows and modals receive the selected locale's `alt` unchanged.
+- `FullScreenImageModal` preserves a supplied `alt`, including an intentional empty string; when absent it uses `accessibility.project_image`. The close control continues to use `accessibility.close_image`.
+- **Navbar** — `src/components/Navbar/index.tsx`: no props; usage: `<Navbar />`. Desktop and mobile home controls use `navbar.home` for their accessible name, with an empty alt on the redundant logo image.
+- Contact social icons have empty alts because adjacent localized link text already names each action. Decorative footer artwork also keeps an empty alt. Brand names remain unchanged between locales.
+
 ### Image Loading
 
 - Active portfolio `fill` images declare `sizes` matching their layout: service columns, a portrait capped at 400px, project cards divided by image count, gallery rows divided by image count, and a modal capped at 900px. Footer artwork uses `100vw` to cover its full-width transformed state.

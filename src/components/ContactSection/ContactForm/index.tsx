@@ -52,7 +52,7 @@ const CONTACT_DATA = [
         icon: (
             <Image
                 src="/icons/linkedin.svg"
-                alt="LinkedIn logo"
+                alt=""
                 width={22}
                 height={20}
             />
@@ -76,7 +76,7 @@ const CONTACT_DATA = [
         icon: (
             <Image
                 src="/icons/github.svg"
-                alt="GitHub logo"
+                alt=""
                 width={22}
                 height={20}
             />

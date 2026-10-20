@@ -11,6 +11,7 @@ import projectsTr from "@/data/projects.tr";
 import { notFound } from "next/navigation";
 import SubdirectoryArrowRightIcon from "@mui/icons-material/SubdirectoryArrowRight";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -41,6 +42,7 @@ interface ProjectDetailsType {
 
 const ProjectDetails = async ({ params }: ProjectDetailsType) => {
     const { locale, slug } = await params;
+    const t = await getTranslations({ locale, namespace: "project_details" });
 
     const projectsWithLocale = locale === "en" ? projectsEn : projectsTr;
 
@@ -146,7 +148,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsType) => {
                                             <SubdirectoryArrowRightIcon />
                                         }
                                     >
-                                        Go to project
+                                        {t("visit_project")}
                                     </Button>
                                 </Link>
                             )}

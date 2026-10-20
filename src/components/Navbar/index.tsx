@@ -174,6 +174,7 @@ const Navbar = () => {
                     >
                         <ButtonBase
                             onClick={onHomeClick}
+                            aria-label={t("home")}
                             disableRipple
                             sx={{
                                 flexShrink: 0,
@@ -181,7 +182,7 @@ const Navbar = () => {
                         >
                             <Image
                                 src="/logo.webp"
-                                alt="logo"
+                                alt=""
                                 width={250}
                                 height={90}
                                 quality={100}
@@ -265,10 +266,10 @@ const Navbar = () => {
                             alignItems: "center",
                         }}
                     >
-                        <ButtonBase onClick={onHomeClick} disableRipple>
+                        <ButtonBase onClick={onHomeClick} aria-label={t("home")} disableRipple>
                             <Image
                                 src="/logo.webp"
-                                alt="logo"
+                                alt=""
                                 width={75}
                                 height={25}
                             />

@@ -9,7 +9,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/fitnlit/fitnlit-multiple.webp",
-                alt: "Project image",
+                alt: "FitNLit uygulamasından ekranlar",
             },
         ],
         tags: ["React Native", "IOS", "Android", "Özel Dizayn"],
@@ -22,7 +22,7 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/fitnlit/fitnlit-multiple.webp",
-                    alt: "Project image",
+                    alt: "FitNLit uygulamasından ekranlar",
                 },
             },
             {
@@ -30,11 +30,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/fitnlit/FitNLit Workouts.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit antrenman listesi",
                     },
                     {
                         url: "/projects/fitnlit/FitNLit Workout Helper.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit antrenman yardımcısı",
                     },
                 ],
             },
@@ -42,7 +42,7 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/fitnlit/FitNLit Auth Multiple.webp",
-                    alt: "Project image",
+                    alt: "FitNLit giriş ve kayıt ekranları",
                 },
             },
             {
@@ -50,11 +50,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/fitnlit/FitNLit Trackings.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit gelişim takibi",
                     },
                     {
                         url: "/projects/fitnlit/FitNLit Update Measurements.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit vücut ölçülerini güncelleme ekranı",
                     },
                 ],
             },
@@ -64,11 +64,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/fitnlit/FitNLit Meal Detail.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit öğün ayrıntıları",
                     },
                     {
                         url: "/projects/fitnlit/FitNLit Meal List.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit öğün listesi",
                     },
                 ],
             },
@@ -77,11 +77,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/fitnlit/FitNLit Goals.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit hedefler ekranı",
                     },
                     {
                         url: "/projects/fitnlit/FitNLit Water Goal.webp",
-                        alt: "Project Image",
+                        alt: "FitNLit su tüketimi hedefi",
                     },
                 ],
             },
@@ -96,7 +96,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/actio/Actio Multiple.webp",
-                alt: "Project image",
+                alt: "Actio uygulamasından ekranlar",
             },
         ],
         tags: [
@@ -116,14 +116,14 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/actio/Actio Multiple.webp",
-                    alt: "Project image",
+                    alt: "Actio uygulamasından ekranlar",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/actio/Actio Infograph.webp",
-                    alt: "Project image",
+                    alt: "Actio uygulamasını tanıtan infografik",
                 },
             },
             {
@@ -131,11 +131,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/actio/Actio Home.webp",
-                        alt: "Project Image",
+                        alt: "Actio ana ekranı",
                     },
                     {
                         url: "/projects/actio/Actio Event Details.webp",
-                        alt: "Project Image",
+                        alt: "Actio etkinlik ayrıntıları",
                     },
                 ],
             },
@@ -144,11 +144,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/actio/Actio Onboarding 1.webp",
-                        alt: "Project Image",
+                        alt: "Actio karşılama ekranı",
                     },
                     {
                         url: "/projects/actio/Actio Notifications.webp",
-                        alt: "Project Image",
+                        alt: "Actio bildirimler ekranı",
                     },
                 ],
             },
@@ -162,7 +162,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/quartiers/Quartiers Multiple.webp",
-                alt: "Project image",
+                alt: "Quartiers uygulamasından ekranlar",
             },
         ],
         tags: [
@@ -182,7 +182,7 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/quartiers/Quartiers Multiple.webp",
-                    alt: "Project image",
+                    alt: "Quartiers uygulamasından ekranlar",
                 },
             },
             {
@@ -190,11 +190,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/quartiers/Quartiers Login.webp",
-                        alt: "Project Image",
+                        alt: "Quartiers giriş ekranı",
                     },
                     {
                         url: "/projects/quartiers/Quartiers Home.webp",
-                        alt: "Project Image",
+                        alt: "Quartiers ana ekranı",
                     },
                 ],
             },
@@ -203,11 +203,11 @@ const projects: Project[] = [
                 images: [
                     {
                         url: "/projects/quartiers/Quartiers Home Control.webp",
-                        alt: "Project Image",
+                        alt: "Quartiers ev kontrol ekranı",
                     },
                     {
                         url: "/projects/quartiers/Quartiers Devices.webp",
-                        alt: "Project Image",
+                        alt: "Quartiers cihazlar ekranı",
                     },
                 ],
             },
@@ -222,7 +222,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/construction-surveillance/Surveillance Home.webp",
-                alt: "Project image",
+                alt: "İnşaat alanı gözetim sisteminin ana ekranı",
             },
         ],
         tags: ["React", "NodeJS", "MongoDB", "Dahua", "Instar"],
@@ -235,28 +235,28 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/construction-surveillance/Surveillance Home.webp",
-                    alt: "Project image",
+                    alt: "İnşaat alanı gözetim sisteminin ana ekranı",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/construction-surveillance/Surveillance Weather.webp",
-                    alt: "Project image",
+                    alt: "İnşaat alanı gözetim sisteminde hava durumu",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/construction-surveillance/Surveillance Timeline.webp",
-                    alt: "Project image",
+                    alt: "İnşaat alanı gözetim sisteminde zaman çizelgesi",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/construction-surveillance/Surveillance Alert Tickets.webp",
-                    alt: "Project image",
+                    alt: "İnşaat alanı gözetim sisteminde uyarı kayıtları",
                 },
             },
         ],
@@ -270,7 +270,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/building-deficiency-management/Plan Radar Login.webp",
-                alt: "Project image",
+                alt: "Bina hata yönetim sisteminin giriş ekranı",
             },
         ],
         tags: [
@@ -290,35 +290,35 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/Plan Radar Login.webp",
-                    alt: "Project image",
+                    alt: "Bina hata yönetim sisteminin giriş ekranı",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/plan radar and evva websites.webp",
-                    alt: "Project image",
+                    alt: "PlanRadar ve EVVA web siteleri",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/Plan Radar Superuser.webp",
-                    alt: "Project image",
+                    alt: "Bina hata yönetim sisteminin yönetici ekranı",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/Plan Radar Project Manager Cart.webp",
-                    alt: "Project image",
+                    alt: "Bina hata yönetim sisteminde proje yöneticisinin sepeti",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/building-deficiency-management/Plan Radar Project Manager Checkout.webp",
-                    alt: "Project image",
+                    alt: "Bina hata yönetim sisteminde sipariş tamamlama",
                 },
             },
         ],
@@ -332,7 +332,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/zeynep-dikdus-website/Zeynep Website Home.webp",
-                alt: "Project image",
+                alt: "Zeynep Dikdüş web sitesinin ana sayfası",
             },
         ],
         tags: ["NextJS", "Website", "Özel Tasarım"],
@@ -345,42 +345,42 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Home.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş web sitesinin ana sayfası",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website About.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş web sitesinin hakkımda sayfası",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Psychotherapy.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş web sitesinin psikoterapi sayfası",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Gallery.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş web sitesinin galerisi",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Contents.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş web sitesinin içerikler sayfası",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/zeynep-dikdus-website/Zeynep Website Contact.webp",
-                    alt: "Project image",
+                    alt: "Zeynep Dikdüş web sitesinin iletişim sayfası",
                 },
             },
         ],
@@ -393,7 +393,7 @@ const projects: Project[] = [
         featuredImages: [
             {
                 url: "/projects/atolye-ankara/atolye-ankara-home.webp",
-                alt: "Project image",
+                alt: "Atölye Ankara web sitesinin ana sayfası",
             },
         ],
         tags: ["Gatsby", "Strapi", "CMS Sistemi"],
@@ -406,21 +406,21 @@ const projects: Project[] = [
                 type: "SINGLE",
                 image: {
                     url: "/projects/atolye-ankara/atolye-ankara-home.webp",
-                    alt: "Project image",
+                    alt: "Atölye Ankara web sitesinin ana sayfası",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/atolye-ankara/atolye-ankara-information.webp",
-                    alt: "Project image",
+                    alt: "Atölye Ankara web sitesinin bilgi sayfası",
                 },
             },
             {
                 type: "SINGLE",
                 image: {
                     url: "/projects/atolye-ankara/atolye-ankara-events.webp",
-                    alt: "Project image",
+                    alt: "Atölye Ankara web sitesinin etkinlikler sayfası",
                 },
             },
         ],
