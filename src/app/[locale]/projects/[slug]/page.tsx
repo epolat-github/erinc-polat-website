@@ -76,7 +76,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsType) => {
                     sx={{
                         pb: spacing.medium,
                         paddingTop: {
-                            xs: spacing.medium,
+                            xs: 14,
                             md: spacing.big * 1.5,
                         },
                     }}

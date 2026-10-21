@@ -42,7 +42,7 @@ const SingleImageRow: React.FC<SingleImageRowType> = (props) => {
                         height: "clamp(220px, 56vw, 640px)",
                         width: "100%",
                         position: "relative",
-                        backgroundColor: semanticColors.surface,
+                        backgroundColor: semanticColors.surfaceSubtle,
                         borderRadius: "12px",
                         overflow: "hidden",
                         ...containerStyle,

@@ -61,7 +61,7 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                                 height: "100%",
                                 width: "100%",
                                 position: "relative",
-                                backgroundColor: semanticColors.surface,
+                                backgroundColor: semanticColors.surfaceSubtle,
                                 borderRadius: "12px",
                                 overflow: "hidden",
                             }}
