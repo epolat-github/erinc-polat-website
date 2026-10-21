@@ -1,9 +1,10 @@
-import { ButtonBase, Stack } from "@mui/material";
+"use client";
+
+import { ButtonBase } from "@mui/material";
 
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/routing";
-import Image from "next/image";
-import spacing from "@/utils/spacing";
+import { semanticColors } from "@/utils/colors";
 
 const LanguageSelector = () => {
     const locale = useLocale();
@@ -11,50 +12,37 @@ const LanguageSelector = () => {
     const router = useRouter();
     const pathname = usePathname();
 
-    const changeLanguage = (newLocale: "en" | "tr") => {
-        router.replace(pathname, { locale: newLocale });
-    };
+    const nextLocale = locale === "en" ? "tr" : "en";
 
-    const renderLanguageButton = () => {
-        const newLocale = locale === "en" ? "tr" : "en";
-
-        // render language selectors
-        return (
-            <ButtonBase
-                disableRipple
-                sx={{ minWidth: 44, minHeight: 44 }}
-                onClick={() => changeLanguage(newLocale)}
-                aria-label={
-                    newLocale === "tr"
-                        ? t("switch_to_turkish")
-                        : t("switch_to_english")
-                }
-            >
-                <Image
-                    width={30}
-                    height={30}
-                    src={`/flags/${locale}.webp`}
-                    alt=""
-                    style={{
-                        objectFit: "contain",
-                        borderRadius: spacing.small,
-                        overflow: "hidden",
-                    }}
-                    sizes="30px"
-                />
-            </ButtonBase>
-        );
+    const changeLanguage = () => {
+        router.replace(pathname, { locale: nextLocale });
     };
 
     return (
-        <Stack
-            direction="column"
+        <ButtonBase
+            disableRipple
+            onClick={changeLanguage}
+            aria-label={
+                nextLocale === "tr"
+                    ? t("switch_to_turkish")
+                    : t("switch_to_english")
+            }
             sx={{
-                position: "relative",
+                minWidth: 44,
+                minHeight: 44,
+                fontFamily: "inherit",
+                fontSize: 14,
+                fontWeight: 600,
+                color: semanticColors.textPrimary,
+                borderRadius: 1,
+                "&:hover": {
+                    color: semanticColors.textPrimary,
+                    backgroundColor: semanticColors.surface,
+                },
             }}
         >
-            {renderLanguageButton()}
-        </Stack>
+            {locale.toUpperCase()}
+        </ButtonBase>
     );
 };
 
