@@ -31,6 +31,7 @@ Siteyi `http://localhost:3000/en` veya `http://localhost:3000/tr` adresinde aç�
 | `yarn dev` | Geliştirme sunucusu |
 | `yarn lint` | ESLint denetimi |
 | `yarn tsc --noEmit` | TypeScript denetimi |
+| `yarn test:seo` | Çalışan localhost:3000 üzerinde 18 sayfanın SEO HTTP/HTML sözleşmelerini denetler; farklı adres için `yarn test:seo http://localhost:3001` |
 | `yarn test:brand` | Marka renklerinin testleri |
 | `yarn test:brand-assets` | Marka görsellerinin doğrulanması |
 | `yarn brand:assets` | Marka görsellerini yeniden renklendirir; dosyaları değiştirir |
@@ -61,3 +62,9 @@ Arayüz Next.js App Router, React, TypeScript, MUI, Framer Motion ve next-intl k
 - Kullanılmayan importları ve yorumlanmış eski uygulamaları temizleyin; davranışın nedenini açıklayan yorumları ve lisans atıflarını koruyun.
 
 Google Analytics yapılandırması yerelleştirilmiş layout içinde bulunur. Anahtarlar ve kullanıcı mesajları loglama ya da analitik olaylarına eklenmemelidir.
+
+## SEO yapılandırması
+
+`src/utils/seo.ts` canonical, EN/TR/x-default alternatifleri ve Open Graph/Twitter alanlarını aynı sayfa yolundan üretir. Ana sayfa metadata metinleri yerel mesaj dosyalarında, proje açıklamaları `projects.en.ts` / `projects.tr.ts` içindeki `seoDescription` alanındadır. Proje paylaşım görselleri mevcut ilk `featuredImages` girdisinden alınır. `src/proxy.ts` otomatik HTTP hreflang başlıklarını kapatır; alternatifler sayfa HTML’inde ve sitemap içinde tanımlanır. x-default aynı sayfanın İngilizce sürümüdür.
+
+`src/app/sitemap.ts` iki dilde ana sayfa, proje listesi ve proje detaylarını listeler; Marifet/AR bu portfolyo sitemap kapsamının dışındadır. `src/app/robots.ts` taramaya izin verir ve sitemap adresini bildirir; Marifet/AR için ayrıca bir indeksleme engeli eklemez. Yeni bir portfolyo sayfası eklenirken metadata ve sitemap kapsamı birlikte güncellenmelidir. Üretim alan adı `siteUrl` sabitinde tutulur.

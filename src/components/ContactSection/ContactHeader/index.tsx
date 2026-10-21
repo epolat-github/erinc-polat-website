@@ -65,6 +65,7 @@ const ContactHeader: React.FC<ContactHeaderType> = ({ scrollYProgress }) => {
                 </Typography>
                 <Typography
                     color={colors.header}
+                    component="h2"
                     sx={{
                         letterSpacing: 2,
                         textTransform: "uppercase",

@@ -22,7 +22,7 @@ import { motion, useAnimationControls } from "framer-motion";
 import spacing from "@/utils/spacing";
 import Image from "next/image";
 import logo from "../../../public/logo.webp";
-import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import LanguageSelector from "../LanguageSelector";
 import colors from "@/utils/colors";
@@ -53,10 +53,11 @@ const sectionButtons = [
     },
 ] as const;
 
+const MotionMenuLink = motion.create(Link);
+
 const Navbar = () => {
     const t = useTranslations("navbar");
     const welcomeT = useTranslations("welcome_section");
-    const router = useRouter();
     const pathname = usePathname();
     const isScrolled = useScrollTrigger({
         disableHysteresis: true,
@@ -84,22 +85,17 @@ const Navbar = () => {
         setAnchorElNav(null);
     };
 
-    const onHomeClick = () => {
-        if (pathname === "/") {
+    const onHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        if (pathname === "/" && event.button === 0 && !event.metaKey
+            && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+            event.preventDefault();
             window.scroll({
                 top: 0,
                 left: 0,
                 // Let global CSS honor the user's reduced-motion preference.
                 behavior: "auto",
             });
-        } else {
-            router.push("/");
         }
-    };
-
-    const onClickOnMobile = (to: string) => {
-        router.push(to);
-        handleCloseNavMenu();
     };
 
     const contactButton = (
@@ -177,6 +173,8 @@ const Navbar = () => {
                         }}
                     >
                         <ButtonBase
+                            component={Link}
+                            href="/"
                             onClick={onHomeClick}
                             aria-label={t("home")}
                             disableRipple
@@ -271,6 +269,8 @@ const Navbar = () => {
                         }}
                     >
                         <ButtonBase
+                            component={Link}
+                            href="/"
                             onClick={onHomeClick}
                             aria-label={t("home")}
                             disableRipple
@@ -344,11 +344,10 @@ const Navbar = () => {
                         >
                             {sectionButtons.map((sectionButton, index) => (
                                 <MenuItem
-                                    component={motion.li}
+                                    component={MotionMenuLink}
+                                    href={`/#${sectionButton.to}`}
                                     key={sectionButton.titleTranslationKey}
-                                    onClick={() =>
-                                        onClickOnMobile(`/#${sectionButton.to}`)
-                                    }
+                                    onClick={() => { void handleCloseNavMenu(); }}
                                     disableRipple
                                     sx={{
                                         mt: 0.5,

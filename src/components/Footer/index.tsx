@@ -84,6 +84,7 @@ const Footer = () => {
                     <FadeInItem delay={0.5}>
                         <Typography
                             variant="h3"
+                            component="p"
                             color={colors.background}
                             textAlign="center"
                             sx={{
@@ -111,6 +112,7 @@ const Footer = () => {
                         color={colors.background}
                         textAlign="center"
                         variant="subtitle2"
+                        component="p"
                     >
                         {t("copyright", {
                             year: new Date().getFullYear(),

@@ -11,6 +11,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { siteUrl } from "@/utils/seo";
 
 export const viewport: Viewport = {
     width: "device-width",
@@ -36,14 +37,7 @@ export const metadata: Metadata = {
         "software",
         "developer",
     ],
-    metadataBase: new URL("https://www.erincpolat.com"),
-    alternates: {
-        canonical: "/",
-        languages: {
-            tr: "/tr",
-            en: "/en",
-        },
-    },
+    metadataBase: new URL(siteUrl),
 };
 
 const RootLayout = async ({

@@ -3,6 +3,7 @@ import { Project } from "@/types/project.type";
 const projects: Project[] = [
     {
         slug: "fitnlit",
+        seoDescription: "FitNLit mobil uygulama projesini inceleyin: React Native ile geliştirilen antrenman, beslenme planı ve kişisel gelişim takibi özellikleri.",
         title: "FitNLit - Fitness Yardımcınız",
         summary:
             "Size özel fitness yardımcınız! Antrenmanlarınızı görebilir, yemeklerinizi planlayabilir, kalori ve kişisel hedeflerinizi takip edebilir, vücudunuzun gelişimini süreç boyunca görselleştirebilirsiniz!",
@@ -89,6 +90,7 @@ const projects: Project[] = [
     },
     {
         slug: "actio",
+        seoDescription: "Actio etkinlik yönetimi uygulamasını inceleyin: React Native, QR kod ile çevrimdışı giriş, bildirimler, anketler ve etkinlik paylaşımları.",
         title: "Actio - Etkinlik Yönetimi",
         summary:
             "Cebinizdeki etkinlik arkadaşınızı keşfedin! Etkinliklere kolayca katılın, hatırlatıcılarla takipte kalın ve paylaşımlar ile anketlere katılarak etkinlik deneyiminizi kusursuz hale getirin!",
@@ -156,6 +158,7 @@ const projects: Project[] = [
     },
     {
         slug: "quartiers",
+        seoDescription: "Quartiers akıllı tesis yönetimi projesini inceleyin: mobil uygulamada IoT cihaz kontrolü, enerji takibi, akıllı kilitler ve erişim yönetimi.",
         title: "Quartiers - Akıllı Tesis Yönetimi",
         summary:
             "Akıllı ev asistanınız! Cihazları zahmetsizce yönetin, enerji kullanımını takip edin ve hizmetleri daha bağlantılı bir yaşam deneyimi için kolaylaştırın!",
@@ -215,6 +218,7 @@ const projects: Project[] = [
     },
     {
         slug: "construction-surveillance",
+        seoDescription: "İnşaat sahaları için geliştirilen gözetim sistemini inceleyin: Dahua ve Instar kameralar, OpenWeather entegrasyonu, kayıtlar ve alarm takibi.",
         title: "İnşaat Alanı Gözetim Sistemi",
         summary:
             "Dahua ve Instar kameraları ile OpenWeather verilerini kullanan, Almanya’daki inşaat alanları için geliştirilmiş bir gözetim sistemi. Thelen Holding’e bağlı SV Gebäudeautomation ve connect2 şirketleriyle ortak bir proje.",
@@ -263,6 +267,7 @@ const projects: Project[] = [
     },
     {
         slug: "building-deficiency-management",
+        seoDescription: "PlanRadar ve EVVA akıllı kilit entegrasyonu projesini inceleyin: bina sorun takibi, teknisyen erişim izinleri ve Stripe ödeme entegrasyonu.",
         title: "Bina Hata Yönetim Sistemi",
         summary:
             "EVVA’nın akıllı kilitlerini entegre eden, atanan görevlerin gerçek zamanlı takibini ve bakım personeli için kontrollü erişimi sağlayan bir bina sorun bildirim sistemi.",
@@ -325,6 +330,7 @@ const projects: Project[] = [
     },
     {
         slug: "zeynep-dikdus-website",
+        seoDescription: "Psikoterapist Zeynep Dikdüş için Next.js ile geliştirilen kişisel web sitesi: özgün çizimler, özel arayüz tasarımı ve içerik yönetim sistemi.",
         title: "Kişisel Web Sitesi - Terapist Zeynep Dikdüş",
         summary:
             "Psikoterapist Zeynep Dikdüş’ün kişisel web sitesi. Kendi çizimleri ve illüstrasyonlarıyla özel olarak tasarlandı.",
@@ -387,6 +393,7 @@ const projects: Project[] = [
     },
     {
         slug: "atolye-ankara-website",
+        seoDescription: "Atölye Ankara için Gatsby ve Strapi ile geliştirilen kurumsal web sitesini inceleyin: içerik yönetimi, atölye talepleri ve etkinlik katılımı.",
         title: "Kurumsal Web Sitesi - Atölye Ankara",
         summary:
             "Ankara Kalkınma Ajansı tarafından desteklenen “Atölye Ankara” projesi için geliştirilen CMS web sitesi. Bu proje, gençlerin istihdam edilebilirliğini artırmak amacıyla FabLab hizmetlerine ve ileri teknoloji eğitimine ücretsiz erişim sağlamaktadır.",

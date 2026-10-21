@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 import SubdirectoryArrowRightIcon from "@mui/icons-material/SubdirectoryArrowRight";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import { createPageMetadata } from "@/utils/seo";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -39,6 +40,21 @@ interface ProjectDetailsType {
     }>;
 }
 
+export async function generateMetadata({ params }: ProjectDetailsType) {
+    const { locale, slug } = await params;
+    const project = (locale === "tr" ? projectsTr : projectsEn)
+        .find((entry) => entry.slug === slug);
+    if (!project) notFound();
+
+    return createPageMetadata({
+        locale,
+        path: `/projects/${project.slug}`,
+        title: `${project.title} | Erinç Polat`,
+        description: project.seoDescription,
+        image: project.featuredImages[0],
+    });
+}
+
 const ProjectDetails = async ({ params }: ProjectDetailsType) => {
     const { locale, slug } = await params;
     const t = await getTranslations({ locale, namespace: "project_details" });
@@ -55,6 +71,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsType) => {
 
     return (
         <Box
+            component="main"
             sx={{
                 backgroundColor: colors.background,
             }}
@@ -109,6 +126,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsType) => {
                         <Stack spacing={spacing.tiny}>
                             <Typography
                                 variant="h3"
+                                component="h1"
                                 sx={{
                                     fontFamily: inter.style.fontFamily,
                                     fontSize: {

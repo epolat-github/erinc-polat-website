@@ -1,7 +1,8 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
-export default createMiddleware(routing);
+// Page metadata owns hreflang; automatic headers include unprefixed 404 targets.
+export default createMiddleware({ ...routing, alternateLinks: false });
 
 export const config = {
     // Match only internationalized pathnames

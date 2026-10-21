@@ -65,6 +65,7 @@ const WelcomeSection = () => {
                             }}
                         >
                             <Typography
+                                component="h1"
                                 fontWeight="bold"
                                 color={colors.primaryText}
                                 sx={{
@@ -83,6 +84,7 @@ const WelcomeSection = () => {
                     <FadeInItem duration={0.6} delay={entranceDelay(0.14)}>
                         <Typography
                             variant="h5"
+                            component="p"
                             fontWeight="500"
                             color={colors.gray}
                         >
@@ -99,17 +101,17 @@ const WelcomeSection = () => {
 
                     <Stack spacing={spacing.tiny}>
                         <FadeInItem duration={0.55} delay={entranceDelay(0.2)}>
-                            <Typography variant="h6" color={colors.gray}>
+                            <Typography variant="h6" component="p" color={colors.gray}>
                                 🚀 {t("websites_text")}
                             </Typography>
                         </FadeInItem>
                         <FadeInItem duration={0.55} delay={entranceDelay(0.25)}>
-                            <Typography variant="h6" color={colors.gray}>
+                            <Typography variant="h6" component="p" color={colors.gray}>
                                 📱 {t("mobile_text")}
                             </Typography>
                         </FadeInItem>
                         <FadeInItem duration={0.55} delay={entranceDelay(0.3)}>
-                            <Typography variant="h6" color={colors.gray}>
+                            <Typography variant="h6" component="p" color={colors.gray}>
                                 ⚡️ {t("backend_text")}
                             </Typography>
                         </FadeInItem>

@@ -18,7 +18,7 @@ interface MyWorkCardType {
     href: string;
     animationDirection?: "left" | "right";
     sizes?: string;
-    titleComponent?: "h2" | "h5";
+    titleComponent?: "h2" | "h3" | "h5";
     entranceDelay?: number;
 }
 
@@ -30,7 +30,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
         href,
         animationDirection = "left",
         sizes,
-        titleComponent = "h5",
+        titleComponent = "h3",
         entranceDelay = 0,
     } = props;
 

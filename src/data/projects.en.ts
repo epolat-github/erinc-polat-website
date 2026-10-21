@@ -3,6 +3,7 @@ import { Project } from "@/types/project.type";
 const projects: Project[] = [
     {
         slug: "fitnlit",
+        seoDescription: "Explore the FitNLit mobile app project: workout guidance, meal planning, and personal progress tracking developed with React Native.",
         title: "FitNLit - Your Fitness Helper",
         summary:
             "A fitness helper for you! You can see your workouts, plan your meals, track your calorie and personal goals, visualize the process of your body throughout the usage!",
@@ -89,6 +90,7 @@ const projects: Project[] = [
     },
     {
         slug: "actio",
+        seoDescription: "Explore the Actio event management app: React Native development with offline QR check-in, notifications, surveys, and event sharing.",
         title: "Actio - Event Management",
         summary:
             "Your event companion! Easily join events, stay organized with reminders, and engage with posts and surveys for a seamless event experience!",
@@ -156,6 +158,7 @@ const projects: Project[] = [
     },
     {
         slug: "quartiers",
+        seoDescription: "Explore the Quartiers smart facility management project: mobile IoT device control, energy tracking, smart locks, and access management.",
         title: "Quartiers - Smart Facility Management",
         summary:
             "Your smart home assistant! Effortlessly manage devices, track energy usage, and streamline services for a more connected living experience!",
@@ -215,6 +218,7 @@ const projects: Project[] = [
     },
     {
         slug: "construction-surveillance",
+        seoDescription: "Explore a construction surveillance system integrating Dahua and Instar cameras with OpenWeather data, recordings, and alarm tracking.",
         title: "Construction Area Surveillance System",
         summary:
             "A surveillance system that utilizes Dahua and Instar cameras with OpenWeather data for the construction areas in Germany. A collab project with SV Gebaudeautomation and connect2, companies of Thelen Holding.",
@@ -263,6 +267,7 @@ const projects: Project[] = [
     },
     {
         slug: "building-deficiency-management",
+        seoDescription: "Explore the PlanRadar and EVVA smart lock integration: building issue tracking, technician access permissions, and Stripe payment integration.",
         title: "Building Deficiency Management System",
         summary:
             "A building issue reporting system that integrates EVVA’s smart locks, enabling real-time tracking of assigned tasks and controlled access for maintenance personnel.",
@@ -325,6 +330,7 @@ const projects: Project[] = [
     },
     {
         slug: "zeynep-dikdus-website",
+        seoDescription: "A custom Next.js website for psychotherapist Zeynep Dikdüş, featuring original illustrations, tailored interface design, and content management.",
         title: "Personal Website - Therapist Zeynep Dikdüş",
         summary:
             "A personal website of Psychotherapist Zeynep Dikdüş. Specifically designed for her, with her own drawings and illustrations.",
@@ -387,6 +393,7 @@ const projects: Project[] = [
     },
     {
         slug: "atolye-ankara-website",
+        seoDescription: "Explore the Atölye Ankara corporate website built with Gatsby and Strapi, supporting content management, workshop requests, and event participation.",
         title: "Corporate Website - Atölye Ankara",
         summary:
             "CMS Website for the “Atölye Ankara” project, which, supported by the Ankara Development Agency, provides free access to FabLab services and advanced technology education to enhance youth employability.",

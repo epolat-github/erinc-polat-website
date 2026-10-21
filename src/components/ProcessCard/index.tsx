@@ -41,6 +41,7 @@ const ProcessCard: React.FC<ProcessCardProps> = (props) => {
             <Stack spacing={spacing.tiny * 0.7}>
                 <Typography
                     variant="h4"
+                    component="h3"
                     sx={{
                         fontFamily: oswald.style.fontFamily,
                         fontWeight: "600",

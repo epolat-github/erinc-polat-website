@@ -57,6 +57,7 @@ const MyWorksSection = async () => {
                             <Typography
                                 fontWeight={500}
                                 variant="h3"
+                                component="h2"
                                 sx={{ fontFamily: oswald.style.fontFamily }}
                             >
                                 {t("title")}
@@ -70,6 +71,7 @@ const MyWorksSection = async () => {
                                 <Typography
                                     color={colors.gray}
                                     variant="subtitle1"
+                                    component="p"
                                     fontSize={20}
                                 >
                                     {t("description")}

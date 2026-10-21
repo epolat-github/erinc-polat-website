@@ -86,15 +86,15 @@ const CONTACT_DATA = [
 interface ContactListRowType {
     text: string;
     Icon: React.ReactNode;
-    onClick: () => void;
+    href: string;
 }
 
 const ContactListRow: React.FC<ContactListRowType> = (props) => {
-    const { text, Icon, onClick } = props;
+    const { text, Icon, href } = props;
 
     return (
         <Stack direction="row">
-            <ButtonBase onClick={onClick}>
+            <ButtonBase component="a" href={href} target="_blank" rel="noopener noreferrer">
                 <Stack
                     sx={{
                         bgcolor: semanticColors.surface,
@@ -126,10 +126,6 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
     const [isSubmittingForm, setIsSubmittingForm] = useState(false);
     const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
     const [formStatus, setFormStatus] = useState("");
-
-    const openLink = (url: string) => {
-        window.open(url, "_blank");
-    };
 
     const clearFieldError = (field: ContactField) => {
         setFormStatus("");
@@ -236,6 +232,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 >
                     <Typography
                         variant="h4"
+                        component="h3"
                         fontWeight="bold"
                         color={semanticColors.textPrimary}
                         sx={{
@@ -353,6 +350,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 >
                     <Typography
                         variant="h4"
+                        component="h3"
                         fontWeight="bold"
                         color={semanticColors.textPrimary}
                         sx={{
@@ -375,9 +373,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                                 <Grid2 key={`contact-data-${index}`} size={12}>
                                     <ContactListRow
                                         text={t(contactData.textTranslationKey)}
-                                        onClick={() =>
-                                            openLink(contactData.url)
-                                        }
+                                        href={contactData.url}
                                         Icon={contactData.icon}
                                     />
                                 </Grid2>

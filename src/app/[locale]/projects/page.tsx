@@ -11,6 +11,7 @@ import projectsTr from "@/data/projects.tr";
 import { getLocale, getTranslations } from "next-intl/server";
 import { oswald } from "@/utils/fonts";
 import type { Metadata } from "next";
+import { createPageMetadata } from "@/utils/seo";
 
 export async function generateMetadata({
     params,
@@ -20,17 +21,12 @@ export async function generateMetadata({
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: "projects" });
 
-    return {
+    return createPageMetadata({
+        locale,
+        path: "/projects",
         title: t("metadata_title"),
         description: t("metadata_description"),
-        alternates: {
-            canonical: `/${locale}/projects`,
-            languages: {
-                tr: "/tr/projects",
-                en: "/en/projects",
-            },
-        },
-    };
+    });
 }
 
 const Projects = async () => {

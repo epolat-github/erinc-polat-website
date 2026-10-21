@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "test:brand": "node --experimental-strip-types --test src/utils/colors.test.ts",
+    "test:seo": "node scripts/check-seo.mjs",
     "brand:assets": "node scripts/recolor-brand-assets.mjs",
     "test:brand-assets": "node scripts/verify-brand-assets.mjs",
     "images:metadata": "node scripts/generate-project-image-dimensions.mjs",

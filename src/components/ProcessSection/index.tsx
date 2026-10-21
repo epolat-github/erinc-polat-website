@@ -27,6 +27,7 @@ const ProcessSection = async () => {
             >
                 <Typography
                     variant="h3"
+                    component="h2"
                     textAlign="center"
                     lineHeight={1.3}
                     sx={{

@@ -3,25 +3,24 @@
 import { ButtonBase } from "@mui/material";
 
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
 import { semanticColors } from "@/utils/colors";
 
 const LanguageSelector = () => {
     const locale = useLocale();
     const t = useTranslations("accessibility");
-    const router = useRouter();
     const pathname = usePathname();
 
     const nextLocale = locale === "en" ? "tr" : "en";
 
-    const changeLanguage = () => {
-        router.replace(pathname, { locale: nextLocale });
-    };
-
     return (
         <ButtonBase
+            component={Link}
+            href={pathname}
+            locale={nextLocale}
+            hrefLang={nextLocale}
+            replace
             disableRipple
-            onClick={changeLanguage}
             aria-label={
                 nextLocale === "tr"
                     ? t("switch_to_turkish")
