@@ -66,7 +66,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                             sx={{
                                 width: "100%",
                                 height: "clamp(220px, 40vw, 400px)",
-                                backgroundColor: semanticColors.surface,
+                                backgroundColor: semanticColors.surfaceSubtle,
                                 borderRadius: 4,
                             }}
                             direction="row"

@@ -1,6 +1,7 @@
 const colors = {
     background: "#FFFFFF",
     surface: "#F0F3F6",
+    surfaceSubtle: "#F6F8FA",
     secondaryBackground: "#111827",
     header: "#111827",
     primary: "#173B6C",
@@ -17,6 +18,7 @@ const colors = {
 export const semanticColors = {
     background: colors.background,
     surface: colors.surface,
+    surfaceSubtle: colors.surfaceSubtle,
     textPrimary: colors.header,
     textMuted: colors.gray,
     border: colors.border,

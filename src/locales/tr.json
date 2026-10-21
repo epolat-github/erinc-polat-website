@@ -1,13 +1,13 @@
 {
     "welcome_section": {
-        "top_text": "Merhaba, Ben-",
+        "top_text": "Merhaba, ben",
         "title": "Yazılım Geliştirici.",
-        "description": "Ürün geliştirmeye ilgi duyan bir full-stack geliştirici.",
-        "websites_text": "Müşteriye özel dizaynlı siteler",
-        "mobile_text": "Cross-platform mobil uygulamalar",
-        "backend_text": "Backend geliştirme desteği",
-        "cta_button_text": "İletişime Geç",
-        "secondary_button_text": "Daha Fazla",
+        "description": "Web ve mobil ürünler tasarlıyor, geliştiriyor ve yayına alıyorum.",
+        "websites_text": "İhtiyaçlarınıza özel web siteleri",
+        "mobile_text": "iOS ve Android için mobil uygulamalar",
+        "backend_text": "Backend geliştirme ve sistem entegrasyonları",
+        "cta_button_text": "İletişime geçin",
+        "secondary_button_text": "Hakkımda",
         "fitnlit_alt": "FitNLit uygulamasının ekran görüntüsü",
         "actio_alt": "Actio uygulamasının ekran görüntüsü",
         "ihrhaus_alt": "IhrHaus web sitesinin ekran görüntüsü",
@@ -27,35 +27,35 @@
         "portrait_alt": "Erinç Polat’ın portresi"
     },
     "process_section": {
-        "title_regular_before_break": "Ürün Oluşturmanın Üç Adımı",
+        "title_regular_before_break": "Fikirden yayına,",
         "title_regular_after_break": "",
-        "title_bold": "Hemen Öne Çıksın",
+        "title_bold": "birlikte ilerleyelim.",
         "design_card_title": "Tasarım",
-        "design_card_description": "İlk adım, marka kimliklerini keşfetmek ve tanımlamak, şirketlerin piyasada benzersiz bir karakter ve varlık ile öne çıkmasına yardımcı olacak özgün görsel stiller oluşturmayı içerir.",
+        "design_card_description": "İhtiyaçlarınızı ve kullanıcılarınızın beklentilerini birlikte netleştiriyorum. Marka kimliğinize uygun, kullanımı kolay arayüzler tasarlıyorum.",
         "design_card_alt": "Erinç Polat tarafından geliştirilen bir uygulamanın ekran görüntüsü",
         "development_card_title": "Geliştirme",
-        "development_card_description": "Süreç tasarımdan geliştirmeye geçtiğinde, konseptler dijital deneyimlere dönüştürülerek web siteleri, uygulamalar ve ürünler etkileyici marka hikayelerini iletmek için oluşturulur.",
+        "development_card_description": "Tasarımları çalışan bir ürüne dönüştürüyorum. Web veya mobil uygulamanızı geliştiriyor, sunucu altyapısını kuruyor ve mevcut sistemlerinizle entegre ediyorum.",
         "development_card_alt": "Erinç Polat'ın yaptığı web tasarımlarının ekran görüntüleri",
         "improvement_card_title": "İyileştirme",
-        "improvement_card_description": "Analitik desteği, servis konteynerleştirme, SEO/ASO, mağaza testleri ve takip ayarları, sunucu yapılandırması ve sürekli iyileştirmeler uygulanır.",
+        "improvement_card_description": "Ürününüzü yayına alıyor, kullanım verilerini takip etmek için analitik araçlarını kuruyorum. Yayından sonra bakım, yeni özellikler ve arama görünürlüğünü iyileştirme çalışmalarıyla destek oluyorum.",
         "improvement_card_alt": "Farklı teknolojilerin logoları"
     },
     "my_works_section": {
         "title": "Yaratıcı İşler & Projeler",
         "description": "İşte üzerinde çalıştığım projelerden bazıları",
-        "cta_button_text": "Daha fazlasını keşfet"
+        "cta_button_text": "Tüm projeleri inceleyin"
     },
     "my_work_card": {
-        "cta_button_text": "Projeyi keşfet"
+        "cta_button_text": "Projeyi inceleyin"
     },
     "contact_header": {
         "background_title": "İletişim",
         "small_title": "Birlikte",
         "title": "Projeniz hakkında konuşalım.",
-        "subtitle": "Bana istediğiniz soruyu sorabilirsiniz. Gelecekteki iş birliğimiz hakkında konuşalım."
+        "subtitle": "Fikrinizi ve ihtiyaçlarınızı paylaşın. Nasıl yardımcı olabileceğimi birlikte değerlendirelim."
     },
     "contact_form": {
-        "form_title": "İletişime Geçin.",
+        "form_title": "İletişime geçin",
         "name_label": "İsim",
         "name_placeholder": "İsminiz",
         "email_label": "E-posta adresi",
@@ -66,29 +66,29 @@
         "email_required_error": "E-posta adresinizi girin.",
         "email_invalid_error": "Geçerli bir e-posta adresi girin.",
         "message_required_error": "Mesajınızı girin.",
-        "send_message_button_text": "Mesajı yolla",
-        "validation_error_message": "Bir doğrulama hatası oluştu. Lütfen formu tekrar kontrol edin.",
-        "generic_error_message": "Bir hata oluştu. Lütfen benimle e-posta yoluyla iletişime geçin 🙂",
-        "success_message": "Mesajınızı aldım. En kısa sürede sizinle iletişime geçeceğim 🙂",
-        "contact_info_title": "İletişim Bilgileri",
-        "contact_info_subtitle": "Bana Danışın.",
+        "send_message_button_text": "Mesaj gönderin",
+        "validation_error_message": "Lütfen işaretli alanları kontrol edip tekrar deneyin.",
+        "generic_error_message": "Mesajınız gönderilemedi. Lütfen tekrar deneyin veya benimle e-posta yoluyla iletişime geçin.",
+        "success_message": "Mesajınızı aldım. En kısa sürede size dönüş yapacağım.",
+        "contact_info_title": "İletişim bilgileri",
+        "contact_info_subtitle": "Birlikte konuşalım.",
         "resume_text": "Özgeçmişim",
-        "linkedin_text": "LinkedIn'de Bağlantı Kur",
-        "instagram_text": "Instagram'da Takip Et",
-        "github_text": "GitHub'da Takip Et"
+        "linkedin_text": "LinkedIn'de bağlantı kurun",
+        "instagram_text": "Instagram'da takip edin",
+        "github_text": "GitHub'da takip edin"
     },
     "navbar": {
         "about": "Hakkımda",
         "works": "Projeler",
         "process": "Süreç",
         "contact": "İletişim",
-        "open_menu": "Menüyü aç",
-        "home": "Ana sayfaya dön"
+        "open_menu": "Menüyü açın",
+        "home": "Ana sayfaya dönün"
     },
     "accessibility": {
-        "close_image": "Görseli kapat",
-        "switch_to_turkish": "Türkçeye geç",
-        "switch_to_english": "İngilizceye geç",
+        "close_image": "Görseli kapatın",
+        "switch_to_turkish": "Türkçeye geçin",
+        "switch_to_english": "İngilizceye geçin",
         "project_image": "Proje görseli"
     },
     "projects": {
@@ -100,6 +100,6 @@
         "copyright": "Copyright © {year} - Erinç Polat - Tüm Hakları Saklıdır"
     },
     "project_details": {
-        "visit_project": "Projeye git"
+        "visit_project": "Proje sitesine gidin"
     }
 }

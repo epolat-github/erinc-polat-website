@@ -123,6 +123,21 @@
           "#CAD2E0",
           "#EFF1F6"
         ]
+      },
+      "subtle-surface": {
+        "role": "neutral",
+        "displayName": "Subtle Surface",
+        "canonical": "#F6F8FA",
+        "tonalRamp": [
+          "#1B2631",
+          "#304357",
+          "#45617C",
+          "#5A7EA2",
+          "#7E9BB7",
+          "#A4B8CC",
+          "#C9D5E1",
+          "#EFF2F6"
+        ]
       }
     },
     "typographyMeta": {
@@ -229,12 +244,12 @@
       }
     ],
     "responsive": {
-      "projectCard": "MyWorkCard uses full width, wrapping text and media height clamp(220px, 40vw, 400px). Props: title, description, images, href, animationDirection (left/right).",
+      "projectCard": "MyWorkCard uses full width, wrapping text and media height clamp(220px, 40vw, 400px). Props: title, description, images, href, animationDirection (left/right). MyWorkCard media background uses semanticColors.surfaceSubtle (#F6F8FA).",
       "singleImageRow": "SingleImageRow media height: clamp(220px, 56vw, 640px). Props: imageUrl, alt, containerStyle (sx override). Opens the existing fullscreen modal.",
       "multipleImageRow": "MultipleImageRow stacks below 600px with individual height clamp(220px, 75vw, 400px). Above 600px it shares a row of height clamp(280px, 45vw, 640px). Props: images, containerStyle (sx override). Opens the existing fullscreen modal.",
       "welcome": "Hero CTAs span available width below 600px, wrap above with a 150px minimum, and have a 40px minimum height with multiline labels. IhrHaus preview max-width: 100%.",
       "contact": "ContactHeader text uses width: 100%, min-width: 0 and overflow-wrap: anywhere. Path: src/components/ContactSection/ContactHeader/index.tsx. Prop: scrollYProgress (MotionValue<number>). Usage: <ContactHeader scrollYProgress={scrollYProgress} />. A module-level motion.create(Stack) wrapper accepts the opacity and vertical MotionValues directly, without type assertions. ContactForm email also uses overflow-wrap: anywhere.",
-      "process": "ProcessSection has no fixed mobile height and a 750px desktop minimum. ProcessCard grows with text; padding is 16px below 600px and 32px above. Image minimum height: 220px at xs, 240px at sm, 180px at md. Optional ProcessCard imagePosition (center by default, or bottom) controls contained image alignment. Design and Development use bottom with zero bottom padding at every breakpoint; artwork clips to card corners. Improvement stays centered. Below 900px, optional mobileImageHeight overrides the image-area minimum height and mobileImageScale (default 1) scales artwork from the bottom. Design uses mobileImageHeight={360}; Development uses mobileImageScale={1.35}. At 900px and above original desktop sizing is retained; Improvement sizing remains unchanged.",
+      "process": "ProcessSection has no fixed mobile height and a 750px desktop minimum. ProcessCard grows with text; padding is 16px below 600px and 32px above. Image minimum height: 220px at xs, 240px at sm, 180px at md. Optional ProcessCard imagePosition (center by default, or bottom) controls contained image alignment. Design and Development use bottom with zero bottom padding at every breakpoint; artwork clips to card corners. Improvement stays centered. Below 900px, optional mobileImageHeight overrides the image-area minimum height and mobileImageScale (default 1) scales artwork from the bottom. Design uses mobileImageHeight={360}; Development uses mobileImageScale={1.35}. At 900px and above original desktop sizing is retained; Improvement sizing remains unchanged. ProcessCard background uses semanticColors.surfaceSubtle (#F6F8FA).",
       "biography": "WhoAmISection uses a flexible text column and 320px square portrait at 900px and above. Below 900px, the portrait follows the introduction and sole project action and is capped at 360px; service columns stack. The project action reuses AnimatedTextLink to link to #works and uses intrinsic width, 16px semibold brick text via a section-specific semanticColors.actionSecondary override, a 20px right arrow and a 44px minimum height. Its 2px underline scales from left to right over 280ms on hover or keyboard focus, immediately for reduced motion. It retains a visible focus outline and an unfilled surface. The section omits its contact CTA and retains a 96px anchor offset. On hover or keyboard focus, its arrow moves 3px horizontally and back in a repeating 1600ms ease-in-out cycle; it stops on leaving the interaction and is disabled for reduced motion. FlowPattern spans the complete section at every breakpoint behind the content; its clipped layers cannot cause page overflow. The portrait-local DotPattern is removed."
     },
     "imageLoading": {
@@ -276,11 +291,12 @@
         "onActionPrimary": "#FFFFFF",
         "actionSecondary": "#B94E3A",
         "onActionSecondary": "#FFFFFF",
-        "focusRing": "#173B6C"
+        "focusRing": "#173B6C",
+        "surfaceSubtle": "#F6F8FA"
       },
       "theme": "src/utils/theme.ts maps actions, text, backgrounds and divider to MUI. CssBaseline renders inside ThemeProvider. Light only; dark mode and automatic system-theme switching are outside scope.",
       "focus": "MuiButtonBase supplies a 3px focusRing outline with 3px offset for Mui-focusVisible. Fields use the same token; InteractiveHoverButton retains its component-specific brick focus outline.",
-      "migration": "ProcessCard and gallery backgrounds use surface; ChipRow uses surface/textMuted. ContactForm uses semantic backgrounds, text, icon surfaces, border and focusRing with MUI error.main for invalid fields. MyWorkCard uses the theme Divider instead of a translucent white override. Project detail white background uses the central palette.",
+      "migration": "ProcessCard backgrounds and MyWorkCard media use surfaceSubtle (#F6F8FA); gallery backgrounds use surface; ChipRow uses surface/textMuted. ContactForm uses semantic backgrounds, text, icon surfaces, border and focusRing with MUI error.main for invalid fields. MyWorkCard uses the theme Divider instead of a translucent white override. Project detail white background uses the central palette.",
       "componentContracts": {
         "ChipRow": "src/components/ProjectDetails/ChipRow/index.tsx: labels string[], optional containerProps StackProps and chipProps ChipProps. Usage: <ChipRow labels={[\"React\", \"Next.js\"]} />.",
         "ContactForm": "src/components/ContactSection/ContactForm/index.tsx: no configuration props; optional forwarded ref identifies the section for parent scroll behavior. Usage: <ContactForm ref={targetRef} />. Existing validation/submission behavior is retained. Name, email and message fields now reuse FormField for shared presentation and accessibility; validation, first-error focus, status and submission stay in ContactForm.",
@@ -325,9 +341,9 @@
       "name": "Project Card",
       "kind": "card",
       "refersTo": "project-card",
-      "description": "src/components/MyWorkCard/index.tsx: full-width image-led project action with wrapping text. Props: title, description, images (url/alt), href, optional animationDirection (left/right). Usage: <MyWorkCard title={title} description={summary} images={images} href=\"/projects/fitnlit\" />. Explicit client component for animation; locale-aware Link resolves the project href. Static layouts and full project data stay on the server.",
+      "description": "src/components/MyWorkCard/index.tsx: full-width image-led project action with wrapping text. Props: title, description, images (url/alt), href, optional animationDirection (left/right). Usage: <MyWorkCard title={title} description={summary} images={images} href=\"/projects/fitnlit\" />. Explicit client component for animation; locale-aware Link resolves the project href. Static layouts and full project data stay on the server. Media background uses semanticColors.surfaceSubtle (#F6F8FA).",
       "html": "<article class=\"ds-project-card\"><div class=\"ds-project-media\"></div><h3>Project title</h3><p>Project description</p></article>",
-      "css": ".ds-project-card { width:100%; min-width:0; overflow-wrap:anywhere; color:#111827; font-family:Roboto,sans-serif; } .ds-project-media { height:clamp(220px,40vw,400px); background:#F0F3F6; border-radius:16px; } .ds-project-card h3 { margin:16px 16px 8px; font-size:24px; line-height:1.3; } .ds-project-card p { margin:0 16px 16px; color:#5E6673; line-height:1.5; }"
+      "css": ".ds-project-card { width:100%; min-width:0; overflow-wrap:anywhere; color:#111827; font-family:Roboto,sans-serif; } .ds-project-media { height:clamp(220px,40vw,400px); background:#F6F8FA; border-radius:16px; } .ds-project-card h3 { margin:16px 16px 8px; font-size:24px; line-height:1.3; } .ds-project-card p { margin:0 16px 16px; color:#5E6673; line-height:1.5; }"
     },
     {
       "name": "Primary Navigation",

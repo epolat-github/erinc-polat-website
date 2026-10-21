@@ -9,6 +9,7 @@ colors:
   secondary-brick: "#B94E3A"
   supporting-text: "#5E6673"
   soft-surface: "#F0F3F6"
+  subtle-surface: "#F6F8FA"
   field-border: "#D8DEE8"
 typography:
   display:
@@ -59,7 +60,7 @@ components:
     height: "45px"
     boxShadow: "none"
   project-card:
-    backgroundColor: "{colors.soft-surface}"
+    backgroundColor: "{colors.subtle-surface}"
     rounded: "{rounded.md}"
     padding: "{spacing.tiny}"
   form-field:
@@ -118,6 +119,7 @@ Use the named `semanticColors` export from `src/utils/colors.ts` for functional 
 | --- | --- | --- | --- |
 | Page / field background | `background` | `#FFFFFF` | `background.default`, `background.paper` |
 | Cards / gallery / icon surfaces | `surface` | `#F0F3F6` | Direct token in component styles |
+| Process cards / project card media | `surfaceSubtle` | `#F6F8FA` | Direct token in component styles |
 | Primary text | `textPrimary` | `#111827` | `text.primary` |
 | Muted text | `textMuted` | `#5E6673` | `text.secondary` |
 | Field borders / dividers | `border` | `#D8DEE8` | `divider` |
@@ -264,8 +266,8 @@ Reuse these wrappers rather than duplicating their animation behavior:
 
 ### Cards / Containers
 
-- **ProcessCard** — `src/components/ProcessCard/index.tsx`: title, description and contained image. Props: `title`, `description`, `imageUrl`, `alt`, optional `sizes` (defaults to the wider process column), optional `imagePosition` (`center` by default, or `bottom`), `mobileImageHeight` (image-area minimum height below 900px), and `mobileImageScale` (defaults to 1, anchored at the bottom below 900px). Usage: `<ProcessCard title={title} description={description} imageUrl="/services/design.webp" alt={alt} imagePosition="bottom" />`. Padding is 16px below 600px and 32px above. Design and Development use `imagePosition="bottom"`: contained images align to the bottom, bottom padding stays zero at every breakpoint, and artwork is clipped to the card corners. Below 900px, Design uses a 360px image area and Development scales its image 1.35× with matching `sizes`; desktop sizing is unchanged. Improvement keeps centered imagery and its existing size. Image minimum height is 220px / 240px / 180px at xs / sm / md; cards grow with text. `ProcessSection` keeps a 750px desktop minimum and no fixed mobile height.
-- **MyWorkCard** — `src/components/MyWorkCard/index.tsx`: full-width project action with media height `clamp(220px, 40vw, 400px)` and wrapping text. Props: `title`, `description`, `images` (`url`, `alt`), `href`, optional `animationDirection` (`left` or `right`). Usage: `<MyWorkCard title={title} description={summary} images={images} href="/projects/fitnlit" />`.
+- **ProcessCard** — `src/components/ProcessCard/index.tsx`: title, description and contained image on `semanticColors.surfaceSubtle` (`#F6F8FA`). Props: `title`, `description`, `imageUrl`, `alt`, optional `sizes` (defaults to the wider process column), optional `imagePosition` (`center` by default, or `bottom`), `mobileImageHeight` (image-area minimum height below 900px), and `mobileImageScale` (defaults to 1, anchored at the bottom below 900px). Usage: `<ProcessCard title={title} description={description} imageUrl="/services/design.webp" alt={alt} imagePosition="bottom" />`. Padding is 16px below 600px and 32px above. Design and Development use `imagePosition="bottom"`: contained images align to the bottom, bottom padding stays zero at every breakpoint, and artwork is clipped to the card corners. Below 900px, Design uses a 360px image area and Development scales its image 1.35× with matching `sizes`; desktop sizing is unchanged. Improvement keeps centered imagery and its existing size. Image minimum height is 220px / 240px / 180px at xs / sm / md; cards grow with text. `ProcessSection` keeps a 750px desktop minimum and no fixed mobile height.
+- **MyWorkCard** — `src/components/MyWorkCard/index.tsx`: full-width project action with `semanticColors.surfaceSubtle` (`#F6F8FA`) media background, media height `clamp(220px, 40vw, 400px)` and wrapping text. Props: `title`, `description`, `images` (`url`, `alt`), `href`, optional `animationDirection` (`left` or `right`). Usage: `<MyWorkCard title={title} description={summary} images={images} href="/projects/fitnlit" />`.
 - **SingleImageRow** — `src/components/ProjectDetails/SingleImageRow/index.tsx`: contained gallery image opening the existing fullscreen modal. Props: `imageUrl`, `alt`, optional `containerStyle` (`sx` override). Usage: `<SingleImageRow imageUrl={url} alt={alt} />`. Media height is `clamp(220px, 56vw, 640px)`.
 - **MultipleImageRow** — `src/components/ProjectDetails/MultipleImageRow/index.tsx`: gallery images using the same fullscreen modal. Props: `images` (`url`, `alt`), optional `containerStyle` (`sx` override). Usage: `<MultipleImageRow images={images} />`. Below 600px images stack, each with height `clamp(220px, 75vw, 400px)`; above, they share a row with height `clamp(280px, 45vw, 640px)`.
 - **WelcomeSection responsive behavior:** CTAs span the available width below 600px; above they wrap with a 150px minimum. A 40px minimum height allows multiline labels. The IhrHaus preview stays within its parent width.

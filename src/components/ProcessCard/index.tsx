@@ -25,7 +25,7 @@ const ProcessCard: React.FC<ProcessCardProps> = (props) => {
     return (
         <Stack
             sx={{
-                backgroundColor: semanticColors.surface,
+                backgroundColor: semanticColors.surfaceSubtle,
                 borderRadius: spacing.small,
                 p: { xs: spacing.tiny, sm: spacing.small },
                 pb: imagePosition === "bottom" ? { xs: 0, sm: 0 } : 0,
