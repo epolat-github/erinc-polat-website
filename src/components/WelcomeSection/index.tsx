@@ -116,7 +116,7 @@ const WelcomeSection = () => {
 
                     <Stack
                         direction="row"
-                        spacing={spacing.small}
+                        spacing={{ xs: spacing.tiny, sm: spacing.small }}
                         useFlexGap
                         flexWrap="wrap"
                         sx={{

@@ -86,6 +86,11 @@
         "home": "Ana sayfaya dönün"
     },
     "accessibility": {
+        "previous_image": "Önceki görsel",
+        "next_image": "Sonraki görsel",
+        "image_position": "{total} görselden {current}. görsel",
+        "loading_image": "Görsel yükleniyor",
+        "image_load_error": "Görsel yüklenemedi. Lütfen yeniden açmayı deneyin.",
         "close_image": "Görseli kapatın",
         "switch_to_turkish": "Türkçeye geçin",
         "switch_to_english": "İngilizceye geçin",
@@ -95,7 +100,7 @@
         "metadata_title": "Projeler | Erinç Polat",
         "metadata_description": "Erinç Polat’ın mobil uygulama, web sitesi ve sistem entegrasyonu projelerini inceleyin.",
         "title": "Projeler",
-        "subtitle": "Projelerimi aşağıdaki listeden inceleyebilirsiniz.",
+        "subtitle": "Mobil uygulamalardan kurumsal entegrasyonlara, üzerinde çalıştığım ürünler ve sistemlerden bir seçki.",
         "contact_title": "Benzer bir ürün üzerinde mi çalışıyorsunuz?",
         "contact_description": "Fikrinizi ve ihtiyaçlarınızı paylaşın. Nasıl yardımcı olabileceğimi birlikte değerlendirelim.",
         "contact_cta": "Projenizi konuşalım"

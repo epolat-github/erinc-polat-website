@@ -3,8 +3,7 @@ import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import colors from "@/utils/colors";
 import spacing from "@/utils/spacing";
 import ChipRow from "@/components/ProjectDetails/ChipRow";
-import SingleImageRow from "@/components/ProjectDetails/SingleImageRow";
-import MultipleImageRow from "@/components/ProjectDetails/MultipleImageRow";
+import ImageGallery from "@/components/ProjectDetails/ImageGallery";
 import { Inter } from "next/font/google";
 import projectsEn from "@/data/projects.en";
 import projectsTr from "@/data/projects.tr";
@@ -155,38 +154,7 @@ const ProjectDetails = async ({ params }: ProjectDetailsType) => {
                     </Stack>
 
                     {/* Project assets column */}
-                    <Stack
-                        sx={{
-                            flex: 1,
-                            alignItems: "center",
-                            backgroundColor: colors.background,
-                            zIndex: 2,
-                        }}
-                        spacing={spacing.tiny}
-                    >
-                        {assetRows.map((assetRow, index) => {
-                            if (assetRow.type === "SINGLE") {
-                                return (
-                                    <SingleImageRow
-                                        key={`asset-row-${index}`}
-                                        imageUrl={assetRow.image.url}
-                                        alt={assetRow.image.alt}
-                                    />
-                                );
-                            }
-
-                            if (assetRow.type === "MULTIPLE") {
-                                return (
-                                    <MultipleImageRow
-                                        key={`asset-row-${index}`}
-                                        images={assetRow.images}
-                                    />
-                                );
-                            }
-
-                            return null;
-                        })}
-                    </Stack>
+                    <ImageGallery key={slug} assetRows={assetRows} />
                 </Stack>
             </Container>
         </Box>

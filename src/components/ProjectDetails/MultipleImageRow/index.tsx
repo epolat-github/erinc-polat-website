@@ -5,6 +5,7 @@ import spacing from "@/utils/spacing";
 import { semanticColors } from "@/utils/colors";
 import { Box, BoxProps, ButtonBase, Stack } from "@mui/material";
 import Image from "next/image";
+import { getLoadedPreview, getProjectImageSizes } from "@/utils/projectImageSizes";
 import { useState } from "react";
 
 type Image = {
@@ -15,12 +16,15 @@ type Image = {
 interface MultipleImageRowType {
     images: Array<Image>;
     containerStyle?: BoxProps["sx"];
+    onImageOpen?: (imageUrl: string, previewUrl?: string) => void;
 }
 
 const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
-    const { images, containerStyle } = props;
+    const { images, containerStyle, onImageOpen } = props;
 
     const [selectedImage, setSelectedImage] = useState<Image>();
+
+    const [previewUrl, setPreviewUrl] = useState<string>();
 
     return (
         <>
@@ -36,7 +40,15 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                 {images.map((image, index) => (
                     <ButtonBase
                         key={`image-${index}`}
-                        onClick={() => setSelectedImage(image)}
+                        onClick={(event) => {
+                            const preview = getLoadedPreview(event.currentTarget);
+                            if (onImageOpen) {
+                                onImageOpen(image.url, preview);
+                                return;
+                            }
+                            setPreviewUrl(preview);
+                            setSelectedImage(image);
+                        }}
                         sx={{
                             height: { xs: "clamp(220px, 75vw, 400px)", sm: "100%" },
                             width: "100%",
@@ -56,10 +68,11 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                         >
                             <Image
                                 src={image.url}
+                                data-project-image-url={image.url}
                                 alt={image.alt}
                                 quality={50}
                                 fill
-                                sizes={`(min-width: 1536px) ${(1040 - (images.length - 1) * 16) / images.length}px, (min-width: 900px) calc((75vw - ${112 + (images.length - 1) * 16}px) / ${images.length}), (min-width: 600px) calc((100vw - ${48 + (images.length - 1) * 16}px) / ${images.length}), calc(100vw - 32px)`}
+                                sizes={getProjectImageSizes(image.url, images.length, true)}
                                 style={{
                                     objectFit: "contain",
                                 }}
@@ -68,12 +81,15 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                     </ButtonBase>
                 ))}
             </Stack>
-            <FullScreenImageModal
-                imageUrl={selectedImage?.url}
-                isOpen={!!selectedImage}
-                onClose={() => setSelectedImage(undefined)}
-                alt={selectedImage?.alt}
-            />
+            {!onImageOpen && (
+                <FullScreenImageModal
+                    imageUrl={selectedImage?.url}
+                    previewUrl={previewUrl}
+                    isOpen={!!selectedImage}
+                    onClose={() => setSelectedImage(undefined)}
+                    alt={selectedImage?.alt}
+                />
+            )}
         </>
     );
 };

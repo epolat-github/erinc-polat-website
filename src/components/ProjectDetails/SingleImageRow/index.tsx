@@ -4,23 +4,35 @@ import FullScreenImageModal from "@/components/FullScreenImageModal";
 import { semanticColors } from "@/utils/colors";
 import { Box, BoxProps, ButtonBase } from "@mui/material";
 import Image from "next/image";
+import { getLoadedPreview, getProjectImageSizes } from "@/utils/projectImageSizes";
 import { useState } from "react";
 
 interface SingleImageRowType {
     imageUrl: string;
     alt: string;
     containerStyle?: BoxProps["sx"];
+    onImageOpen?: (imageUrl: string, previewUrl?: string) => void;
 }
 
 const SingleImageRow: React.FC<SingleImageRowType> = (props) => {
-    const { imageUrl, alt, containerStyle } = props;
+    const { imageUrl, alt, containerStyle, onImageOpen } = props;
 
     const [isFullScreenOpen, setIsFullScreenOpen] = useState(false);
+
+    const [previewUrl, setPreviewUrl] = useState<string>();
 
     return (
         <>
             <ButtonBase
-                onClick={() => setIsFullScreenOpen(true)}
+                onClick={(event) => {
+                    const preview = getLoadedPreview(event.currentTarget);
+                    if (onImageOpen) {
+                        onImageOpen(imageUrl, preview);
+                        return;
+                    }
+                    setPreviewUrl(preview);
+                    setIsFullScreenOpen(true);
+                }}
                 sx={{
                     width: "100%",
                 }}
@@ -38,22 +50,26 @@ const SingleImageRow: React.FC<SingleImageRowType> = (props) => {
                 >
                     <Image
                         src={imageUrl}
+                        data-project-image-url={imageUrl}
                         quality={50}
                         alt={alt}
                         fill
-                        sizes="(min-width: 1536px) 1040px, (min-width: 900px) calc(75vw - 112px), (min-width: 600px) calc(100vw - 48px), calc(100vw - 32px)"
+                        sizes={getProjectImageSizes(imageUrl)}
                         style={{
                             objectFit: "contain",
                         }}
                     />
                 </Box>
             </ButtonBase>
-            <FullScreenImageModal
-                imageUrl={imageUrl}
-                isOpen={isFullScreenOpen}
-                onClose={() => setIsFullScreenOpen(false)}
-                alt={alt}
-            />
+            {!onImageOpen && (
+                <FullScreenImageModal
+                    imageUrl={imageUrl}
+                    previewUrl={previewUrl}
+                    isOpen={isFullScreenOpen}
+                    onClose={() => setIsFullScreenOpen(false)}
+                    alt={alt}
+                />
+            )}
         </>
     );
 };

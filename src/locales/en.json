@@ -86,6 +86,11 @@
         "home": "Go to home page"
     },
     "accessibility": {
+        "previous_image": "Previous image",
+        "next_image": "Next image",
+        "image_position": "Image {current} of {total}",
+        "loading_image": "Loading image",
+        "image_load_error": "The image could not be loaded. Please try reopening it.",
         "close_image": "Close image",
         "switch_to_turkish": "Switch to Turkish",
         "switch_to_english": "Switch to English",
@@ -95,7 +100,7 @@
         "metadata_title": "Projects | Erinç Polat",
         "metadata_description": "Explore Erinç Polat’s mobile application, website and system integration projects.",
         "title": "Projects",
-        "subtitle": "Here is an archive of my top projects. Feel free to explore them.",
+        "subtitle": "From mobile apps to enterprise integrations, a selection of products and systems I’ve worked on.",
         "contact_title": "Working on a similar product?",
         "contact_description": "Share your idea and what you need. Let’s explore how I can help.",
         "contact_cta": "Let’s talk about your project"

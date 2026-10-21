@@ -53,23 +53,37 @@ const Projects = async () => {
                     maxWidth="lg"
                     sx={{
                         display: "flex",
-                        paddingTop: spacing.big * 1.5,
+                        paddingTop: { xs: 14, sm: 16 },
                         paddingBottom: spacing.big,
                     }}
                     spacing={spacing.small}
                 >
-                    <Stack spacing={spacing.tiny}>
+                    <Stack component="header" spacing={spacing.tiny}>
                         <Typography
-                            variant="h2"
                             component="h1"
-                            fontWeight="bold"
                             sx={{
                                 fontFamily: oswald.style.fontFamily,
+                                fontSize: { xs: "3rem", sm: "4rem", lg: "5rem" },
+                                fontWeight: 600,
+                                lineHeight: 1.1,
+                                letterSpacing: "-0.02em",
+                                color: semanticColors.textPrimary,
                             }}
                         >
                             {t("title")}
                         </Typography>
-                        <Typography variant="subtitle1" component="p">{t("subtitle")}</Typography>
+                        <Typography
+                            component="p"
+                            sx={{
+                                maxWidth: "48ch",
+                                fontSize: { xs: "1.125rem", sm: "1.25rem", md: "1.375rem" },
+                                lineHeight: 1.5,
+                                color: semanticColors.textMuted,
+                                textWrap: "pretty",
+                            }}
+                        >
+                            {t("subtitle")}
+                        </Typography>
                     </Stack>
 
                     <Grid2
