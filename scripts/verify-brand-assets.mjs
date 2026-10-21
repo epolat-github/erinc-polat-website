@@ -19,20 +19,20 @@ for (const asset of assets) {
         .raw()
         .toBuffer({ resolveWithObject: true });
     let brick = 0;
-    let legacyMint = 0;
+    let primary = 0;
 
     for (let index = 0; index < data.length; index += 4) {
         if (data[index + 3] === 0) continue;
         if (near(data, index, [0xb9, 0x4e, 0x3a])) brick += 1;
-        if (near(data, index, [0x3c, 0xcf, 0x91])) legacyMint += 1;
+        if (near(data, index, [0x3c, 0xcf, 0x91])) primary += 1;
     }
 
-    assert.ok(brick > 0, `${asset} does not contain the brick accent`);
+    assert.ok(primary > 0, `${asset} does not contain the primary green accent`);
     assert.equal(
-        legacyMint,
+        brick,
         0,
-        `${asset} still contains the legacy mint accent`
+        `${asset} still contains the old brick accent`
     );
 }
 
-console.log("Brand assets use the approved brick accent.");
+console.log("Brand assets use the primary green accent (#3CCF91).");

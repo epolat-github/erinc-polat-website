@@ -79,7 +79,7 @@ components:
 
 The interface is a clean, contemporary, light-first portfolio that earns attention through project imagery, generous whitespace, clear typography, and restrained motion. It should feel modern and technically capable without resembling a generic software dashboard or relying on visual hype.
 
-The interface uses the exact primary green (#3CCF91) for actions, emphasis, links, and focus. The geometric POLAT logo retains its navy-and-brick artwork; brick remains a restrained secondary signal. White remains dominant so the work stays central and the identity feels established rather than loud.
+The interface uses the exact primary green (#3CCF91) for actions, emphasis, links, and focus. The geometric POLAT logo pairs navy with primary green; its small icon variants and favicon share the same green accent. White remains dominant so the work stays central and the identity feels established rather than loud.
 
 **Key Characteristics:**
 
@@ -96,7 +96,7 @@ The palette pairs fresh green with entrepreneurial brick, crisp ink typography, 
 ### Primary
 
 - **Primary Green** (`#3CCF91`): Primary action fills and decorative emphasis. Use white text on filled surfaces; use green (`#3CCF91`) for links, headline emphasis, and focus rings.
-- **Entrepreneurial Brick** (`#B94E3A`): Logo signal, selected highlights, and restrained identity accents. Use white text when it carries normal-sized text.
+- **Entrepreneurial Brick** (`#B94E3A`): Selected highlights and restrained secondary accents. Use white text when it carries normal-sized text.
 
 ### Neutral
 
@@ -110,7 +110,7 @@ The palette pairs fresh green with entrepreneurial brick, crisp ink typography, 
 
 The user pins all primary-green text, fills, hover fills, and focus rings to exactly `#3CCF91`; do not substitute a darker shade. This chosen green on light surfaces and white labels on green buttons are explicit user preferences that override the general contrast target.
 
-**The Green Leads Rule.** Green owns actions, links, focus, and primary emphasis. Brick is a controlled signal for the logo and selected highlights; it never competes with green as a second primary CTA color.
+**The Green Leads Rule.** Green owns the logo accent, actions, links, focus, and primary emphasis. Brick is a controlled signal for selected highlights; it never competes with green as a second primary CTA color.
 
 **The Contrast Rule.** Use white on primary green and brick. Use green (`#3CCF91`) for text and focus on light surfaces. Supporting Slate is only used on white or equivalently light surfaces; Authority Ink carries primary text.
 

@@ -8,10 +8,8 @@ const assets = [
     "public/Small icon.png",
 ];
 
-const sourceInk = [0x33, 0x33, 0x33];
-const sourceMint = [0x3c, 0xcf, 0x91];
-const targetInk = [0x11, 0x18, 0x27];
-const targetBrick = [0xb9, 0x4e, 0x3a];
+const sourceBrick = [0xb9, 0x4e, 0x3a];
+const targetPrimary = [0x3c, 0xcf, 0x91];
 
 const distance = (data, offset, color) =>
     (data[offset] - color[0]) ** 2 +
@@ -25,14 +23,11 @@ for (const asset of assets) {
     for (let index = 0; index < data.length; index += 4) {
         if (data[index + 3] === 0) continue;
 
-        const replacement =
-            distance(data, index, sourceMint) < distance(data, index, sourceInk)
-                ? targetBrick
-                : targetInk;
+        if (distance(data, index, sourceBrick) > 12 ** 2) continue;
 
-        data[index] = replacement[0];
-        data[index + 1] = replacement[1];
-        data[index + 2] = replacement[2];
+        data[index] = targetPrimary[0];
+        data[index + 1] = targetPrimary[1];
+        data[index + 2] = targetPrimary[2];
     }
 
     const extension = path.extname(asset);
@@ -54,10 +49,17 @@ for (const asset of assets) {
     await rename(temporary, asset);
 }
 
-await sharp("public/logo.webp")
-    .resize(16, 16, {
+const faviconMark = await sharp("public/Small icon.png")
+    .resize(52, 52, {
         fit: "contain",
-        background: "#FFFFFF",
+        background: { r: 0, g: 0, b: 0, alpha: 0 },
     })
+    .png()
+    .toBuffer();
+
+await sharp(Buffer.from(
+    '<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="32" fill="white"/></svg>'
+))
+    .composite([{ input: faviconMark, left: 6, top: 6 }])
     .png()
     .toFile("src/app/icon.png");

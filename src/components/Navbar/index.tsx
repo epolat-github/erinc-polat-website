@@ -21,6 +21,7 @@ import { useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import spacing from "@/utils/spacing";
 import Image from "next/image";
+import logo from "../../../public/logo.webp";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import LanguageSelector from "../LanguageSelector";
@@ -184,7 +185,7 @@ const Navbar = () => {
                             }}
                         >
                             <Image
-                                src="/logo.webp"
+                                src={logo}
                                 alt=""
                                 width={250}
                                 height={90}
@@ -276,7 +277,7 @@ const Navbar = () => {
                             sx={{ minWidth: 44, minHeight: 44 }}
                         >
                             <Image
-                                src="/logo.webp"
+                                src={logo}
                                 alt=""
                                 width={75}
                                 height={25}
