@@ -31,7 +31,7 @@ export default function AnimatedTextLink({
                     gap: 1.25,
                     minHeight: 44,
                     maxWidth: "100%",
-                    color: semanticColors.actionPrimary,
+                    color: semanticColors.actionPrimaryText,
                     fontSize: "1rem",
                     fontWeight: 600,
                     lineHeight: 1.5,

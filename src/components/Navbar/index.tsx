@@ -236,11 +236,11 @@ const Navbar = () => {
                                         transition:
                                             "background-color 150ms ease, color 150ms ease",
                                         "&:hover": {
-                                            color: colors.primary,
+                                            color: colors.primaryText,
                                             backgroundColor: colors.background,
                                         },
                                         "&.Mui-focusVisible": {
-                                            outline: `3px solid ${colors.primary}`,
+                                            outline: `3px solid ${colors.primaryText}`,
                                             outlineOffset: 2,
                                         },
                                     }}
@@ -302,7 +302,7 @@ const Navbar = () => {
                                     backgroundColor: alpha(colors.surface, 0.8),
                                     border: `1px solid ${alpha(colors.border, 0.6)}`,
                                     "&:hover": {
-                                        color: colors.primary,
+                                        color: colors.primaryText,
                                         backgroundColor: alpha(colors.primary, 0.06),
                                     },
                                 }}
@@ -353,7 +353,7 @@ const Navbar = () => {
                                         mt: 0.5,
                                         borderRadius: 999,
                                         "&:hover, &.Mui-focusVisible": {
-                                            color: colors.primary,
+                                            color: colors.primaryText,
                                             backgroundColor: colors.surface,
                                         },
                                     }}

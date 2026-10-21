@@ -56,7 +56,7 @@ const WhoAmISection = async () => {
                                 {t("title")}
                                 <Box
                                     component="span"
-                                    sx={{ display: "block", color: semanticColors.actionPrimary }}
+                                    sx={{ display: "block", color: semanticColors.actionPrimaryText }}
                                 >
                                     {t("title_emphasis")}
                                 </Box>

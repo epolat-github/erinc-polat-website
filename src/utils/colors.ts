@@ -4,9 +4,9 @@ const colors = {
     surfaceSubtle: "#F6F8FA",
     secondaryBackground: "#111827",
     header: "#111827",
-    primary: "#173B6C",
+    primary: "#3CCF91",
     secondary: "#B94E3A",
-    primaryText: "#173B6C",
+    primaryText: "#3CCF91",
     onPrimary: "#FFFFFF",
     onSecondary: "#FFFFFF",
     gray: "#5E6673",
@@ -23,10 +23,11 @@ export const semanticColors = {
     textMuted: colors.gray,
     border: colors.border,
     actionPrimary: colors.primary,
+    actionPrimaryText: colors.primaryText,
     onActionPrimary: colors.onPrimary,
     actionSecondary: colors.secondary,
     onActionSecondary: colors.onSecondary,
-    focusRing: colors.primary,
+    focusRing: colors.primaryText,
 } as const;
 
 export default colors;

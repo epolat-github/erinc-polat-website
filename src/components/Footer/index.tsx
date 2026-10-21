@@ -84,7 +84,7 @@ const Footer = () => {
                     <FadeInItem delay={0.5}>
                         <Typography
                             variant="h3"
-                            color={colors.onPrimary}
+                            color={colors.background}
                             textAlign="center"
                             sx={{
                                 fontSize: {
@@ -108,7 +108,7 @@ const Footer = () => {
                     }}
                 >
                     <Typography
-                        color={colors.onPrimary}
+                        color={colors.background}
                         textAlign="center"
                         variant="subtitle2"
                     >

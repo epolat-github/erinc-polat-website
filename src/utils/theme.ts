@@ -14,6 +14,7 @@ let theme = createTheme({
         mode: "light",
         primary: {
             main: semanticColors.actionPrimary,
+            dark: semanticColors.actionPrimary,
             contrastText: semanticColors.onActionPrimary,
         },
         secondary: {

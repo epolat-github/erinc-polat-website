@@ -179,7 +179,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                                     gap={1}
                                     sx={{
                                         minHeight: 44,
-                                        color: semanticColors.actionPrimary,
+                                        color: semanticColors.actionPrimaryText,
                                         fontSize: 16,
                                         fontWeight: 500,
                                     }}

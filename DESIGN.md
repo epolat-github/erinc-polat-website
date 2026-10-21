@@ -5,7 +5,8 @@ colors:
   canvas: "#FFFFFF"
   surface-dark: "#111827"
   ink: "#111827"
-  primary-navy: "#173B6C"
+  primary-green: "#3CCF91"
+  primary-text: "#3CCF91"
   secondary-brick: "#B94E3A"
   supporting-text: "#5E6673"
   soft-surface: "#F0F3F6"
@@ -48,13 +49,13 @@ spacing:
   big: "96px"
 components:
   button-accent:
-    backgroundColor: "{colors.primary-navy}"
+    backgroundColor: "{colors.primary-green}"
     textColor: "{colors.canvas}"
     height: "40px"
     padding: "8px 24px"
     boxShadow: "none"
   button-submit:
-    backgroundColor: "{colors.primary-navy}"
+    backgroundColor: "{colors.primary-green}"
     textColor: "{colors.canvas}"
     rounded: "{rounded.sm}"
     height: "45px"
@@ -78,23 +79,23 @@ components:
 
 The interface is a clean, contemporary, light-first portfolio that earns attention through project imagery, generous whitespace, clear typography, and restrained motion. It should feel modern and technically capable without resembling a generic software dashboard or relying on visual hype.
 
-The geometric POLAT logo establishes a navy-and-brick identity. Deep navy gives the interface authority and makes primary actions feel deliberate; brick adds entrepreneurial energy in restrained signals. White remains dominant so the work stays central and the identity feels established rather than loud.
+The interface uses the exact primary green (#3CCF91) for actions, emphasis, links, and focus. The geometric POLAT logo retains its navy-and-brick artwork; brick remains a restrained secondary signal. White remains dominant so the work stays central and the identity feels established rather than loud.
 
 **Key Characteristics:**
 
 - Spacious, image-led compositions with strong text hierarchy.
-- Authority navy for actions and emphasis, with restrained brick signals against white.
+- Primary green for actions and emphasis, with restrained brick signals against white.
 - Softly rounded project surfaces with subtle, low-contrast depth.
 - Purposeful reveal and scroll motion that never competes with the work.
 - Consistent Turkish and English layouts.
 
 ## Colors
 
-The palette pairs authoritative navy with entrepreneurial brick, crisp ink typography, and quiet blue-gray surfaces.
+The palette pairs fresh green with entrepreneurial brick, crisp ink typography, and quiet blue-gray surfaces.
 
 ### Primary
 
-- **Authority Navy** (`#173B6C`): Primary actions, links, focus rings, and selected headline emphasis. Use white text on filled surfaces.
+- **Primary Green** (`#3CCF91`): Primary action fills and decorative emphasis. Use white text on filled surfaces; use green (`#3CCF91`) for links, headline emphasis, and focus rings.
 - **Entrepreneurial Brick** (`#B94E3A`): Logo signal, selected highlights, and restrained identity accents. Use white text when it carries normal-sized text.
 
 ### Neutral
@@ -107,9 +108,11 @@ The palette pairs authoritative navy with entrepreneurial brick, crisp ink typog
 
 ### Named Rules
 
-**The Navy Leads Rule.** Navy owns actions, links, focus, and primary emphasis. Brick is a controlled signal for the logo and selected highlights; it never competes with navy as a second primary CTA color.
+The user pins all primary-green text, fills, hover fills, and focus rings to exactly `#3CCF91`; do not substitute a darker shade. This chosen green on light surfaces and white labels on green buttons are explicit user preferences that override the general contrast target.
 
-**The Contrast Rule.** Use white on navy and brick. Supporting Slate is only used on white or equivalently light surfaces; Authority Ink carries primary text.
+**The Green Leads Rule.** Green owns actions, links, focus, and primary emphasis. Brick is a controlled signal for the logo and selected highlights; it never competes with green as a second primary CTA color.
+
+**The Contrast Rule.** Use white on primary green and brick. Use green (`#3CCF91`) for text and focus on light surfaces. Supporting Slate is only used on white or equivalently light surfaces; Authority Ink carries primary text.
 
 ### Semantic UI Colors
 
@@ -123,9 +126,10 @@ Use the named `semanticColors` export from `src/utils/colors.ts` for functional 
 | Primary text | `textPrimary` | `#111827` | `text.primary` |
 | Muted text | `textMuted` | `#5E6673` | `text.secondary` |
 | Field borders / dividers | `border` | `#D8DEE8` | `divider` |
-| Primary action / text | `actionPrimary`, `onActionPrimary` | `#173B6C`, `#FFFFFF` | `primary.main`, `primary.contrastText` |
+| Primary action / text | `actionPrimary`, `onActionPrimary` | `#3CCF91`, `#FFFFFF` | `primary.main`, `primary.contrastText` |
+| Primary link / emphasis text | `actionPrimaryText` | `#3CCF91` | Direct token in component styles |
 | Secondary action / text | `actionSecondary`, `onActionSecondary` | `#B94E3A`, `#FFFFFF` | `secondary.main`, `secondary.contrastText` |
-| Keyboard focus | `focusRing` | `#173B6C` | 3px outline, 3px offset on `MuiButtonBase` |
+| Keyboard focus | `focusRing` | `#3CCF91` | 3px outline, 3px offset on `MuiButtonBase` |
 
 Example: `import { semanticColors } from "@/utils/colors";` followed by `<Stack sx={{ bgcolor: semanticColors.surface, color: semanticColors.textPrimary }} />`. Prefer semantic roles over literal colors, `lightgray` or unrelated MUI gray indices. Forms keep MUI's `error.main` role for validation. The expanding-dot CTA retains its documented brick focus outline.
 
@@ -176,8 +180,8 @@ Cards and form fields use soft 12–16px corners. Project image surfaces use 16p
 ### Buttons
 
 - **Elevation:** No box shadows in any state. MUI buttons use `disableElevation` by default; component-level styles must not reintroduce shadows.
-- **Primary CTA:** Authority Navy background with white text, 40px height, compact rectangular shape.
-- **Submit CTA:** Authority Navy background with white text, 12px radius, 45px height.
+- **Primary CTA:** Primary Green background with white text, 40px height, compact rectangular shape.
+- **Submit CTA:** Primary Green background with white text, 12px radius, 45px height.
 - **Secondary CTA:** Soft Surface background with Authority Ink text and a Field Border hover.
 - **Focus:** `MuiButtonBase` supplies a visible 3px `semanticColors.focusRing` outline with a 3px offset; component-specific focus treatments may override it without removing visibility.
 
@@ -211,11 +215,11 @@ import { Link } from "@/i18n/routing";
 A reusable text CTA with a left-to-right underline and subtle horizontal icon motion. Reuse it for this treatment rather than copying the styles into sections.
 
 - **Path / import:** `src/components/AnimatedTextLink/index.tsx` / `@/components/AnimatedTextLink` (default export; named type `AnimatedTextLinkProps`).
-- **Appearance:** Unfilled, intrinsic-width link with 16px semibold navy text, a default 20px right arrow, 10px text/icon gap, and a 44px minimum height.
+- **Appearance:** Unfilled, intrinsic-width link with 16px semibold green text, a default 20px right arrow, 10px text/icon gap, and a 44px minimum height.
 - **Props:** Required `children` (link label/content) and `href` (destination); optional `icon` replaces the default right arrow, or `icon={null}` hides it. Standard MUI Link props are accepted except `underline`, which is owned by the animation; `sx` supports object, function and array overrides applied after the defaults. Use `target`, `rel` and accessible labels as appropriate for the destination.
 - **Motion:** A 2px underline grows from the left over 280ms on hover or keyboard focus. The icon moves 3px horizontally and back in a repeating 1600ms ease-in-out cycle while hovered/focused and returns to rest afterward. Reduced motion shows the underline immediately and disables icon movement.
-- **Accessibility / composition:** A client component rendering a native link by default; labels remain available to assistive technology, the decorative icon wrapper is `aria-hidden`, and keyboard focus retains a 3px navy outline with 3px offset. Server components can pass translated labels, destinations and icons as serializable/renderable props. No JavaScript animation state is required.
-- **Current usage:** WhoAmISection project anchor (`href="#works"`) in both locales overrides `sx.color` with `semanticColors.actionSecondary` (brick). The underline and icon inherit this accent; the component default remains navy and its focus ring remains navy. The projects listing also reuses AnimatedTextLink in its closing contact section with the default navy treatment and an explicit locale-prefixed home contact destination (`/${locale}/#contact`).
+- **Accessibility / composition:** A client component rendering a native link by default; labels remain available to assistive technology, the decorative icon wrapper is `aria-hidden`, and keyboard focus retains a 3px green outline with 3px offset. Server components can pass translated labels, destinations and icons as serializable/renderable props. No JavaScript animation state is required.
+- **Current usage:** WhoAmISection project anchor (`href="#works"`) in both locales overrides `sx.color` with `semanticColors.actionSecondary` (brick). The underline and icon inherit this accent; the component default remains green and its focus ring remains green. The projects listing also reuses AnimatedTextLink in its closing contact section with the default green treatment and an explicit locale-prefixed home contact destination (`/${locale}/#contact`).
 
 ```tsx
 import AnimatedTextLink from "@/components/AnimatedTextLink";
@@ -228,7 +232,7 @@ import AnimatedTextLink from "@/components/AnimatedTextLink";
 
 - **Path / import:** `src/components/FlowPattern/index.tsx` / `@/components/FlowPattern` (default export).
 - **Purpose:** Full-section square grid with subtle, paired heartbeat pulses traveling left-to-right and top-to-bottom along selected grid lines. No props; usage: `<FlowPattern />` inside a positioned section. Place content in a sibling with `position: relative` and `zIndex: 1`; the decorative layer uses `zIndex: 0` and the section should use `isolation: isolate`.
-- **Appearance:** Transparent surface with 1px navy grid lines at 7.5% alpha. Cells are 64px below 900px and 96px above. An elliptical mask centered at 50% / 55% keeps the grid visible around the content and fades it toward all edges, following the supplied reference on the site's white background. An intersected vertical mask further fades the entire grid and its pulses below 40% of the section: 35% opacity at 60%, fully transparent from 76%. This keeps the capability divider lines distinct. The clipped layer spans the parent bounds and never intercepts pointer events or appears in the accessibility tree.
+- **Appearance:** Transparent surface with 1px green grid lines at 7.5% alpha. Cells are 64px below 900px and 96px above. An elliptical mask centered at 50% / 55% keeps the grid visible around the content and fades it toward all edges, following the supplied reference on the site's white background. An intersected vertical mask further fades the entire grid and its pulses below 40% of the section: 35% opacity at 60%, fully transparent from 76%. This keeps the capability divider lines distinct. The clipped layer spans the parent bounds and never intercepts pointer events or appears in the accessibility tree.
 - **Motion:** Two horizontal and two vertical tracks align exactly with grid lines. Each sends paired 144px gradient segments, spaced 650ms apart, through a 10-second cycle: 4.8 seconds of forward travel followed by a pause. Tracks start at 0 / 4 seconds horizontally and 2 / 6 seconds vertically. Pulse peak alpha is 28%; the parent mask and traveling segment opacity keep the effect restrained. Only transforms and opacity animate; grid and foreground content remain stationary. Animation pauses offscreen and in hidden tabs. Reduced motion hides the pulse tracks and retains the static grid.
 - **Current usage:** WhoAmISection covers its complete section with this layer; the former portrait-local DotPattern is removed. Other DotPattern consumers are unchanged.
 
@@ -333,7 +337,7 @@ Reuse these wrappers rather than duplicating their animation behavior:
 - **Path / import:** `src/components/FormField/index.tsx` / `@/components/FormField` (default export; named type `FormFieldProps`).
 - **Purpose:** Shared contact-input presentation: InputBase styling, optional decorative leading icon, error border/message and accessible input associations. Validation and submission stay with the owning form.
 - **Props:** Required `name` and `label` (accessible input name); optional `id` defaults to `name`, `error` is a localized message string, and `icon` provides a leading adornment. Other MUI InputBase props, including `required`, `type`, `autoComplete`, `inputMode`, `multiline`, `rows`, `onChange`, `inputProps` and `sx`, are supported; `error` and `startAdornment` are owned by this component. `sx` overrides follow the defaults.
-- **Appearance / accessibility:** Preserves the contact field's 1px border, 32px radius, 16px horizontal and 8px vertical padding, and 3px navy focus outline with 3px offset. Errors use `error.main`; the message id is `${id}-error`. InputBase sets the native input's invalid state; accessible label and error description are applied to the actual input/textarea. Existing `inputProps["aria-describedby"]` ids are preserved alongside the error id. Icons are decorative.
+- **Appearance / accessibility:** Preserves the contact field's 1px border, 32px radius, 16px horizontal and 8px vertical padding, and 3px green focus outline with 3px offset. Errors use `error.main`; the message id is `${id}-error`. InputBase sets the native input's invalid state; accessible label and error description are applied to the actual input/textarea. Existing `inputProps["aria-describedby"]` ids are preserved alongside the error id. Icons are decorative.
 - **Current usage:** ContactForm uses explicit name, email and five-row message fields. Field-specific input semantics remain visible at the call sites; shared presentation is implemented once.
 
 ```tsx
@@ -346,7 +350,7 @@ import FormField from "@/components/FormField";
 ### Inputs / Fields
 
 - **Style:** White background, 1px Field Border, Authority Ink text, 16px radius, and 16px horizontal padding.
-- **Focus:** 3px Authority Navy outline with a 3px offset.
+- **Focus:** 3px Primary Green outline with a 3px offset.
 - **Error:** MUI error color plus field-specific text and accessible field association.
 
 ### Navigation
@@ -358,7 +362,7 @@ The fixed navigation uses Barlow Semi Condensed at 16px with 1.3px tracking. It 
 ### Do:
 
 - **Do** let project imagery and shipped work provide the visual proof.
-- **Do** let Authority Navy lead actions, links, and focus.
+- **Do** let Primary Green lead actions, links, and focus.
 - **Do** use Entrepreneurial Brick sparingly for recognition and selected signals.
 - **Do** preserve generous whitespace and clear bilingual hierarchy.
 - **Do** keep motion smooth, controlled, and supportive of reading order.
