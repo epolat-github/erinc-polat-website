@@ -95,7 +95,10 @@
         "metadata_title": "Projects | Erinç Polat",
         "metadata_description": "Explore Erinç Polat’s mobile application, website and system integration projects.",
         "title": "Projects",
-        "subtitle": "Here is an archive of my top projects. Feel free to explore them."
+        "subtitle": "Here is an archive of my top projects. Feel free to explore them.",
+        "contact_title": "Working on a similar product?",
+        "contact_description": "Share your idea and what you need. Let’s explore how I can help.",
+        "contact_cta": "Let’s talk about your project"
     },
     "footer": {
         "text": "Let's bring your project to life together!",

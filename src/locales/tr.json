@@ -95,7 +95,10 @@
         "metadata_title": "Projeler | Erinç Polat",
         "metadata_description": "Erinç Polat’ın mobil uygulama, web sitesi ve sistem entegrasyonu projelerini inceleyin.",
         "title": "Projeler",
-        "subtitle": "Projelerimi aşağıdaki listeden inceleyebilirsiniz."
+        "subtitle": "Projelerimi aşağıdaki listeden inceleyebilirsiniz.",
+        "contact_title": "Benzer bir ürün üzerinde mi çalışıyorsunuz?",
+        "contact_description": "Fikrinizi ve ihtiyaçlarınızı paylaşın. Nasıl yardımcı olabileceğimi birlikte değerlendirelim.",
+        "contact_cta": "Projenizi konuşalım"
     },
     "footer": {
         "text": "Gelin beraber projenizi hayata geçirelim!",
