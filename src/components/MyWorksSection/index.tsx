@@ -1,13 +1,12 @@
 import colors from "@/utils/colors";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import EastRoundedIcon from "@mui/icons-material/EastRounded";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import AnimatedTextLink from "../AnimatedTextLink";
 
 import spacing from "@/utils/spacing";
 import MyWorkCard from "../MyWorkCard";
 import projectsEn from "@/data/projects.en";
 import projectsTr from "@/data/projects.tr";
 import { oswald } from "@/utils/fonts";
-import { Link } from "@/i18n/routing";
 import { getLocale, getTranslations } from "next-intl/server";
 
 const MyWorksSection = async () => {
@@ -30,28 +29,28 @@ const MyWorksSection = async () => {
                 maxWidth="lg"
                 sx={{
                     display: "flex",
-                    paddingTop: spacing.big * 2,
+                    paddingTop: { xs: spacing.medium, sm: spacing.big, md: spacing.big * 2 },
                 }}
             >
                 <Stack
                     direction={{
                         xs: "column",
-                        sm: "row",
+                        md: "row",
                     }}
-                    gap={spacing.medium}
+                    gap={{ xs: spacing.small, md: spacing.medium }}
                 >
                     {/* LEFT COLUMN */}
                     <Stack
-                        gap={spacing.medium}
+                        gap={{ xs: spacing.small, md: spacing.medium }}
                         flex={{
                             xs: 1,
-                            sm: 0.5,
+                            md: 0.5,
                         }}
                     >
                         <Stack
                             sx={{
                                 alignItems: "flex-start",
-                                minHeight: 150,
+                                minHeight: { xs: 0, md: 150 },
                             }}
                             gap={spacing.tiny}
                         >
@@ -76,22 +75,9 @@ const MyWorksSection = async () => {
                                     {t("description")}
                                 </Typography>
 
-                                <Link href="/projects" style={{ textDecoration: "none" }}>
-                                <Button
-                                    variant="text"
-                                    color="primary"
-                                    component="span"
-                                    endIcon={<EastRoundedIcon />}
-                                    sx={{
-                                        fontSize: 18,
-                                        paddingLeft: 0,
-                                        paddingTop: 0,
-                                        background: "transparent",
-                                    }}
-                                >
+                                <AnimatedTextLink href={`/${locale}/projects`}>
                                     {t("cta_button_text")}
-                                </Button>
-                                </Link>
+                                </AnimatedTextLink>
                             </Stack>
                         </Stack>
 
@@ -113,10 +99,10 @@ const MyWorksSection = async () => {
 
                     {/* RIGHT COLUMN */}
                     <Stack
-                        gap={spacing.medium}
+                        gap={{ xs: spacing.small, md: spacing.medium }}
                         flex={{
                             xs: 1,
-                            sm: 0.5,
+                            md: 0.5,
                         }}
                     >
                         <MyWorkCard

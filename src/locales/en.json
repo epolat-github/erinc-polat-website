@@ -92,6 +92,8 @@
         "project_image": "Project image"
     },
     "projects": {
+        "metadata_title": "Projects | Erinç Polat",
+        "metadata_description": "Explore Erinç Polat’s mobile application, website and system integration projects.",
         "title": "Projects",
         "subtitle": "Here is an archive of my top projects. Feel free to explore them."
     },

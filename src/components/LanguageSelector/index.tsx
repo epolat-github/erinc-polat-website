@@ -22,6 +22,7 @@ const LanguageSelector = () => {
         return (
             <ButtonBase
                 disableRipple
+                sx={{ minWidth: 44, minHeight: 44 }}
                 onClick={() => changeLanguage(newLocale)}
                 aria-label={
                     newLocale === "tr"

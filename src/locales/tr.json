@@ -92,6 +92,8 @@
         "project_image": "Proje görseli"
     },
     "projects": {
+        "metadata_title": "Projeler | Erinç Polat",
+        "metadata_description": "Erinç Polat’ın mobil uygulama, web sitesi ve sistem entegrasyonu projelerini inceleyin.",
         "title": "Projeler",
         "subtitle": "Projelerimi aşağıdaki listeden inceleyebilirsiniz."
     },

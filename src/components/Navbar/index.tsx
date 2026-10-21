@@ -106,7 +106,10 @@ const Navbar = () => {
             LinkComponent={Link}
             href="/#contact"
             icon={<ArrowDownwardIcon sx={{ fontSize: 18 }} />}
-            sx={{ fontFamily: barlowSemiCondensed.style.fontFamily }}
+            sx={{
+                fontFamily: barlowSemiCondensed.style.fontFamily,
+                minHeight: { xs: 44, md: 36 },
+            }}
         >
             {welcomeT("cta_button_text")}
         </InteractiveHoverButton>
@@ -266,7 +269,12 @@ const Navbar = () => {
                             alignItems: "center",
                         }}
                     >
-                        <ButtonBase onClick={onHomeClick} aria-label={t("home")} disableRipple>
+                        <ButtonBase
+                            onClick={onHomeClick}
+                            aria-label={t("home")}
+                            disableRipple
+                            sx={{ minWidth: 44, minHeight: 44 }}
+                        >
                             <Image
                                 src="/logo.webp"
                                 alt=""
@@ -288,6 +296,8 @@ const Navbar = () => {
                                 aria-expanded={Boolean(anchorElNav)}
                                 aria-haspopup="menu"
                                 sx={{
+                                    minWidth: 44,
+                                    minHeight: 44,
                                     color: colors.gray,
                                     backgroundColor: alpha(colors.surface, 0.8),
                                     border: `1px solid ${alpha(colors.border, 0.6)}`,
@@ -336,7 +346,7 @@ const Navbar = () => {
                                     component={motion.li}
                                     key={sectionButton.titleTranslationKey}
                                     onClick={() =>
-                                        onClickOnMobile(`#${sectionButton.to}`)
+                                        onClickOnMobile(`/#${sectionButton.to}`)
                                     }
                                     disableRipple
                                     sx={{
