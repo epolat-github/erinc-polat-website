@@ -3,7 +3,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import AnimatedTextLink from "@/components/AnimatedTextLink";
 import Image from "next/image";
 import spacing from "@/utils/spacing";
-import DotPattern from "../DotPattern";
+import FlowPattern from "@/components/FlowPattern";
 import FadeInItem from "../FadeInItem";
 import RevealItem from "../RevealItem";
 import { getTranslations } from "next-intl/server";
@@ -21,11 +21,18 @@ const WhoAmISection = async () => {
             sx={{
                 backgroundColor: semanticColors.background,
                 scrollMarginTop: 96,
+                position: "relative",
+                isolation: "isolate",
             }}
         >
+            <FlowPattern />
             <Container
                 maxWidth="lg"
-                sx={{ pt: { xs: spacing.big, md: spacing.big * 2 } }}
+                sx={{
+                    position: "relative",
+                    zIndex: 1,
+                    pt: { xs: spacing.big, md: spacing.big * 2 },
+                }}
             >
                 <Stack
                     direction={{ xs: "column", md: "row" }}
@@ -89,7 +96,6 @@ const WhoAmISection = async () => {
                             aspectRatio: "1 / 1",
                         }}
                     >
-                        <DotPattern maskPercentage="130%" />
                         <FadeInItem style={{ position: "relative", height: "100%" }}>
                             <Image
                                 src="/erinc-polat.webp"
