@@ -5,6 +5,7 @@ import spacing from "@/utils/spacing";
 import MyWorkCard from "@/components/MyWorkCard";
 import AnimatedTextLink from "@/components/AnimatedTextLink";
 import Footer from "@/components/Footer";
+import RevealItem from "@/components/RevealItem";
 import projectsEn from "@/data/projects.en";
 import projectsTr from "@/data/projects.tr";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -54,36 +55,40 @@ const Projects = async () => {
                     sx={{
                         display: "flex",
                         paddingTop: { xs: 14, sm: 16 },
-                        paddingBottom: spacing.big,
+                        paddingBottom: { xs: spacing.small, md: spacing.big },
                     }}
                     spacing={spacing.small}
                 >
                     <Stack component="header" spacing={spacing.tiny}>
-                        <Typography
-                            component="h1"
-                            sx={{
-                                fontFamily: oswald.style.fontFamily,
-                                fontSize: { xs: "3rem", sm: "4rem", lg: "5rem" },
-                                fontWeight: 600,
-                                lineHeight: 1.1,
-                                letterSpacing: "-0.02em",
-                                color: semanticColors.textPrimary,
-                            }}
-                        >
-                            {t("title")}
-                        </Typography>
-                        <Typography
-                            component="p"
-                            sx={{
-                                maxWidth: "48ch",
-                                fontSize: { xs: "1.125rem", sm: "1.25rem", md: "1.375rem" },
-                                lineHeight: 1.5,
-                                color: semanticColors.textMuted,
-                                textWrap: "pretty",
-                            }}
-                        >
-                            {t("subtitle")}
-                        </Typography>
+                        <RevealItem duration={0.5} distance={20}>
+                            <Typography
+                                component="h1"
+                                sx={{
+                                    fontFamily: oswald.style.fontFamily,
+                                    fontSize: { xs: "3rem", sm: "4rem", lg: "5rem" },
+                                    fontWeight: 600,
+                                    lineHeight: 1.1,
+                                    letterSpacing: "-0.02em",
+                                    color: semanticColors.textPrimary,
+                                }}
+                            >
+                                {t("title")}
+                            </Typography>
+                        </RevealItem>
+                        <RevealItem delay={0.16} duration={0.5} distance={16}>
+                            <Typography
+                                component="p"
+                                sx={{
+                                    maxWidth: "48ch",
+                                    fontSize: { xs: "1.125rem", sm: "1.25rem", md: "1.375rem" },
+                                    lineHeight: 1.5,
+                                    color: semanticColors.textMuted,
+                                    textWrap: "pretty",
+                                }}
+                            >
+                                {t("subtitle")}
+                            </Typography>
+                        </RevealItem>
                     </Stack>
 
                     <Grid2
@@ -100,6 +105,7 @@ const Projects = async () => {
                                 }}
                             >
                                 <MyWorkCard
+                                    entranceDelay={0.32}
                                     titleComponent="h2"
                                     title={project.title}
                                     description={project.summary}

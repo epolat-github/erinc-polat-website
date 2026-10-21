@@ -19,6 +19,7 @@ interface MyWorkCardType {
     animationDirection?: "left" | "right";
     sizes?: string;
     titleComponent?: "h2" | "h5";
+    entranceDelay?: number;
 }
 
 const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
@@ -30,6 +31,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
         animationDirection = "left",
         sizes,
         titleComponent = "h5",
+        entranceDelay = 0,
     } = props;
 
     const t = useTranslations("my_work_card");
@@ -67,8 +69,12 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                         opacity: 1,
                         transition: {
                             duration: reduceMotion ? 0 : 0.7,
+                            delay: reduceMotion ? 0 : entranceDelay,
                             ease: [0.22, 0.61, 0.36, 1],
-                            opacity: { duration: reduceMotion ? 0 : 0.45 },
+                            opacity: {
+                                duration: reduceMotion ? 0 : 0.45,
+                                delay: reduceMotion ? 0 : entranceDelay,
+                            },
                         },
                     },
                 }}

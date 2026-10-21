@@ -18,6 +18,7 @@ const WelcomeSection = () => {
         <Box
             sx={{
                 backgroundColor: colors.background,
+                pb: { xs: spacing.big, md: 0 },
             }}
         >
             <Container
