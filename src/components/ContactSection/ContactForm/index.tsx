@@ -6,12 +6,11 @@ import {
     ButtonBase,
     Container,
     Grid2,
-    InputAdornment,
-    InputBase,
     Stack,
     Typography,
 } from "@mui/material";
 import { semanticColors } from "@/utils/colors";
+import FormField from "@/components/FormField";
 import React, { forwardRef, useState } from "react";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -277,148 +276,38 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         }}
                         spacing={spacing.tiny}
                     >
-                        <Stack spacing={0.5}>
-                            <InputBase
-                                name="name"
-                                id="name"
-                                aria-label={t("name_label")}
-                                placeholder={t("name_placeholder")}
-                                autoComplete="name"
-                                required
-                                aria-invalid={Boolean(fieldErrors.name)}
-                                aria-describedby={
-                                    fieldErrors.name ? "name-error" : undefined
-                                }
-                                onChange={() => clearFieldError("name")}
-                                startAdornment={
-                                    <InputAdornment
-                                        position="start"
-                                        aria-hidden="true"
-                                    >
-                                        <PersonOutlinedIcon />
-                                    </InputAdornment>
-                                }
-                                sx={{
-                                    borderStyle: "solid",
-                                    borderColor: fieldErrors.name
-                                        ? "error.main"
-                                        : semanticColors.border,
-                                    borderRadius: spacing.small,
-                                    borderWidth: 1,
-                                    px: spacing.tiny,
-                                    py: spacing.tiny / 2,
-                                    "&:focus-within": {
-                                        outline: `3px solid ${semanticColors.focusRing}`,
-                                        outlineOffset: 3,
-                                        borderRadius: spacing.small,
-                                    },
-                                }}
-                            />
-                            {fieldErrors.name && (
-                                <Typography
-                                    id="name-error"
-                                    color="error"
-                                    variant="caption"
-                                >
-                                    {fieldErrors.name}
-                                </Typography>
-                            )}
-                        </Stack>
-
-                        <Stack spacing={0.5}>
-                            <InputBase
-                                name="email"
-                                id="email"
-                                aria-label={t("email_label")}
-                                type="email"
-                                placeholder={t("email_placeholder")}
-                                autoComplete="email"
-                                inputMode="email"
-                                required
-                                aria-invalid={Boolean(fieldErrors.email)}
-                                aria-describedby={
-                                    fieldErrors.email
-                                        ? "email-error"
-                                        : undefined
-                                }
-                                onChange={() => clearFieldError("email")}
-                                startAdornment={
-                                    <InputAdornment
-                                        position="start"
-                                        aria-hidden="true"
-                                    >
-                                        <EmailOutlinedIcon />
-                                    </InputAdornment>
-                                }
-                                sx={{
-                                    borderStyle: "solid",
-                                    borderColor: fieldErrors.email
-                                        ? "error.main"
-                                        : semanticColors.border,
-                                    borderRadius: spacing.small,
-                                    borderWidth: 1,
-                                    px: spacing.tiny,
-                                    py: spacing.tiny / 2,
-                                    "&:focus-within": {
-                                        outline: `3px solid ${semanticColors.focusRing}`,
-                                        outlineOffset: 3,
-                                        borderRadius: spacing.small,
-                                    },
-                                }}
-                            />
-                            {fieldErrors.email && (
-                                <Typography
-                                    id="email-error"
-                                    color="error"
-                                    variant="caption"
-                                >
-                                    {fieldErrors.email}
-                                </Typography>
-                            )}
-                        </Stack>
-
-                        <Stack spacing={0.5}>
-                            <InputBase
-                                name="message"
-                                id="message"
-                                aria-label={t("message_label")}
-                                placeholder={t("message_placeholder")}
-                                required
-                                multiline
-                                rows={5}
-                                aria-invalid={Boolean(fieldErrors.message)}
-                                aria-describedby={
-                                    fieldErrors.message
-                                        ? "message-error"
-                                        : undefined
-                                }
-                                onChange={() => clearFieldError("message")}
-                                sx={{
-                                    borderStyle: "solid",
-                                    borderColor: fieldErrors.message
-                                        ? "error.main"
-                                        : semanticColors.border,
-                                    borderRadius: spacing.small,
-                                    borderWidth: 1,
-                                    px: spacing.tiny,
-                                    py: spacing.tiny / 2,
-                                    "&:focus-within": {
-                                        outline: `3px solid ${semanticColors.focusRing}`,
-                                        outlineOffset: 3,
-                                        borderRadius: spacing.small,
-                                    },
-                                }}
-                            />
-                            {fieldErrors.message && (
-                                <Typography
-                                    id="message-error"
-                                    color="error"
-                                    variant="caption"
-                                >
-                                    {fieldErrors.message}
-                                </Typography>
-                            )}
-                        </Stack>
+                        <FormField
+                            name="name"
+                            label={t("name_label")}
+                            placeholder={t("name_placeholder")}
+                            autoComplete="name"
+                            required
+                            error={fieldErrors.name}
+                            onChange={() => clearFieldError("name")}
+                            icon={<PersonOutlinedIcon />}
+                        />
+                        <FormField
+                            name="email"
+                            label={t("email_label")}
+                            placeholder={t("email_placeholder")}
+                            type="email"
+                            autoComplete="email"
+                            inputMode="email"
+                            required
+                            error={fieldErrors.email}
+                            onChange={() => clearFieldError("email")}
+                            icon={<EmailOutlinedIcon />}
+                        />
+                        <FormField
+                            name="message"
+                            label={t("message_label")}
+                            placeholder={t("message_placeholder")}
+                            required
+                            multiline
+                            rows={5}
+                            error={fieldErrors.message}
+                            onChange={() => clearFieldError("message")}
+                        />
                         <Button
                             loading={isSubmittingForm}
                             type="submit"

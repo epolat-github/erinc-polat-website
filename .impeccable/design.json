@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-20T16:05:57.947751+00:00",
+  "generatedAt": "2026-10-21T08:28:55.475563+00:00",
   "title": "Design System: Erinç Polat Portfolio",
   "extensions": {
     "colorMeta": {
@@ -283,7 +283,8 @@
       "migration": "ProcessCard and gallery backgrounds use surface; ChipRow uses surface/textMuted. ContactForm uses semantic backgrounds, text, icon surfaces, border and focusRing with MUI error.main for invalid fields. MyWorkCard uses the theme Divider instead of a translucent white override. Project detail white background uses the central palette.",
       "componentContracts": {
         "ChipRow": "src/components/ProjectDetails/ChipRow/index.tsx: labels string[], optional containerProps StackProps and chipProps ChipProps. Usage: <ChipRow labels={[\"React\", \"Next.js\"]} />.",
-        "ContactForm": "src/components/ContactSection/ContactForm/index.tsx: no configuration props; optional forwarded ref identifies the section for parent scroll behavior. Usage: <ContactForm ref={targetRef} />. Existing validation/submission behavior is retained."
+        "ContactForm": "src/components/ContactSection/ContactForm/index.tsx: no configuration props; optional forwarded ref identifies the section for parent scroll behavior. Usage: <ContactForm ref={targetRef} />. Existing validation/submission behavior is retained. Name, email and message fields now reuse FormField for shared presentation and accessibility; validation, first-error focus, status and submission stay in ContactForm.",
+        "FormField": "src/components/FormField/index.tsx (default import @/components/FormField, exported type FormFieldProps): client component for shared InputBase styles, optional decorative leading icon and associated localized error message. Required name and label; id defaults to name; optional error is a message string and icon supplies an adornment. Other InputBase props (except error/startAdornment) and sx overrides are supported. Preserves 1px border, 32px radius, 16px horizontal and 8px vertical padding, and 3px navy focus outline with 3px offset. Label, invalid state and described-by error reference apply to the native input/textarea; existing inputProps aria-describedby ids are preserved. Usage: <FormField name=\"email\" label={t(\"email_label\")} type=\"email\" error={fieldErrors.email} onChange={() => clearFieldError(\"email\")} />. ContactForm retains validation, submission, first-error focus and field-specific props."
       }
     },
     "localization": {
@@ -316,9 +317,9 @@
       "name": "Form Field",
       "kind": "input",
       "refersTo": "form-field",
-      "description": "Softly rounded contact input with an explicit focus ring.",
+      "description": "src/components/FormField/index.tsx (default import @/components/FormField, exported type FormFieldProps): client component for shared InputBase styles, optional decorative leading icon and associated localized error message. Required name and label; id defaults to name; optional error is a message string and icon supplies an adornment. Other InputBase props (except error/startAdornment) and sx overrides are supported. Preserves 1px border, 32px radius, 16px horizontal and 8px vertical padding, and 3px navy focus outline with 3px offset. Label, invalid state and described-by error reference apply to the native input/textarea; existing inputProps aria-describedby ids are preserved. Usage: <FormField name=\"email\" label={t(\"email_label\")} type=\"email\" error={fieldErrors.email} onChange={() => clearFieldError(\"email\")} />. ContactForm retains validation, submission, first-error focus and field-specific props.",
       "html": "<input class=\"ds-field\" value=\"E-posta adresi\" aria-label=\"E-posta adresi\">",
-      "css": ".ds-field { box-sizing:border-box; width:100%; background:#FFFFFF; color:#111827; border:1px solid #D8DEE8; border-radius:16px; padding:8px 16px; font:400 16px Roboto,sans-serif; } .ds-field:focus-visible { outline:3px solid #173B6C; outline-offset:3px; }"
+      "css": ".ds-field { box-sizing:border-box; width:100%; background:#FFFFFF; color:#111827; border:1px solid #D8DEE8; border-radius:32px; padding:8px 16px; font:400 16px Roboto,sans-serif; } .ds-field:focus-visible { outline:3px solid #173B6C; outline-offset:3px; }"
     },
     {
       "name": "Project Card",

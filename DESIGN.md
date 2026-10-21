@@ -312,9 +312,24 @@ Reuse these wrappers rather than duplicating their animation behavior:
 ### ContactForm
 
 - **Path / import:** `src/components/ContactSection/ContactForm/index.tsx` / `@/components/ContactSection/ContactForm` (default export).
-- **Purpose:** Localized contact fields, client validation, submission and contact links. No configuration props; optional forwarded `ref` identifies the section for the parent scroll behavior.
+- **Purpose:** Localized contact fields, client validation, submission and contact links. Name, email and message inputs reuse `FormField` for shared styling, adornments, errors and accessibility; field-specific props, validation, status, first-error focus and submission remain in ContactForm. No configuration props; optional forwarded `ref` identifies the section for the parent scroll behavior.
 - **Colors:** Semantic background, text, icon surface and field border tokens; `focusRing` on focused fields; MUI `error.main` on invalid fields. Existing validation and submission behavior is retained.
 - **Usage:** `<ContactForm ref={targetRef} />`.
+
+### FormField
+
+- **Path / import:** `src/components/FormField/index.tsx` / `@/components/FormField` (default export; named type `FormFieldProps`).
+- **Purpose:** Shared contact-input presentation: InputBase styling, optional decorative leading icon, error border/message and accessible input associations. Validation and submission stay with the owning form.
+- **Props:** Required `name` and `label` (accessible input name); optional `id` defaults to `name`, `error` is a localized message string, and `icon` provides a leading adornment. Other MUI InputBase props, including `required`, `type`, `autoComplete`, `inputMode`, `multiline`, `rows`, `onChange`, `inputProps` and `sx`, are supported; `error` and `startAdornment` are owned by this component. `sx` overrides follow the defaults.
+- **Appearance / accessibility:** Preserves the contact field's 1px border, 32px radius, 16px horizontal and 8px vertical padding, and 3px navy focus outline with 3px offset. Errors use `error.main`; the message id is `${id}-error`. InputBase sets the native input's invalid state; accessible label and error description are applied to the actual input/textarea. Existing `inputProps["aria-describedby"]` ids are preserved alongside the error id. Icons are decorative.
+- **Current usage:** ContactForm uses explicit name, email and five-row message fields. Field-specific input semantics remain visible at the call sites; shared presentation is implemented once.
+
+```tsx
+import FormField from "@/components/FormField";
+
+<FormField name="email" label={t("email_label")} type="email" required
+    error={fieldErrors.email} onChange={() => clearFieldError("email")} />
+```
 
 ### Inputs / Fields
 
