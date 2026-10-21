@@ -5,8 +5,6 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 
 import spacing from "@/utils/spacing";
 
-const logos = [];
-
 const CustomersSection = () => {
     return (
         <Box

@@ -2,9 +2,10 @@
 
 import FullScreenImageModal from "@/components/FullScreenImageModal";
 import spacing from "@/utils/spacing";
-import theme from "@/utils/theme";
+import { semanticColors } from "@/utils/colors";
 import { Box, BoxProps, ButtonBase, Stack } from "@mui/material";
 import Image from "next/image";
+import { getLoadedPreview, getProjectImageSizes } from "@/utils/projectImageSizes";
 import { useState } from "react";
 
 type Image = {
@@ -15,20 +16,23 @@ type Image = {
 interface MultipleImageRowType {
     images: Array<Image>;
     containerStyle?: BoxProps["sx"];
+    onImageOpen?: (imageUrl: string, previewUrl?: string) => void;
 }
 
 const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
-    const { images, containerStyle } = props;
+    const { images, containerStyle, onImageOpen } = props;
 
     const [selectedImage, setSelectedImage] = useState<Image>();
+
+    const [previewUrl, setPreviewUrl] = useState<string>();
 
     return (
         <>
             <Stack
-                direction="row"
+                direction={{ xs: "column", sm: "row" }}
                 spacing={spacing.tiny}
                 sx={{
-                    height: "60vh",
+                    height: { xs: "auto", sm: "clamp(280px, 45vw, 640px)" },
                     width: "100%",
                     ...containerStyle,
                 }}
@@ -36,24 +40,39 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                 {images.map((image, index) => (
                     <ButtonBase
                         key={`image-${index}`}
-                        onClick={() => setSelectedImage(image)}
-                        sx={{ height: "100%", width: "100%" }}
+                        onClick={(event) => {
+                            const preview = getLoadedPreview(event.currentTarget);
+                            if (onImageOpen) {
+                                onImageOpen(image.url, preview);
+                                return;
+                            }
+                            setPreviewUrl(preview);
+                            setSelectedImage(image);
+                        }}
+                        sx={{
+                            height: { xs: "clamp(220px, 75vw, 400px)", sm: "100%" },
+                            width: "100%",
+                            minWidth: 0,
+                            flex: { sm: 1 },
+                        }}
                     >
                         <Box
                             sx={{
                                 height: "100%",
                                 width: "100%",
                                 position: "relative",
-                                backgroundColor: theme.palette.grey[100],
+                                backgroundColor: semanticColors.surfaceSubtle,
                                 borderRadius: "12px",
                                 overflow: "hidden",
                             }}
                         >
                             <Image
                                 src={image.url}
+                                data-project-image-url={image.url}
                                 alt={image.alt}
                                 quality={50}
                                 fill
+                                sizes={getProjectImageSizes(image.url, images.length, true)}
                                 style={{
                                     objectFit: "contain",
                                 }}
@@ -62,12 +81,15 @@ const MultipleImageRow: React.FC<MultipleImageRowType> = (props) => {
                     </ButtonBase>
                 ))}
             </Stack>
-            <FullScreenImageModal
-                imageUrl={selectedImage?.url}
-                isOpen={!!selectedImage}
-                onClose={() => setSelectedImage(undefined)}
-                alt={selectedImage?.alt}
-            />
+            {!onImageOpen && (
+                <FullScreenImageModal
+                    imageUrl={selectedImage?.url}
+                    previewUrl={previewUrl}
+                    isOpen={!!selectedImage}
+                    onClose={() => setSelectedImage(undefined)}
+                    alt={selectedImage?.alt}
+                />
+            )}
         </>
     );
 };

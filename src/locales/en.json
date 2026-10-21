@@ -1,76 +1,119 @@
 {
+    "home_metadata": {
+        "title": "Erinç Polat | Freelance Web & Mobile App Developer",
+        "description": "I design, develop, and launch custom websites, iOS and Android apps, and system integrations. Explore my projects and get in touch about your next product."
+    },
     "welcome_section": {
-        "top_text": "Hey there, I'm-",
+        "top_text": "Hello, I'm",
         "title": "Software Engineer.",
-        "description": "A full-stack developer with an interest in developing products.",
-        "websites_text": "Customer-tailored websites",
-        "mobile_text": "Cross-platform mobile applications",
-        "backend_text": "Backend development",
-        "cta_button_text": "Inquire Now",
-        "secondary_button_text": "See More"
+        "description": "I design, develop, and launch web and mobile products.",
+        "websites_text": "Websites tailored to your needs",
+        "mobile_text": "Mobile apps for iOS and Android",
+        "backend_text": "Backend development and system integrations",
+        "cta_button_text": "Get in touch",
+        "secondary_button_text": "About me",
+        "fitnlit_alt": "FitNLit app screenshot",
+        "actio_alt": "Actio app screenshot",
+        "ihrhaus_alt": "IhrHaus website screenshot",
+        "zeynep_alt": "Zeynep Dikdüş website screenshot"
     },
     "who_am_i_section": {
-        "title": "Who am I?",
-        "first_paragraph": "Hello, I’m Erinç Tuna Polat. I studied Computer Engineering at TED University. Alongside my major, I pursued a minor in psychology to better understand the interaction between humans and technology. I have been working in the software development field for over seven years, and I founded my own company to undertake a wide variety of projects.",
-        "second_paragraph": "I have led various SaaS projects, including IoT device integration, smart lock management, IP camera-based security systems, and systems that manage building access permissions. I developed solutions for both web and mobile platforms using React/Next.js, React Native/Expo and Nodejs. I also optimized projects by managing Docker and CI/CD processes, ensuring seamless integration and continuous deployment.",
-        "third_paragraph": "Among my freelance projects are innovative solutions like event management applications, contactless receipt systems, and fitness assistant apps. I have completed projects for clients from Germany, Canada, and Türkiye across various sectors. With my strong technical expertise and the collaborative work I have done with my teams, I strive to make a difference in the tech world. I look forward to collaborating with potential clients on new projects, helping them accelerate their digital transformation processes."
+        "title": "From your idea to a working product.",
+        "title_emphasis": "Built around your business.",
+        "introduction": "I design, develop, and launch web and mobile products aligned with your business goals. From new product development to the evolution of existing platforms, my approach brings together user needs, technical requirements, and integration with your existing systems.",
+        "development_title": "End-to-end development",
+        "development_description": "From design and application development to infrastructure and launch, I treat your product as a whole. After launch, I continue to support it with maintenance and new features.",
+        "ai_products_title": "AI-powered products and automation",
+        "ai_products_description": "I integrate AI into your product to build features that help your users and workflows that reduce repetitive work.",
+        "agentic_coding_title": "Development with agentic coding",
+        "agentic_coding_description": "I use AI tools and coding agents to accelerate development while taking responsibility for architecture, code review, and quality control.",
+        "projects_cta": "Explore my work",
+        "portrait_alt": "Portrait of Erinç Polat"
     },
-    "services_section": {
-        "title_regular_before_break": "Three Steps To Build A Product",
-        "title_regular_after_break": "That",
-        "title_bold": "Stands Out Instantly",
+    "process_section": {
+        "title_regular_before_break": "From idea to launch,",
+        "title_regular_after_break": "",
+        "title_bold": "let's build together.",
         "design_card_title": "Design",
-        "design_card_description": "The initial step involves exploring and defining brand identities, crafting distinctive visual styles that help companies stand out in their market with a unique character and presence.",
-        "design_card_alt": "Screenshot of an app that built by Erinç Polat",
+        "design_card_description": "I work with you to clarify your needs and what your users expect. I design intuitive interfaces that reflect your brand.",
+        "design_card_alt": "Screenshot of an app built by Erinç Polat",
         "development_card_title": "Development",
-        "development_card_description": "As the process shifts from design to development, concepts are transformed into digital experiences, with websites, apps, and products crafted to convey compelling brand stories.",
-        "development_card_alt": "Screenshots of the web designs that Erinç Polat made",
+        "development_card_description": "I turn designs into a working product. I develop your web or mobile app, set up the server infrastructure, and integrate it with your existing systems.",
+        "development_card_alt": "Screenshots of websites designed by Erinç Polat",
         "improvement_card_title": "Improvement",
-        "improvement_card_description": "Analytics support, service containerization, SEO/ASO, store testing and tracking setup, server configuration, and ongoing improvements are implemented.",
+        "improvement_card_description": "I launch your product and set up analytics to understand how it is used. After launch, I provide maintenance, add features, and work to improve search visibility.",
         "improvement_card_alt": "Logos of different technologies"
     },
     "my_works_section": {
         "title": "Creative Works & Projects",
-        "description": "Here's some of my projects that I have worked on",
-        "cta_button_text": "Explore more"
+        "description": "Here are some projects I've worked on.",
+        "cta_button_text": "View all projects"
     },
     "my_work_card": {
-        "cta_button_text": "Explore work"
+        "cta_button_text": "View project"
     },
     "contact_header": {
         "background_title": "Contact",
         "small_title": "Let's",
-        "title": "Talk about your project.",
-        "subtitle": "Feel free to ask me any questions. Let's talk about our future collaboration."
+        "title": "talk about your project.",
+        "subtitle": "Share your idea and what you need. Let's explore how I can help."
     },
     "contact_form": {
-        "form_title": "Get In Touch.",
+        "form_title": "Get in touch",
+        "name_label": "Name",
         "name_placeholder": "Your name",
-        "email_placeholder": "Email",
+        "email_label": "Email address",
+        "email_placeholder": "Your email address",
+        "message_label": "Message",
         "message_placeholder": "How can I help?",
-        "send_message_button_text": "Send your message",
-        "validation_error_message": "There's been a validation error. Please check the form again.",
-        "generic_error_message": "There's been an error. Please contact me through my email 🙂",
-        "success_message": "I've received your message. I will contact you in no time 🙂",
-        "contact_info_title": "Contact Info.",
-        "contact_info_subtitle": "Let's Talk.",
-        "resume_text": "My Resume",
+        "name_required_error": "Enter your name.",
+        "email_required_error": "Enter your email address.",
+        "email_invalid_error": "Enter a valid email address.",
+        "message_required_error": "Enter your message.",
+        "send_message_button_text": "Send message",
+        "validation_error_message": "Please check the highlighted fields and try again.",
+        "generic_error_message": "Your message could not be sent. Please try again or contact me by email.",
+        "success_message": "I've received your message. I'll get back to you as soon as I can.",
+        "contact_info_title": "Contact information",
+        "contact_info_subtitle": "Let's talk.",
+        "resume_text": "My resume",
         "linkedin_text": "Connect on LinkedIn",
         "instagram_text": "Follow on Instagram",
-        "github_text": "Follow on Github"
+        "github_text": "Follow on GitHub"
     },
     "navbar": {
         "about": "About",
         "works": "Works",
         "process": "Process",
-        "contact": "Contact"
+        "contact": "Contact",
+        "open_menu": "Open menu",
+        "home": "Go to home page"
+    },
+    "accessibility": {
+        "previous_image": "Previous image",
+        "next_image": "Next image",
+        "image_position": "Image {current} of {total}",
+        "loading_image": "Loading image",
+        "image_load_error": "The image could not be loaded. Please try reopening it.",
+        "close_image": "Close image",
+        "switch_to_turkish": "Switch to Turkish",
+        "switch_to_english": "Switch to English",
+        "project_image": "Project image"
     },
     "projects": {
+        "metadata_title": "Projects | Erinç Polat",
+        "metadata_description": "Explore Erinç Polat’s mobile application, website and system integration projects.",
         "title": "Projects",
-        "subtitle": "Here is an archive of my top projects. Feel free to explore them."
+        "subtitle": "From mobile apps to enterprise integrations, a selection of products and systems I’ve worked on.",
+        "contact_title": "Working on a similar product?",
+        "contact_description": "Share your idea and what you need. Let’s explore how I can help.",
+        "contact_cta": "Let’s talk about your project"
     },
     "footer": {
-        "text": "Let's bring your project come to life together!",
+        "text": "Let's bring your project to life together!",
         "copyright": "Copyright © {year} - Erinç Polat - All Rights Reserved"
+    },
+    "project_details": {
+        "visit_project": "Visit project website"
     }
 }

@@ -3,15 +3,15 @@ import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import colors from "@/utils/colors";
 import spacing from "@/utils/spacing";
 import ChipRow from "@/components/ProjectDetails/ChipRow";
-import SingleImageRow from "@/components/ProjectDetails/SingleImageRow";
-import MultipleImageRow from "@/components/ProjectDetails/MultipleImageRow";
+import ImageGallery from "@/components/ProjectDetails/ImageGallery";
 import { Inter } from "next/font/google";
 import projectsEn from "@/data/projects.en";
 import projectsTr from "@/data/projects.tr";
 import { notFound } from "next/navigation";
 import SubdirectoryArrowRightIcon from "@mui/icons-material/SubdirectoryArrowRight";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { createPageMetadata } from "@/utils/seo";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -34,22 +34,36 @@ export async function generateStaticParams() {
 }
 
 interface ProjectDetailsType {
-    params: {
+    params: Promise<{
+        locale: string;
         slug: string;
-    };
+    }>;
 }
 
-const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
-    const slug = params.slug;
+export async function generateMetadata({ params }: ProjectDetailsType) {
+    const { locale, slug } = await params;
+    const project = (locale === "tr" ? projectsTr : projectsEn)
+        .find((entry) => entry.slug === slug);
+    if (!project) notFound();
 
-    const locale = useLocale();
+    return createPageMetadata({
+        locale,
+        path: `/projects/${project.slug}`,
+        title: `${project.title} | Erinç Polat`,
+        description: project.seoDescription,
+        image: project.featuredImages[0],
+    });
+}
+
+const ProjectDetails = async ({ params }: ProjectDetailsType) => {
+    const { locale, slug } = await params;
+    const t = await getTranslations({ locale, namespace: "project_details" });
 
     const projectsWithLocale = locale === "en" ? projectsEn : projectsTr;
 
     const project = projectsWithLocale.find((project) => project.slug === slug);
 
     if (!project) {
-        console.log("project not found: ", slug);
         notFound();
     }
 
@@ -57,6 +71,7 @@ const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
 
     return (
         <Box
+            component="main"
             sx={{
                 backgroundColor: colors.background,
             }}
@@ -78,7 +93,7 @@ const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
                     sx={{
                         pb: spacing.medium,
                         paddingTop: {
-                            xs: spacing.medium,
+                            xs: 14,
                             md: spacing.big * 1.5,
                         },
                     }}
@@ -111,6 +126,7 @@ const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
                         <Stack spacing={spacing.tiny}>
                             <Typography
                                 variant="h3"
+                                component="h1"
                                 sx={{
                                     fontFamily: inter.style.fontFamily,
                                     fontSize: {
@@ -148,7 +164,7 @@ const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
                                             <SubdirectoryArrowRightIcon />
                                         }
                                     >
-                                        Go to project
+                                        {t("visit_project")}
                                     </Button>
                                 </Link>
                             )}
@@ -156,38 +172,7 @@ const ProjectDetails: React.FC<ProjectDetailsType> = ({ params }) => {
                     </Stack>
 
                     {/* Project assets column */}
-                    <Stack
-                        sx={{
-                            flex: 1,
-                            alignItems: "center",
-                            backgroundColor: "#fff",
-                            zIndex: 2,
-                        }}
-                        spacing={spacing.tiny}
-                    >
-                        {assetRows.map((assetRow, index) => {
-                            if (assetRow.type === "SINGLE") {
-                                return (
-                                    <SingleImageRow
-                                        key={`asset-row-${index}`}
-                                        imageUrl={assetRow.image.url}
-                                        alt={assetRow.image.alt}
-                                    />
-                                );
-                            }
-
-                            if (assetRow.type === "MULTIPLE") {
-                                return (
-                                    <MultipleImageRow
-                                        key={`asset-row-${index}`}
-                                        images={assetRow.images}
-                                    />
-                                );
-                            }
-
-                            return null;
-                        })}
-                    </Stack>
+                    <ImageGallery key={slug} assetRows={assetRows} />
                 </Stack>
             </Container>
         </Box>

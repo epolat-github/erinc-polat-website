@@ -1,4 +1,5 @@
-import { motion, MotionStyle } from "framer-motion";
+import { motion, MotionStyle, useInView, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 
 interface ScaleInBoxType {
     children: React.ReactNode;
@@ -6,6 +7,7 @@ interface ScaleInBoxType {
     delay?: number;
     duration?: number;
     once?: boolean;
+    ready?: boolean;
 }
 
 const ScaleInBox: React.FC<ScaleInBoxType> = ({
@@ -14,21 +16,24 @@ const ScaleInBox: React.FC<ScaleInBoxType> = ({
     delay,
     duration = 0.6,
     once = true,
+    ready = true,
 }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const inView = useInView(ref, { once });
+    const reduceMotion = useReducedMotion();
+
     return (
         <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{
-                opacity: 1,
-                scale: 1,
+            ref={ref}
+            initial={{ scale: reduceMotion ? 1 : 0.96, opacity: 0 }}
+            animate={{
+                opacity: ready && inView ? 1 : 0,
+                scale: reduceMotion || (ready && inView) ? 1 : 0.96,
             }}
             transition={{
-                duration: duration,
-                delay,
-                ease: "easeOut",
-            }}
-            viewport={{
-                once,
+                duration: reduceMotion ? 0.15 : duration,
+                delay: reduceMotion ? 0 : delay,
+                ease: [0.16, 1, 0.3, 1],
             }}
             style={style}
         >

@@ -21,7 +21,6 @@ const BenefitsSection = () => {
                 maxWidth="lg"
                 sx={{
                     display: "flex",
-                    // minHeight: "100vh",
                     pt: spacing.big,
                 }}
                 spacing={spacing.medium}
@@ -50,11 +49,8 @@ const BenefitsSection = () => {
                 <Grid
                     container
                     spacing="1rem"
-                    // gridTemplateColumns="repeat(3, minmax(0, 1fr))"
-                    // gridAutoRows="22rem"
                     sx={{
                         width: "100%",
-                        // height: 150,
                         position: "relative",
                         px: spacing.medium,
                         py: spacing.tiny,

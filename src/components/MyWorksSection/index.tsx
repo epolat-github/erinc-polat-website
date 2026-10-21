@@ -1,29 +1,19 @@
-"use client";
-
 import colors from "@/utils/colors";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import EastRoundedIcon from "@mui/icons-material/EastRounded";
+import { Box, Container, Stack, Typography } from "@mui/material";
+import AnimatedTextLink from "../AnimatedTextLink";
 
-// import Link from "next/link";
 import spacing from "@/utils/spacing";
 import MyWorkCard from "../MyWorkCard";
 import projectsEn from "@/data/projects.en";
 import projectsTr from "@/data/projects.tr";
-// import { useRouter } from "next/navigation";
-import { Oswald } from "next/font/google";
-import { Link, useRouter } from "@/i18n/routing";
-import { useLocale, useTranslations } from "next-intl";
+import { oswald } from "@/utils/fonts";
+import { getLocale, getTranslations } from "next-intl/server";
 
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
-
-const MyWorksSection = () => {
-    const t = useTranslations("my_works_section");
-    const locale = useLocale();
-    const router = useRouter();
+const MyWorksSection = async () => {
+    const [t, locale] = await Promise.all([
+        getTranslations("my_works_section"),
+        getLocale(),
+    ]);
 
     const projectsWithLocale = locale === "en" ? projectsEn : projectsTr;
 
@@ -39,34 +29,35 @@ const MyWorksSection = () => {
                 maxWidth="lg"
                 sx={{
                     display: "flex",
-                    paddingTop: spacing.big * 2,
+                    paddingTop: { xs: spacing.medium, sm: spacing.big, md: spacing.big * 2 },
                 }}
             >
                 <Stack
                     direction={{
                         xs: "column",
-                        sm: "row",
+                        md: "row",
                     }}
-                    gap={spacing.medium}
+                    gap={{ xs: spacing.small, md: spacing.medium }}
                 >
                     {/* LEFT COLUMN */}
                     <Stack
-                        gap={spacing.medium}
+                        gap={{ xs: spacing.small, md: spacing.medium }}
                         flex={{
                             xs: 1,
-                            sm: 0.5,
+                            md: 0.5,
                         }}
                     >
                         <Stack
                             sx={{
                                 alignItems: "flex-start",
-                                minHeight: 150,
+                                minHeight: { xs: 0, md: 150 },
                             }}
                             gap={spacing.tiny}
                         >
                             <Typography
                                 fontWeight={500}
                                 variant="h3"
+                                component="h2"
                                 sx={{ fontFamily: oswald.style.fontFamily }}
                             >
                                 {t("title")}
@@ -80,26 +71,15 @@ const MyWorksSection = () => {
                                 <Typography
                                     color={colors.gray}
                                     variant="subtitle1"
+                                    component="p"
                                     fontSize={20}
                                 >
                                     {t("description")}
                                 </Typography>
 
-                                <Button
-                                    variant="text"
-                                    color="primary"
-                                    component={Link}
-                                    href="/projects"
-                                    endIcon={<EastRoundedIcon />}
-                                    sx={{
-                                        fontSize: 18,
-                                        paddingLeft: 0,
-                                        paddingTop: 0,
-                                        background: "transparent",
-                                    }}
-                                >
+                                <AnimatedTextLink href={`/${locale}/projects`}>
                                     {t("cta_button_text")}
-                                </Button>
+                                </AnimatedTextLink>
                             </Stack>
                         </Stack>
 
@@ -107,54 +87,38 @@ const MyWorksSection = () => {
                             title={projectsWithLocale[0].title}
                             description={projectsWithLocale[0].summary}
                             images={projectsWithLocale[0].featuredImages}
-                            onClick={() =>
-                                router.push(
-                                    `/projects/${projectsWithLocale[0].slug}`
-                                )
-                            }
+                            href={`/projects/${projectsWithLocale[0].slug}`}
                             animationDirection="left"
                         />
                         <MyWorkCard
                             title={projectsWithLocale[2].title}
                             description={projectsWithLocale[2].summary}
                             images={projectsWithLocale[2].featuredImages}
-                            onClick={() =>
-                                router.push(
-                                    `/projects/${projectsWithLocale[2].slug}`
-                                )
-                            }
+                            href={`/projects/${projectsWithLocale[2].slug}`}
                             animationDirection="left"
                         />
                     </Stack>
 
                     {/* RIGHT COLUMN */}
                     <Stack
-                        gap={spacing.medium}
+                        gap={{ xs: spacing.small, md: spacing.medium }}
                         flex={{
                             xs: 1,
-                            sm: 0.5,
+                            md: 0.5,
                         }}
                     >
                         <MyWorkCard
                             title={projectsWithLocale[1].title}
                             description={projectsWithLocale[1].summary}
                             images={projectsWithLocale[1].featuredImages}
-                            onClick={() =>
-                                router.push(
-                                    `/projects/${projectsWithLocale[1].slug}`
-                                )
-                            }
+                            href={`/projects/${projectsWithLocale[1].slug}`}
                             animationDirection="right"
                         />
                         <MyWorkCard
                             title={projectsWithLocale[3].title}
                             description={projectsWithLocale[3].summary}
                             images={projectsWithLocale[3].featuredImages}
-                            onClick={() =>
-                                router.push(
-                                    `/projects/${projectsWithLocale[3].slug}`
-                                )
-                            }
+                            href={`/projects/${projectsWithLocale[3].slug}`}
                             animationDirection="right"
                         />
                     </Stack>

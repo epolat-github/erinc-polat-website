@@ -50,7 +50,7 @@ const Spinner3d = () => {
                     <Environment
                         resolution={1024}
                         background={false}
-                        rotation={[0, envRotate, 0]}
+                        environmentRotation={[0, envRotate, 0]}
                     >
                         {/* Nötr gri kubbe (yansıma için) */}
                         <mesh scale={10}>

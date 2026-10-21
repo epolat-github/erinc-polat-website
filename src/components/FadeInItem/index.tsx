@@ -1,9 +1,12 @@
-import { motion, MotionStyle } from "framer-motion";
+"use client";
+
+import { motion, MotionStyle, useReducedMotion } from "framer-motion";
 
 interface FadeInItemType {
     children: React.ReactNode;
     delay?: number;
     once?: boolean;
+    duration?: number;
     style?: MotionStyle;
 }
 
@@ -12,7 +15,10 @@ const FadeInItem: React.FC<FadeInItemType> = ({
     delay,
     once = true,
     style,
+    duration = 0.6,
 }) => {
+    const reduceMotion = useReducedMotion();
+
     return (
         <motion.div
             initial={{
@@ -22,8 +28,8 @@ const FadeInItem: React.FC<FadeInItemType> = ({
                 opacity: 1,
             }}
             transition={{
-                duration: 0.6,
-                delay,
+                duration: reduceMotion ? 0.15 : duration,
+                delay: reduceMotion ? 0 : delay,
                 ease: "easeOut",
             }}
             viewport={{

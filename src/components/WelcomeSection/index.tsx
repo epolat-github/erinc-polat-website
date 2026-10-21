@@ -1,18 +1,9 @@
 "use client";
 
 import colors from "@/utils/colors";
-import {
-    Box,
-    Button,
-    Container,
-    Stack,
-    Theme,
-    Typography,
-    useMediaQuery,
-} from "@mui/material";
+import { Box, Button, Container, Stack, Typography, useMediaQuery, type Theme } from "@mui/material";
 import spacing from "@/utils/spacing";
 import DotPattern from "../DotPattern";
-import theme from "@/utils/theme";
 import ProjectsOverview from "./ProjectsOverview";
 import RevealItem from "../RevealItem";
 import FadeInItem from "../FadeInItem";
@@ -20,11 +11,14 @@ import { useTranslations } from "next-intl";
 
 const WelcomeSection = () => {
     const t = useTranslations("welcome_section");
+    const desktop = useMediaQuery((theme: Theme) => theme.breakpoints.up("md"));
+    const entranceDelay = (seconds: number) => desktop ? seconds : 0;
 
     return (
         <Box
             sx={{
                 backgroundColor: colors.background,
+                pb: { xs: spacing.big, md: 0 },
             }}
         >
             <Container
@@ -50,6 +44,7 @@ const WelcomeSection = () => {
                     >
                         <DotPattern />
                         <FadeInItem
+                            duration={0.6}
                             style={{
                                 zIndex: 1,
                             }}
@@ -63,14 +58,16 @@ const WelcomeSection = () => {
                             </Typography>
                         </FadeInItem>
                         <FadeInItem
-                            delay={0.2}
+                            duration={0.6}
+                            delay={entranceDelay(0.06)}
                             style={{
                                 zIndex: 1,
                             }}
                         >
                             <Typography
+                                component="h1"
                                 fontWeight="bold"
-                                color={colors.primary}
+                                color={colors.primaryText}
                                 sx={{
                                     fontSize: {
                                         lg: "8rem",
@@ -84,9 +81,10 @@ const WelcomeSection = () => {
                         </FadeInItem>
                     </Stack>
 
-                    <FadeInItem delay={0.3}>
+                    <FadeInItem duration={0.6} delay={entranceDelay(0.14)}>
                         <Typography
                             variant="h5"
+                            component="p"
                             fontWeight="500"
                             color={colors.gray}
                         >
@@ -102,32 +100,45 @@ const WelcomeSection = () => {
                     </FadeInItem>
 
                     <Stack spacing={spacing.tiny}>
-                        <FadeInItem delay={0.4}>
-                            <Typography variant="h6" color={colors.gray}>
+                        <FadeInItem duration={0.55} delay={entranceDelay(0.2)}>
+                            <Typography variant="h6" component="p" color={colors.gray}>
                                 🚀 {t("websites_text")}
                             </Typography>
                         </FadeInItem>
-                        <FadeInItem delay={0.5}>
-                            <Typography variant="h6" color={colors.gray}>
+                        <FadeInItem duration={0.55} delay={entranceDelay(0.25)}>
+                            <Typography variant="h6" component="p" color={colors.gray}>
                                 📱 {t("mobile_text")}
                             </Typography>
                         </FadeInItem>
-                        <FadeInItem delay={0.6}>
-                            <Typography variant="h6" color={colors.gray}>
+                        <FadeInItem duration={0.55} delay={entranceDelay(0.3)}>
+                            <Typography variant="h6" component="p" color={colors.gray}>
                                 ⚡️ {t("backend_text")}
                             </Typography>
                         </FadeInItem>
                     </Stack>
 
-                    <Stack direction="row" spacing={spacing.small}>
-                        <RevealItem delay={0.7}>
+                    <Stack
+                        direction="row"
+                        spacing={{ xs: spacing.tiny, sm: spacing.small }}
+                        useFlexGap
+                        flexWrap="wrap"
+                        sx={{
+                            "& > div": {
+                                width: { xs: "100%", sm: "auto" },
+                                maxWidth: "100%",
+                            },
+                        }}
+                    >
+                        <RevealItem duration={0.55} distance={10} delay={entranceDelay(0.35)}>
                             <Button
                                 variant="contained"
                                 sx={{
                                     backgroundColor: colors.primary,
-                                    color: "#fff",
-                                    minWidth: 150,
-                                    height: 40,
+                                    color: colors.onPrimary,
+                                    minWidth: { xs: 0, sm: 150 },
+                                    width: "100%",
+                                    minHeight: 40,
+                                    whiteSpace: "normal",
                                 }}
                                 disableElevation
                                 href="#contact"
@@ -136,13 +147,19 @@ const WelcomeSection = () => {
                             </Button>
                         </RevealItem>
 
-                        <RevealItem delay={0.9}>
+                        <RevealItem duration={0.55} distance={10} delay={entranceDelay(0.35)}>
                             <Button
                                 variant="contained"
                                 sx={{
-                                    backgroundColor: theme.palette.grey[100],
-                                    minWidth: 150,
-                                    height: 40,
+                                    backgroundColor: colors.surface,
+                                    color: colors.header,
+                                    minWidth: { xs: 0, sm: 150 },
+                                    width: "100%",
+                                    minHeight: 40,
+                                    whiteSpace: "normal",
+                                    "&:hover": {
+                                        backgroundColor: colors.border,
+                                    },
                                 }}
                                 disableElevation
                                 href="#about"

@@ -11,20 +11,26 @@ import {
     Stack,
     Toolbar,
     Typography,
+    useScrollTrigger,
 } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import { Barlow_Semi_Condensed } from "next/font/google";
 import MenuIcon from "@mui/icons-material/Menu";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import spacing from "@/utils/spacing";
 import Image from "next/image";
-import { Link, usePathname, useRouter } from "@/i18n/routing";
+import logo from "../../../public/logo.webp";
+import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import LanguageSelector from "../LanguageSelector";
+import colors from "@/utils/colors";
+import InteractiveHoverButton from "../InteractiveHoverButton";
 
 const barlowSemiCondensed = Barlow_Semi_Condensed({
     subsets: ["latin", "latin-ext"],
-    weight: "400",
+    weight: "600",
     style: "normal",
 });
 
@@ -47,10 +53,16 @@ const sectionButtons = [
     },
 ] as const;
 
+const MotionMenuLink = motion.create(Link);
+
 const Navbar = () => {
     const t = useTranslations("navbar");
-    const router = useRouter();
+    const welcomeT = useTranslations("welcome_section");
     const pathname = usePathname();
+    const isScrolled = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 48,
+    });
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
@@ -73,22 +85,32 @@ const Navbar = () => {
         setAnchorElNav(null);
     };
 
-    const onHomeClick = () => {
-        if (pathname === "/") {
+    const onHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        if (pathname === "/" && event.button === 0 && !event.metaKey
+            && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+            event.preventDefault();
             window.scroll({
                 top: 0,
                 left: 0,
-                behavior: "smooth",
+                // Let global CSS honor the user's reduced-motion preference.
+                behavior: "auto",
             });
-        } else {
-            router.push("/");
         }
     };
 
-    const onClickOnMobile = (to: string) => {
-        router.push(to);
-        handleCloseNavMenu();
-    };
+    const contactButton = (
+        <InteractiveHoverButton
+            LinkComponent={Link}
+            href="/#contact"
+            icon={<ArrowDownwardIcon sx={{ fontSize: 18 }} />}
+            sx={{
+                fontFamily: barlowSemiCondensed.style.fontFamily,
+                minHeight: { xs: 44, md: 36 },
+            }}
+        >
+            {welcomeT("cta_button_text")}
+        </InteractiveHoverButton>
+    );
 
     return (
         <AppBar
@@ -109,36 +131,60 @@ const Navbar = () => {
             color="transparent"
             elevation={0}
             sx={{
-                background: "transparent",
-                backdropFilter: "blur(5px)",
+                backgroundColor: alpha(colors.background, 0.9),
+                backdropFilter: "blur(24px)",
+                borderBottom: `1px solid ${alpha(colors.border, 0.45)}`,
+                boxShadow: `0 4px 20px ${alpha(colors.header, 0.025)}`,
             }}
         >
-            <Container maxWidth="lg">
-                <Toolbar disableGutters>
+            <Container
+                maxWidth={false}
+                sx={{
+                    maxWidth: 1240,
+                    px: { xs: 3, lg: 6 },
+                }}
+            >
+                <Toolbar
+                    disableGutters
+                    sx={{
+                        minHeight: {
+                            xs: isScrolled ? 64 : 80,
+                            sm: isScrolled ? 64 : 80,
+                        },
+                        transition:
+                            "min-height 320ms cubic-bezier(0.22,1,0.36,1)",
+                        "@media (prefers-reduced-motion: reduce)": {
+                            transition: "none",
+                        },
+                    }}
+                >
                     {/* DESKTOP */}
                     <Stack
                         direction="row"
-                        gap={2}
-                        justifyContent="center"
+                        gap={spacing.tiny}
+                        justifyContent="space-between"
                         flex={1}
                         alignItems="center"
                         sx={{
                             display: {
                                 xs: "none",
-                                sm: "flex",
+                                md: "flex",
                             },
                         }}
                     >
                         <ButtonBase
+                            component={Link}
+                            href="/"
                             onClick={onHomeClick}
+                            aria-label={t("home")}
                             disableRipple
                             sx={{
-                                paddingRight: spacing.tiny,
+                                flexShrink: 0,
                             }}
                         >
                             <Image
-                                src="/logo.webp"
-                                alt="logo"
+                                src={logo}
+                                alt=""
                                 width={250}
                                 height={90}
                                 quality={100}
@@ -148,34 +194,65 @@ const Navbar = () => {
                                 }}
                             />
                         </ButtonBase>
-                        {sectionButtons.map((sectionButton) => (
-                            <Button
-                                LinkComponent={Link}
-                                key={sectionButton.titleTranslationKey}
-                                href={`/#${sectionButton.to}`}
-                                disableRipple
-                                sx={{
-                                    minWidth: {
-                                        md: 80,
-                                        sm: 60,
-                                        xs: 40,
-                                    },
-                                    textTransform: "none",
-                                    fontFamily:
-                                        barlowSemiCondensed.style.fontFamily,
-                                    color: "#000",
-                                    letterSpacing: 1.3,
-                                    fontSize: 16,
-                                    "&:hover": {
-                                        background: "transparent",
-                                    },
-                                }}
-                            >
-                                {t(sectionButton.titleTranslationKey)}
-                            </Button>
-                        ))}
+                        <Stack
+                            component="nav"
+                            direction="row"
+                            alignItems="center"
+                            sx={{
+                                gap: 0.5,
+                                px: { sm: 1, md: 1.5 },
+                                py: isScrolled ? 0.375 : 0.75,
+                                transition:
+                                    "padding 320ms cubic-bezier(0.22,1,0.36,1)",
+                                "@media (prefers-reduced-motion: reduce)": {
+                                    transition: "none",
+                                },
+                                borderRadius: 999,
+                                backgroundColor: alpha(colors.surface, 0.8),
+                                border: `1px solid ${alpha(colors.border, 0.6)}`,
+                            }}
+                        >
+                            {sectionButtons.map((sectionButton) => (
+                                <Button
+                                    LinkComponent={Link}
+                                    key={sectionButton.titleTranslationKey}
+                                    href={`/#${sectionButton.to}`}
+                                    disableRipple
+                                    sx={{
+                                        minWidth: 0,
+                                        minHeight: 36,
+                                        px: { sm: 1.5, md: 2 },
+                                        py: 0.875,
+                                        borderRadius: 999,
+                                        textTransform: "none",
+                                        fontFamily:
+                                            barlowSemiCondensed.style.fontFamily,
+                                        color: colors.gray,
+                                        fontSize: 14,
+                                        fontWeight: 600,
+                                        lineHeight: 1.5,
+                                        whiteSpace: "nowrap",
+                                        transition:
+                                            "background-color 150ms ease, color 150ms ease",
+                                        "&:hover": {
+                                            color: colors.primaryText,
+                                            backgroundColor: colors.background,
+                                        },
+                                        "&.Mui-focusVisible": {
+                                            outline: `3px solid ${colors.primaryText}`,
+                                            outlineOffset: 2,
+                                        },
+                                    }}
+                                >
+                                    {t(sectionButton.titleTranslationKey)}
+                                </Button>
+                            ))}
+                            <Stack sx={{ px: 1 }}>
+                                <LanguageSelector />
+                            </Stack>
+                        </Stack>
 
-                        <LanguageSelector />
+                        {contactButton}
                     </Stack>
 
                     {/* MOBILE */}
@@ -183,7 +260,7 @@ const Navbar = () => {
                         sx={{
                             display: {
                                 xs: "flex",
-                                sm: "none",
+                                md: "none",
                             },
                             flex: 1,
                             flexDirection: "row",
@@ -191,31 +268,70 @@ const Navbar = () => {
                             alignItems: "center",
                         }}
                     >
-                        <ButtonBase onClick={onHomeClick} disableRipple>
+                        <ButtonBase
+                            component={Link}
+                            href="/"
+                            onClick={onHomeClick}
+                            aria-label={t("home")}
+                            disableRipple
+                            sx={{ minWidth: 44, minHeight: 44 }}
+                        >
                             <Image
-                                src="/logo.webp"
-                                alt="logo"
+                                src={logo}
+                                alt=""
                                 width={75}
                                 height={25}
                             />
                         </ButtonBase>
-                        <IconButton onClick={handleOpenNavMenu} disableRipple>
-                            <MenuIcon />
-                        </IconButton>
+                        <Stack direction="row" alignItems="center" gap={1.5}>
+                            {contactButton}
+                            <IconButton
+                                onClick={handleOpenNavMenu}
+                                disableRipple
+                                aria-label={t("open_menu")}
+                                aria-controls={
+                                    anchorElNav
+                                        ? "mobile-navigation-menu"
+                                        : undefined
+                                }
+                                aria-expanded={Boolean(anchorElNav)}
+                                aria-haspopup="menu"
+                                sx={{
+                                    minWidth: 44,
+                                    minHeight: 44,
+                                    color: colors.gray,
+                                    backgroundColor: alpha(colors.surface, 0.8),
+                                    border: `1px solid ${alpha(colors.border, 0.6)}`,
+                                    "&:hover": {
+                                        color: colors.primaryText,
+                                        backgroundColor: alpha(colors.primary, 0.06),
+                                    },
+                                }}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        </Stack>
                         <Menu
+                            id="mobile-navigation-menu"
                             sx={{
-                                mt: "45px",
+                                mt: 1.5,
                                 "& .MuiPaper-root": {
                                     boxShadow:
-                                        "0px 10px 15px -3px rgba(0,0,0,0.1)",
+                                        `0 10px 24px -3px ${alpha(colors.header, 0.12)}`,
                                     minWidth: 180,
-                                    color: "rgb(55, 65, 81)",
+                                    color: colors.gray,
+                                    backgroundColor: alpha(colors.background, 0.95),
+                                    backdropFilter: "blur(24px)",
+                                    border: `1px solid ${alpha(colors.border, 0.8)}`,
                                     borderRadius: spacing.tiny,
+                                },
+                                "& .MuiMenu-list": {
+                                    p: 1,
                                 },
                             }}
                             anchorEl={anchorElNav}
                             anchorOrigin={{
-                                vertical: "top",
+                                vertical: "bottom",
                                 horizontal: "right",
                             }}
                             keepMounted
@@ -226,21 +342,21 @@ const Navbar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                         >
-                            <Stack
-                                alignItems="flex-end"
-                                sx={{ marginRight: spacing.tiny }}
-                            >
-                                <LanguageSelector />
-                            </Stack>
-
                             {sectionButtons.map((sectionButton, index) => (
                                 <MenuItem
-                                    component={motion.li}
+                                    component={MotionMenuLink}
+                                    href={`/#${sectionButton.to}`}
                                     key={sectionButton.titleTranslationKey}
-                                    onClick={() =>
-                                        onClickOnMobile(`#${sectionButton.to}`)
-                                    }
+                                    onClick={() => { void handleCloseNavMenu(); }}
                                     disableRipple
+                                    sx={{
+                                        mt: 0.5,
+                                        borderRadius: 999,
+                                        "&:hover, &.Mui-focusVisible": {
+                                            color: colors.primaryText,
+                                            backgroundColor: colors.surface,
+                                        },
+                                    }}
                                     initial={{
                                         opacity: 0,
                                         translateY: -5,
@@ -252,11 +368,26 @@ const Navbar = () => {
                                         duration: 0.1,
                                     }}
                                 >
-                                    <Typography textAlign="center">
+                                    <Typography
+                                        textAlign="center"
+                                        sx={{
+                                            fontFamily:
+                                                barlowSemiCondensed.style
+                                                    .fontFamily,
+                                            fontSize: 14,
+                                            fontWeight: 600,
+                                        }}
+                                    >
                                         {t(sectionButton.titleTranslationKey)}
                                     </Typography>
                                 </MenuItem>
                             ))}
+                            <Stack
+                                alignItems="flex-end"
+                                sx={{ mr: spacing.tiny, mt: 1, mb: 0.5 }}
+                            >
+                                <LanguageSelector />
+                            </Stack>
                         </Menu>
                     </Stack>
                 </Toolbar>

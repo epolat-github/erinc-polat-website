@@ -3,16 +3,9 @@ import { Box, Container, Stack } from "@mui/material";
 import colors from "@/utils/colors";
 import spacing from "@/utils/spacing";
 
-import { Oswald } from "next/font/google";
 import Image from "next/image";
 import ProductGallery from "@/components/ProductGallery";
 import ProductInformation from "@/components/ProductInformation";
-
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
 
 const Marifet = () => {
     return (

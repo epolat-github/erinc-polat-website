@@ -1,50 +1,47 @@
-import { ButtonBase, Stack } from "@mui/material";
+"use client";
 
-import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/routing";
-import Image from "next/image";
-import spacing from "@/utils/spacing";
+import { ButtonBase } from "@mui/material";
+
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
+import { semanticColors } from "@/utils/colors";
 
 const LanguageSelector = () => {
     const locale = useLocale();
-    const router = useRouter();
+    const t = useTranslations("accessibility");
     const pathname = usePathname();
 
-    const changeLanguage = (newLocale: "en" | "tr") => {
-        router.replace(pathname, { locale: newLocale });
-    };
-
-    const renderLanguageButton = () => {
-        const newLocale = locale === "en" ? "tr" : "en";
-
-        // render language selectors
-        return (
-            <ButtonBase disableRipple onClick={() => changeLanguage(newLocale)}>
-                <Image
-                    width={30}
-                    height={30}
-                    src={`/flags/${locale}.webp`}
-                    alt={`flag of ${locale}`}
-                    style={{
-                        objectFit: "contain",
-                        borderRadius: spacing.small,
-                        overflow: "hidden",
-                    }}
-                    sizes="30px"
-                />
-            </ButtonBase>
-        );
-    };
+    const nextLocale = locale === "en" ? "tr" : "en";
 
     return (
-        <Stack
-            direction="column"
+        <ButtonBase
+            component={Link}
+            href={pathname}
+            locale={nextLocale}
+            hrefLang={nextLocale}
+            replace
+            disableRipple
+            aria-label={
+                nextLocale === "tr"
+                    ? t("switch_to_turkish")
+                    : t("switch_to_english")
+            }
             sx={{
-                position: "relative",
+                minWidth: 44,
+                minHeight: 44,
+                fontFamily: "inherit",
+                fontSize: 14,
+                fontWeight: 600,
+                color: semanticColors.textPrimary,
+                borderRadius: 1,
+                "&:hover": {
+                    color: semanticColors.textPrimary,
+                    backgroundColor: semanticColors.surface,
+                },
             }}
         >
-            {renderLanguageButton()}
-        </Stack>
+            {locale.toUpperCase()}
+        </ButtonBase>
     );
 };
 

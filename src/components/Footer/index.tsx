@@ -4,19 +4,16 @@ import { Stack, Typography } from "@mui/material";
 
 import spacing from "@/utils/spacing";
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Oswald } from "next/font/google";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { oswald } from "@/utils/fonts";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
+import colors from "@/utils/colors";
+import FadeInItem from "@/components/FadeInItem";
 
 const Footer = () => {
     const t = useTranslations("footer");
+    const reduceMotion = useReducedMotion();
 
     const targetRef = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -24,33 +21,22 @@ const Footer = () => {
         offset: ["start end", "end end"],
     });
 
-    const containerPaddingX = useTransform(
-        scrollYProgress,
-        [0, 1],
-        ["0%", "5%"]
-    );
-    const containerPaddingY = useTransform(
-        scrollYProgress,
-        [0, 1],
-        ["12px", "36px"]
-    );
-    const borderRadius = useTransform(scrollYProgress, [0, 1], ["0px", "16px"]);
+    // Only the artwork moves; text and document layout stay stable during scroll.
+    const backgroundScaleX = useTransform(scrollYProgress, [0, 1], [1 / 0.9, 1]);
 
     return (
         <Stack
             ref={targetRef}
-            component={motion.footer}
-            style={{
-                backgroundColor: "#fff",
-                paddingLeft: containerPaddingX as any,
-                paddingRight: containerPaddingX as any,
-                paddingTop: containerPaddingY as any,
-                paddingBottom: containerPaddingY as any,
+            component="footer"
+            sx={{
+                backgroundColor: colors.background,
+                px: "5%",
+                py: "36px",
                 position: "relative",
+                overflow: "hidden",
             }}
         >
             <Stack
-                component={motion.div}
                 sx={{
                     minHeight: {
                         xs: "20vh",
@@ -60,33 +46,34 @@ const Footer = () => {
                     pb: "1rem",
                 }}
                 style={{
-                    // backgroundColor: colors.primary,
-                    borderRadius: borderRadius as any,
                     justifyContent: "center",
                     alignItems: "center",
                     position: "relative",
-                    overflow: "hidden",
                 }}
             >
-                <Image
-                    src="/footer.webp"
-                    alt="abstract painting"
-                    fill
+                <motion.div
+                    aria-hidden="true"
                     style={{
-                        objectFit: "cover",
-                        zIndex: 0,
-                        filter: "blur(4px) brightness(80%)",
+                        position: "absolute",
+                        inset: 0,
+                        borderRadius: 16,
+                        overflow: "hidden",
+                        scaleX: reduceMotion ? 1 : backgroundScaleX,
                     }}
-                />
+                >
+                    <Image
+                        src="/footer.webp"
+                        alt=""
+                        fill
+                        sizes="100vw"
+                        style={{
+                            objectFit: "cover",
+                            zIndex: 0,
+                            filter: "blur(4px) brightness(80%)",
+                        }}
+                    />
+                </motion.div>
                 <Stack
-                    component={motion.div}
-                    initial={{
-                        opacity: 0,
-                    }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{
-                        delay: 0.5,
-                    }}
                     sx={{
                         px: spacing.tiny,
                         flex: 1,
@@ -94,22 +81,25 @@ const Footer = () => {
                         zIndex: 1,
                     }}
                 >
-                    <Typography
-                        variant="h3"
-                        color="#fff"
-                        textAlign="center"
-                        sx={{
-                            fontSize: {
-                                xs: "1.5rem",
-                                sm: "2rem",
-                                md: "3rem",
-                            },
-                            lineHeight: 1.4,
-                            fontFamily: oswald.style.fontFamily,
-                        }}
-                    >
-                        {t("text")}
-                    </Typography>
+                    <FadeInItem delay={0.5}>
+                        <Typography
+                            variant="h3"
+                            component="p"
+                            color={colors.background}
+                            textAlign="center"
+                            sx={{
+                                fontSize: {
+                                    xs: "1.5rem",
+                                    sm: "2rem",
+                                    md: "3rem",
+                                },
+                                lineHeight: 1.4,
+                                fontFamily: oswald.style.fontFamily,
+                            }}
+                        >
+                            {t("text")}
+                        </Typography>
+                    </FadeInItem>
                 </Stack>
 
                 <Stack
@@ -119,9 +109,10 @@ const Footer = () => {
                     }}
                 >
                     <Typography
-                        color="#fff"
+                        color={colors.background}
                         textAlign="center"
                         variant="subtitle2"
+                        component="p"
                     >
                         {t("copyright", {
                             year: new Date().getFullYear(),

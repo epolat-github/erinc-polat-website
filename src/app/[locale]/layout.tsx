@@ -1,6 +1,6 @@
 import "../global.css";
 import type { Metadata, Viewport } from "next";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/utils/theme";
 import { CssBaseline } from "@mui/material";
@@ -10,16 +10,14 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { siteUrl } from "@/utils/seo";
 
 export const viewport: Viewport = {
     width: "device-width",
     initialScale: 1,
-    maximumScale: 1,
-    minimumScale: 1,
-    userScalable: false,
     colorScheme: "light",
-    themeColor: "#fff",
+    themeColor: colors.background,
 };
 
 export const metadata: Metadata = {
@@ -39,30 +37,22 @@ export const metadata: Metadata = {
         "software",
         "developer",
     ],
-    metadataBase: new URL("https://www.erincpolat.com"),
-    alternates: {
-        canonical: "/",
-        languages: {
-            tr: "/tr",
-            en: "/en",
-        },
-    },
+    metadataBase: new URL(siteUrl),
 };
 
 const RootLayout = async ({
     children,
-    params: { locale },
+    params,
 }: Readonly<{
     children: React.ReactNode;
-    params: { locale: string };
+    params: Promise<{ locale: string }>;
 }>) => {
-    // Ensure that the incoming `locale` is valid
-    if (!routing.locales.includes(locale as any)) {
+    const { locale } = await params;
+
+    if (!hasLocale(routing.locales, locale)) {
         notFound();
     }
 
-    // Providing all messages to the client
-    // side is the easiest way to get started
     const messages = await getMessages();
 
     return (
@@ -76,9 +66,8 @@ const RootLayout = async ({
             >
                 <NextIntlClientProvider messages={messages}>
                     <AppRouterCacheProvider>
-                        <CssBaseline />
-
                         <ThemeProvider theme={theme}>
+                            <CssBaseline />
                             <Navbar />
                             {children}
                         </ThemeProvider>

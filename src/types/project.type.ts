@@ -23,6 +23,7 @@ export interface Project {
     slug: string;
     title: string;
     summary: string;
+    seoDescription: string;
     featuredImages: AssetImage[];
     paragraphs: string[];
     assetRows: AssetRow[];

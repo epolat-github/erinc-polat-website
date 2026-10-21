@@ -2,15 +2,15 @@
 
 import {
     Box,
+    Button,
     ButtonBase,
     Container,
     Grid2,
-    InputAdornment,
-    InputBase,
     Stack,
     Typography,
 } from "@mui/material";
-import colors from "@/utils/colors";
+import { semanticColors } from "@/utils/colors";
+import FormField from "@/components/FormField";
 import React, { forwardRef, useState } from "react";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -19,21 +19,18 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 import spacing from "@/utils/spacing";
-import theme from "@/utils/theme";
 import Image from "next/image";
 import { sendEmail } from "../../../app/actions/sendEmail";
 import { motion } from "framer-motion";
 import { useSnackbar } from "notistack";
-import { LoadingButton } from "@mui/lab";
 import { sendGAEvent } from "@next/third-parties/google";
 import { useTranslations } from "next-intl";
-import { Oswald } from "next/font/google";
+import { oswald } from "@/utils/fonts";
 
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
+type ContactField = "name" | "email" | "message";
+type FieldErrors = Partial<Record<ContactField, string>>;
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const CONTACT_DATA = [
     {
@@ -43,7 +40,7 @@ const CONTACT_DATA = [
             <InsertDriveFileRoundedIcon
                 fontSize="small"
                 sx={{
-                    color: colors.header,
+                    color: semanticColors.textPrimary,
                 }}
             />
         ),
@@ -54,7 +51,7 @@ const CONTACT_DATA = [
         icon: (
             <Image
                 src="/icons/linkedin.svg"
-                alt="LinkedIn logo"
+                alt=""
                 width={22}
                 height={20}
             />
@@ -67,7 +64,7 @@ const CONTACT_DATA = [
             <InstagramIcon
                 fontSize="small"
                 sx={{
-                    color: colors.header,
+                    color: semanticColors.textPrimary,
                 }}
             />
         ),
@@ -78,7 +75,7 @@ const CONTACT_DATA = [
         icon: (
             <Image
                 src="/icons/github.svg"
-                alt="GitHub logo"
+                alt=""
                 width={22}
                 height={20}
             />
@@ -89,18 +86,18 @@ const CONTACT_DATA = [
 interface ContactListRowType {
     text: string;
     Icon: React.ReactNode;
-    onClick: () => void;
+    href: string;
 }
 
 const ContactListRow: React.FC<ContactListRowType> = (props) => {
-    const { text, Icon, onClick } = props;
+    const { text, Icon, href } = props;
 
     return (
         <Stack direction="row">
-            <ButtonBase onClick={onClick}>
+            <ButtonBase component="a" href={href} target="_blank" rel="noopener noreferrer">
                 <Stack
                     sx={{
-                        bgcolor: theme.palette.grey[100],
+                        bgcolor: semanticColors.surface,
                         borderRadius: "50%",
                         justifyContent: "center",
                         alignItems: "center",
@@ -111,7 +108,7 @@ const ContactListRow: React.FC<ContactListRowType> = (props) => {
                     {Icon}
                 </Stack>
                 <Typography
-                    color={theme.palette.grey[800]}
+                    color={semanticColors.textPrimary}
                     sx={{
                         marginLeft: spacing.tiny,
                     }}
@@ -127,31 +124,60 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
     const t = useTranslations("contact_form");
     const { enqueueSnackbar } = useSnackbar();
     const [isSubmittingForm, setIsSubmittingForm] = useState(false);
+    const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+    const [formStatus, setFormStatus] = useState("");
 
-    const openLink = (url: string) => {
-        window.open(url, "_blank");
+    const clearFieldError = (field: ContactField) => {
+        setFormStatus("");
+        setFieldErrors((currentErrors) => {
+            if (!currentErrors[field]) return currentErrors;
+
+            const nextErrors = { ...currentErrors };
+            delete nextErrors[field];
+            return nextErrors;
+        });
     };
 
-    const sendEmailHandler = async (formData: FormData) => {
+    const validateForm = (formData: FormData) => {
+        const errors: FieldErrors = {};
+        const name = String(formData.get("name") ?? "").trim();
+        const email = String(formData.get("email") ?? "").trim();
+        const message = String(formData.get("message") ?? "").trim();
+
+        if (!name) errors.name = t("name_required_error");
+        if (!email) {
+            errors.email = t("email_required_error");
+        } else if (!EMAIL_PATTERN.test(email)) {
+            errors.email = t("email_invalid_error");
+        }
+        if (!message) errors.message = t("message_required_error");
+
+        return errors;
+    };
+
+    const sendEmailHandler = async (
+        form: HTMLFormElement,
+        formData: FormData,
+    ) => {
         try {
             setIsSubmittingForm(true);
+            setFormStatus("");
 
             sendGAEvent({
                 event: "contact_email",
                 value: JSON.stringify(formData),
             });
 
-            const { error, data } = await sendEmail(formData);
+            const { error } = await sendEmail(formData);
 
             if (error) {
-                // TODO show error notification
-                console.log("error");
-
                 if (error?.name === "validation_error") {
+                    setFormStatus(t("validation_error_message"));
                     enqueueSnackbar(t("validation_error_message"), {
                         variant: "error",
                     });
                 } else {
+                    setFormStatus(t("generic_error_message"));
                     enqueueSnackbar(t("generic_error_message"), {
                         variant: "error",
                     });
@@ -159,13 +185,15 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 return;
             }
 
+            form.reset();
+            setFieldErrors({});
+            setFormStatus(t("success_message"));
             enqueueSnackbar(t("success_message"), {
                 variant: "success",
             });
 
-            console.log("success");
-        } catch (err) {
-            console.log("error from client: ", err);
+        } catch {
+            setFormStatus(t("generic_error_message"));
             enqueueSnackbar(t("generic_error_message"), {
                 variant: "error",
             });
@@ -179,7 +207,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
             component={motion.div}
             ref={ref}
             sx={{
-                backgroundColor: "#fff",
+                backgroundColor: semanticColors.background,
                 zIndex: 1,
                 position: "relative",
                 paddingY: spacing.medium,
@@ -189,7 +217,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 component={Stack}
                 maxWidth="lg"
                 sx={{
-                    backgroundColor: "#fff",
+                    backgroundColor: semanticColors.background,
                 }}
                 spacing={spacing.big}
                 direction={{ xs: "column", sm: "row" }}
@@ -204,8 +232,9 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 >
                     <Typography
                         variant="h4"
+                        component="h3"
                         fontWeight="bold"
-                        color={colors.header}
+                        color={semanticColors.textPrimary}
                         sx={{
                             fontFamily: oswald.style.fontFamily,
                         }}
@@ -217,85 +246,97 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         component="form"
                         onSubmit={(e) => {
                             e.preventDefault();
-                            const formData = new FormData(e.currentTarget);
-                            sendEmailHandler(formData);
+                            const form = e.currentTarget;
+                            const formData = new FormData(form);
+                            const errors = validateForm(formData);
+
+                            if (Object.keys(errors).length > 0) {
+                                setFieldErrors(errors);
+                                setFormStatus(t("validation_error_message"));
+                                const firstInvalidField = Object.keys(
+                                    errors,
+                                )[0] as ContactField;
+                                const firstInvalidElement =
+                                    form.elements.namedItem(
+                                        firstInvalidField,
+                                    ) as HTMLElement | null;
+                                firstInvalidElement?.focus();
+                                return;
+                            }
+
+                            setFieldErrors({});
+                            void sendEmailHandler(form, formData);
                         }}
+                        noValidate
                         sx={{
                             width: "100%",
                         }}
                         spacing={spacing.tiny}
                     >
-                        <InputBase
+                        <FormField
                             name="name"
-                            id="name"
+                            label={t("name_label")}
                             placeholder={t("name_placeholder")}
+                            autoComplete="name"
                             required
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    <PersonOutlinedIcon />
-                                </InputAdornment>
-                            }
-                            sx={{
-                                outline: "none",
-                                borderStyle: "solid",
-                                borderColor: "lightgray",
-                                borderRadius: spacing.small,
-                                borderWidth: 1,
-                                px: spacing.tiny,
-                                py: spacing.tiny / 2,
-                            }}
+                            error={fieldErrors.name}
+                            onChange={() => clearFieldError("name")}
+                            icon={<PersonOutlinedIcon />}
                         />
-                        <InputBase
+                        <FormField
                             name="email"
-                            id="email"
+                            label={t("email_label")}
                             placeholder={t("email_placeholder")}
+                            type="email"
+                            autoComplete="email"
+                            inputMode="email"
                             required
-                            startAdornment={
-                                <InputAdornment position="start">
-                                    <EmailOutlinedIcon />
-                                </InputAdornment>
-                            }
-                            sx={{
-                                outline: "none",
-                                borderStyle: "solid",
-                                borderColor: "lightgray",
-                                borderRadius: spacing.small,
-                                borderWidth: 1,
-                                px: spacing.tiny,
-                                py: spacing.tiny / 2,
-                            }}
+                            error={fieldErrors.email}
+                            onChange={() => clearFieldError("email")}
+                            icon={<EmailOutlinedIcon />}
                         />
-                        <InputBase
+                        <FormField
                             name="message"
-                            id="message"
+                            label={t("message_label")}
                             placeholder={t("message_placeholder")}
                             required
                             multiline
                             rows={5}
-                            sx={{
-                                outline: "none",
-                                borderStyle: "solid",
-                                borderColor: "lightgray",
-                                borderRadius: spacing.small,
-                                borderWidth: 1,
-                                px: spacing.tiny,
-                                py: spacing.tiny / 2,
-                            }}
+                            error={fieldErrors.message}
+                            onChange={() => clearFieldError("message")}
                         />
-                        <LoadingButton
+                        <Button
                             loading={isSubmittingForm}
                             type="submit"
                             variant="contained"
                             disableElevation
                             sx={{
-                                color: "#fff",
                                 height: 45,
                                 borderRadius: "12px",
                             }}
                             color="primary"
                         >
                             {t("send_message_button_text")}
-                        </LoadingButton>
+                        </Button>
+                        <Typography
+                            component="p"
+                            role="status"
+                            aria-live="polite"
+                            aria-atomic="true"
+                            sx={{
+                                position: "absolute",
+                                width: "1px",
+                                height: "1px",
+                                padding: 0,
+                                margin: "-1px",
+                                overflow: "hidden",
+                                clip: "rect(0, 0, 0, 0)",
+                                whiteSpace: "nowrap",
+                                border: 0,
+                            }}
+                        >
+                            {formStatus}
+                        </Typography>
                     </Stack>
                 </Stack>
 
@@ -309,8 +350,9 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 >
                     <Typography
                         variant="h4"
+                        component="h3"
                         fontWeight="bold"
-                        color={colors.header}
+                        color={semanticColors.textPrimary}
                         sx={{
                             fontFamily: oswald.style.fontFamily,
                         }}
@@ -323,7 +365,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                             <Typography fontWeight="bold">
                                 {t("contact_info_subtitle")}
                             </Typography>
-                            <Typography>erinc.polat@gmail.com</Typography>
+                            <Typography sx={{ overflowWrap: "anywhere" }}>erinc.polat@gmail.com</Typography>
                         </Stack>
 
                         <Grid2 container rowSpacing={spacing.tiny}>
@@ -331,9 +373,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                                 <Grid2 key={`contact-data-${index}`} size={12}>
                                     <ContactListRow
                                         text={t(contactData.textTranslationKey)}
-                                        onClick={() =>
-                                            openLink(contactData.url)
-                                        }
+                                        href={contactData.url}
                                         Icon={contactData.icon}
                                     />
                                 </Grid2>

@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T20:43:18.399453+00:00",
+  "title": "Design System: Erinç Polat Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Canvas White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7E7E7E",
+          "#9B9B9B",
+          "#B8B8B8",
+          "#D5D5D5",
+          "#F2F2F2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Authority Ink",
+        "canonical": "#111827",
+        "tonalRamp": [
+          "#172135",
+          "#293A5E",
+          "#3B5387",
+          "#4C6CAF",
+          "#738CC2",
+          "#9CAED4",
+          "#C5CFE6",
+          "#EDF0F7"
+        ]
+      },
+      "primary-green": {
+        "role": "primary",
+        "displayName": "Primary Green",
+        "canonical": "#3CCF91",
+        "tonalRamp": [
+          "#0F3D2A",
+          "#196646",
+          "#238F62",
+          "#2DB87E",
+          "#47D297",
+          "#70DCAE",
+          "#ADEBD1",
+          "#EBFAF3"
+        ]
+      },
+      "secondary-brick": {
+        "role": "secondary",
+        "displayName": "Entrepreneurial Brick",
+        "canonical": "#B94E3A",
+        "tonalRamp": [
+          "#3A1912",
+          "#672B20",
+          "#933E2E",
+          "#BF513C",
+          "#CF7766",
+          "#DD9E93",
+          "#EBC6BF",
+          "#F9EEEC"
+        ]
+      },
+      "supporting-text": {
+        "role": "neutral",
+        "displayName": "Supporting Slate",
+        "canonical": "#5E6673",
+        "tonalRamp": [
+          "#22252A",
+          "#3D424A",
+          "#575E6A",
+          "#717B8A",
+          "#9198A5",
+          "#B1B6BF",
+          "#D1D4D9",
+          "#F1F2F4"
+        ]
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "Authority Ink — Dark Surface",
+        "canonical": "#111827",
+        "tonalRamp": [
+          "#172135",
+          "#293A5E",
+          "#3B5387",
+          "#4C6CAF",
+          "#738CC2",
+          "#9CAED4",
+          "#C5CFE6",
+          "#EDF0F7"
+        ]
+      },
+      "soft-surface": {
+        "role": "neutral",
+        "displayName": "Soft Surface",
+        "canonical": "#F0F3F6",
+        "tonalRamp": [
+          "#1D2630",
+          "#324354",
+          "#486179",
+          "#5E7E9D",
+          "#829BB4",
+          "#A6B8CA",
+          "#CBD5E0",
+          "#EFF2F5"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field Border",
+        "canonical": "#D8DEE8",
+        "tonalRamp": [
+          "#1C2430",
+          "#323F55",
+          "#485A7A",
+          "#5D769E",
+          "#8194B5",
+          "#A5B3CA",
+          "#CAD2E0",
+          "#EFF1F6"
+        ]
+      },
+      "subtle-surface": {
+        "role": "neutral",
+        "displayName": "Subtle Surface",
+        "canonical": "#F6F8FA",
+        "tonalRamp": [
+          "#1B2631",
+          "#304357",
+          "#45617C",
+          "#5A7EA2",
+          "#7E9BB7",
+          "#A4B8CC",
+          "#C9D5E1",
+          "#EFF2F6"
+        ]
+      },
+      "primary-text": {
+        "role": "supporting",
+        "displayName": "Primary Green Text",
+        "canonical": "#3CCF91"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Hero Display",
+        "purpose": "Name-level hero statements only."
+      },
+      "headline": {
+        "displayName": "Editorial Heading",
+        "purpose": "Major section and contact headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable explanatory and project copy."
+      },
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Compact primary navigation labels."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project and card titles."
+      }
+    },
+    "shadows": [
+      {
+        "name": "bento-ambient",
+        "value": "0 0 0 1px rgba(0,0,0,.03), 0 2px 4px rgba(0,0,0,.05), 0 12px 24px rgba(0,0,0,.05)",
+        "purpose": "Large featured bento surfaces."
+      },
+      {
+        "name": "menu-lift",
+        "value": "0 10px 15px -3px rgba(0,0,0,.1)",
+        "purpose": "Mobile navigation menu."
+      }
+    ],
+    "motion": [
+      {
+        "name": "reveal-standard",
+        "value": "600ms ease-out",
+        "purpose": "Default FadeInItem and RevealItem entrance duration; reduced motion uses a 150ms fade without delay or translation. WelcomeSection overrides durations to 550–600ms with no entrance delays below 900px."
+      },
+      {
+        "name": "interactive-dot-pulse",
+        "value": "2s ease-in-out infinite",
+        "purpose": "InteractiveHoverButton resting dot pulse; disabled during interaction and for reduced motion."
+      },
+      {
+        "name": "interactive-dot-fill",
+        "value": "550ms cubic-bezier(0.4,0,0.2,1)",
+        "purpose": "InteractiveHoverButton expanding dot; disabled for reduced motion."
+      },
+      {
+        "name": "project-scale-entrance",
+        "value": "650ms cubic-bezier(0.16,1,0.3,1)",
+        "purpose": "WelcomeSection project previews scale from 0.96 to 1 after image load and viewport visibility. Reduced motion removes scale and uses a 150ms fade without delay."
+      },
+      {
+        "name": "project-float",
+        "value": "6px ease-in-out; 8s / 10s full cycles",
+        "purpose": "Only Actio and Zeynep Dikdüş float on desktop. Pause offscreen and in hidden tabs; disable below 900px and for reduced motion."
+      },
+      {
+        "name": "welcome-cta-entrance",
+        "value": "550ms ease-out; 350ms desktop delay; 10px rise",
+        "purpose": "Both hero CTAs reveal together. Mobile entrance delay is zero; reduced motion removes translation and uses a 150ms fade without delay."
+      },
+      {
+        "name": "footer-artwork-scroll",
+        "value": "scroll-linked scaleX(1 / 0.9 → 1)",
+        "purpose": "Footer uses fixed 5% horizontal and 36px vertical padding. Only decorative artwork scales from full width to its inset frame; text and layout remain stable. Reduced motion fixes scaleX at 1. The closing paragraph reuses FadeInItem with a 500ms normal delay and a delay-free 150ms reduced-motion fade."
+      },
+      {
+        "name": "global-reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "src/app/global.css switches smooth scrolling to auto and disables .scale-on-hover transitions and enlargement. Navbar home navigation uses behavior: auto so global CSS controls scrolling."
+      },
+      {
+        "name": "section-flow-pattern",
+        "value": "10s linear infinite; paired beats 650ms apart, 4.8s forward travel followed by a pause; horizontal delays 0/4s, vertical 2/6s",
+        "purpose": "Faded reference-style square grid in WhoAmISection. Short gradient pulses travel left-to-right and top-to-bottom along aligned grid lines. Pauses offscreen/in hidden tabs; reduced motion retains only the static grid."
+      },
+      {
+        "name": "work-card-entrance",
+        "value": "700ms cubic-bezier(0.22,0.61,0.36,1); opacity 450ms; once when the stationary outer layout box enters the viewport by 48px",
+        "purpose": "MyWorkCard enters from below (40px desktop, 28px below 900px) with an 8px desktop lateral offset following animationDirection. useInView observes the untransformed outer box with once:true, amount:some and margin:0px 0px -48px 0px, triggering when the layout box extends 48px into the viewport. Opacity goes from 0 to 1 during entrance. Once started, the animation completes even if scrolling stops and never resets. No independent image-scale entrance remains. Reduced motion renders the final state immediately. Optional entranceDelay (default 0 seconds) delays both translation and opacity; the projects listing passes 0.32 seconds. Reduced motion ignores the delay."
+      },
+      {
+        "name": "work-card-interaction",
+        "value": "420ms cubic-bezier(0.22,1,0.36,1)",
+        "purpose": "Fine-pointer hover and keyboard focus scale contained imagery to 1.02 and translate the decorative arrow 3px. Reduced motion disables transforms and transitions. The external 3px green focus outline stays visible; no button shadows."
+      },
+      {
+        "name": "projects-introduction-entrance",
+        "value": "500ms ease-out; title delay 0ms, subtitle delay 160ms, card delay 320ms",
+        "purpose": "src/app/[locale]/projects/page.tsx reuses RevealItem for the title (20px rise) and subtitle (16px rise). Listing cards pass entranceDelay={0.32} after their viewport trigger. Reduced motion removes text translation and delays, uses a 150ms text fade, and shows cards immediately."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "0px"
+      },
+      {
+        "name": "sm",
+        "value": "600px"
+      },
+      {
+        "name": "md",
+        "value": "900px"
+      },
+      {
+        "name": "lg",
+        "value": "1200px"
+      },
+      {
+        "name": "xl",
+        "value": "1536px"
+      }
+    ],
+    "responsive": {
+      "projectCard": "MyWorkCard uses full width, wrapping text, a 7:5 contained-image media frame capped at 400px and 16px corners on surfaceSubtle (#F6F8FA). Text minimum height is 0 below 900px and 200px above. Props: title, description, images, href, animationDirection (left/right, default left), sizes (optional Next Image override), titleComponent (h2, h3 or h5, default h3 under the home section H2), entranceDelay (seconds, default 0; ignored for reduced motion). The listing passes titleComponent=\"h2\" under its H1; visual h5 typography remains unchanged. Default sizes matches MyWorksSection: one column below 900px, two columns with a 64px gutter above; project listing overrides sizes for its 600px breakpoint and 32px gutter.",
+      "singleImageRow": "**SingleImageRow** — `src/components/ProjectDetails/SingleImageRow/index.tsx`: contained gallery image on `semanticColors.surfaceSubtle` (`#F6F8FA`, matching MyWorkCard) opening the existing fullscreen modal. Props: `imageUrl`, `alt`, optional `containerStyle` (`sx` override), `onImageOpen(imageUrl, previewUrl?)` to delegate to a shared viewer. Usage: `<SingleImageRow imageUrl={url} alt={alt} />`. Media height is `clamp(220px, 56vw, 640px)`. Source aspect ratio limits responsive download width to the actual contained image width. Clicking captures the loaded thumbnail for the modal preview. With `onImageOpen`, the row delegates opening and does not render its local modal.",
+      "multipleImageRow": "**MultipleImageRow** — `src/components/ProjectDetails/MultipleImageRow/index.tsx`: gallery images on `semanticColors.surfaceSubtle` (`#F6F8FA`, matching MyWorkCard) using the same fullscreen modal. Props: `images` (`url`, `alt`), optional `containerStyle` (`sx` override), `onImageOpen(imageUrl, previewUrl?)` to delegate to a shared viewer. Usage: `<MultipleImageRow images={images} />`. Below 600px images stack, each with height `clamp(220px, 75vw, 400px)`; above, they share a row with height `clamp(280px, 45vw, 640px)`. Each image’s responsive download width accounts for its source aspect ratio and frame height. Clicking captures the loaded thumbnail for the modal preview. With `onImageOpen`, the row delegates opening and does not render its local modal.",
+      "welcome": "Hero CTAs span available width below 600px with a 16px gap; above they wrap with a 150px minimum and a 32px gap. They have a 40px minimum height with multiline labels. IhrHaus preview max-width: 100%. Below 900px, WelcomeSection adds 96px bottom padding to accommodate the collage's 100px bottom overflow and preserve separation from WhoAmISection; desktop bottom padding is zero.",
+      "contact": "ContactHeader text uses width: 100%, min-width: 0 and overflow-wrap: anywhere. Path: src/components/ContactSection/ContactHeader/index.tsx. Prop: scrollYProgress (MotionValue<number>). Usage: <ContactHeader scrollYProgress={scrollYProgress} />. A module-level motion.create(Stack) wrapper accepts the opacity and vertical MotionValues directly, without type assertions. ContactForm email also uses overflow-wrap: anywhere.",
+      "process": "ProcessSection has no fixed mobile height and a 750px desktop minimum. ProcessCard grows with text; padding is 16px below 600px and 32px above. Image minimum height: 220px at xs, 240px at sm, 180px at md. Optional ProcessCard imagePosition (center by default, or bottom) controls contained image alignment. Design and Development use bottom with zero bottom padding at every breakpoint; artwork clips to card corners. Improvement stays centered. Below 900px, optional mobileImageHeight overrides the image-area minimum height and mobileImageScale (default 1) scales artwork from the bottom. Design uses mobileImageHeight={360}; Development uses mobileImageScale={1.35}. At 900px and above original desktop sizing is retained; Improvement sizing remains unchanged. ProcessCard background uses semanticColors.surfaceSubtle (#F6F8FA).",
+      "biography": "WhoAmISection uses a flexible text column and 320px square portrait at 900px and above. Below 900px, the portrait follows the introduction and sole project action and is capped at 360px; service columns stack. The project action reuses AnimatedTextLink to link to #works and uses intrinsic width, 16px semibold brick text via a section-specific semanticColors.actionSecondary override, a 20px right arrow and a 44px minimum height. Its 2px underline scales from left to right over 280ms on hover or keyboard focus, immediately for reduced motion. It retains a visible focus outline and an unfilled surface. The section omits its contact CTA and retains a 96px anchor offset. On hover or keyboard focus, its arrow moves 3px horizontally and back in a repeating 1600ms ease-in-out cycle; it stops on leaving the interaction and is disabled for reduced motion. FlowPattern spans the complete section at every breakpoint behind the content; its clipped layers cannot cause page overflow. The portrait-local DotPattern is removed.",
+      "worksSection": "MyWorksSection uses a single column below 900px, a staggered two-column layout above, 32px/64px gaps below/above 900px, and top padding 64px below 600px, 96px at 600–899px, 192px above. Heading minimum height is 0 below 900px and 150px above.",
+      "navigation": "Navbar mobile home control and menu trigger are at least 44px high; the menu trigger is at least 44px wide. Mobile logo artwork stays 75x25px. Navbar overrides InteractiveHoverButton minHeight to 44px below 900px and 36px above. LanguageSelector displays the active locale as EN or TR in a single minimum 44x44px native locale Link; clicking switches to the other language."
+    },
+    "imageLoading": {
+      "sizes": "Active portfolio `fill` images declare `sizes` matching their layout: process columns, a portrait at 320px on desktop and capped at 360px on mobile, project cards divided by image count, gallery rows divided by image count, and a modal capped at 900px. Footer artwork uses `100vw` to cover its full-width transformed state. `ProcessCard` accepts an optional `sizes` override; `ProcessSection` supplies the narrower design-column width. Existing gallery `containerStyle` overrides should keep the declared image width in mind.",
+      "quality": "Next Image uses default quality 75 for process artwork, portrait, hero previews and cards. Modal images use quality 90. Gallery thumbnails retain quality 50, explicitly allowed alongside 75 and 90 in `next.config.mjs`. Source assets remain intact.",
+      "deviceSizes": [
+        320,
+        480,
+        640,
+        750,
+        828,
+        1080,
+        1200,
+        1920,
+        2048,
+        3840
+      ],
+      "heroPreload": "Only the main FitNLit hero preview has an image preload, restricted by `media=\"(min-width: 900px)\"`. Its `srcset` and `sizes` are generated with `getImageProps` from the same props as the image. Below 900px the collage follows the text and uses lazy loading. Other portfolio imagery stays lazy loaded except the explicitly opened modal image.",
+      "modal": "**FullScreenImageModal** — `src/components/FullScreenImageModal/index.tsx`: contained image viewer. Props: `isOpen`, `onClose`, optional `imageUrl`, `alt`, `previewUrl` (the loaded thumbnail’s exact `currentSrc`), `navigation` (`index`, `count`, `onPrevious`, `onNext`). Usage: `<FullScreenImageModal isOpen={open} onClose={close} imageUrl={url} previewUrl={previewUrl} alt={alt} />`. Reuses the loaded preview immediately until the quality-90 image finishes decoding; a failed full-size request leaves the preview visible. Only the opened modal loads its high-quality image, eagerly and with high fetch priority. Its positioned image frame is capped at 900px wide, `90vh` high and the viewport height minus 64px; `sizes` accounts for the source aspect ratio and both bounds while retaining browser DPR selection. When `navigation.count > 1`, a 56px footer outside the image holds 44×44px previous/next controls and a localized live position counter. Image height and responsive source sizing subtract the footer height. Left/right arrow keys navigate while open; modified shortcuts are ignored and Escape retains normal close behavior. Without navigation or with only one image, the footer is hidden. Navigation and loading/error messages use matching accessibility keys in both locales. If no loaded preview exists, a labeled progress indicator appears while loading; an error message replaces it if loading fails.",
+      "processProps": "ProcessCard adds optional sizes; default matches the wider desktop column and ProcessSection overrides it for the narrower design column. Optional imagePosition: center | bottom (default center). Usage: <ProcessCard title={title} description={description} imageUrl=\"/services/design.webp\" alt={alt} imagePosition=\"bottom\" />. Development supplies mobile sizes matching its 1.35x image scale.",
+      "metadata": "Gallery and modal aspect ratios come from `src/data/project-image-dimensions.json`, generated from the original assets by `scripts/generate-project-image-dimensions.mjs`. Refresh with `yarn images:metadata`; `predev` and `prebuild` also refresh it. Unknown sources fall back to width-only sizing. Custom gallery `containerStyle` changes to media dimensions need corresponding sizing updates.",
+      "gallery": "**ImageGallery** — `src/components/ProjectDetails/ImageGallery.tsx`: client component composing the existing SingleImageRow and MultipleImageRow with one shared fullscreen viewer. Prop: `assetRows` (`AssetRow[]`). Usage: `<ImageGallery key={slug} assetRows={assetRows} />`. Retains the existing project assets Stack layout and page order, flattening all rows into one navigable sequence. Opens the clicked image, reuses loaded thumbnails on navigation, and wraps from the final image to the first and back. Only the selected full-quality image is mounted; no adjacent-image prefetch. The parent keys by project slug to reset selection between projects. Rows retain their local modal behavior when used without `onImageOpen`."
+    },
+    "composition": {
+      "biography": "`src/components/WhoAmISection/index.tsx`: server-rendered, localized introduction for prospective clients. No props; usage: `<WhoAmISection />`. A two-part `h2`, short introduction, project anchor link, and portrait precede three open, divider-led service columns: end-to-end development, AI-powered products/automation, and agentic coding with human engineering oversight. No individual project examples or metrics appear here. Desktop uses a flexible text column and 320px square portrait; below 900px the portrait follows the introduction and project action, and service columns stack. The portrait caps at 360px on mobile. The sole action reuses `AnimatedTextLink` to link to `#works`, with a section-specific `semanticColors.actionSecondary` override for 16px semibold brick text, a 20px right arrow, and a 44px minimum height. A 2px underline scales from left to right over 280ms on hover or keyboard focus; the arrow moves 3px horizontally and back in a repeating 1600ms ease-in-out cycle during the same interaction. Leaving hover/focus returns it to rest. Reduced motion makes the underline immediate and disables arrow movement. The link retains a visible focus outline, intrinsic width and an unfilled surface. The contact CTA is omitted from this section. The section retains `id=\"about\"`, adds a named section landmark and 96px anchor offset, and uses semantic color tokens. Entrance and portrait motion stay in the existing `FadeInItem` and `RevealItem` client components; `FlowPattern` supplies a full-section square grid fading toward all edges, with paired heartbeat pulses traveling left-to-right and top-to-bottom along grid lines, paused offscreen/in hidden tabs and static for reduced motion, replacing the portrait-local DotPattern; CTA interaction styles live in `AnimatedTextLink`; service copy is visible without entrance animation. Copy lives under matching `who_am_i_section` keys in both locale files.",
+      "projects": "`src/components/MyWorksSection/index.tsx`: server-rendered selected project layout and localized summaries. No props; usage: `<MyWorksSection />`. Full project data and locale selection stay on the server; cards receive serializable display props and `href`. Uses a single column below 900px, preserving the staggered two-column desktop layout above. Gaps are 32px below 900px and 64px above; top padding is 64px below 600px, 96px at 600–899px and 192px on desktop. The heading block has no minimum height on small screens. The project-list CTA reuses `AnimatedTextLink` with an explicitly locale-prefixed destination, giving one keyboard stop, visible focus and the shared underline/arrow treatment. The project listing at src/app/[locale]/projects/page.tsx retains two columns from 600px and supplies its own image sizes override.",
+      "boundaries": "MyWorkCard, FadeInItem and RevealItem explicitly declare use client. MyWorkCard requires href resolved by the locale-aware Link, with no nested interactive CTA or extra keyboard stop. Its 700ms entrance observes the stationary outer box and starts when the box extends 48px into the viewport, using a fixed bottom inset rather than a percentage threshold. Opacity reaches 1 in 450ms; the animation completes independently of scrolling and never resets. Images have no separate entrance-scale animation. Reduced motion shows the full card immediately. The focus outline is outside the unclipped link; clipping is inside visual content. FadeInItem and RevealItem retain their documented timings.",
+      "process": "src/components/ProcessSection/index.tsx and ProcessCard render on the server; ProcessSection has no props, usage <ProcessSection /> and getTranslations for localized copy.",
+      "animatedTextLink": "src/components/AnimatedTextLink/index.tsx is a client component rendering a native MUI link by default. Required props: children, href. Optional icon replaces the default right arrow; icon={null} hides it. Standard MUI Link props (excluding underline) plus sx style overrides are supported. Usage: <AnimatedTextLink href=\"#works\">Explore my work</AnimatedTextLink>. WhoAmISection delegates all project CTA styles and interactions to this component. WhoAmISection overrides sx.color with semanticColors.actionSecondary (brick); icon and underline inherit it. The reusable default and focus ring remain green. MyWorksSection also reuses AnimatedTextLink for the project-list CTA with a server-resolved locale-prefixed href, retaining one keyboard stop and the shared underline/arrow/focus behavior.",
+      "flowPattern": "src/components/FlowPattern/index.tsx: decorative client component, no props; usage <FlowPattern /> in a positioned, isolated section with content at zIndex 1. Full-bounds aria-hidden, pointer-transparent clipped layer at zIndex 0. Stationary 1px square grid with 7.5% green alpha; cells 64px below 900px and 96px above. A radial ellipse at 50%/55% fades the grid toward all edges, following the supplied reference on white. Two horizontal tracks at rows 3 and 9/6 (mobile/desktop), and two vertical tracks at columns 2/4 and 5/10, carry paired 144px gradient segments with 28% peak green alpha and 650ms spacing. Each 10-second cycle travels forward for 4.8s then pauses. Track delays: horizontal 0/4s, vertical 2/6s. Only transforms and opacity animate. useInView and document visibility pause offscreen/hidden animation; reduced motion hides pulse tracks and retains the static grid. An intersected vertical mask fades the grid and pulses below 40% section height to 35% opacity at 60% and fully transparent at 76%, keeping capability divider lines distinct.",
+      "projectsContactClosing": "**Projects listing contact closing** — `src/app/[locale]/projects/page.tsx`: server-rendered section after the project grid; no new component or props. A named section landmark (`aria-labelledby=\"projects-contact-title\"`) contains an Oswald H2, short localized paragraph and the existing AnimatedTextLink pointing to `/${locale}/#contact`. Usage is built into the Projects page. A quiet semantic border separates it from the list; content stacks below 900px and becomes a text/action row above. Heading sizes are 32px / 40px at xs / md; the link retains its 44px minimum height, shared focus and reduced-motion behavior. Copy lives under matching `projects.contact_title`, `contact_description` and `contact_cta` keys in both locales. The page container uses 32px bottom padding below 900px and 96px above; combined with the footer’s 36px top padding, the closing-to-artwork gap is 68px on mobile and 132px on desktop.",
+      "projectsIntroduction": "**Projects listing introduction** — `src/app/[locale]/projects/page.tsx`: server-rendered page header with a large Oswald H1 and introductory paragraph stacked at every viewport, separated by a 16px gap. Title sizes are 48px below 600px, 64px from 600px and 80px from 1200px, with weight 600, line-height 1.1 and -0.02em tracking; this is a page-specific heading treatment. Paragraph sizes are 18px / 20px / 22px at xs / sm / md, with a 48ch maximum width, line-height 1.5 and semanticColors.textMuted. No category row is rendered. Page top padding is 112px below 600px and 128px above, clearing the fixed navbar. The project grid follows with a 32px gap. No new reusable component or props; usage is built into Projects. Copy uses projects.title and projects.subtitle in both locales. Both texts reuse `RevealItem`: the title starts immediately (20px travel), the subtitle follows after 160ms (16px travel), each lasting 500ms. Listing cards use `entranceDelay={0.32}` to follow the text stagger after their existing viewport trigger. Reduced motion removes text translation and stagger delays, uses the shared 150ms text fade, and shows cards immediately.",
+      "projectDetailsTopSpacing": "**Project details top spacing** — `src/app/[locale]/projects/[slug]/page.tsx`: the main content row uses 112px top padding below 900px to clear the fixed navbar’s initial 80px height and leave a 32px gap before the project title. Desktop retains 144px top padding. No new component or props; applies to every project and both locales.",
+      "headingSemantics": "Home and project detail routes each render one `main` and one H1. WelcomeSection uses the existing name display as H1; its service summary and service lines remain visually unchanged paragraphs. Home section titles use H2, with capability, process, project-card and contact-form titles at H3. The project listing keeps its H1 and H2 cards. Project details use the project name as H1 with the existing visual H3 treatment. Footer copy is paragraph text. No new props are added to these sections; usage remains `<WelcomeSection />`, `<ProcessSection />`, `<MyWorksSection />`, `<Footer />`."
+    },
+    "semanticColors": {
+      "source": "Named semanticColors export in src/utils/colors.ts; default colors export retained for compatibility.",
+      "roles": {
+        "background": "#FFFFFF",
+        "surface": "#F0F3F6",
+        "textPrimary": "#111827",
+        "textMuted": "#5E6673",
+        "border": "#D8DEE8",
+        "actionPrimary": "#3CCF91",
+        "onActionPrimary": "#FFFFFF",
+        "actionSecondary": "#B94E3A",
+        "onActionSecondary": "#FFFFFF",
+        "focusRing": "#3CCF91",
+        "surfaceSubtle": "#F6F8FA"
+      },
+      "theme": "src/utils/theme.ts maps actions, text, backgrounds and divider to MUI. CssBaseline renders inside ThemeProvider. Light only; dark mode and automatic system-theme switching are outside scope.",
+      "focus": "MuiButtonBase supplies a 3px focusRing outline with 3px offset for Mui-focusVisible. Fields use the same token; InteractiveHoverButton retains its component-specific brick focus outline.",
+      "migration": "ProcessCard backgrounds and MyWorkCard media use surfaceSubtle (#F6F8FA); gallery backgrounds use surface; ChipRow uses surface/textMuted. ContactForm uses semantic backgrounds, text, icon surfaces, border and focusRing with MUI error.main for invalid fields. MyWorkCard uses the theme Divider instead of a translucent white override. Project detail white background uses the central palette.",
+      "componentContracts": {
+        "ChipRow": "src/components/ProjectDetails/ChipRow/index.tsx: labels string[], optional containerProps StackProps and chipProps ChipProps. Usage: <ChipRow labels={[\"React\", \"Next.js\"]} />.",
+        "ContactForm": "src/components/ContactSection/ContactForm/index.tsx: no configuration props; optional forwarded ref identifies the section for parent scroll behavior. Usage: <ContactForm ref={targetRef} />. Existing validation/submission behavior is retained. Name, email and message fields now reuse FormField for shared presentation and accessibility; validation, first-error focus, status and submission stay in ContactForm.",
+        "FormField": "src/components/FormField/index.tsx (default import @/components/FormField, exported type FormFieldProps): client component for shared InputBase styles, optional decorative leading icon and associated localized error message. Required name and label; id defaults to name; optional error is a message string and icon supplies an adornment. Other InputBase props (except error/startAdornment) and sx overrides are supported. Preserves 1px border, 32px radius, 16px horizontal and 8px vertical padding, and 3px green focus outline with 3px offset. Label, invalid state and described-by error reference apply to the native input/textarea; existing inputProps aria-describedby ids are preserved. Usage: <FormField name=\"email\" label={t(\"email_label\")} type=\"email\" error={fieldErrors.email} onChange={() => clearFieldError(\"email\")} />. ContactForm retains validation, submission, first-error focus and field-specific props."
+      }
+    },
+    "localization": {
+      "messages": "src/locales/tr.json and en.json have matching keys and interpolation variables. project_details.visit_project is resolved on the server with the route locale.",
+      "previews": "src/components/WelcomeSection/ProjectsOverview/index.tsx: client component, no props, usage <ProjectsOverview />. Uses welcome_section fitnlit_alt, actio_alt, ihrhaus_alt and zeynep_alt for actual images; the resource-only preload shares sizing props.",
+      "portrait": "WhoAmISection uses who_am_i_section.portrait_alt.",
+      "projectImages": "Existing locale-specific src/data/projects.tr.ts and projects.en.ts store screen-specific alt descriptions, passed unchanged through cards, gallery rows and modals.",
+      "modal": "FullScreenImageModal preserves supplied alt, including empty string; absent alt falls back to accessibility.project_image. Close uses accessibility.close_image; navigation uses previous_image, next_image and image_position (current, total). Loading and error messages use loading_image and image_load_error in both locales.",
+      "navigation": "`src/components/Navbar/index.tsx`: no props; usage: `<Navbar />`. Desktop and mobile home controls are locale-aware `Link` anchors to `/` and use `navbar.home` for their accessible name, with an empty alt on the redundant logo image. Both navigation menus render native links targeting localized home sections through `/#about`, `/#process`, `/#works` and `/#contact`, including from nested project routes. The mobile home control, menu trigger and contact CTA have a 44px minimum hit-area height; the menu trigger is at least 44px wide. Logo artwork remains 75×25px on mobile. `src/components/LanguageSelector/index.tsx`: no props; usage: `<LanguageSelector />` in Navbar on desktop and in the mobile menu. A locale-aware `Link` anchor displays the active locale as EN or TR; its real `href` and `hrefLang` target the other language while retaining the current pathname. Client navigation uses `replace`, preserving the existing history behavior. Uses 14px semibold primary text, a localized accessible name identifying the target language, a minimum 44×44px hit area and the shared keyboard focus treatment. ContactForm CV and social destinations render native anchors with noopener noreferrer and target=_blank."
+    }
+  },
+  "components": [
+    {
+      "name": "Accent CTA",
+      "kind": "button",
+      "refersTo": "button-accent",
+      "description": "Primary hero action using the exact primary green with white text.",
+      "html": "<button class=\"ds-btn-accent\">İletişime Geç</button>",
+      "css": ".ds-btn-accent { background:#3CCF91; color:#FFFFFF; min-width:150px; height:40px; padding:8px 24px; border:0; border-radius:4px; font:500 14px Roboto,sans-serif; transition:background-color 180ms ease-out; } .ds-btn-accent:hover { background:#3CCF91; } .ds-btn-accent:focus-visible { outline:3px solid #3CCF91; outline-offset:3px; } .ds-btn-accent, .ds-btn-accent:is(:hover,:active,:focus-visible,:disabled) { box-shadow:none; }"
+    },
+    {
+      "name": "Submit CTA",
+      "kind": "button",
+      "refersTo": "button-submit",
+      "description": "Form action using the exact primary green with white text.",
+      "html": "<button class=\"ds-btn-submit\">Mesajı yolla</button>",
+      "css": ".ds-btn-submit { background:#3CCF91; color:#FFFFFF; height:45px; padding:8px 24px; border:0; border-radius:12px; font:500 14px Roboto,sans-serif; transition:background-color 180ms ease-out; } .ds-btn-submit:hover { background:#3CCF91; } .ds-btn-submit:focus-visible { outline:3px solid #3CCF91; outline-offset:3px; } .ds-btn-submit, .ds-btn-submit:is(:hover,:active,:focus-visible,:disabled) { box-shadow:none; }"
+    },
+    {
+      "name": "Form Field",
+      "kind": "input",
+      "refersTo": "form-field",
+      "description": "src/components/FormField/index.tsx (default import @/components/FormField, exported type FormFieldProps): client component for shared InputBase styles, optional decorative leading icon and associated localized error message. Required name and label; id defaults to name; optional error is a message string and icon supplies an adornment. Other InputBase props (except error/startAdornment) and sx overrides are supported. Preserves 1px border, 32px radius, 16px horizontal and 8px vertical padding, and 3px green focus outline with 3px offset. Label, invalid state and described-by error reference apply to the native input/textarea; existing inputProps aria-describedby ids are preserved. Usage: <FormField name=\"email\" label={t(\"email_label\")} type=\"email\" error={fieldErrors.email} onChange={() => clearFieldError(\"email\")} />. ContactForm retains validation, submission, first-error focus and field-specific props.",
+      "html": "<input class=\"ds-field\" value=\"E-posta adresi\" aria-label=\"E-posta adresi\">",
+      "css": ".ds-field { box-sizing:border-box; width:100%; background:#FFFFFF; color:#111827; border:1px solid #D8DEE8; border-radius:32px; padding:8px 16px; font:400 16px Roboto,sans-serif; } .ds-field:focus-visible { outline:3px solid #3CCF91; outline-offset:3px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "`src/components/MyWorkCard/index.tsx`: a single full-width, locale-aware project link with contained imagery on `semanticColors.surfaceSubtle` (`#F6F8FA`), a 7:5 media frame capped at 400px, 16px corners and wrapping text. Props: `title`, `description`, `images` (`url`, `alt`), `href`, optional `animationDirection` (`left` by default, or `right`), optional `sizes` (Next Image source-size override), and optional `titleComponent` (`\"h2\" | \"h3\" | \"h5\"`, defaults to `\"h3\"` under the home section H2), and optional `entranceDelay` (seconds, defaults to 0; applies to translation and opacity, ignored for reduced motion). The title keeps its visual `h5` variant; the projects listing passes `titleComponent=\"h2\"` under its page H1, while home cards use the default H3. The default `sizes` matches MyWorksSection: one column below 900px and two above with a 64px gutter; the project listing supplies its own sizing for its 600px breakpoint and 32px gutter. Entrance observes the stationary outer layout box with `useInView({ once: true, amount: \"some\", margin: \"0px 0px -48px 0px\" })`, using a fixed 48px bottom viewport inset rather than a percentage threshold. Once that box extends 48px into the viewport, the card enters from below over 700ms (40px desktop, 28px below 900px), with an 8px lateral offset on desktop following `animationDirection` and `cubic-bezier(0.22, 0.61, 0.36, 1)`. Opacity goes from 0 to 1 over 450ms as part of that entry. Once triggered, the sequence completes independently of scrolling and never resets. There is no separate image-scale entrance; imagery stays at its natural scale after arrival. Reduced motion shows the full card immediately without entrance movement or fading. Fine-pointer hover and keyboard focus scale imagery 1.02× and move the arrow 3px over 420ms with `cubic-bezier(0.22, 1, 0.36, 1)`; reduced motion disables these transforms/transitions. Only the media is clipped; the link's external 3px focus outline remains visible. The visual CTA is a noninteractive span, with no additional keyboard stop. Text has no minimum height below 900px and a 200px minimum above. Usage: `<MyWorkCard title={title} description={summary} images={images} href=\"/projects/fitnlit\" titleComponent=\"h2\" entranceDelay={0.32} animationDirection=\"left\" />`.",
+      "html": "<a class=\"ds-project-card\" href=\"/en/projects/fitnlit\"><div class=\"ds-project-media\"><div class=\"ds-project-art\" aria-hidden=\"true\"></div></div><div class=\"ds-project-copy\"><h2 class=\"ds-project-title\">Project title</h2><hr><p>Project description</p><span class=\"ds-project-cta\">View project <span class=\"ds-project-arrow\" aria-hidden=\"true\">→</span></span></div></a>",
+      "css": ".ds-project-card { display:block; width:100%; min-width:0; border-radius:16px; overflow-wrap:anywhere; color:#111827; text-decoration:none; font-family:Roboto,sans-serif; box-shadow:none; } .ds-project-card:focus-visible { outline:3px solid #3CCF91; outline-offset:3px; } .ds-project-media { aspect-ratio:7/5; max-height:400px; overflow:hidden; background:#F6F8FA; border-radius:16px; } .ds-project-art { height:100%; } .ds-project-copy { display:flex; flex-direction:column; min-height:200px; } .ds-project-title { margin:16px 16px 0; font-size:24px; line-height:1.3; } .ds-project-card hr { margin:16px; border:0; border-top:1px solid #D8DEE8; opacity:.6; } .ds-project-card p { margin:0 16px 16px; line-height:1.5; } .ds-project-cta { display:flex; align-items:center; gap:8px; align-self:flex-end; min-height:44px; margin:auto 16px 5.33px; color:#3CCF91; font-size:16px; font-weight:500; } .ds-project-art,.ds-project-arrow { transition:transform 420ms cubic-bezier(.22,1,.36,1); } .ds-project-card:focus-visible .ds-project-art { transform:scale(1.02); } .ds-project-card:focus-visible .ds-project-arrow { transform:translateX(3px); } @media (hover:hover) and (pointer:fine) { .ds-project-card:hover .ds-project-art { transform:scale(1.02); } .ds-project-card:hover .ds-project-arrow { transform:translateX(3px); } } @media (max-width:899.95px) { .ds-project-copy { min-height:0; } } @media (prefers-reduced-motion:reduce) { .ds-project-card .ds-project-art,.ds-project-card .ds-project-arrow { transition:none; transform:none; } }"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "description": "`src/components/Navbar/index.tsx`: no props; usage: `<Navbar />`. Desktop and mobile home controls are locale-aware `Link` anchors to `/` and use `navbar.home` for their accessible name, with an empty alt on the redundant logo image. Both navigation menus render native links targeting localized home sections through `/#about`, `/#process`, `/#works` and `/#contact`, including from nested project routes. The mobile home control, menu trigger and contact CTA have a 44px minimum hit-area height; the menu trigger is at least 44px wide. Logo artwork remains 75×25px on mobile.",
+      "html": "<nav class=\"ds-nav\"><a href=\"/#about\">Hakkımda</a><a href=\"/#process\">Süreç</a><a href=\"/#works\">Projeler</a><a href=\"/#contact\">İletişim</a></nav>",
+      "css": ".ds-nav { display:flex; gap:32px; align-items:center; font:400 16px 'Barlow Semi Condensed',sans-serif; letter-spacing:1.3px; } .ds-nav a { color:#111827; text-decoration:none; } .ds-nav a:hover { color:#3CCF91; } .ds-nav a:focus-visible { outline:3px solid #3CCF91; outline-offset:3px; }"
+    },
+    {
+      "name": "Interactive Hover Button",
+      "kind": "button",
+      "description": "src/components/InteractiveHoverButton/index.tsx: shadow-free CTA with an expanding brick dot. Props: children, icon, pulse (default true), and standard MUI Button props. Navbar usage supplies a downward arrow; duplicate label and icon are hidden from assistive technology. The shared default minimum height remains 36px. Navbar supplies Barlow Semi Condensed through sx and overrides the minimum height to 44px below 900px and 36px above.",
+      "html": "<button type=\"button\" class=\"ds-hover-button\"><span class=\"ds-hover-label\">İletişime Geç</span><span class=\"ds-hover-overlay\" aria-hidden=\"true\"><span>İletişime Geç</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"/></svg></span></button>",
+      "css": "@keyframes ds-hover-pulse { 0%,100% { scale:1; opacity:1; } 50% { scale:1.3; opacity:.65; } }\n.ds-hover-button { position:relative; isolation:isolate; overflow:hidden; flex-shrink:0; min-height:36px; padding:6px 16px; border-radius:999px; background:#FFFFFF; color:#B94E3A; border:1px solid #B94E3A; font:600 14px/1.5 Roboto,sans-serif; letter-spacing:.6px; text-transform:uppercase; white-space:nowrap; cursor:pointer; box-shadow:none; }\n.ds-hover-button::before { content:\"\"; position:absolute; left:16px; top:calc(50% - 4px); width:8px; height:8px; border-radius:50%; background:#B94E3A; transform:scale(1); animation:ds-hover-pulse 2s ease-in-out infinite; transition:transform 550ms cubic-bezier(.4,0,.2,1); pointer-events:none; }\n.ds-hover-label { position:relative; display:inline-block; padding-left:14px; transition:transform 400ms cubic-bezier(.4,0,.2,1),opacity 250ms ease; }\n.ds-hover-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:6px; color:#FFFFFF; opacity:0; transform:translateX(32px); transition:transform 450ms cubic-bezier(.16,1,.3,1),opacity 250ms ease; pointer-events:none; }\n.ds-hover-button:is(:hover,:active,:focus-visible,:disabled) { box-shadow:none; }\n.ds-hover-button:focus-visible { outline:3px solid #B94E3A; outline-offset:3px; }\n.ds-hover-button:focus-visible::before { animation:none; transform:scale(45); }\n.ds-hover-button:focus-visible .ds-hover-label { transform:translateX(48px); opacity:0; }\n.ds-hover-button:focus-visible .ds-hover-overlay { transform:translateX(0); opacity:1; transition-delay:150ms; }\n@media (hover:hover) and (pointer:fine) { .ds-hover-button:hover::before { animation:none; transform:scale(45); } .ds-hover-button:hover .ds-hover-label { transform:translateX(48px); opacity:0; } .ds-hover-button:hover .ds-hover-overlay { transform:translateX(0); opacity:1; transition-delay:150ms; } }\n@media (max-width:899.95px) { .ds-hover-button { padding:6px 12px; font-size:12px; } .ds-hover-button::before { left:12px; } }\n@media (prefers-reduced-motion:reduce) { .ds-hover-button::before { animation:none; } .ds-hover-button::before,.ds-hover-label,.ds-hover-overlay { transition:none; } }"
+    },
+    {
+      "name": "Footer",
+      "kind": "footer",
+      "description": "src/components/Footer/index.tsx (default import @/components/Footer): localized closing statement and copyright over decorative artwork. No props; usage: <Footer />. Fixed 5% horizontal and 36px vertical padding, 16px artwork corners, and stable text. Only artwork scales horizontally on scroll; reduced motion keeps its final scale. Closing paragraph reuses FadeInItem. Reused by the home page and projects listing; the listing renders <Footer /> after its main landmark and contact closing, at full page width. Closing statement and copyright are paragraphs; home and listing render the footer after main.",
+      "html": "<footer class=\"ds-footer\"><div class=\"ds-footer-frame\"><div class=\"ds-footer-artwork\" aria-hidden=\"true\"></div><p class=\"ds-footer-statement\">Gelin beraber projenizi hayata geçirelim!</p><p class=\"ds-footer-copyright\">Copyright © 2026 - Erinç Polat - Tüm Hakları Saklıdır</p></div></footer>",
+      "css": ".ds-footer { padding:36px 5%; background:#FFFFFF; overflow:hidden; } .ds-footer-frame { position:relative; min-height:20vh; padding-bottom:1rem; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#FFFFFF; } .ds-footer-artwork { position:absolute; inset:0; border-radius:16px; overflow:hidden; background:url(/footer.webp) center/cover; filter:blur(4px) brightness(80%); } .ds-footer-statement { position:relative; flex:1; display:flex; align-items:center; margin:0; padding:0 16px; font:400 1.5rem/1.4 Oswald,sans-serif; text-align:center; } .ds-footer-copyright { position:relative; text-align:center; font:500 .875rem/1.57 Roboto,sans-serif; } @media (min-width:600px) { .ds-footer-frame { min-height:30vh; } .ds-footer-statement { font-size:2rem; } } @media (min-width:900px) { .ds-footer-frame { min-height:40vh; } .ds-footer-statement { font-size:3rem; } }"
+    },
+    {
+      "name": "Animated Text Link",
+      "kind": "link",
+      "description": "src/components/AnimatedTextLink/index.tsx (default import @/components/AnimatedTextLink; exported type AnimatedTextLinkProps): unfilled reusable text CTA. Required children and href; optional icon (default 20px right arrow, null hides it). Accepts standard MUI Link props except underline and supports sx overrides. Usage: <AnimatedTextLink href=\"#works\">Explore my work</AnimatedTextLink>. Used by WhoAmISection. Client component with CSS-only hover/focus motion: 2px underline reveals from left over 280ms; icon moves 3px horizontally and back over a repeating 1600ms ease-in-out cycle. Reduced motion makes underline immediate and disables icon motion. Decorative icon is aria-hidden; keyboard focus retains a 3px green outline. WhoAmISection uses a local semanticColors.actionSecondary color override for brick text, underline and icon; component defaults stay green. Also reused by the projects listing closing contact section with the default green treatment and an explicit /${locale}/#contact destination.",
+      "html": "<a class=\"ds-animated-text-link\" href=\"#works\">Explore my work<span class=\"ds-animated-text-link-icon\" aria-hidden=\"true\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"/></svg></span></a>",
+      "css": ".ds-animated-text-link { position:relative; display:inline-flex; align-items:center; gap:10px; min-height:44px; max-width:100%; color:#3CCF91; font:600 16px/1.5 Roboto,sans-serif; text-decoration:none; } .ds-animated-text-link::after { content:\"\"; position:absolute; left:0; right:0; bottom:4px; height:2px; background:currentColor; transform:scaleX(0); transform-origin:left center; transition:transform 280ms cubic-bezier(.16,1,.3,1); } .ds-animated-text-link:is(:hover,:focus-visible)::after { transform:scaleX(1); } .ds-animated-text-link:focus-visible { outline:3px solid #3CCF91; outline-offset:3px; border-radius:2px; } .ds-animated-text-link-icon { display:inline-flex; flex-shrink:0; } @keyframes ds-animated-text-link-arrow { 0%,100% { transform:translateX(0); } 50% { transform:translateX(3px); } } @media (prefers-reduced-motion:no-preference) { .ds-animated-text-link:is(:hover,:focus-visible) .ds-animated-text-link-icon { animation:ds-animated-text-link-arrow 1600ms ease-in-out infinite; } } @media (prefers-reduced-motion:reduce) { .ds-animated-text-link::after { transition:none; } }"
+    },
+    {
+      "name": "Flow Pattern",
+      "kind": "decoration",
+      "description": "src/components/FlowPattern/index.tsx: decorative client component, no props; usage <FlowPattern /> in a positioned, isolated section with content at zIndex 1. Full-bounds aria-hidden, pointer-transparent clipped layer at zIndex 0. Stationary 1px square grid with 7.5% green alpha; cells 64px below 900px and 96px above. A radial ellipse at 50%/55% fades the grid toward all edges, following the supplied reference on white. Two horizontal tracks at rows 3 and 9/6 (mobile/desktop), and two vertical tracks at columns 2/4 and 5/10, carry paired 144px gradient segments with 28% peak green alpha and 650ms spacing. Each 10-second cycle travels forward for 4.8s then pauses. Track delays: horizontal 0/4s, vertical 2/6s. Only transforms and opacity animate. useInView and document visibility pause offscreen/hidden animation; reduced motion hides pulse tracks and retains the static grid. An intersected vertical mask fades the grid and pulses below 40% section height to 35% opacity at 60% and fully transparent at 76%, keeping capability divider lines distinct.",
+      "html": "<div class=\"ds-flow-preview\"><div class=\"ds-flow-pattern\" aria-hidden=\"true\"><div class=\"ds-flow-grid\"></div><div class=\"ds-flow-track ds-flow-h ds-flow-h1\"><span style=\"animation-delay:0s\"></span><span style=\"animation-delay:0.65s\"></span></div><div class=\"ds-flow-track ds-flow-h ds-flow-h2\"><span style=\"animation-delay:4s\"></span><span style=\"animation-delay:4.65s\"></span></div><div class=\"ds-flow-track ds-flow-v ds-flow-v1\"><span style=\"animation-delay:2s\"></span><span style=\"animation-delay:2.65s\"></span></div><div class=\"ds-flow-track ds-flow-v ds-flow-v2\"><span style=\"animation-delay:6s\"></span><span style=\"animation-delay:6.65s\"></span></div></div></div>",
+      "css": ".ds-flow-preview { position:relative; isolation:isolate; height:640px; background:#FFFFFF; } .ds-flow-pattern { --grid-size:96px; position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; mask-image:radial-gradient(ellipse at 50% 55%,black 15%,transparent 72%),linear-gradient(to bottom,black 40%,rgba(0,0,0,.35) 60%,transparent 76%); mask-composite:intersect; } .ds-flow-grid { position:absolute; inset:0; background-image:linear-gradient(to right,rgba(60,207,145,.075) 1px,transparent 1px),linear-gradient(to bottom,rgba(60,207,145,.075) 1px,transparent 1px); background-size:var(--grid-size) var(--grid-size); } .ds-flow-track,.ds-flow-track span { position:absolute; } .ds-flow-h { left:0; right:0; height:1px; } .ds-flow-v { top:0; bottom:0; width:1px; } .ds-flow-h1 { top:calc(var(--grid-size)*3); } .ds-flow-h2 { top:calc(var(--grid-size)*6); } .ds-flow-v1 { left:calc(var(--grid-size)*4); } .ds-flow-v2 { left:calc(var(--grid-size)*10); } .ds-flow-track span { inset:0; opacity:0; } .ds-flow-track span::before { content:\"\"; position:absolute; } .ds-flow-h span::before { left:-144px; top:0; width:144px; height:1px; background:linear-gradient(90deg,transparent,rgba(60,207,145,.28) 80%,transparent); } .ds-flow-v span::before { left:0; top:-144px; height:144px; width:1px; background:linear-gradient(180deg,transparent,rgba(60,207,145,.28) 80%,transparent); } @keyframes ds-grid-h { 0% { transform:translateX(0); opacity:0; } 8%,40% { opacity:1; } 48%,100% { transform:translateX(calc(100% + 144px)); opacity:0; } } @keyframes ds-grid-v { 0% { transform:translateY(0); opacity:0; } 8%,40% { opacity:1; } 48%,100% { transform:translateY(calc(100% + 144px)); opacity:0; } } @media (prefers-reduced-motion:no-preference) { .ds-flow-h span { animation:ds-grid-h 10s linear infinite; } .ds-flow-v span { animation:ds-grid-v 10s linear infinite; } } @media (prefers-reduced-motion:reduce) { .ds-flow-track { display:none; } } @media (max-width:899.95px) { .ds-flow-pattern { --grid-size:64px; } .ds-flow-h2 { top:calc(var(--grid-size)*9); } .ds-flow-v1 { left:calc(var(--grid-size)*2); } .ds-flow-v2 { left:calc(var(--grid-size)*5); } }"
+    },
+    {
+      "name": "Language Selector",
+      "kind": "button",
+      "description": "`src/components/LanguageSelector/index.tsx`: no props; usage: `<LanguageSelector />` in Navbar on desktop and in the mobile menu. A locale-aware `Link` anchor displays the active locale as EN or TR; its real `href` and `hrefLang` target the other language while retaining the current pathname. Client navigation uses `replace`, preserving the existing history behavior. Uses 14px semibold primary text, a localized accessible name identifying the target language, a minimum 44×44px hit area and the shared keyboard focus treatment.",
+      "html": "<a class=\"ds-language-selector\" href=\"/en\" hreflang=\"en\" aria-label=\"İngilizceye geçin\">TR</a>",
+      "css": ".ds-language-selector { display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; padding:0; border:0; border-radius:4px; background:transparent; color:#111827; font-family:inherit; font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; box-shadow:none; } .ds-language-selector:hover { color:#111827; background:#F0F3F6; } .ds-language-selector:focus-visible { outline:3px solid #3CCF91; outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Quiet technical confidence.",
+    "overview": "The interface is a clean, contemporary, light-first portfolio that earns attention through project imagery, generous whitespace, clear typography, and restrained motion. It should feel modern and technically capable without resembling a generic software dashboard or relying on visual hype.\n\nThe interface uses the exact primary green (#3CCF91) for actions, emphasis, links, and focus. The geometric POLAT logo pairs navy with primary green; its small icon variants and favicon share the same green accent. White remains dominant so the work stays central and the identity feels established rather than loud.",
+    "keyCharacteristics": [
+      "Spacious, image-led compositions with strong text hierarchy.",
+      "Primary green for actions and emphasis, with restrained brick signals against white.",
+      "Softly rounded project surfaces with subtle, low-contrast depth.",
+      "Purposeful reveal and scroll motion that never competes with the work.",
+      "Consistent Turkish and English layouts."
+    ],
+    "rules": [
+      {
+        "name": "The Green Leads Rule",
+        "body": "Green owns the logo accent, actions, links, focus, and primary emphasis. Brick is a controlled signal for selected highlights; it never competes with green as a second primary CTA color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Contrast Rule",
+        "body": "Use white on primary green and brick. Use green (`#3CCF91`) for text and focus on light surfaces. Supporting Slate is only used on white or equivalently light surfaces; Authority Ink carries primary text.",
+        "section": "colors"
+      },
+      {
+        "name": "Flat by default",
+        "body": "Use shadow only to clarify layering, interaction, or a featured composition.",
+        "section": "elevation"
+      },
+      {
+        "name": "No button shadows",
+        "body": "Buttons, including CTAs, navigation buttons, and icon buttons, must remain shadow-free in default, hover, pressed, focused, and disabled states. Do not use colored halos or elevation to attract attention to an action. Use color, contrast, borders, and spacing; retain visible focus outlines. This user preference also applies to future components and overrides generic button-elevation examples.",
+        "section": "elevation"
+      },
+      {
+        "name": "Exact Primary Green",
+        "body": "The user pins all primary-green text, fills, hover fills, and focus rings to exactly #3CCF91; do not substitute a darker shade. This chosen green on light surfaces and white labels on green buttons are explicit user preferences that override the general contrast target.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "**Do** let project imagery and shipped work provide the visual proof.",
+      "**Do** let Primary Green lead actions, links, and focus.",
+      "**Do** use Entrepreneurial Brick sparingly for recognition and selected signals.",
+      "**Do** preserve generous whitespace and clear bilingual hierarchy.",
+      "**Do** keep motion smooth, controlled, and supportive of reading order."
+    ],
+    "donts": [
+      "**Don't** add shadows, colored glows, or hover elevation to buttons or CTAs.",
+      "**Don't** turn brick into a competing primary action color or use it decoratively everywhere.",
+      "**Don't** fabricate testimonials, results, client claims, or project metrics.",
+      "**Don't** introduce gratuitous gradients, neon effects, or generic technology-dashboard styling.",
+      "**Don't** make every surface a card or use shadow as decoration.",
+      "**Don't** let interactive or 3D elements compete with the portfolio and contact journey."
+    ]
+  }
+}

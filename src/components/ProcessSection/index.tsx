@@ -1,21 +1,13 @@
-"use client";
-
 import colors from "@/utils/colors";
+import { oswald } from "@/utils/fonts";
 import { Box, Container, Grid2, Stack, Typography } from "@mui/material";
-import { Oswald } from "next/font/google";
 
 import spacing from "@/utils/spacing";
-import ServicesCard from "../ServicesCard";
-import { useTranslations } from "next-intl";
+import ProcessCard from "../ProcessCard";
+import { getTranslations } from "next-intl/server";
 
-const oswald = Oswald({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-});
-
-const ServicesSection = () => {
-    const t = useTranslations("services_section");
+const ProcessSection = async () => {
+    const t = await getTranslations("process_section");
 
     return (
         <Box
@@ -35,11 +27,13 @@ const ServicesSection = () => {
             >
                 <Typography
                     variant="h3"
+                    component="h2"
                     textAlign="center"
                     lineHeight={1.3}
                     sx={{
                         fontFamily: oswald.style.fontFamily,
                         letterSpacing: 1.2,
+                        overflowWrap: "anywhere",
                     }}
                 >
                     {t("title_regular_before_break")}
@@ -57,8 +51,8 @@ const ServicesSection = () => {
                     container
                     spacing={2}
                     sx={{
-                        height: {
-                            xs: 1500,
+                        minHeight: {
+                            xs: "auto",
                             md: 750,
                         },
                         width: "100%",
@@ -69,13 +63,15 @@ const ServicesSection = () => {
                             xs: 12,
                             md: 5,
                         }}
-                        flex={1}
                     >
-                        <ServicesCard
+                        <ProcessCard
                             title={t("design_card_title")}
                             description={t("design_card_description")}
                             alt={t("design_card_alt")}
                             imageUrl="/services/design.webp"
+                            mobileImageHeight={360}
+                            imagePosition="bottom"
+                            sizes="(min-width: 1200px) 408px, (min-width: 900px) calc(41.667vw - 90.667px), (min-width: 600px) calc(100vw - 112px), calc(100vw - 64px)"
                         />
                     </Grid2>
                     <Grid2
@@ -88,15 +84,18 @@ const ServicesSection = () => {
                         spacing={2}
                     >
                         <Grid2 size={12} flex={1}>
-                            <ServicesCard
+                            <ProcessCard
                                 title={t("development_card_title")}
                                 description={t("development_card_description")}
                                 alt={t("development_card_alt")}
                                 imageUrl="/services/development.webp"
+                                mobileImageScale={1.35}
+                                sizes="(min-width: 1200px) 608px, (min-width: 900px) calc(58.333vw - 101.333px), (min-width: 600px) calc(135vw - 151.2px), calc(135vw - 86.4px)"
+                                imagePosition="bottom"
                             />
                         </Grid2>
                         <Grid2 size={12} flex={1}>
-                            <ServicesCard
+                            <ProcessCard
                                 title={t("improvement_card_title")}
                                 description={t("improvement_card_description")}
                                 alt={t("improvement_card_alt")}
@@ -110,4 +109,4 @@ const ServicesSection = () => {
     );
 };
 
-export default ServicesSection;
+export default ProcessSection;

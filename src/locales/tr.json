@@ -1,76 +1,119 @@
 {
+    "home_metadata": {
+        "title": "Erinç Polat | Freelance Web ve Mobil Uygulama Geliştirici",
+        "description": "İşinize özel web siteleri, iOS ve Android uygulamaları ve sistem entegrasyonları geliştiriyorum. Projelerimi inceleyin, fikrinizi birlikte değerlendirelim."
+    },
     "welcome_section": {
-        "top_text": "Merhaba, Ben-",
+        "top_text": "Merhaba, ben",
         "title": "Yazılım Geliştirici.",
-        "description": "Ürün geliştirmeye ilgi duyan bir full-stack geliştirici.",
-        "websites_text": "Müşteriye özel dizaynlı siteler",
-        "mobile_text": "Cross-platform mobil uygulamalar",
-        "backend_text": "Backend geliştirme desteği",
-        "cta_button_text": "İletişime Geç",
-        "secondary_button_text": "Daha Fazla"
+        "description": "Web ve mobil ürünler tasarlıyor, geliştiriyor ve yayına alıyorum.",
+        "websites_text": "İhtiyaçlarınıza özel web siteleri",
+        "mobile_text": "iOS ve Android için mobil uygulamalar",
+        "backend_text": "Backend geliştirme ve sistem entegrasyonları",
+        "cta_button_text": "İletişime geçin",
+        "secondary_button_text": "Hakkımda",
+        "fitnlit_alt": "FitNLit uygulamasının ekran görüntüsü",
+        "actio_alt": "Actio uygulamasının ekran görüntüsü",
+        "ihrhaus_alt": "IhrHaus web sitesinin ekran görüntüsü",
+        "zeynep_alt": "Zeynep Dikdüş web sitesinin ekran görüntüsü"
     },
     "who_am_i_section": {
-        "title": "Ben Kimim?",
-        "first_paragraph": "Merhaba, ben Erinç Tuna Polat. TED Üniversitesi’nde Bilgisayar Mühendisliği okudum. Ana dalımın yanı sıra, insan ve teknoloji etkileşimini daha iyi anlayabilmek için psikoloji alanında yandal yaptım. Yedi yılı aşkın süredir yazılım geliştirme alanında çalışıyorum ve farklı projeler hayata geçirmek için kendi şirketimi kurdum.",
-        "second_paragraph": "IoT cihaz entegrasyonu, akıllı kilit yönetimi, IP kamera tabanlı güvenlik sistemleri ve bina erişim izinlerini yöneten sistemler gibi çeşitli SaaS projelerine liderlik ettim. Web ve mobil platformlar için React/Next.js, React Native/Expo ve Node.js kullanarak çözümler geliştirdim. Ayrıca, Docker ve CI/CD süreçlerini yöneterek projelerin kesintisiz entegrasyonunu ve sürekli dağıtımını sağladım.",
-        "third_paragraph": "Freelance projelerim arasında etkinlik yönetim uygulamaları, temassız fiş sistemleri ve fitness asistanı uygulamaları gibi yenilikçi çözümler yer alıyor. Almanya, Kanada ve Türkiye’den farklı sektörlerdeki müşteriler için projeler tamamladım. Güçlü teknik bilgim ve ekiplerimle yaptığım iş birlikleri sayesinde teknoloji dünyasında fark yaratmayı hedefliyorum. Yeni projelerde potansiyel müşterilerle iş birliği yaparak dijital dönüşüm süreçlerini hızlandırmalarına yardımcı olmayı dört gözle bekliyorum."
+        "title": "Fikrinizden çalışan ürüne.",
+        "title_emphasis": "İşinizin ihtiyaçlarına göre.",
+        "introduction": "İş hedeflerinize uygun web ve mobil ürünler tasarlıyor, geliştiriyor ve yayına alıyorum. Yeni ürün geliştirmeden mevcut platformların iyileştirilmesine kadar kullanıcı ihtiyaçlarını, teknik gereksinimleri ve mevcut sistemlerinizle entegrasyonu birlikte ele alıyorum.",
+        "development_title": "Uçtan uca geliştirme",
+        "development_description": "Tasarımdan uygulamaya, sunucu altyapısından yayına kadar ürününüzü bir bütün olarak ele alıyorum. Yayından sonra da bakım ve yeni özelliklerle destek oluyorum.",
+        "ai_products_title": "AI destekli ürünler ve otomasyonlar",
+        "ai_products_description": "Yapay zekâyı ürününüze entegre ederek kullanıcıların işini kolaylaştıran özellikler ve tekrarlayan işleri azaltan akışlar geliştiriyorum.",
+        "agentic_coding_title": "Agentic coding ile geliştirme",
+        "agentic_coding_description": "AI araçları ve kodlama ajanlarıyla geliştirme sürecini hızlandırıyor; mimari kararları, kod incelemesini ve kalite kontrolünü üstleniyorum.",
+        "projects_cta": "Projelerimi inceleyin",
+        "portrait_alt": "Erinç Polat’ın portresi"
     },
-    "services_section": {
-        "title_regular_before_break": "Ürün Oluşturmanın Üç Adımı",
+    "process_section": {
+        "title_regular_before_break": "Fikirden yayına,",
         "title_regular_after_break": "",
-        "title_bold": "Hemen Öne Çıksın",
+        "title_bold": "birlikte ilerleyelim.",
         "design_card_title": "Tasarım",
-        "design_card_description": "İlk adım, marka kimliklerini keşfetmek ve tanımlamak, şirketlerin piyasada benzersiz bir karakter ve varlık ile öne çıkmasına yardımcı olacak özgün görsel stiller oluşturmayı içerir.",
+        "design_card_description": "İhtiyaçlarınızı ve kullanıcılarınızın beklentilerini birlikte netleştiriyorum. Marka kimliğinize uygun, kullanımı kolay arayüzler tasarlıyorum.",
         "design_card_alt": "Erinç Polat tarafından geliştirilen bir uygulamanın ekran görüntüsü",
         "development_card_title": "Geliştirme",
-        "development_card_description": "Süreç tasarımdan geliştirmeye geçtiğinde, konseptler dijital deneyimlere dönüştürülerek web siteleri, uygulamalar ve ürünler etkileyici marka hikayelerini iletmek için oluşturulur.",
+        "development_card_description": "Tasarımları çalışan bir ürüne dönüştürüyorum. Web veya mobil uygulamanızı geliştiriyor, sunucu altyapısını kuruyor ve mevcut sistemlerinizle entegre ediyorum.",
         "development_card_alt": "Erinç Polat'ın yaptığı web tasarımlarının ekran görüntüleri",
-        "improvement_card_title": "Geliştirme",
-        "improvement_card_description": "Analitik desteği, servis konteynerleştirme, SEO/ASO, mağaza testleri ve takip ayarları, sunucu yapılandırması ve sürekli iyileştirmeler uygulanır.",
+        "improvement_card_title": "İyileştirme",
+        "improvement_card_description": "Ürününüzü yayına alıyor, kullanım verilerini takip etmek için analitik araçlarını kuruyorum. Yayından sonra bakım, yeni özellikler ve arama görünürlüğünü iyileştirme çalışmalarıyla destek oluyorum.",
         "improvement_card_alt": "Farklı teknolojilerin logoları"
     },
     "my_works_section": {
         "title": "Yaratıcı İşler & Projeler",
         "description": "İşte üzerinde çalıştığım projelerden bazıları",
-        "cta_button_text": "Daha fazlasını keşfet"
+        "cta_button_text": "Tüm projeleri inceleyin"
     },
     "my_work_card": {
-        "cta_button_text": "Projeyi keşfet"
+        "cta_button_text": "Projeyi inceleyin"
     },
     "contact_header": {
         "background_title": "İletişim",
         "small_title": "Birlikte",
         "title": "Projeniz hakkında konuşalım.",
-        "subtitle": "Bana istediğiniz soruyu sorabilirsiniz. Gelecekteki iş birliğimiz hakkında konuşalım."
+        "subtitle": "Fikrinizi ve ihtiyaçlarınızı paylaşın. Nasıl yardımcı olabileceğimi birlikte değerlendirelim."
     },
     "contact_form": {
-        "form_title": "İletişime Geçin.",
+        "form_title": "İletişime geçin",
+        "name_label": "İsim",
         "name_placeholder": "İsminiz",
+        "email_label": "E-posta adresi",
         "email_placeholder": "E-posta adresiniz",
+        "message_label": "Mesaj",
         "message_placeholder": "Nasıl yardımcı olabilirim?",
-        "send_message_button_text": "Mesajı yolla",
-        "validation_error_message": "Bir doğrulama hatası oluştu. Lütfen formu tekrar kontrol edin.",
-        "generic_error_message": "Bir hata oluştu. Lütfen benimle e-posta yoluyla iletişime geçin 🙂",
-        "success_message": "Mesajınızı aldım. En kısa sürede sizinle iletişime geçeceğim 🙂",
-        "contact_info_title": "İletişim Bilgileri",
-        "contact_info_subtitle": "Bana Danışın.",
+        "name_required_error": "İsminizi girin.",
+        "email_required_error": "E-posta adresinizi girin.",
+        "email_invalid_error": "Geçerli bir e-posta adresi girin.",
+        "message_required_error": "Mesajınızı girin.",
+        "send_message_button_text": "Mesaj gönderin",
+        "validation_error_message": "Lütfen işaretli alanları kontrol edip tekrar deneyin.",
+        "generic_error_message": "Mesajınız gönderilemedi. Lütfen tekrar deneyin veya benimle e-posta yoluyla iletişime geçin.",
+        "success_message": "Mesajınızı aldım. En kısa sürede size dönüş yapacağım.",
+        "contact_info_title": "İletişim bilgileri",
+        "contact_info_subtitle": "Birlikte konuşalım.",
         "resume_text": "Özgeçmişim",
-        "linkedin_text": "LinkedIn'de Bağlantı Kur",
-        "instagram_text": "Instagram'da Takip Et",
-        "github_text": "GitHub'da Takip Et"
+        "linkedin_text": "LinkedIn'de bağlantı kurun",
+        "instagram_text": "Instagram'da takip edin",
+        "github_text": "GitHub'da takip edin"
     },
     "navbar": {
         "about": "Hakkımda",
         "works": "Projeler",
         "process": "Süreç",
-        "contact": "İletişim"
+        "contact": "İletişim",
+        "open_menu": "Menüyü açın",
+        "home": "Ana sayfaya dönün"
+    },
+    "accessibility": {
+        "previous_image": "Önceki görsel",
+        "next_image": "Sonraki görsel",
+        "image_position": "{total} görselden {current}. görsel",
+        "loading_image": "Görsel yükleniyor",
+        "image_load_error": "Görsel yüklenemedi. Lütfen yeniden açmayı deneyin.",
+        "close_image": "Görseli kapatın",
+        "switch_to_turkish": "Türkçeye geçin",
+        "switch_to_english": "İngilizceye geçin",
+        "project_image": "Proje görseli"
     },
     "projects": {
+        "metadata_title": "Projeler | Erinç Polat",
+        "metadata_description": "Erinç Polat’ın mobil uygulama, web sitesi ve sistem entegrasyonu projelerini inceleyin.",
         "title": "Projeler",
-        "subtitle": "Projelerimi aşağıdaki listeden inceleyebilirsiniz."
+        "subtitle": "Mobil uygulamalardan kurumsal entegrasyonlara, üzerinde çalıştığım ürünler ve sistemlerden bir seçki.",
+        "contact_title": "Benzer bir ürün üzerinde mi çalışıyorsunuz?",
+        "contact_description": "Fikrinizi ve ihtiyaçlarınızı paylaşın. Nasıl yardımcı olabileceğimi birlikte değerlendirelim.",
+        "contact_cta": "Projenizi konuşalım"
     },
     "footer": {
         "text": "Gelin beraber projenizi hayata geçirelim!",
         "copyright": "Copyright © {year} - Erinç Polat - Tüm Hakları Saklıdır"
+    },
+    "project_details": {
+        "visit_project": "Proje sitesine gidin"
     }
 }
