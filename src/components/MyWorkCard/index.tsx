@@ -20,6 +20,7 @@ interface MyWorkCardType {
     sizes?: string;
     titleComponent?: "h2" | "h3" | "h5";
     entranceDelay?: number;
+    analyticsLocation?: "home_works" | "project_list";
 }
 
 const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
@@ -32,6 +33,7 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
         sizes,
         titleComponent = "h3",
         entranceDelay = 0,
+        analyticsLocation = "home_works",
     } = props;
 
     const t = useTranslations("my_work_card");
@@ -79,7 +81,11 @@ const MyWorkCard: React.FC<MyWorkCardType> = (props) => {
                     },
                 }}
             >
-                <ButtonBase component={Link} href={href} disableRipple sx={{
+                <ButtonBase component={Link} href={href}
+                    data-analytics-event="project_click"
+                    data-analytics-project={href.split("/").filter(Boolean).at(-1)}
+                    data-analytics-location={analyticsLocation}
+                    disableRipple sx={{
                     width: "100%",
                     minWidth: 0,
                     borderRadius: 4,

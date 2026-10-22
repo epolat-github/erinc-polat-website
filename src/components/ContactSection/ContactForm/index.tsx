@@ -23,8 +23,8 @@ import Image from "next/image";
 import { sendEmail } from "../../../app/actions/sendEmail";
 import { motion } from "framer-motion";
 import { useSnackbar } from "notistack";
-import { sendGAEvent } from "@next/third-parties/google";
-import { useTranslations } from "next-intl";
+import { trackEvent } from "@/utils/analytics";
+import { useLocale, useTranslations } from "next-intl";
 import { oswald } from "@/utils/fonts";
 
 type ContactField = "name" | "email" | "message";
@@ -121,6 +121,7 @@ const ContactListRow: React.FC<ContactListRowType> = (props) => {
 };
 
 const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
+    const locale = useLocale();
     const t = useTranslations("contact_form");
     const { enqueueSnackbar } = useSnackbar();
     const [isSubmittingForm, setIsSubmittingForm] = useState(false);
@@ -163,14 +164,10 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
             setIsSubmittingForm(true);
             setFormStatus("");
 
-            sendGAEvent({
-                event: "contact_email",
-                value: JSON.stringify(formData),
-            });
-
             const { error } = await sendEmail(formData);
 
             if (error) {
+                trackEvent("contact_form_error", locale, { error_type: error.name });
                 if (error?.name === "validation_error") {
                     setFormStatus(t("validation_error_message"));
                     enqueueSnackbar(t("validation_error_message"), {
@@ -185,6 +182,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                 return;
             }
 
+            trackEvent("generate_lead", locale, {});
             form.reset();
             setFieldErrors({});
             setFormStatus(t("success_message"));
@@ -193,6 +191,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
             });
 
         } catch {
+            trackEvent("contact_form_error", locale, { error_type: "unexpected_error" });
             setFormStatus(t("generic_error_message"));
             enqueueSnackbar(t("generic_error_message"), {
                 variant: "error",
@@ -231,6 +230,7 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                     }}
                 >
                     <Typography
+                        data-analytics-section="contact"
                         variant="h4"
                         component="h3"
                         fontWeight="bold"
@@ -246,11 +246,13 @@ const ContactForm = forwardRef<HTMLDivElement>((props, ref) => {
                         component="form"
                         onSubmit={(e) => {
                             e.preventDefault();
+                            if (isSubmittingForm) return;
                             const form = e.currentTarget;
                             const formData = new FormData(form);
                             const errors = validateForm(formData);
 
                             if (Object.keys(errors).length > 0) {
+                                trackEvent("contact_form_error", locale, { error_type: "client_validation" });
                                 setFieldErrors(errors);
                                 setFormStatus(t("validation_error_message"));
                                 const firstInvalidField = Object.keys(

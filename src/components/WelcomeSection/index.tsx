@@ -142,6 +142,8 @@ const WelcomeSection = () => {
                                 }}
                                 disableElevation
                                 href="#contact"
+                                data-analytics-event="contact_cta_click"
+                                data-analytics-location="hero"
                             >
                                 {t("cta_button_text")}
                             </Button>
