@@ -55,6 +55,7 @@ const MyWorksSection = async () => {
                             gap={spacing.tiny}
                         >
                             <Typography
+                                data-analytics-section="works"
                                 fontWeight={500}
                                 variant="h3"
                                 component="h2"

@@ -102,6 +102,8 @@ const Navbar = () => {
         <InteractiveHoverButton
             LinkComponent={Link}
             href="/#contact"
+            data-analytics-event="contact_cta_click"
+            data-analytics-location="navbar_cta"
             icon={<ArrowDownwardIcon sx={{ fontSize: 18 }} />}
             sx={{
                 fontFamily: barlowSemiCondensed.style.fontFamily,
@@ -217,6 +219,8 @@ const Navbar = () => {
                                     LinkComponent={Link}
                                     key={sectionButton.titleTranslationKey}
                                     href={`/#${sectionButton.to}`}
+                                    data-analytics-event={sectionButton.to === "contact" ? "contact_cta_click" : undefined}
+                                    data-analytics-location="navbar_desktop_menu"
                                     disableRipple
                                     sx={{
                                         minWidth: 0,
@@ -346,6 +350,8 @@ const Navbar = () => {
                                 <MenuItem
                                     component={MotionMenuLink}
                                     href={`/#${sectionButton.to}`}
+                                    data-analytics-event={sectionButton.to === "contact" ? "contact_cta_click" : undefined}
+                                    data-analytics-location="navbar_mobile_menu"
                                     key={sectionButton.titleTranslationKey}
                                     onClick={() => { void handleCloseNavMenu(); }}
                                     disableRipple

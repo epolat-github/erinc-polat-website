@@ -101,6 +101,7 @@ const Projects = async () => {
                                 }}
                             >
                                 <MyWorkCard
+                                    analyticsLocation="project_list"
                                     entranceDelay={0.32}
                                     titleComponent="h2"
                                     title={project.title}
@@ -145,7 +146,10 @@ const Projects = async () => {
                                     {t("contact_description")}
                                 </Typography>
                             </Stack>
-                            <AnimatedTextLink href={`/${locale}/#contact`} sx={{ flexShrink: 0 }}>
+                            <AnimatedTextLink href={`/${locale}/#contact`}
+                                data-analytics-event="contact_cta_click"
+                                data-analytics-location="projects_closing"
+                                sx={{ flexShrink: 0 }}>
                                 {t("contact_cta")}
                             </AnimatedTextLink>
                         </Stack>

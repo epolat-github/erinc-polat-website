@@ -12,6 +12,7 @@ import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { siteUrl } from "@/utils/seo";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 export const viewport: Viewport = {
     width: "device-width",
@@ -57,14 +58,14 @@ const RootLayout = async ({
 
     return (
         <html lang={locale}>
-            <GoogleAnalytics gaId="G-JTWXYNF41H" />
-
             <body
                 style={{
                     background: colors.background,
                 }}
             >
+                <GoogleAnalytics gaId="G-JTWXYNF41H" />
                 <NextIntlClientProvider messages={messages}>
+                    <AnalyticsTracker />
                     <AppRouterCacheProvider>
                         <ThemeProvider theme={theme}>
                             <CssBaseline />

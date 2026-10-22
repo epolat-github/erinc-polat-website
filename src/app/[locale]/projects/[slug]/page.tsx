@@ -153,6 +153,8 @@ const ProjectDetails = async ({ params }: ProjectDetailsType) => {
                             {projectUrl && (
                                 <Link
                                     href={projectUrl}
+                                    data-analytics-event="project_visit_click"
+                                    data-analytics-project={slug}
                                     rel="noreferrer"
                                     target="_blank"
                                     style={{
